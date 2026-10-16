@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/16 15:10:19",
+  "last_synced_at": "2026/10/16 15:18:32",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -477,19 +477,19 @@
       "schedule": "0 14 * * *",
       "type": "广告快照 (终态轮)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "监控中",
-      "last_run": "2026-10-15 14:04:24",
-      "next_run": "2026-10-16 14:00:00",
+      "status": "已完成",
+      "last_run": "2026-10-16 14:00:02",
+      "next_run": "2026-10-17 14:00:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美·直通车消耗与转化统计（2026-10-14 终态）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/N7dx2rn0JbzAa9qmfbrxLARMJMGjLRb3"
+          "name": "贝诺美·直通车消耗与转化统计（2026-10-15）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/Qnp9zOoBVBMQyzdaFlKwYOGRW1DK0g6l"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦·直通车消耗与转化统计（2026-10-14 终态）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/ZX6GRezwJl3LYDoOUjEq5RNAVdqbropQ"
+          "name": "诺瓦·直通车消耗与转化统计（2026-10-15）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/6LeBq413JAg2OGdZiqgkPqyLWDOnGvpb"
         }
       ]
     },
@@ -499,9 +499,9 @@
       "schedule": "30 14 * * *",
       "type": "风险与履约 (下午轮)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "监控中",
-      "last_run": "2026-10-15 14:34:48",
-      "next_run": "2026-10-16 14:30:00",
+      "status": "已完成",
+      "last_run": "2026-10-16 14:30:01",
+      "next_run": "2026-10-17 14:30:00",
       "delivery": "Accio 机器人 Webhook 推送至专属通知群（@李冰）",
       "sheets": []
     },
@@ -511,18 +511,18 @@
       "schedule": "0 15 * * *",
       "type": "询盘分配与CRM",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "监控中",
-      "last_run": "2026-10-15 15:11:18",
-      "next_run": "2026-10-16 15:00:00",
+      "status": "已完成",
+      "last_run": "2026-10-16 15:00:02",
+      "next_run": "2026-10-17 15:00:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美询盘分配与客户沉淀总表",
+          "name": "贝诺美询盘分配总表",
           "url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦询盘分配与客户沉淀总表",
+          "name": "诺瓦询盘分配总表",
           "url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
         }
       ]
@@ -533,7 +533,7 @@
       "schedule": "0 16 * * *",
       "type": "询盘质检 (前一天全量重检)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "监控中",
+      "status": "待运行",
       "last_run": "2026-10-15 16:11:51",
       "next_run": "2026-10-16 16:00:00",
       "sheets": [
@@ -555,7 +555,7 @@
       "schedule": "30 16 * * 1",
       "type": "专项周检 (上周7天全量)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "已完成",
+      "status": "待运行",
       "last_run": "2026-10-12 16:30:00",
       "next_run": "2026-10-19 16:30:00",
       "sheets": [
