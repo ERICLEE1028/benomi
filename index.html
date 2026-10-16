@@ -287,9 +287,11 @@
       <p>全部数据 100% 对齐已完成定时任务 ｜ 14:00 终态转化 ｜ 14:30 风险余额 ｜ 周检业务员字段严格映射</p>
     </div>
     <div class="header-meta" id="headerMeta">
-      <span class="badge badge-neutral">🕒 最新同步: 2026/10/16 13:49:28</span>
-      <span class="badge badge-ok">● 贝诺美中继: 9236 正常</span>
-      <span class="badge badge-ok">● 诺瓦 CDP: 9222 正常</span>
+      <span class="badge badge-neutral">🕒 数据底座: 2026/10/16 13:49:28</span>
+      <span class="badge" id="autoSyncBadge" style="background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE;">🟢 半点主动获取: 开启中</span>
+      <button onclick="manualSyncNow()" style="background:#2563EB;color:#fff;border:none;border-radius:12px;padding:3px 10px;font-size:11px;font-weight:600;cursor:pointer;">🔄 立即检查</button>
+      <span class="badge badge-ok">● 贝诺美: 9236 正常</span>
+      <span class="badge badge-ok">● 诺瓦: 9222 正常</span>
       <span class="badge badge-ok">● 诺瓦 RFQ: 11 条 (正常)</span>
     </div>
   </div>
@@ -1057,54 +1059,87 @@
     if (target) target.classList.add('active');
   }
 
-  // ================= 整点主动轮询与自动更新展示脚本 =================
+  // ================= 每到半点主动获取与自动更新脚本 (与主动推送双轨并行) =================
   let currentSyncedAt = "2026/10/16 13:49:28";
 
-  function scheduleNextHourSync() {
+  // 计算距离下一个半点（XX:00 或 XX:30，留 10 秒缓冲以便后端任务完成生成）
+  function getNextHalfHourMs() {
     const now = new Date();
-    // 计算距离下一个整点（带 15 秒缓冲延迟，等待后端对齐推送就绪）的毫秒数
-    const nextHour = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours() + 1, 0, 15);
-    const msUntilNextHour = nextHour.getTime() - now.getTime();
+    const min = now.getMinutes();
+    let targetMin = min < 30 ? 30 : 60;
+    const target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), targetMin, 10);
+    return target.getTime() - now.getTime();
+  }
 
-    console.log('[AutoSync] 距离下次整点主动获取还有 ' + Math.round(msUntilNextHour / 1000 / 60) + ' 分钟');
+  function updateSyncBadge() {
+    const badge = document.getElementById('autoSyncBadge');
+    if (!badge) return;
+    const now = new Date();
+    const min = now.getMinutes();
+    let nextTarget = min < 30 ? ':30' : ':00';
+    let nextHour = min < 30 ? now.getHours() : (now.getHours() + 1) % 24;
+    badge.innerHTML = '🟢 半点主动获取开启 ｜ 下次检查: ' + String(nextHour).padStart(2, '0') + nextTarget;
+  }
+
+  function scheduleHalfHourSync() {
+    const msUntilNext = getNextHalfHourMs();
+    updateSyncBadge();
+    console.log('[AutoSync] 距离下次半点主动获取还有 ' + Math.round(msUntilNext / 1000 / 60) + ' 分钟');
 
     setTimeout(() => {
-      fetchLatestData();
-      scheduleNextHourSync();
-    }, msUntilNextHour);
+      fetchLatestData(true);
+      scheduleHalfHourSync();
+    }, msUntilNext);
   }
 
   // 静默获取最新数据 JSON
-  function fetchLatestData() {
-    console.log('[AutoSync] 触发整点主动获取最新数据...');
+  function fetchLatestData(isHalfHourTrigger = false) {
+    console.log('[AutoSync] 触发主动获取最新数据...', isHalfHourTrigger ? '(半点定时触发)' : '(轮询触发)');
     fetch('dashboard_data.json?t=' + Date.now(), { cache: 'no-cache' })
       .then(res => res.json())
       .then(newData => {
         if (newData && newData.last_synced_at !== currentSyncedAt) {
-          console.log('[AutoSync] 检测到新巡检结果，自动无感更新页面...');
+          console.log('[AutoSync] 检测到新巡检结果！旧:', currentSyncedAt, '-> 新:', newData.last_synced_at);
           currentSyncedAt = newData.last_synced_at;
-          showSyncToast('✨ 整点主动同步成功：看板数据已自动刷新为最新巡检结果');
+          showSyncToast('🚀 主动检测到最新巡检结果！看板已自动同步刷新');
           setTimeout(() => { window.location.reload(); }, 1200);
         } else {
-          console.log('[AutoSync] 当前已是最新数据，无需更新');
+          console.log('[AutoSync] 检查完成，当前数据已是最新 (同步时间: ' + currentSyncedAt + ')');
+          if (isHalfHourTrigger) {
+            showSyncToast('✅ 半点主动巡检完成：当前数据已是最新');
+          }
         }
       })
-      .catch(err => console.warn('[AutoSync] 整点主动获取跳过:', err.message));
+      .catch(err => console.warn('[AutoSync] 主动获取跳过:', err.message));
+  }
+
+  function manualSyncNow() {
+    showSyncToast('🔄 正在主动检查最新巡检结果...');
+    fetchLatestData(true);
   }
 
   // 轻量提示条
   function showSyncToast(msg) {
-    const toast = document.createElement('div');
-    toast.style.cssText = 'position:fixed;top:16px;right:16px;background:#10B981;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:600;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:9999;transition:all 0.3s ease;';
-    toast.innerText = msg;
-    document.body.appendChild(toast);
-    setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 400); }, 3000);
+    let toast = document.getElementById('syncToast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'syncToast';
+      toast.style.cssText = 'position:fixed;top:16px;right:16px;background:#1E293B;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,0.2);z-index:9999;transition:all 0.3s ease;display:flex;align-items:center;gap:8px;';
+      document.body.appendChild(toast);
+    }
+    toast.innerHTML = msg;
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateY(0)';
+    setTimeout(() => { 
+      toast.style.opacity = '0'; 
+      toast.style.transform = 'translateY(-10px)'; 
+    }, 3500);
   }
 
-  // 页面就绪后启动整点定时器 + 兜底 10 分钟心跳
+  // 页面就绪后启动半点定时器 + 兜底 5 分钟心跳检查
   window.addEventListener('DOMContentLoaded', () => {
-    scheduleNextHourSync();
-    setInterval(fetchLatestData, 10 * 60 * 1000);
+    scheduleHalfHourSync();
+    setInterval(() => { fetchLatestData(false); }, 5 * 60 * 1000);
   });
 </script>
 

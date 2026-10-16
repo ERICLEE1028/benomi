@@ -300,10 +300,14 @@ const htmlContent = `<!DOCTYPE html>
       <p>全部数据 100% 对齐已完成定时任务 ｜ 14:00 终态转化 ｜ 14:30 风险余额 ｜ 周检业务员字段严格映射</p>
     </div>
     <div class="header-meta" id="headerMeta">
-      <span class="badge badge-neutral">🕒 最新同步: ${data.last_synced_at}</span>
-      <span class="badge badge-ok">● 贝诺美中继: 9236 正常</span>
-      <span class="badge badge-ok">● 诺瓦 CDP: 9222 正常</span>
-      <span class="badge badge-danger">🚨 诺瓦 RFQ 仅剩 3 条 (极度紧缺)</span>
+      <span class="badge badge-neutral">🕒 数据底座: ${data.last_synced_at}</span>
+      <span class="badge" id="autoSyncBadge" style="background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE;">🟢 半点主动获取: 开启中</span>
+      <button onclick="manualSyncNow()" style="background:#2563EB;color:#fff;border:none;border-radius:12px;padding:3px 10px;font-size:11px;font-weight:600;cursor:pointer;">🔄 立即检查</button>
+      <span class="badge badge-ok">● 贝诺美: 9236 正常</span>
+      <span class="badge badge-ok">● 诺瓦: 9222 正常</span>
+      ${data.stores.nova.risk.rfq_quota < 5 ? 
+        `<span class="badge badge-danger">🚨 诺瓦 RFQ 仅剩 ${data.stores.nova.risk.rfq_quota} 条</span>` : 
+        `<span class="badge badge-ok">● 诺瓦 RFQ: ${data.stores.nova.risk.rfq_quota} 条 (正常)</span>`}
     </div>
   </div>
 
@@ -321,9 +325,9 @@ const htmlContent = `<!DOCTYPE html>
     <div style="margin-bottom: 20px;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
         <h2 style="font-size: 16px; font-weight: 700; color: #0F172A;">
-          🚨 平台风险监控与履约预警 (14:30 轮最新真实数据 · 两店独立分框)
+          🚨 平台风险监控与履约预警 (两店独立分框 · 真实对齐)
         </h2>
-        <span style="font-size: 12px; color: var(--text-secondary);">巡检轮次: 14:30 真实扫描完成 (含商品雷达补充项)</span>
+        <span style="font-size: 12px; color: var(--text-secondary);">巡检轮次: ${data.stores.benomi.risk.latest_round} 真实扫描完成 (含商品雷达补充项)</span>
       </div>
 
       <div class="grid-2">
@@ -369,18 +373,22 @@ const htmlContent = `<!DOCTYPE html>
         </div>
 
         <!-- 诺瓦风险框 -->
-        <div class="card" style="border-top: 4px solid #DC2626; margin-bottom: 0;">
+        <div class="card" style="border-top: 4px solid ${data.stores.nova.risk.rfq_quota < 5 ? '#DC2626' : '#7C3AED'}; margin-bottom: 0;">
           <div class="card-header" style="margin-bottom: 10px; padding-bottom: 8px;">
             <div class="card-title">
               <span style="color: #7C3AED;">🟣 诺瓦 (jnnova) · 平台风险监控</span>
               <span class="card-tag tag-nova">CDP 9222</span>
             </div>
-            <span class="alert-pill alert-danger">🚨 极度紧缺预警</span>
+            ${data.stores.nova.risk.rfq_quota < 5 ? 
+              '<span class="alert-pill alert-danger">🚨 极度紧缺预警</span>' : 
+              '<span class="alert-pill alert-normal">风险状态: 正常</span>'}
           </div>
           <div class="detail-list">
-            <div class="detail-item" style="background: #FEF2F2; padding: 6px 8px; border-radius: 4px;">
-              <span class="detail-title" style="color: #991B1B; font-weight: 700;">🚨 可用报价权益剩余</span>
-              <span class="detail-value" style="color: #DC2626; font-size: 13px; font-weight: 700;">
+            <div class="detail-item" style="${data.stores.nova.risk.rfq_quota < 5 ? 'background: #FEF2F2; padding: 6px 8px; border-radius: 4px;' : ''}">
+              <span class="detail-title" style="${data.stores.nova.risk.rfq_quota < 5 ? 'color: #991B1B; font-weight: 700;' : ''}">
+                ${data.stores.nova.risk.rfq_quota < 5 ? '🚨 ' : ''}可用报价权益剩余
+              </span>
+              <span class="detail-value" style="color: ${data.stores.nova.risk.rfq_quota < 5 ? '#DC2626' : '#059669'}; font-size: 13px; font-weight: 700;">
                 ${data.stores.nova.risk.rfq_quota} 条剩余 (到期: ${data.stores.nova.risk.rfq_expire} ｜ ${data.stores.nova.risk.rfq_used_detail})
               </span>
             </div>
@@ -415,9 +423,9 @@ const htmlContent = `<!DOCTYPE html>
     <div class="card" style="border-top: 4px solid #2563EB;">
       <div class="card-header" style="margin-bottom: 12px; padding-bottom: 10px;">
         <div class="card-title" style="color: #1E40AF; font-size: 16px;">
-          <span>💰 双店推广账户余额与 14:00 终态转化效果 (真实对齐)</span>
+          <span>💰 双店推广账户余额与最新广告消耗转化效果 (真实对齐)</span>
         </div>
-        <span class="badge badge-ok">PT 10-14 完整归因 · cvr3 全站商机口径</span>
+        <span class="badge badge-ok">${data.stores.benomi.ads.latest_round} · cvr3 全站商机口径</span>
       </div>
 
       <div class="grid-4">
@@ -434,12 +442,12 @@ const htmlContent = `<!DOCTYPE html>
         <div class="stat-box">
           <div class="stat-label">贝诺美去重商机 (cvr3)</div>
           <div class="stat-value" style="color: #059669;">${data.stores.benomi.ads.cvr3_leads} 个</div>
-          <div class="stat-desc">14点终态耗资: ¥${data.stores.benomi.ads.spend.toFixed(2)}</div>
+          <div class="stat-desc">耗资: ¥${data.stores.benomi.ads.spend.toFixed(2)}</div>
         </div>
         <div class="stat-box">
           <div class="stat-label">诺瓦去重商机 (cvr3)</div>
           <div class="stat-value" style="color: #059669;">${data.stores.nova.ads.cvr3_leads} 个</div>
-          <div class="stat-desc">14点终态耗资: ¥${data.stores.nova.ads.spend.toFixed(2)}</div>
+          <div class="stat-desc">耗资: ¥${data.stores.nova.ads.spend.toFixed(2)}</div>
         </div>
       </div>
 
@@ -501,9 +509,55 @@ const htmlContent = `<!DOCTYPE html>
             <div class="detail-item"><span class="detail-title">商品雷达待整改</span><span class="detail-value" style="color: #059669;">${data.stores.benomi.risk.product_radar}</span></div>
             <div class="detail-item"><span class="detail-title">直通车当前可用余额</span><span class="detail-value">¥${data.stores.benomi.risk.balance.toFixed(2)}</span></div>
             <div class="detail-item"><span class="detail-title">RFQ 普通报价权益</span><span class="detail-value" style="color: #059669; font-weight: 600;">${data.stores.benomi.risk.rfq_quota} 条剩余 (${data.stores.benomi.risk.rfq_used_detail})</span></div>
-            <div class="detail-item"><span class="detail-title">昨日质检日检 (10-14)</span><span class="detail-value" style="color: #059669;">${data.stores.benomi.daily_quality.passed}/${data.stores.benomi.daily_quality.total_checked} 合格 (100%)</span></div>
-            <div class="detail-item"><span class="detail-title">昨日日检在线表</span><span class="detail-value"><a class="sheet-link-chip" href="${data.stores.benomi.daily_quality.sheet_url}" target="_blank">📊 [贝诺美] 10.14日检表 ↗</a></span></div>
+            <div class="detail-item"><span class="detail-title">最新质检日检 (${data.stores.benomi.daily_quality.target_date})</span><span class="detail-value" style="color: #059669;">${data.stores.benomi.daily_quality.passed}/${data.stores.benomi.daily_quality.total_checked} 合格 (${data.stores.benomi.daily_quality.pass_rate}%)</span></div>
+            <div class="detail-item"><span class="detail-title">最新日检在线表</span><span class="detail-value"><a class="sheet-link-chip" href="${data.stores.benomi.daily_quality.sheet_url}" target="_blank">📊 [贝诺美] ${data.stores.benomi.daily_quality.target_date}日检表 ↗</a></span></div>
           </div>
+        </div>
+      </div>
+
+      <!-- 贝诺美 · 日巡检最新数据专属看板 (今日实测最新) -->
+      <div style="border-top: 1px solid var(--border-color); padding-top: 16px; margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <div>
+            <h3 style="font-size: 15px; font-weight: 700; color: #2563EB;">
+              🔍 贝诺美 · 日巡检最新数据专属看板 (${data.stores.benomi.daily_quality.target_date} 全天)
+            </h3>
+            <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">
+              巡检轮次: ${data.stores.benomi.daily_quality.latest_round} ｜ 检查会话: <strong>${data.stores.benomi.daily_quality.total_checked}</strong> 条 ｜ 合格: <strong style="color: #059669;">${data.stores.benomi.daily_quality.passed}</strong> ｜ 不合格: <strong style="color: #DC2626;">${data.stores.benomi.daily_quality.failed}</strong> ｜ 日检合格率: <strong style="color: #059669;">${data.stores.benomi.daily_quality.pass_rate}%</strong>
+            </div>
+          </div>
+          <a class="sheet-link-chip" href="${data.stores.benomi.daily_quality.sheet_url}" target="_blank">📊 打开贝诺美最新日检在线表 ↗</a>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>询盘时间</th>
+                <th>买家名称</th>
+                <th>真实业务员</th>
+                <th>结论</th>
+                <th>不合格判定原因</th>
+                <th>首响耗时</th>
+                <th>追踪次数</th>
+                <th>会话内容总结与已读状态</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${(data.stores.benomi.daily_quality.samples || []).map(item => `
+                <tr class="${item.verdict === '不合格' ? 'row-fail' : ''}">
+                  <td>${item.inquiry_time}</td>
+                  <td>${item.buyer}</td>
+                  <td><strong>${item.sales}</strong></td>
+                  <td><span class="alert-pill ${item.verdict === '不合格' ? 'alert-danger' : 'alert-normal'}">${item.verdict}</span></td>
+                  <td>${item.reason}</td>
+                  <td>${item.resp_time}</td>
+                  <td>${item.track_count} 次</td>
+                  <td>${item.summary}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
         </div>
       </div>
 
@@ -583,9 +637,55 @@ const htmlContent = `<!DOCTYPE html>
             <div class="detail-item"><span class="detail-title">商品雷达待整改</span><span class="detail-value" style="color: #059669;">${data.stores.nova.risk.product_radar}</span></div>
             <div class="detail-item"><span class="detail-title">直通车当前可用余额</span><span class="detail-value">¥${data.stores.nova.risk.balance.toFixed(2)}</span></div>
             <div class="detail-item"><span class="detail-title">可用报价权益 (直读真实)</span><span class="detail-value" style="color: #DC2626; font-weight: 700;">${data.stores.nova.risk.rfq_quota} 条剩余 (${data.stores.nova.risk.rfq_used_detail})</span></div>
-            <div class="detail-item"><span class="detail-title">昨日质检日检 (10-14)</span><span class="detail-value">0 条分配 (源表最新至10-13)</span></div>
-            <div class="detail-item"><span class="detail-title">昨日日检在线表</span><span class="detail-value"><a class="sheet-link-chip" href="${data.stores.nova.daily_quality.sheet_url}" target="_blank">📊 [诺瓦] 10.14日检表 ↗</a></span></div>
+            <div class="detail-item"><span class="detail-title">最新质检日检 (${data.stores.nova.daily_quality.target_date})</span><span class="detail-value" style="color: #059669;">${data.stores.nova.daily_quality.passed}/${data.stores.nova.daily_quality.total_checked} 合格 (${data.stores.nova.daily_quality.pass_rate}%)</span></div>
+            <div class="detail-item"><span class="detail-title">最新日检在线表</span><span class="detail-value"><a class="sheet-link-chip" href="${data.stores.nova.daily_quality.sheet_url}" target="_blank">📊 [诺瓦] ${data.stores.nova.daily_quality.target_date}日检表 ↗</a></span></div>
           </div>
+        </div>
+      </div>
+
+      <!-- 诺瓦 · 日巡检最新数据专属看板 (今日实测最新) -->
+      <div style="border-top: 1px solid var(--border-color); padding-top: 16px; margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <div>
+            <h3 style="font-size: 15px; font-weight: 700; color: #7C3AED;">
+              🔍 诺瓦 · 日巡检最新数据专属看板 (${data.stores.nova.daily_quality.target_date} 全天)
+            </h3>
+            <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">
+              巡检轮次: ${data.stores.nova.daily_quality.latest_round} ｜ 检查会话: <strong>${data.stores.nova.daily_quality.total_checked}</strong> 条 ｜ 合格: <strong style="color: #059669;">${data.stores.nova.daily_quality.passed}</strong> ｜ 不合格: <strong style="color: #DC2626;">${data.stores.nova.daily_quality.failed}</strong> ｜ 日检合格率: <strong style="color: #059669;">${data.stores.nova.daily_quality.pass_rate}%</strong>
+            </div>
+          </div>
+          <a class="sheet-link-chip" href="${data.stores.nova.daily_quality.sheet_url}" target="_blank">📊 打开诺瓦最新日检在线表 ↗</a>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>询盘时间</th>
+                <th>买家名称</th>
+                <th>真实业务员</th>
+                <th>结论</th>
+                <th>不合格判定原因</th>
+                <th>首响耗时</th>
+                <th>追踪次数</th>
+                <th>会话内容总结与已读状态</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${(data.stores.nova.daily_quality.samples || []).map(item => `
+                <tr class="${item.verdict === '不合格' ? 'row-fail' : ''}">
+                  <td>${item.inquiry_time}</td>
+                  <td>${item.buyer}</td>
+                  <td><strong>${item.sales}</strong></td>
+                  <td><span class="alert-pill ${item.verdict === '不合格' ? 'alert-danger' : 'alert-normal'}">${item.verdict}</span></td>
+                  <td>${item.reason}</td>
+                  <td>${item.resp_time}</td>
+                  <td>${item.track_count} 次</td>
+                  <td>${item.summary}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
         </div>
       </div>
 
@@ -685,6 +785,89 @@ const htmlContent = `<!DOCTYPE html>
     const target = document.getElementById('view-' + tabId);
     if (target) target.classList.add('active');
   }
+
+  // ================= 每到半点主动获取与自动更新脚本 (与主动推送双轨并行) =================
+  let currentSyncedAt = "${data.last_synced_at}";
+
+  // 计算距离下一个半点（XX:00 或 XX:30，留 10 秒缓冲以便后端任务完成生成）
+  function getNextHalfHourMs() {
+    const now = new Date();
+    const min = now.getMinutes();
+    let targetMin = min < 30 ? 30 : 60;
+    const target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), targetMin, 10);
+    return target.getTime() - now.getTime();
+  }
+
+  function updateSyncBadge() {
+    const badge = document.getElementById('autoSyncBadge');
+    if (!badge) return;
+    const now = new Date();
+    const min = now.getMinutes();
+    let nextTarget = min < 30 ? ':30' : ':00';
+    let nextHour = min < 30 ? now.getHours() : (now.getHours() + 1) % 24;
+    badge.innerHTML = '🟢 半点主动获取开启 ｜ 下次检查: ' + String(nextHour).padStart(2, '0') + nextTarget;
+  }
+
+  function scheduleHalfHourSync() {
+    const msUntilNext = getNextHalfHourMs();
+    updateSyncBadge();
+    console.log('[AutoSync] 距离下次半点主动获取还有 ' + Math.round(msUntilNext / 1000 / 60) + ' 分钟');
+
+    setTimeout(() => {
+      fetchLatestData(true);
+      scheduleHalfHourSync();
+    }, msUntilNext);
+  }
+
+  // 静默获取最新数据 JSON
+  function fetchLatestData(isHalfHourTrigger = false) {
+    console.log('[AutoSync] 触发主动获取最新数据...', isHalfHourTrigger ? '(半点定时触发)' : '(轮询触发)');
+    fetch('dashboard_data.json?t=' + Date.now(), { cache: 'no-cache' })
+      .then(res => res.json())
+      .then(newData => {
+        if (newData && newData.last_synced_at !== currentSyncedAt) {
+          console.log('[AutoSync] 检测到新巡检结果！旧:', currentSyncedAt, '-> 新:', newData.last_synced_at);
+          currentSyncedAt = newData.last_synced_at;
+          showSyncToast('🚀 主动检测到最新巡检结果！看板已自动同步刷新');
+          setTimeout(() => { window.location.reload(); }, 1200);
+        } else {
+          console.log('[AutoSync] 检查完成，当前数据已是最新 (同步时间: ' + currentSyncedAt + ')');
+          if (isHalfHourTrigger) {
+            showSyncToast('✅ 半点主动巡检完成：当前数据已是最新');
+          }
+        }
+      })
+      .catch(err => console.warn('[AutoSync] 主动获取跳过:', err.message));
+  }
+
+  function manualSyncNow() {
+    showSyncToast('🔄 正在主动检查最新巡检结果...');
+    fetchLatestData(true);
+  }
+
+  // 轻量提示条
+  function showSyncToast(msg) {
+    let toast = document.getElementById('syncToast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'syncToast';
+      toast.style.cssText = 'position:fixed;top:16px;right:16px;background:#1E293B;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,0.2);z-index:9999;transition:all 0.3s ease;display:flex;align-items:center;gap:8px;';
+      document.body.appendChild(toast);
+    }
+    toast.innerHTML = msg;
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateY(0)';
+    setTimeout(() => { 
+      toast.style.opacity = '0'; 
+      toast.style.transform = 'translateY(-10px)'; 
+    }, 3500);
+  }
+
+  // 页面就绪后启动半点定时器 + 兜底 5 分钟心跳检查
+  window.addEventListener('DOMContentLoaded', () => {
+    scheduleHalfHourSync();
+    setInterval(() => { fetchLatestData(false); }, 5 * 60 * 1000);
+  });
 </script>
 
 </body>
