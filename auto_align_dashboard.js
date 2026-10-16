@@ -48,6 +48,19 @@ function alignAdsData(dashboardData) {
       dashboardData.stores.benomi.ads.active_campaigns = state.spend_campaigns || 2;
       dashboardData.stores.benomi.ads.latest_round = `${roundName.includes('-9') ? '09:00' : '14:00'} 轮 (PT ${state.pt_date} 真实数据)`;
       if (state.doc_url) dashboardData.stores.benomi.ads.sheet_url = state.doc_url;
+
+      // 提取广告快照中的直通车账户实时余额 (双源对齐)
+      const benomiDailyFile = path.join(latestDir, 'benomi', 'ads-daily.json');
+      if (fs.existsSync(benomiDailyFile)) {
+        try {
+          const adsDaily = JSON.parse(fs.readFileSync(benomiDailyFile, 'utf-8'));
+          if (adsDaily.account_balance && adsDaily.account_balance.cashBalance) {
+            dashboardData.stores.benomi.risk.balance = adsDaily.account_balance.cashBalance;
+            dashboardData.stores.benomi.risk.balance_source = `广告消耗快照 (${roundName.includes('-9') ? '09:00' : '14:00'}轮)`;
+          }
+        } catch(e) {}
+      }
+
       console.log(`[AutoAlign] 贝诺美广告已对齐: ${dashboardData.stores.benomi.ads.latest_round}, 消耗: ¥${state.total_cost}`);
     } catch (e) {
       console.error('[AutoAlign] 解析贝诺美广告失败:', e.message);
@@ -64,6 +77,19 @@ function alignAdsData(dashboardData) {
       dashboardData.stores.nova.ads.active_campaigns = state.spend_campaigns || 1;
       dashboardData.stores.nova.ads.latest_round = `${roundName.includes('-9') ? '09:00' : '14:00'} 轮 (PT ${state.pt_date} 真实数据)`;
       if (state.doc_url) dashboardData.stores.nova.ads.sheet_url = state.doc_url;
+
+      // 提取广告快照中的直通车账户实时余额 (双源对齐)
+      const novaDailyFile = path.join(latestDir, 'nova', 'ads-daily.json');
+      if (fs.existsSync(novaDailyFile)) {
+        try {
+          const adsDaily = JSON.parse(fs.readFileSync(novaDailyFile, 'utf-8'));
+          if (adsDaily.account_balance && adsDaily.account_balance.cashBalance) {
+            dashboardData.stores.nova.risk.balance = adsDaily.account_balance.cashBalance;
+            dashboardData.stores.nova.risk.balance_source = `广告消耗快照 (${roundName.includes('-9') ? '09:00' : '14:00'}轮)`;
+          }
+        } catch(e) {}
+      }
+
       console.log(`[AutoAlign] 诺瓦广告已对齐: ${dashboardData.stores.nova.ads.latest_round}, 消耗: ¥${state.total_cost}`);
     } catch (e) {
       console.error('[AutoAlign] 解析诺瓦广告失败:', e.message);
@@ -100,26 +126,50 @@ function alignRiskData(dashboardData) {
   dashboardData.stores.nova.risk.latest_round = roundLabel;
 
   // 1. 读取贝诺美
-  const directAnswer = path.join(targetDir, 'direct_answer.md');
-  if (fs.existsSync(directAnswer)) {
+  // 优先读取结构化 benomi_C_bal.json
+  const bBalJson = path.join(targetDir, 'benomi_C_bal.json');
+  if (fs.existsSync(bBalJson)) {
     try {
-      const text = fs.readFileSync(directAnswer, 'utf8');
-      const bBal = text.match(/cashBalance=([\d.]+)/);
-      if (bBal) dashboardData.stores.benomi.risk.balance = parseFloat(bBal[1]);
-
-      const bRfq = text.match(/availBase=(\d+)条/);
-      if (bRfq) dashboardData.stores.benomi.risk.rfq_quota = parseInt(bRfq[1], 10);
-
-      const bExpire = text.match(/(\d+ 条权益将于 [^\n]+? 到期)/);
-      if (bExpire) dashboardData.stores.benomi.risk.rfq_expire = '2026-10-31';
-
-      dashboardData.stores.benomi.risk.rfq_used_detail = '本月已用 1 条（按业务员：Lily Qie 1 条）';
-      dashboardData.stores.benomi.risk.product_radar = '0 个 (暂无待整改任务)';
-      console.log(`[AutoAlign] 贝诺美风险监控已对齐 (${roundLabel}): 余额 ¥${dashboardData.stores.benomi.risk.balance}, RFQ: ${dashboardData.stores.benomi.risk.rfq_quota}条`);
-    } catch (e) {
-      console.error('[AutoAlign] 解析贝诺美 direct_answer 失败:', e.message);
+      let raw = fs.readFileSync(bBalJson, 'utf8');
+      if (raw.startsWith('__BAL_RESULT__')) raw = raw.replace('__BAL_RESULT__', '');
+      const balObj = JSON.parse(raw);
+      if (balObj.cashBalanceNum) dashboardData.stores.benomi.risk.balance = balObj.cashBalanceNum;
+      else if (balObj.cashBalance) dashboardData.stores.benomi.risk.balance = parseFloat(balObj.cashBalance);
+    } catch(e) {}
+  } else {
+    const bBalMd = path.join(targetDir, '03_直通车余额明细_贝诺美.md');
+    if (fs.existsSync(bBalMd)) {
+      try {
+        const text = fs.readFileSync(bBalMd, 'utf8');
+        const m = text.match(/cashBalance\s*=\s*([\d.]+)/) || text.match(/当前可用现金\s*\|\s*([\d.]+)/);
+        if (m) dashboardData.stores.benomi.risk.balance = parseFloat(m[1]);
+      } catch(e) {}
+    } else {
+      const directAnswer = path.join(targetDir, 'direct_answer.md');
+      if (fs.existsSync(directAnswer)) {
+        try {
+          const text = fs.readFileSync(directAnswer, 'utf8');
+          const bBal = text.match(/cashBalance=([\d.]+)/);
+          if (bBal) dashboardData.stores.benomi.risk.balance = parseFloat(bBal[1]);
+        } catch (e) {}
+      }
     }
   }
+
+  // 读取贝诺美 RFQ
+  const bRfqMd = path.join(targetDir, '04_RFQ权益明细_贝诺美.md');
+  if (fs.existsSync(bRfqMd)) {
+    try {
+      const text = fs.readFileSync(bRfqMd, 'utf8');
+      const m = text.match(/可用报价权益[」」]?\s*\|\s*(\d+)\s*条/);
+      if (m) dashboardData.stores.benomi.risk.rfq_quota = parseInt(m[1], 10);
+    } catch(e) {}
+  }
+  dashboardData.stores.benomi.risk.rfq_expire = '2026-10-31';
+  dashboardData.stores.benomi.risk.rfq_used_detail = '本月已用 1 条（按业务员：Lily Qie 1 条）';
+  dashboardData.stores.benomi.risk.product_radar = '0 个 (暂无待整改任务)';
+  dashboardData.stores.benomi.risk.balance_source = `风险监控 (${roundLabel})`;
+  console.log(`[AutoAlign] 贝诺美风险监控已对齐 (${roundLabel}): 余额 ¥${dashboardData.stores.benomi.risk.balance}, RFQ: ${dashboardData.stores.benomi.risk.rfq_quota}条`);
 
   // 2. 读取诺瓦
   const nBalMd = path.join(targetDir, '03_直通车余额明细_诺瓦.md');
@@ -143,6 +193,7 @@ function alignRiskData(dashboardData) {
       dashboardData.stores.nova.risk.rfq_expire = '2026-10-31';
       dashboardData.stores.nova.risk.rfq_used_detail = '本月已用 9 条（按业务员：Mark Zhang 3 条、Hale He 3 条、IVA ZHANG 3 条）';
       dashboardData.stores.nova.risk.product_radar = '0 个 (暂无待整改任务)';
+      dashboardData.stores.nova.risk.balance_source = `风险监控 (${roundLabel})`;
       dashboardData.stores.nova.risk.status = dashboardData.stores.nova.risk.rfq_quota < 5 ? 'warning' : 'normal';
       dashboardData.stores.nova.risk.rfq_warning = dashboardData.stores.nova.risk.rfq_quota < 5 ? '可用报价权益紧缺' : '权益充裕';
       console.log(`[AutoAlign] 诺瓦风险监控已对齐 (${roundLabel}): 余额 ¥${dashboardData.stores.nova.risk.balance}, RFQ: ${dashboardData.stores.nova.risk.rfq_quota}条`);
@@ -166,44 +217,240 @@ function alignRiskData(dashboardData) {
   return true;
 }
 
-// 3. 对齐质检日检数据
+// 辅助：解析 CSV
+function parseCsvSimple(content) {
+  const lines = content.trim().split(/\r?\n/);
+  if (lines.length <= 1) return [];
+  const rows = [];
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i];
+    if (!line.trim()) continue;
+    const cols = [];
+    let cur = '';
+    let inQuote = false;
+    for (let c = 0; c < line.length; c++) {
+      const ch = line[c];
+      if (ch === '"') {
+        inQuote = !inQuote;
+      } else if (ch === ',' && !inQuote) {
+        cols.push(cur);
+        cur = '';
+      } else {
+        cur += ch;
+      }
+    }
+    cols.push(cur);
+    rows.push(cols);
+  }
+  return rows;
+}
+
+// 3. 对齐质检日检与周检数据 (全动态解析)
 function alignQualityData(dashboardData) {
   const deliverDir = path.join(QUALITY_DIR, 'deliver');
   if (!fs.existsSync(deliverDir)) return false;
 
-  const notifyFile = path.join(deliverDir, 'notify11_r.json');
-  if (fs.existsSync(notifyFile)) {
+  // A. 对齐日检
+  // 查找所有 notify*.json，按修改时间倒序寻找最新的日检通知
+  const notifyFiles = fs.readdirSync(deliverDir)
+    .filter(name => name.startsWith('notify') && name.endsWith('.json'))
+    .map(name => ({
+      name,
+      path: path.join(deliverDir, name),
+      mtime: fs.statSync(path.join(deliverDir, name)).mtimeMs
+    }))
+    .sort((a, b) => b.mtime - a.mtime);
+
+  let dailyFound = false;
+  for (const nf of notifyFiles) {
     try {
-      const notifyJson = JSON.parse(fs.readFileSync(notifyFile, 'utf8'));
+      let content = fs.readFileSync(nf.path, 'utf8');
+      if (content.charCodeAt(0) === 0xFEFF) content = content.slice(1);
+      const notifyJson = JSON.parse(content);
       const msgs = notifyJson.messages || [];
+      
+      let benomiDailyMsg = null;
+      let novaDailyMsg = null;
       for (const m of msgs) {
         if (!m.text) continue;
-        if (m.text.includes('【询盘回复质量检查】') && m.text.includes('贝诺美')) {
-          dashboardData.stores.benomi.daily_quality.latest_round = '11:00 轮 (检 2026-10-15)';
-          dashboardData.stores.benomi.daily_quality.target_date = '2026-10-15';
-          dashboardData.stores.benomi.daily_quality.total_checked = 6;
-          dashboardData.stores.benomi.daily_quality.passed = 5;
-          dashboardData.stores.benomi.daily_quality.failed = 1;
-          dashboardData.stores.benomi.daily_quality.pass_rate = 83.33;
-          dashboardData.stores.benomi.daily_quality.sheet_name = '贝诺美询盘回复质量检查（10.15·11时）';
-          dashboardData.stores.benomi.daily_quality.sheet_url = 'https://alidocs.dingtalk.com/i/nodes/MNDoBb60VLmyGONxFn0lXYmDJlemrZQ3';
-        }
-        if (m.text.includes('【询盘回复质量检查】') && m.text.includes('诺瓦')) {
-          dashboardData.stores.nova.daily_quality.latest_round = '11:00 轮 (检 2026-10-15)';
-          dashboardData.stores.nova.daily_quality.target_date = '2026-10-15';
-          dashboardData.stores.nova.daily_quality.total_checked = 2;
-          dashboardData.stores.nova.daily_quality.passed = 1;
-          dashboardData.stores.nova.daily_quality.failed = 1;
-          dashboardData.stores.nova.daily_quality.pass_rate = 50.00;
-          dashboardData.stores.nova.daily_quality.sheet_name = '诺瓦询盘回复质量检查（10.15·11时）';
-          dashboardData.stores.nova.daily_quality.sheet_url = 'https://alidocs.dingtalk.com/i/nodes/ydxXB52LJq90wloBF2lYlPGNJqjMp697';
+        if (m.text.includes('【询盘回复质量检查】') && !m.text.includes('周检')) {
+          if (m.text.includes('贝诺美') && !benomiDailyMsg) benomiDailyMsg = m.text;
+          if (m.text.includes('诺瓦') && !novaDailyMsg) novaDailyMsg = m.text;
         }
       }
-      console.log('[AutoAlign] 质检日检数据已成功对齐到 10-15 轮次');
+
+      if (benomiDailyMsg && novaDailyMsg) {
+        // 解析轮次信息
+        const bRoundMatch = benomiDailyMsg.match(/检查日期：([^\n]+)/);
+        const bRound = bRoundMatch ? bRoundMatch[1].trim() : '16:00 轮 (检 2026-10-15)';
+        const targetDate = bRound.includes('10-15') ? '2026-10-15' : '2026-10-14';
+
+        const bSheetMatch = benomiDailyMsg.match(/\[📊 ([^\]]+)\]\((https:\/\/alidocs\.dingtalk\.com\/[^\)]+)\)/);
+        const nSheetMatch = novaDailyMsg.match(/\[📊 ([^\]]+)\]\((https:\/\/alidocs\.dingtalk\.com\/[^\)]+)\)/);
+
+        // 尝试从最新 16:00 轮 CSV 中提取高精明细 samples
+        const bCsvPath = path.join(deliverDir, 'benomi_16_1015.csv');
+        const nCsvPath = path.join(deliverDir, 'nova_16_1015.csv');
+
+        if (fs.existsSync(bCsvPath) && fs.existsSync(nCsvPath)) {
+          const bRows = parseCsvSimple(fs.readFileSync(bCsvPath, 'utf8'));
+          let bPassed = 0, bFailed = 0, bPending = 0;
+          const bSamples = bRows.map(r => {
+            const verdict = r[3] || '未判定';
+            if (verdict === '合格') bPassed++;
+            else if (verdict === '不合格') bFailed++;
+            else bPending++;
+            return {
+              inquiry_time: r[0],
+              buyer: r[1],
+              sales: r[2],
+              verdict,
+              reason: r[4] || '—',
+              resp_time: r[5] || '-',
+              track_count: r[6] || '-',
+              summary: (r[11] || '').replace(/^"|"$/g, '')
+            };
+          });
+
+          const nRows = parseCsvSimple(fs.readFileSync(nCsvPath, 'utf8'));
+          let nPassed = 0, nFailed = 0, nPending = 0;
+          const nSamples = nRows.map(r => {
+            const verdict = r[3] || '未判定';
+            if (verdict === '合格') nPassed++;
+            else if (verdict === '不合格') nFailed++;
+            else nPending++;
+            return {
+              inquiry_time: r[0],
+              buyer: r[1],
+              sales: r[2],
+              verdict,
+              reason: r[4] || '—',
+              resp_time: r[5] || '-',
+              track_count: r[6] || '-',
+              summary: (r[11] || '').replace(/^"|"$/g, '')
+            };
+          });
+
+          // 贝诺美写入
+          dashboardData.stores.benomi.daily_quality.latest_round = bRound;
+          dashboardData.stores.benomi.daily_quality.target_date = targetDate;
+          dashboardData.stores.benomi.daily_quality.total_checked = bRows.length;
+          dashboardData.stores.benomi.daily_quality.passed = bPassed;
+          dashboardData.stores.benomi.daily_quality.failed = bFailed;
+          dashboardData.stores.benomi.daily_quality.pending = bPending;
+          dashboardData.stores.benomi.daily_quality.pass_rate = parseFloat(((bPassed / bRows.length) * 100).toFixed(2));
+          dashboardData.stores.benomi.daily_quality.sheet_name = bSheetMatch ? bSheetMatch[1] : '贝诺美询盘回复质量检查（10.15·16时）';
+          dashboardData.stores.benomi.daily_quality.sheet_url = bSheetMatch ? bSheetMatch[2] : 'https://alidocs.dingtalk.com/i/nodes/14lgGw3P8vNPwloBunydXBg085daZ90D';
+          dashboardData.stores.benomi.daily_quality.samples = bSamples;
+
+          // 诺瓦写入
+          dashboardData.stores.nova.daily_quality.latest_round = bRound;
+          dashboardData.stores.nova.daily_quality.target_date = targetDate;
+          dashboardData.stores.nova.daily_quality.total_checked = nRows.length;
+          dashboardData.stores.nova.daily_quality.passed = nPassed;
+          dashboardData.stores.nova.daily_quality.failed = nFailed;
+          dashboardData.stores.nova.daily_quality.pending = nPending;
+          dashboardData.stores.nova.daily_quality.pass_rate = parseFloat(((nPassed / nRows.length) * 100).toFixed(2));
+          dashboardData.stores.nova.daily_quality.sheet_name = nSheetMatch ? nSheetMatch[1] : '诺瓦询盘回复质量检查（10.15·16时）';
+          dashboardData.stores.nova.daily_quality.sheet_url = nSheetMatch ? nSheetMatch[2] : 'https://alidocs.dingtalk.com/i/nodes/vy20BglGWOR0GOpwcDMl6xX08A7depqY';
+          dashboardData.stores.nova.daily_quality.samples = nSamples;
+
+          console.log(`[AutoAlign] 质检日检动态对齐成功: ${bRound} ｜ 贝诺美: ${bPassed}/${bRows.length} (${dashboardData.stores.benomi.daily_quality.pass_rate}%), 诺瓦: ${nPassed}/${nRows.length} (${dashboardData.stores.nova.daily_quality.pass_rate}%)`);
+          dailyFound = true;
+          break;
+        }
+      }
     } catch (e) {
-      console.error('[AutoAlign] 解析质检数据失败:', e.message);
+      console.warn('[AutoAlign] 解析日检通知文件跳过:', nf.name, e.message);
     }
   }
+
+  // B. 对齐周检
+  const qwkFile = path.join(deliverDir, 'qwk.json');
+  if (fs.existsSync(qwkFile)) {
+    try {
+      let qwkContent = fs.readFileSync(qwkFile, 'utf8');
+      if (qwkContent.charCodeAt(0) === 0xFEFF) qwkContent = qwkContent.slice(1);
+      const qwkJson = JSON.parse(qwkContent);
+      const msgs = qwkJson.messages || [];
+
+      let novaWkMsg = null;
+      let benomiWkMsg = null;
+      for (const m of msgs) {
+        if (!m.text) continue;
+        if (m.text.includes('【询盘回复质量检查·周检】') && !m.text.includes('数据修正')) {
+          if (m.text.includes('诺瓦') && !novaWkMsg) novaWkMsg = m;
+          if (m.text.includes('贝诺美') && !benomiWkMsg) benomiWkMsg = m;
+        }
+      }
+
+      if (novaWkMsg && benomiWkMsg) {
+        const bRangeMatch = benomiWkMsg.text.match(/检查区间：([^\n]+)/);
+        const bDateRange = bRangeMatch ? bRangeMatch[1].trim() : '2026-10-04–2026-10-10（7 天）';
+        const bTotalMatch = benomiWkMsg.text.match(/共\s*(\d+)\s*条：合格\s*(\d+)\s*、不合格\s*(\d+)(?:、未判定\s*(\d+))?/);
+        const bSheetMatch = benomiWkMsg.text.match(/\[📊? ?([^\]]+)\]\((https:\/\/alidocs\.dingtalk\.com\/[^\)]+)\)/);
+
+        const nTotalMatch = novaWkMsg.text.match(/共\s*(\d+)\s*条：合格\s*(\d+)\s*、不合格\s*(\d+)(?:、未判定\s*(\d+))?/);
+        const nSheetMatch = novaWkMsg.text.match(/\[📊? ?([^\]]+)\]\((https:\/\/alidocs\.dingtalk\.com\/[^\)]+)\)/);
+
+        if (bTotalMatch && nTotalMatch) {
+          const bTot = parseInt(bTotalMatch[1], 10);
+          const bPas = parseInt(bTotalMatch[2], 10);
+          const bFai = parseInt(bTotalMatch[3], 10);
+          const bPen = bTotalMatch[4] ? parseInt(bTotalMatch[4], 10) : 0;
+
+          const nTot = parseInt(nTotalMatch[1], 10);
+          const nPas = parseInt(nTotalMatch[2], 10);
+          const nFai = parseInt(nTotalMatch[3], 10);
+
+          // 全局周检
+          dashboardData.weekly_quality = {
+            date_range: bDateRange,
+            run_time: benomiWkMsg.createTime || '2026-10-12 17:53:05',
+            total_inquiries: bTot + nTot,
+            benomi_total: bTot,
+            benomi_passed: bPas,
+            benomi_failed: bFai,
+            benomi_pending: bPen,
+            nova_total: nTot,
+            nova_passed: nPas,
+            nova_failed: nFai
+          };
+
+          // 贝诺美周检
+          dashboardData.stores.benomi.weekly_quality.date_range = bDateRange;
+          dashboardData.stores.benomi.weekly_quality.run_time = benomiWkMsg.createTime || '2026-10-12 17:53:05';
+          dashboardData.stores.benomi.weekly_quality.total = bTot;
+          dashboardData.stores.benomi.weekly_quality.passed = bPas;
+          dashboardData.stores.benomi.weekly_quality.failed = bFai;
+          dashboardData.stores.benomi.weekly_quality.pending = bPen;
+          dashboardData.stores.benomi.weekly_quality.pass_rate = parseFloat(((bPas / bTot) * 100).toFixed(2));
+          if (bSheetMatch) {
+            dashboardData.stores.benomi.weekly_quality.sheet_name = bSheetMatch[1].trim();
+            dashboardData.stores.benomi.weekly_quality.sheet_url = bSheetMatch[2].trim();
+          }
+
+          // 诺瓦周检
+          dashboardData.stores.nova.weekly_quality.date_range = bDateRange;
+          dashboardData.stores.nova.weekly_quality.run_time = novaWkMsg.createTime || '2026-10-12 17:53:07';
+          dashboardData.stores.nova.weekly_quality.total = nTot;
+          dashboardData.stores.nova.weekly_quality.passed = nPas;
+          dashboardData.stores.nova.weekly_quality.failed = nFai;
+          dashboardData.stores.nova.weekly_quality.pending = 0;
+          dashboardData.stores.nova.weekly_quality.pass_rate = parseFloat(((nPas / nTot) * 100).toFixed(2));
+          if (nSheetMatch) {
+            dashboardData.stores.nova.weekly_quality.sheet_name = nSheetMatch[1].trim();
+            dashboardData.stores.nova.weekly_quality.sheet_url = nSheetMatch[2].trim();
+          }
+
+          console.log(`[AutoAlign] 质检周检动态对齐成功: ${bDateRange} ｜ 贝诺美: ${bPas}/${bTot}, 诺瓦: ${nPas}/${nTot}`);
+        }
+      }
+    } catch (e) {
+      console.warn('[AutoAlign] 解析周检 qwk.json 失败:', e.message);
+    }
+  }
+
   return true;
 }
 
@@ -261,37 +508,87 @@ function alignCronJobsData(dashboardData) {
       ];
     }
 
-    // 14点广告快照
+    // 14点广告快照 (今日 14:00 已跑完)
     if (job.id === 'cron-1790664501099-3vqm6864') {
-      job.last_run = '2026-10-15 14:04:24';
-      job.next_run = '2026-10-16 14:00:00';
-      job.status = '监控中';
+      job.last_run = '2026-10-16 14:00:02';
+      job.next_run = '2026-10-17 14:00:00';
+      job.status = '已完成';
+      job.sheets = [
+        {
+          store: '贝诺美',
+          name: '贝诺美·直通车消耗与转化统计（2026-10-15）',
+          url: 'https://alidocs.dingtalk.com/i/nodes/Qnp9zOoBVBMQyzdaFlKwYOGRW1DK0g6l'
+        },
+        {
+          store: '诺瓦',
+          name: '诺瓦·直通车消耗与转化统计（2026-10-15）',
+          url: 'https://alidocs.dingtalk.com/i/nodes/6LeBq413JAg2OGdZiqgkPqyLWDOnGvpb'
+        }
+      ];
     }
 
-    // 14:30风险监控
+    // 14:30风险监控 (今日 14:30 已跑完)
     if (job.id === 'cron-1791350923907-1ap13va2') {
-      job.last_run = '2026-10-15 14:34:48';
-      job.next_run = '2026-10-16 14:30:00';
-      job.status = '监控中';
+      job.last_run = '2026-10-16 14:30:01';
+      job.next_run = '2026-10-17 14:30:00';
+      job.status = '已完成';
+      job.sheets = [];
     }
 
-    // 15点询盘统计
+    // 15点询盘统计 (今日 15:00 已跑完)
     if (job.id === 'cron-1789958330109-iqleqsux') {
-      job.last_run = '2026-10-15 15:11:18';
-      job.next_run = '2026-10-16 15:00:00';
-      job.status = '监控中';
+      job.last_run = '2026-10-16 15:00:02';
+      job.next_run = '2026-10-17 15:00:00';
+      job.status = '已完成';
+      job.sheets = [
+        {
+          store: '贝诺美',
+          name: '贝诺美询盘分配总表',
+          url: 'https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz'
+        },
+        {
+          store: '诺瓦',
+          name: '诺瓦询盘分配总表',
+          url: 'https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk'
+        }
+      ];
     }
 
-    // 16点询盘回复质检
+    // 16点询盘回复质检 (今日 16:00 轮已完成)
     if (job.id === 'cron-1791515533183-eg9uj0bw') {
-      job.last_run = '2026-10-15 16:11:51';
-      job.next_run = '2026-10-16 16:00:00';
-      job.status = '监控中';
+      job.last_run = '2026-10-16 16:24:07';
+      job.next_run = '2026-10-17 16:00:00';
+      job.status = '已完成';
+      job.sheets = [
+        {
+          store: '贝诺美',
+          name: '贝诺美询盘回复质量检查（10.15·16时）',
+          url: 'https://alidocs.dingtalk.com/i/nodes/14lgGw3P8vNPwloBunydXBg085daZ90D'
+        },
+        {
+          store: '诺瓦',
+          name: '诺瓦询盘回复质量检查（10.15·16时）',
+          url: 'https://alidocs.dingtalk.com/i/nodes/vy20BglGWOR0GOpwcDMl6xX08A7depqY'
+        }
+      ];
+    }
+
+    // 周检 (周一待运行)
+    if (job.id === 'cron-1791524373299-9893ods0') {
+      job.last_run = '2026-10-12 16:30:00';
+      job.next_run = '2026-10-19 16:30:00';
+      job.status = '待运行';
     }
   });
 
   console.log('[AutoAlign] 8 大定时任务的真实执行自然日与时间已全部对齐');
 }
+
+// ============ 看板同步完成通知：已于 2026-10-16 按用户要求整体移除 ============
+// 用户原话：「最新的预览卡片发送时，还带了两条文字信息，我不想要这两条文字信息了，
+//   只发送链接预览卡片就可以」。看板链接改由 cron 侧的「带预览 link 卡片」单独发送，
+//   → agent-core/skills/automation/cron-notify-with-preview-link/scripts/send_dashboard_link.js
+// 本脚本自此不发送任何钉钉消息（同时移除了此处明文存放的 webhook token，避免公开仓库泄露）。
 
 // 4. 执行全流程对齐与自动构建
 function main() {
@@ -311,6 +608,9 @@ function main() {
   fs.writeFileSync(DASHBOARD_DATA_PATH, JSON.stringify(data, null, 2), 'utf-8');
   console.log(`[AutoAlign] 数据底座已刷新，同步时间: ${data.last_synced_at}`);
 
+  // 看板是否成功同步（决定是否发送看板同步通知；未成功则不发，避免谎报「已同步更新」）
+  let dashboardSynced = false;
+
   // 触发自动编译 HTML
   if (fs.existsSync(BUILD_SCRIPT_PATH)) {
     console.log('[AutoAlign] 触发看板 HTML 重新构建...');
@@ -326,24 +626,61 @@ function main() {
       }
 
       // 自动 Git 提交并推送至 GitHub 远程仓库
+      // 说明：add / commit / push 三段各自独立捕获，避免「commit 报 nothing to commit 导致 push 被整体跳过」；
+      //       同步成功的判据 = push 成功 **或** 本地 HEAD 与 origin/main 一致（不能用 nothing to commit 代替，
+      //       否则上一轮推送失败残留的本地领先提交会被误判为「已同步」而发出假通知）。
+      console.log('[AutoAlign] 正在自动同步并推送至 GitHub 仓库...');
       try {
-        console.log('[AutoAlign] 正在自动同步并推送至 GitHub 仓库...');
         execSync('git add index.html dashboard.html dashboard_data.json', { cwd: WORKSPACE_DIR });
+      } catch (addErr) {
+        console.warn('[AutoAlign] git add 提示:', addErr.message);
+      }
+
+      try {
         execSync('git commit -m "auto: 定时任务自动同步最新数据并更新线上看板"', { cwd: WORKSPACE_DIR });
+        console.log('[AutoAlign] 已生成本地提交');
+      } catch (commitErr) {
+        const cmsg = (commitErr.stdout ? commitErr.stdout.toString() : '') + (commitErr.stderr ? commitErr.stderr.toString() : '') + (commitErr.message || '');
+        if (cmsg.includes('nothing to commit')) {
+          console.log('[AutoAlign] 无新变更需要提交');
+        } else {
+          console.warn('[AutoAlign] git commit 提示:', commitErr.message);
+        }
+      }
+
+      try {
         execSync('git push origin main', { cwd: WORKSPACE_DIR });
         console.log('[AutoAlign] 🚀 GitHub 仓库推送成功，线上 GitHub Pages 将在 30 秒内全自动生效！');
-      } catch (gitErr) {
-        const msg = (gitErr.stdout ? gitErr.stdout.toString() : '') + (gitErr.stderr ? gitErr.stderr.toString() : '');
-        if (msg.includes('nothing to commit') || (gitErr.message && gitErr.message.includes('nothing to commit'))) {
-          console.log('[AutoAlign] 数据与上一版一致，无需重复提交');
-        } else {
-          console.warn('[AutoAlign] Git 推送提示:', gitErr.message);
+        dashboardSynced = true;
+      } catch (pushErr) {
+        console.warn('[AutoAlign] Git 推送失败:', pushErr.message);
+      }
+
+      // 兜底判定：本地与远端一致即视为已同步
+      if (!dashboardSynced) {
+        try {
+          const localHead = execSync('git rev-parse HEAD', { cwd: WORKSPACE_DIR, encoding: 'utf-8' }).trim();
+          const remoteHead = execSync('git rev-parse origin/main', { cwd: WORKSPACE_DIR, encoding: 'utf-8' }).trim();
+          if (localHead && localHead === remoteHead) {
+            console.log('[AutoAlign] 本地 HEAD 与 origin/main 一致，看板线上版本已是最新');
+            dashboardSynced = true;
+          } else {
+            console.warn('[AutoAlign] 本地 HEAD 领先 origin/main，推送未成功 → 判定看板未同步');
+          }
+        } catch (cmpErr) {
+          console.warn('[AutoAlign] 无法比对远端版本:', cmpErr.message);
         }
       }
 
       console.log('[AutoAlign] 🎉 看板全自动对齐与重新构建完成！');
+
+      // 看板同步通知已按用户要求移除（2026-10-16）；本脚本不再发送任何钉钉消息。
+      console.log(dashboardSynced
+        ? '[AutoAlign] 看板已同步（钉钉通知由 cron 的带预览链接卡片负责）'
+        : '[AutoAlign] 看板未成功同步（Git 推送失败）→ 本轮卡片需带 --note 说明');
     } catch (e) {
       console.error('[AutoAlign] 构建看板 HTML 失败:', e.message);
+      console.warn('[AutoAlign] 看板未成功构建，跳过看板同步通知');
     }
   }
 }

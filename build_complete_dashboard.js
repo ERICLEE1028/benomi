@@ -276,6 +276,8 @@ const htmlContent = `<!DOCTYPE html>
       font-size: 11px;
       font-weight: 600;
     }
+    .alert-done { background: #ECFDF5; color: #059669; border: 1px solid #A7F3D0; }
+    .alert-pending { background: #FEF3C7; color: #D97706; border: 1px solid #FDE68A; }
     .alert-normal { background: #ECFDF5; color: #059669; }
     .alert-danger { background: #FEF2F2; color: #DC2626; }
 
@@ -432,12 +434,12 @@ const htmlContent = `<!DOCTYPE html>
         <div class="stat-box">
           <div class="stat-label">贝诺美直通车可用余额</div>
           <div class="stat-value" style="color: #2563EB;">¥${data.stores.benomi.risk.balance.toFixed(2)}</div>
-          <div class="stat-desc" style="color: #059669;">● 充裕 (安全线 ¥1000)</div>
+          <div class="stat-desc" style="color: #059669;">● 充裕 ｜ ${data.stores.benomi.risk.balance_source || '平台实时同步'}</div>
         </div>
         <div class="stat-box">
           <div class="stat-label">诺瓦直通车可用余额</div>
           <div class="stat-value" style="color: #7C3AED;">¥${data.stores.nova.risk.balance.toFixed(2)}</div>
-          <div class="stat-desc" style="color: #059669;">● 充裕 (安全线 ¥1000)</div>
+          <div class="stat-desc" style="color: #059669;">● 充裕 ｜ ${data.stores.nova.risk.balance_source || '平台实时同步'}</div>
         </div>
         <div class="stat-box">
           <div class="stat-label">贝诺美去重商机 (cvr3)</div>
@@ -507,7 +509,7 @@ const htmlContent = `<!DOCTYPE html>
           <div style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">平台风控与资金 (含商品雷达补充项)</div>
           <div class="detail-list">
             <div class="detail-item"><span class="detail-title">商品雷达待整改</span><span class="detail-value" style="color: #059669;">${data.stores.benomi.risk.product_radar}</span></div>
-            <div class="detail-item"><span class="detail-title">直通车当前可用余额</span><span class="detail-value">¥${data.stores.benomi.risk.balance.toFixed(2)}</span></div>
+            <div class="detail-item"><span class="detail-title">直通车当前可用余额</span><span class="detail-value" style="font-weight: 700; color: #2563EB;">¥${data.stores.benomi.risk.balance.toFixed(2)} (${data.stores.benomi.risk.balance_source || '实时同步'})</span></div>
             <div class="detail-item"><span class="detail-title">RFQ 普通报价权益</span><span class="detail-value" style="color: #059669; font-weight: 600;">${data.stores.benomi.risk.rfq_quota} 条剩余 (${data.stores.benomi.risk.rfq_used_detail})</span></div>
             <div class="detail-item"><span class="detail-title">最新质检日检 (${data.stores.benomi.daily_quality.target_date})</span><span class="detail-value" style="color: #059669;">${data.stores.benomi.daily_quality.passed}/${data.stores.benomi.daily_quality.total_checked} 合格 (${data.stores.benomi.daily_quality.pass_rate}%)</span></div>
             <div class="detail-item"><span class="detail-title">最新日检在线表</span><span class="detail-value"><a class="sheet-link-chip" href="${data.stores.benomi.daily_quality.sheet_url}" target="_blank">📊 [贝诺美] ${data.stores.benomi.daily_quality.target_date}日检表 ↗</a></span></div>
@@ -635,7 +637,7 @@ const htmlContent = `<!DOCTYPE html>
           <div style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">平台风控与资金 (含商品雷达补充项)</div>
           <div class="detail-list">
             <div class="detail-item"><span class="detail-title">商品雷达待整改</span><span class="detail-value" style="color: #059669;">${data.stores.nova.risk.product_radar}</span></div>
-            <div class="detail-item"><span class="detail-title">直通车当前可用余额</span><span class="detail-value">¥${data.stores.nova.risk.balance.toFixed(2)}</span></div>
+            <div class="detail-item"><span class="detail-title">直通车当前可用余额</span><span class="detail-value" style="font-weight: 700; color: #7C3AED;">¥${data.stores.nova.risk.balance.toFixed(2)} (${data.stores.nova.risk.balance_source || '实时同步'})</span></div>
             <div class="detail-item"><span class="detail-title">可用报价权益 (直读真实)</span><span class="detail-value" style="color: #DC2626; font-weight: 700;">${data.stores.nova.risk.rfq_quota} 条剩余 (${data.stores.nova.risk.rfq_used_detail})</span></div>
             <div class="detail-item"><span class="detail-title">最新质检日检 (${data.stores.nova.daily_quality.target_date})</span><span class="detail-value" style="color: #059669;">${data.stores.nova.daily_quality.passed}/${data.stores.nova.daily_quality.total_checked} 合格 (${data.stores.nova.daily_quality.pass_rate}%)</span></div>
             <div class="detail-item"><span class="detail-title">最新日检在线表</span><span class="detail-value"><a class="sheet-link-chip" href="${data.stores.nova.daily_quality.sheet_url}" target="_blank">📊 [诺瓦] ${data.stores.nova.daily_quality.target_date}日检表 ↗</a></span></div>
@@ -760,7 +762,7 @@ const htmlContent = `<!DOCTYPE html>
               <tr>
                 <td><strong>${job.name}</strong></td>
                 <td><span class="cron-pill">${job.schedule}</span></td>
-                <td><span class="alert-pill alert-normal">${job.status}</span></td>
+                <td>${job.status === '已完成' ? '<span class="alert-pill alert-done">已完成</span>' : '<span class="alert-pill alert-pending">待运行</span>'}</td>
                 <td style="font-size: 12px; color: var(--text-secondary);">${job.last_run}</td>
                 <td>
                   ${job.sheets && job.sheets.length > 0 ? job.sheets.map(s => `
