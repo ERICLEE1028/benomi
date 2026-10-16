@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/16 14:01:41",
+  "last_synced_at": "2026/10/16 14:05:05",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -23,18 +23,18 @@
       "node_id": "YQBnd5ExVErqam47T602eEwnJyeZqMmz",
       "base_sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz",
       "ads": {
-        "latest_round": "09:00 轮 (PT 2026-10-15 真实数据)",
-        "spend": 820.24,
+        "latest_round": "14:00 轮 (PT 2026-10-15 真实数据)",
+        "spend": 831.36,
         "active_campaigns": 2,
         "paused_excluded": 1,
-        "cvr3_leads": 5,
+        "cvr3_leads": 6,
         "top3_products": [
           "62891048210",
           "62893450912",
           "62879012345"
         ],
         "sheet_name": "贝诺美 · 直通车消耗与转化统计（2026-10-14）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/lyQod3RxJKaMQmjyTYx3kLMlWkb4Mw9r"
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/Qnp9zOoBVBMQyzdaFlKwYOGRW1DK0g6l"
       },
       "risk": {
         "latest_round": "10:00 轮",
@@ -230,18 +230,18 @@
       "node_id": "ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk",
       "base_sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk",
       "ads": {
-        "latest_round": "09:00 轮 (PT 2026-10-15 真实数据)",
+        "latest_round": "14:00 轮 (PT 2026-10-15 真实数据)",
         "spend": 509.91,
         "active_campaigns": 1,
         "paused_excluded": 0,
-        "cvr3_leads": 3,
+        "cvr3_leads": 5,
         "top3_products": [
           "71029384756",
           "71029384757",
           "71029384758"
         ],
         "sheet_name": "诺瓦 · 直通车消耗与转化统计（2026-10-14）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/oP0MALyR8kYwn9oxSMPvLxvkV3bzYmDO"
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/6LeBq413JAg2OGdZiqgkPqyLWDOnGvpb"
       },
       "risk": {
         "latest_round": "10:00 轮",
