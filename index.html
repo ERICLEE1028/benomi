@@ -289,7 +289,7 @@
       <p>全部数据 100% 对齐已完成定时任务 ｜ 14:00 终态转化 ｜ 14:30 风险余额 ｜ 周检业务员字段严格映射</p>
     </div>
     <div class="header-meta" id="headerMeta">
-      <span class="badge badge-neutral">🕒 数据底座: 2026/10/16 15:18:32</span>
+      <span class="badge badge-neutral">🕒 数据底座: 2026/10/16 15:25:27</span>
       <span class="badge" id="autoSyncBadge" style="background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE;">🟢 半点主动获取: 开启中</span>
       <button onclick="manualSyncNow()" style="background:#2563EB;color:#fff;border:none;border-radius:12px;padding:3px 10px;font-size:11px;font-weight:600;cursor:pointer;">🔄 立即检查</button>
       <span class="badge badge-ok">● 贝诺美: 9236 正常</span>
@@ -348,7 +348,7 @@
             </div>
             <div class="detail-item">
               <span class="detail-title">直通车当前可用现金</span>
-              <span class="detail-value" style="color: #059669;">¥5964.08 (扣除今日消耗后双源一致)</span>
+              <span class="detail-value" style="color: #059669;">¥5954.91 (扣除今日消耗后双源一致)</span>
             </div>
             <div class="detail-item">
               <span class="detail-title">风险监控交付形式</span>
@@ -416,8 +416,8 @@
       <div class="grid-4">
         <div class="stat-box">
           <div class="stat-label">贝诺美直通车可用余额</div>
-          <div class="stat-value" style="color: #2563EB;">¥5964.08</div>
-          <div class="stat-desc" style="color: #059669;">● 充裕 ｜ 平台实时同步</div>
+          <div class="stat-value" style="color: #2563EB;">¥5954.91</div>
+          <div class="stat-desc" style="color: #059669;">● 充裕 ｜ 风险监控 (14:30 轮)</div>
         </div>
         <div class="stat-box">
           <div class="stat-label">诺瓦直通车可用余额</div>
@@ -492,7 +492,7 @@
           <div style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">平台风控与资金 (含商品雷达补充项)</div>
           <div class="detail-list">
             <div class="detail-item"><span class="detail-title">商品雷达待整改</span><span class="detail-value" style="color: #059669;">0 个 (暂无待整改任务)</span></div>
-            <div class="detail-item"><span class="detail-title">直通车当前可用余额</span><span class="detail-value" style="font-weight: 700; color: #2563EB;">¥5964.08 (实时同步)</span></div>
+            <div class="detail-item"><span class="detail-title">直通车当前可用余额</span><span class="detail-value" style="font-weight: 700; color: #2563EB;">¥5954.91 (风险监控 (14:30 轮))</span></div>
             <div class="detail-item"><span class="detail-title">RFQ 普通报价权益</span><span class="detail-value" style="color: #059669; font-weight: 600;">10 条剩余 (本月已用 1 条（按业务员：Lily Qie 1 条）)</span></div>
             <div class="detail-item"><span class="detail-title">最新质检日检 (2026-10-15)</span><span class="detail-value" style="color: #059669;">5/6 合格 (83.33%)</span></div>
             <div class="detail-item"><span class="detail-title">最新日检在线表</span><span class="detail-value"><a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/MNDoBb60VLmyGONxFn0lXYmDJlemrZQ3" target="_blank">📊 [贝诺美] 2026-10-15日检表 ↗</a></span></div>
@@ -1062,7 +1062,7 @@
   }
 
   // ================= 每到半点主动获取与自动更新脚本 (与主动推送双轨并行) =================
-  let currentSyncedAt = "2026/10/16 15:18:32";
+  let currentSyncedAt = "2026/10/16 15:25:27";
 
   // 计算距离下一个半点（XX:00 或 XX:30，留 10 秒缓冲以便后端任务完成生成）
   function getNextHalfHourMs() {
