@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/16 13:37:02",
+  "last_synced_at": "2026/10/16 13:44:04",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -94,6 +94,68 @@
             "track_count": 4,
             "gate_diff_sec": -1.2,
             "summary": "买家咨询激光脱毛仪批发价与MOQ。首响迅速并发送规格表。买家已读卖家最后一条消息（10-14 10:45）。"
+          }
+        ],
+        "samples": [
+          {
+            "inquiry_time": "2026/10/15 02:09:40",
+            "buyer": "Julio Nutri",
+            "sales": "Daniel Wang",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "4h 55m (夜间放宽)",
+            "track_count": 11,
+            "summary": "咨询健康扫描人体分析仪，用于诊所，报价 1499 USD 门到门并商定付款方式。买家未读最后一条。"
+          },
+          {
+            "inquiry_time": "2026/10/15 04:45:06",
+            "buyer": "Denada Shimaj",
+            "sales": "Yuli Guo",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "1h 22m (夜间放宽)",
+            "track_count": 4,
+            "summary": "询价氢氧清洁美容溶液 3 套，介绍 AS1/SA2/AO3 功效并询问需求。买家未读最后一条。"
+          },
+          {
+            "inquiry_time": "2026/10/15 05:07:32",
+            "buyer": "Piedad PintoMulas",
+            "sales": "Daniel Wang",
+            "verdict": "不合格",
+            "reason": "前 3 次人工追踪未图文并茂 (仅1次纯文字回复)",
+            "resp_time": "1h 58m (夜间放宽)",
+            "track_count": 1,
+            "summary": "冷冻溶脂机询盘，卖家仅回复「同事稍后联系」，会话再无往来。买家未读最后一条。"
+          },
+          {
+            "inquiry_time": "2026/10/15 10:36:41",
+            "buyer": "Klea Skendo",
+            "sales": "Celin Wang",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "4 分钟",
+            "track_count": 4,
+            "summary": "询价 755/808/1064nm 脱毛激光机，发送配置明细与单台成本并询问采购量。买家未读最后一条。"
+          },
+          {
+            "inquiry_time": "2026/10/15 11:31:20",
+            "buyer": "Natalia Perez",
+            "sales": "Harper Mu",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "1 分钟 (原始42秒)",
+            "track_count": 7,
+            "summary": "家用电磁塑形机询盘，西语介绍双手柄与RF选配，提供DHL与海运双方案。买家未读最后一条。"
+          },
+          {
+            "inquiry_time": "2026/10/15 13:39:15",
+            "buyer": "David Córdova",
+            "sales": "Harper Mu",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "1 分钟 (原始33秒)",
+            "track_count": 5,
+            "summary": "询价 2/4 手柄 EMS 塑形机想试 4 台，提供参数报价与发往货代说明。买家未读最后一条。"
           }
         ]
       },
@@ -216,7 +278,29 @@
         "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
         "sheet_name": "诺瓦询盘回复质量检查（10.15·11时）",
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ydxXB52LJq90wloBF2lYlPGNJqjMp697",
-        "records": []
+        "records": [],
+        "samples": [
+          {
+            "inquiry_time": "2026/10/15 05:00:10",
+            "buyer": "Maria Cedeno",
+            "sales": "Mark Zhang",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "3h 23m (夜间放宽)",
+            "track_count": 2,
+            "summary": "咨询 30-50kW 拖车式柴油发电机组，介绍工厂与认证并发图，询问 KVA 与目的国。买家未读最后一条。"
+          },
+          {
+            "inquiry_time": "2026/10/15 11:29:58",
+            "buyer": "Teboho Seseli",
+            "sales": "Hale He",
+            "verdict": "不合格",
+            "reason": "前 3 次人工追踪未图文并茂 (图文间隔 11m02s 跨出10分钟分桶)",
+            "resp_time": "4 分钟",
+            "track_count": 3,
+            "summary": "买家求购二手 60kva 发电机，回复只做全新并报价 8,000 USD。买家未读最后一条。"
+          }
+        ]
       },
       "weekly_quality": {
         "date_range": "2026-10-04 至 2026-10-10 (自然周 7 天)",
