@@ -287,7 +287,7 @@
       <p>全部数据 100% 对齐已完成定时任务 ｜ 14:00 终态转化 ｜ 14:30 风险余额 ｜ 周检业务员字段严格映射</p>
     </div>
     <div class="header-meta" id="headerMeta">
-      <span class="badge badge-neutral">🕒 最新同步: 2026/10/16 13:44:04</span>
+      <span class="badge badge-neutral">🕒 最新同步: 2026/10/16 13:49:28</span>
       <span class="badge badge-ok">● 贝诺美中继: 9236 正常</span>
       <span class="badge badge-ok">● 诺瓦 CDP: 9222 正常</span>
       <span class="badge badge-ok">● 诺瓦 RFQ: 11 条 (正常)</span>
@@ -1056,6 +1056,56 @@
     const target = document.getElementById('view-' + tabId);
     if (target) target.classList.add('active');
   }
+
+  // ================= 整点主动轮询与自动更新展示脚本 =================
+  let currentSyncedAt = "2026/10/16 13:49:28";
+
+  function scheduleNextHourSync() {
+    const now = new Date();
+    // 计算距离下一个整点（带 15 秒缓冲延迟，等待后端对齐推送就绪）的毫秒数
+    const nextHour = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours() + 1, 0, 15);
+    const msUntilNextHour = nextHour.getTime() - now.getTime();
+
+    console.log('[AutoSync] 距离下次整点主动获取还有 ' + Math.round(msUntilNextHour / 1000 / 60) + ' 分钟');
+
+    setTimeout(() => {
+      fetchLatestData();
+      scheduleNextHourSync();
+    }, msUntilNextHour);
+  }
+
+  // 静默获取最新数据 JSON
+  function fetchLatestData() {
+    console.log('[AutoSync] 触发整点主动获取最新数据...');
+    fetch('dashboard_data.json?t=' + Date.now(), { cache: 'no-cache' })
+      .then(res => res.json())
+      .then(newData => {
+        if (newData && newData.last_synced_at !== currentSyncedAt) {
+          console.log('[AutoSync] 检测到新巡检结果，自动无感更新页面...');
+          currentSyncedAt = newData.last_synced_at;
+          showSyncToast('✨ 整点主动同步成功：看板数据已自动刷新为最新巡检结果');
+          setTimeout(() => { window.location.reload(); }, 1200);
+        } else {
+          console.log('[AutoSync] 当前已是最新数据，无需更新');
+        }
+      })
+      .catch(err => console.warn('[AutoSync] 整点主动获取跳过:', err.message));
+  }
+
+  // 轻量提示条
+  function showSyncToast(msg) {
+    const toast = document.createElement('div');
+    toast.style.cssText = 'position:fixed;top:16px;right:16px;background:#10B981;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:600;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:9999;transition:all 0.3s ease;';
+    toast.innerText = msg;
+    document.body.appendChild(toast);
+    setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 400); }, 3000);
+  }
+
+  // 页面就绪后启动整点定时器 + 兜底 10 分钟心跳
+  window.addEventListener('DOMContentLoaded', () => {
+    scheduleNextHourSync();
+    setInterval(fetchLatestData, 10 * 60 * 1000);
+  });
 </script>
 
 </body>
