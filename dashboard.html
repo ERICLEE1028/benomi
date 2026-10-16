@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>双平台定时任务监控与巡检看板 (最新全量对齐版)</title>
+  <style>
+    :root {
+      --bg-primary: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-subtle: #F1F5F9;
+      --border-color: #E2E8F0;
+      --text-main: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #94A3B8;
+      
+      --brand-blue: #2563EB;
+      --brand-blue-soft: #EFF6FF;
+      --benomi-accent: #2563EB;
+      --benomi-bg: #EFF6FF;
+      --nova-accent: #7C3AED;
+      --nova-bg: #F5F3FF;
+      
+      --status-success-bg: #ECFDF5;
+      --status-success-text: #065F46;
+      --status-success-border: #A7F3D0;
+      
+      --status-warning-bg: #FFFBEB;
+      --status-warning-text: #92400E;
+      --status-warning-border: #FDE68A;
+
+      --status-error-bg: #FEF2F2;
+      --status-error-text: #991B1B;
+      --status-error-border: #FECACA;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      padding: 24px;
+      line-height: 1.5;
+    }
+
+    .container { max-width: 1280px; margin: 0 auto; }
+
+    /* 顶部导航与状态栏 */
+    .header {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .header-title h1 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .header-title p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .badge-ok {
+      background: var(--status-success-bg);
+      color: var(--status-success-text);
+      border: 1px solid var(--status-success-border);
+    }
+    .badge-danger {
+      background: var(--status-error-bg);
+      color: var(--status-error-text);
+      border: 1px solid var(--status-error-border);
+    }
+    .badge-neutral {
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+    }
+
+    /* 选项卡导航 */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+      overflow-x: auto;
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .tab-btn:hover { background: var(--bg-subtle); color: var(--text-main); }
+    .tab-btn.active {
+      background: var(--brand-blue);
+      color: #FFFFFF;
+      box-shadow: 0 2px 4px rgba(37,99,235,0.2);
+    }
+
+    .view-content { display: none; }
+    .view-content.active { display: block; }
+
+    /* 通用卡片容器 */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 12px;
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+    .tag-benomi { background: var(--benomi-bg); color: var(--benomi-accent); border: 1px solid #BFDBFE; }
+    .tag-nova { background: var(--nova-bg); color: var(--nova-accent); border: 1px solid #DDD6FE; }
+
+    /* 网格布局 */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .stat-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .stat-label { font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; }
+    .stat-value { font-size: 20px; font-weight: 700; color: var(--text-main); }
+    .stat-desc { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+
+    /* 明细列表 */
+    .detail-list { display: flex; flex-direction: column; gap: 8px; }
+    .detail-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      padding: 6px 0;
+      border-bottom: 1px dashed var(--border-color);
+    }
+    .detail-item:last-child { border-bottom: none; }
+    .detail-title { color: var(--text-secondary); }
+    .detail-value { font-weight: 600; color: var(--text-main); text-align: right; }
+
+    /* 表格 */
+    .table-container {
+      overflow-x: auto;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin-top: 12px;
+      background: #FFFFFF;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      text-align: left;
+    }
+    th {
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+      font-weight: 600;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border-color);
+      white-space: nowrap;
+    }
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-main);
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #F8FAFC; }
+
+    /* 不合格整行标红 */
+    tr.row-fail td {
+      color: #DC2626 !important;
+      background-color: #FEF2F2 !important;
+      font-weight: 500;
+    }
+
+    .sheet-link-chip {
+      display: inline-block;
+      margin: 2px 4px 2px 0;
+      padding: 2px 8px;
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border: 1px solid #BFDBFE;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 500;
+    }
+    .sheet-link-chip:hover { background: #DBEAFE; }
+
+    .alert-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .alert-normal { background: #ECFDF5; color: #059669; }
+    .alert-danger { background: #FEF2F2; color: #DC2626; }
+
+    .cron-pill {
+      font-size: 11px;
+      font-family: monospace;
+      padding: 2px 6px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- 顶部状态栏 -->
+  <div class="header">
+    <div class="header-title">
+      <h1>📊 阿里双平台自动化巡检与监控看板</h1>
+      <p>全部数据 100% 对齐已完成定时任务 ｜ 14:00 终态转化 ｜ 14:30 风险余额 ｜ 周检业务员字段严格映射</p>
+    </div>
+    <div class="header-meta" id="headerMeta">
+      <span class="badge badge-neutral">🕒 最新同步: 2026/10/16 11:14:01</span>
+      <span class="badge badge-ok">● 贝诺美中继: 9236 正常</span>
+      <span class="badge badge-ok">● 诺瓦 CDP: 9222 正常</span>
+      <span class="badge badge-danger">🚨 诺瓦 RFQ 仅剩 3 条 (极度紧缺)</span>
+    </div>
+  </div>
+
+  <!-- 选项卡导航 -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('overview')">总览</button>
+    <button class="tab-btn" onclick="switchTab('benomi')">贝诺美专属</button>
+    <button class="tab-btn" onclick="switchTab('nova')">诺瓦专属</button>
+    <button class="tab-btn" onclick="switchTab('cron')">定时任务与表格</button>
+  </div>
+
+  <!-- 视图 1: 全局总览 -->
+  <div id="view-overview" class="view-content active">
+    <!-- 最上方两个独立的风险框 -->
+    <div style="margin-bottom: 20px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <h2 style="font-size: 16px; font-weight: 700; color: #0F172A;">
+          🚨 平台风险监控与履约预警 (14:30 轮最新真实数据 · 两店独立分框)
+        </h2>
+        <span style="font-size: 12px; color: var(--text-secondary);">巡检轮次: 14:30 真实扫描完成 (含商品雷达补充项)</span>
+      </div>
+
+      <div class="grid-2">
+        <!-- 贝诺美风险框 -->
+        <div class="card" style="border-top: 4px solid #2563EB; margin-bottom: 0;">
+          <div class="card-header" style="margin-bottom: 10px; padding-bottom: 8px;">
+            <div class="card-title">
+              <span style="color: #2563EB;">🔵 贝诺美 (benomibeauty) · 平台风险监控</span>
+              <span class="card-tag tag-benomi">中继 9236</span>
+            </div>
+            <span class="alert-pill alert-normal">风险状态: 正常</span>
+          </div>
+          <div class="detail-list">
+            <div class="detail-item">
+              <span class="detail-title">平台严重违规</span>
+              <span class="detail-value" style="color: #059669;">0 条未读通知 (安全)</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-title">待发货履约管控</span>
+              <span class="detail-value" style="color: #059669;">0 逾期 / 0 临期 (共 6 单，最近 14.02 天)</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-title">商品雷达待整改 (补充项)</span>
+              <span class="detail-value" style="color: #059669; font-weight: 600;">0 个 (暂无待整改任务)</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-title">RFQ 普通报价权益</span>
+              <span class="detail-value" style="color: #059669; font-weight: 700;">
+                9 条剩余 (到期: 2026-10-31 ｜ 本月已用 1 条（按业务员：Lily Qie 1 条）)
+              </span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-title">直通车当前可用现金</span>
+              <span class="detail-value" style="color: #059669;">¥6787.30 (扣除今日消耗后双源一致)</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-title">风险监控交付形式</span>
+              <span class="detail-value" style="color: #2563EB;">
+                🔔 Accio 机器人 Webhook 专属群推送 (@李冰)
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 诺瓦风险框 -->
+        <div class="card" style="border-top: 4px solid #DC2626; margin-bottom: 0;">
+          <div class="card-header" style="margin-bottom: 10px; padding-bottom: 8px;">
+            <div class="card-title">
+              <span style="color: #7C3AED;">🟣 诺瓦 (jnnova) · 平台风险监控</span>
+              <span class="card-tag tag-nova">CDP 9222</span>
+            </div>
+            <span class="alert-pill alert-danger">🚨 极度紧缺预警</span>
+          </div>
+          <div class="detail-list">
+            <div class="detail-item" style="background: #FEF2F2; padding: 6px 8px; border-radius: 4px;">
+              <span class="detail-title" style="color: #991B1B; font-weight: 700;">🚨 可用报价权益剩余</span>
+              <span class="detail-value" style="color: #DC2626; font-size: 13px; font-weight: 700;">
+                3 条剩余 (到期: 2026-10-31 ｜ 本月已用 9 条（按业务员：Mark Zhang 3 条、Hale He 3 条、IVA ZHANG 3 条）)
+              </span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-title">平台严重违规</span>
+              <span class="detail-value" style="color: #059669;">0 条未读通知 (安全)</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-title">待发货履约管控</span>
+              <span class="detail-value" style="color: #059669;">0 逾期 / 0 临期 (共 4 单，最近 40.06 天)</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-title">商品雷达待整改 (补充项)</span>
+              <span class="detail-value" style="color: #059669; font-weight: 600;">0 个 (暂无待整改任务)</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-title">直通车当前可用现金</span>
+              <span class="detail-value" style="color: #059669;">¥7237.15 (安全充裕)</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-title">风险监控交付形式</span>
+              <span class="detail-value" style="color: #7C3AED;">
+                🔔 Accio 机器人 Webhook 专属群推送 (@李冰)
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 下方汇聚余额与 14 点终态转化情况 -->
+    <div class="card" style="border-top: 4px solid #2563EB;">
+      <div class="card-header" style="margin-bottom: 12px; padding-bottom: 10px;">
+        <div class="card-title" style="color: #1E40AF; font-size: 16px;">
+          <span>💰 双店推广账户余额与 14:00 终态转化效果 (真实对齐)</span>
+        </div>
+        <span class="badge badge-ok">PT 10-14 完整归因 · cvr3 全站商机口径</span>
+      </div>
+
+      <div class="grid-4">
+        <div class="stat-box">
+          <div class="stat-label">贝诺美直通车可用余额</div>
+          <div class="stat-value" style="color: #2563EB;">¥6787.30</div>
+          <div class="stat-desc" style="color: #059669;">● 充裕 (安全线 ¥1000)</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">诺瓦直通车可用余额</div>
+          <div class="stat-value" style="color: #7C3AED;">¥7237.15</div>
+          <div class="stat-desc" style="color: #059669;">● 充裕 (安全线 ¥1000)</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">贝诺美去重商机 (cvr3)</div>
+          <div class="stat-value" style="color: #059669;">5 个</div>
+          <div class="stat-desc">14点终态耗资: ¥820.24</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">诺瓦去重商机 (cvr3)</div>
+          <div class="stat-value" style="color: #059669;">3 个</div>
+          <div class="stat-desc">14点终态耗资: ¥509.91</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: 8px; padding: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; border-bottom: 1px solid var(--border-color); padding-bottom: 6px;">
+            <strong style="color: #2563EB; font-size: 13px;">🔵 贝诺美 · 14:00 终态转化明细</strong>
+            <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/lyQod3RxJKaMQmjyTYx3kLMlWkb4Mw9r" target="_blank">📊 广告快照表 ↗</a>
+          </div>
+          <div class="detail-list">
+            <div class="detail-item"><span class="detail-title">在投在跑计划</span><span class="detail-value">2 个计划 (机器515 / 提量计划)</span></div>
+            <div class="detail-item"><span class="detail-title">去重商机转化明细</span><span class="detail-value" style="color: #059669;">机器515: 1个 ｜ 提量计划: 6个 (共 7 个)</span></div>
+            <div class="detail-item"><span class="detail-title">全天曝光与点击</span><span class="detail-value">3,277 曝光 ｜ 82 点击 (CTR 2.50%)</span></div>
+            <div class="detail-item"><span class="detail-title">昨日质检日检转化率</span><span class="detail-value" style="color: #059669;">100% (2/2 合格，闸门完备)</span></div>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: 8px; padding: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; border-bottom: 1px solid var(--border-color); padding-bottom: 6px;">
+            <strong style="color: #7C3AED; font-size: 13px;">🟣 诺瓦 · 14:00 终态转化明细</strong>
+            <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/oP0MALyR8kYwn9oxSMPvLxvkV3bzYmDO" target="_blank">📊 广告快照表 ↗</a>
+          </div>
+          <div class="detail-list">
+            <div class="detail-item"><span class="detail-title">在投在跑计划</span><span class="detail-value">1 个计划 (推店铺计划)</span></div>
+            <div class="detail-item"><span class="detail-title">去重商机转化明细</span><span class="detail-value" style="color: #059669;">推店铺计划: 1 个去重商机 (cvr3=1)</span></div>
+            <div class="detail-item"><span class="detail-title">全天曝光与点击</span><span class="detail-value">2,927 曝光 ｜ 58 点击 (CTR 1.98%)</span></div>
+            <div class="detail-item"><span class="detail-title">上周质检转化合格率</span><span class="detail-value" style="color: #059669;">57.14% (12/21 达标)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 视图 2: 贝诺美专属 (含周检真实业务员) -->
+  <div id="view-benomi" class="view-content">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span style="color: #2563EB;">🔵 贝诺美 (benomibeauty) · 专属日常巡检与周检大盘</span>
+          <span class="card-tag tag-benomi">美妆/个护平台</span>
+        </div>
+        <span class="badge badge-ok">通道: 默认 Chrome 中继通道 (9236)</span>
+      </div>
+
+      <h3 style="font-size: 14px; margin-bottom: 12px; color: var(--text-secondary);">📅 最新日常巡检快照</h3>
+      <div class="grid-2" style="margin-bottom: 20px;">
+        <div style="background: var(--bg-subtle); padding: 14px; border-radius: 8px;">
+          <div style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">广告与商机 (14:00 终态轮)</div>
+          <div class="detail-list">
+            <div class="detail-item"><span class="detail-title">终态消耗金额</span><span class="detail-value">¥820.24</span></div>
+            <div class="detail-item"><span class="detail-title">在投活跃计划</span><span class="detail-value">2 个</span></div>
+            <div class="detail-item"><span class="detail-title">全站商机量 (cvr3)</span><span class="detail-value" style="color: #059669;">5 个</span></div>
+            <div class="detail-item"><span class="detail-title">在线表格</span><span class="detail-value"><a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/lyQod3RxJKaMQmjyTYx3kLMlWkb4Mw9r" target="_blank">📊 [贝诺美] 广告快照表 ↗</a></span></div>
+          </div>
+        </div>
+        <div style="background: var(--bg-subtle); padding: 14px; border-radius: 8px;">
+          <div style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">平台风控与资金 (含商品雷达补充项)</div>
+          <div class="detail-list">
+            <div class="detail-item"><span class="detail-title">商品雷达待整改</span><span class="detail-value" style="color: #059669;">0 个 (暂无待整改任务)</span></div>
+            <div class="detail-item"><span class="detail-title">直通车当前可用余额</span><span class="detail-value">¥6787.30</span></div>
+            <div class="detail-item"><span class="detail-title">RFQ 普通报价权益</span><span class="detail-value" style="color: #059669; font-weight: 600;">9 条剩余 (本月已用 1 条（按业务员：Lily Qie 1 条）)</span></div>
+            <div class="detail-item"><span class="detail-title">昨日质检日检 (10-14)</span><span class="detail-value" style="color: #059669;">2/2 合格 (100%)</span></div>
+            <div class="detail-item"><span class="detail-title">昨日日检在线表</span><span class="detail-value"><a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/N7dx2rn0JbzAa9qmfbrjM5kGJMGjLRb3" target="_blank">📊 [贝诺美] 10.14日检表 ↗</a></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 周检独立分析专区 (真实业务员与买家) -->
+      <div style="border-top: 1px solid var(--border-color); padding-top: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <div>
+            <h3 style="font-size: 15px; font-weight: 700; color: #2563EB;">
+              📋 贝诺美 · 周检查独立分析专区 (2026-10-04 至 2026-10-10)
+            </h3>
+            <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">
+              业务员严格匹配阿里「负责人」列 ｜ 真实综合合格率: <strong>72.73%</strong> (16合格 / 5不合格 / 1未判定)
+            </div>
+          </div>
+          <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T65DymM5JyeZqMmz" target="_blank">📊 打开贝诺美周检在线表 ↗</a>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>询盘时间</th>
+                <th>买家名称</th>
+                <th>真实业务员 (负责人)</th>
+                <th>结论</th>
+                <th>不合格判定原因</th>
+                <th>首响耗时</th>
+                <th>48h追踪</th>
+                <th>会话内容总结与已读状态</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr class="row-fail">
+                  <td>2026-10-04 06:23:42</td>
+                  <td>Agustina Larruina</td>
+                  <td><strong>Miya Zhang</strong></td>
+                  <td>不合格</td>
+                  <td>48h内人工追踪不足3次(仅1次) + 图文并茂不达标</td>
+                  <td>18分钟</td>
+                  <td>1 次</td>
+                  <td>买家咨询脱毛仪批发及交期。首响虽快但48h内未持续跟进，前3次未发送图文。</td>
+                </tr>
+              
+                <tr class="row-fail">
+                  <td>2026-10-04 23:35:36</td>
+                  <td>PJ Salangsang</td>
+                  <td><strong>Jay Li</strong></td>
+                  <td>不合格</td>
+                  <td>S1人工首响超时 (分配23:35 -> 夜间顺延截止10:00，次日12:05才回复)</td>
+                  <td>12小时30分</td>
+                  <td>3 次</td>
+                  <td>买家咨询面部清洁仪配件。夜间顺延后次日中午回复超时。</td>
+                </tr>
+              
+                <tr class="row-fail">
+                  <td>2026-10-05 21:32:19</td>
+                  <td>BODY BEAUTY FACTORY Dimitrova Genka</td>
+                  <td><strong>Miya Zhang</strong></td>
+                  <td>不合格</td>
+                  <td>48h内人工追踪不足3次(仅1次) + 图文并茂不达标</td>
+                  <td>1分钟</td>
+                  <td>1 次</td>
+                  <td>买家索取美容仪器出厂价单。仅首发一次消息未继续追踪。</td>
+                </tr>
+              
+                <tr class="row-fail">
+                  <td>2026-10-05 22:09:25</td>
+                  <td>Maria Pabon</td>
+                  <td><strong>Daniel Wang</strong></td>
+                  <td>不合格</td>
+                  <td>S1人工首响超时 (分配22:09未达夜间窗口 -> 超过60分钟基准阈值)</td>
+                  <td>10小时10分</td>
+                  <td>5 次</td>
+                  <td>买家咨询射频抗衰仪器。首响严重超时。</td>
+                </tr>
+              
+                <tr class="row-fail">
+                  <td>2026-10-08 20:53:02</td>
+                  <td>Didi Ellouk</td>
+                  <td><strong>Celin Wang</strong></td>
+                  <td>不合格</td>
+                  <td>图文并茂不达标 (前3次人工追踪全为纯文本，未包含图片/视频)</td>
+                  <td>10分钟</td>
+                  <td>11 次</td>
+                  <td>买家咨询美白仪定制打标。沟通积极(11次)但前3次未发送图文产品资料。</td>
+                </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 视图 3: 诺瓦专属 (含周检真实业务员) -->
+  <div id="view-nova" class="view-content">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span style="color: #7C3AED;">🟣 诺瓦 (jnnova) · 专属日常巡检与周检大盘</span>
+          <span class="card-tag tag-nova">智能制造/激光设备</span>
+        </div>
+        <span class="badge badge-ok">通道: ChromeProfile2 CDP 直连 (9222)</span>
+      </div>
+
+      <h3 style="font-size: 14px; margin-bottom: 12px; color: var(--text-secondary);">📅 最新日常巡检快照</h3>
+      <div class="grid-2" style="margin-bottom: 20px;">
+        <div style="background: var(--bg-subtle); padding: 14px; border-radius: 8px;">
+          <div style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">广告与商机 (14:00 终态轮)</div>
+          <div class="detail-list">
+            <div class="detail-item"><span class="detail-title">终态消耗金额</span><span class="detail-value">¥509.91</span></div>
+            <div class="detail-item"><span class="detail-title">在投活跃计划</span><span class="detail-value">1 个</span></div>
+            <div class="detail-item"><span class="detail-title">全站商机量 (cvr3)</span><span class="detail-value" style="color: #059669;">3 个</span></div>
+            <div class="detail-item"><span class="detail-title">在线表格</span><span class="detail-value"><a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/oP0MALyR8kYwn9oxSMPvLxvkV3bzYmDO" target="_blank">📊 [诺瓦] 广告快照表 ↗</a></span></div>
+          </div>
+        </div>
+        <div style="background: var(--bg-subtle); padding: 14px; border-radius: 8px;">
+          <div style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">平台风控与资金 (含商品雷达补充项)</div>
+          <div class="detail-list">
+            <div class="detail-item"><span class="detail-title">商品雷达待整改</span><span class="detail-value" style="color: #059669;">0 个 (暂无待整改任务)</span></div>
+            <div class="detail-item"><span class="detail-title">直通车当前可用余额</span><span class="detail-value">¥7237.15</span></div>
+            <div class="detail-item"><span class="detail-title">可用报价权益 (直读真实)</span><span class="detail-value" style="color: #DC2626; font-weight: 700;">3 条剩余 (本月已用 9 条（按业务员：Mark Zhang 3 条、Hale He 3 条、IVA ZHANG 3 条）)</span></div>
+            <div class="detail-item"><span class="detail-title">昨日质检日检 (10-14)</span><span class="detail-value">0 条分配 (源表最新至10-13)</span></div>
+            <div class="detail-item"><span class="detail-title">昨日日检在线表</span><span class="detail-value"><a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/EpGBa2Lm8a2yev5aiRX3Ovo9WgN7R35y" target="_blank">📊 [诺瓦] 10.14日检表 ↗</a></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 周检独立分析专区 (真实业务员与买家) -->
+      <div style="border-top: 1px solid var(--border-color); padding-top: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <div>
+            <h3 style="font-size: 15px; font-weight: 700; color: #7C3AED;">
+              📋 诺瓦 · 周检查独立分析专区 (2026-10-04 至 2026-10-10)
+            </h3>
+            <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">
+              业务员严格匹配阿里「负责人」列 ｜ 真实综合合格率: <strong>57.14%</strong> (12合格 / 9不合格 / 0未判定)
+            </div>
+          </div>
+          <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/20eMKjyp81E4MNdLur5NnPja8xAZB1Gv" target="_blank">📊 打开诺瓦周检在线表 ↗</a>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>询盘时间</th>
+                <th>买家名称</th>
+                <th>真实业务员 (负责人)</th>
+                <th>结论</th>
+                <th>不合格判定原因</th>
+                <th>首响耗时</th>
+                <th>48h追踪</th>
+                <th>会话内容总结与已读状态</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr class="row-fail">
+                  <td>2026-10-04 23:07:32</td>
+                  <td>Danny ObiChi</td>
+                  <td><strong>Mark Zhang</strong></td>
+                  <td>不合格</td>
+                  <td>48h内人工追踪不足3次 (仅2次)</td>
+                  <td>1分钟</td>
+                  <td>2 次</td>
+                  <td>买家咨询激光打标机。首响应答迅速但48h内后续追踪不足。</td>
+                </tr>
+              
+                <tr class="row-fail">
+                  <td>2026-10-04 23:08:10</td>
+                  <td>Yormany Perez</td>
+                  <td><strong>IVA ZHANG</strong></td>
+                  <td>不合格</td>
+                  <td>图文并茂不达标 (前3次人工追踪全为纯文本)</td>
+                  <td>15分钟</td>
+                  <td>3 次</td>
+                  <td>买家询问便携清洗机报价。回复及时但未发送图文或视频资料。</td>
+                </tr>
+              
+                <tr class="row-fail">
+                  <td>2026-10-05 17:31:01</td>
+                  <td>Tristan Dimacali</td>
+                  <td><strong>IVA ZHANG</strong></td>
+                  <td>不合格</td>
+                  <td>48h内人工追踪不足3次(仅2次) + 图文并茂不达标</td>
+                  <td>1分钟</td>
+                  <td>2 次</td>
+                  <td>买家咨询激光设备参数。跟进仅2次且未发送图文资料。</td>
+                </tr>
+              
+                <tr class="row-fail">
+                  <td>2026-10-06 11:04:16</td>
+                  <td>Mareme Fall</td>
+                  <td><strong>IVA ZHANG</strong></td>
+                  <td>不合格</td>
+                  <td>48h内人工追踪不足3次(仅1次) + 图文并茂不达标</td>
+                  <td>1分钟</td>
+                  <td>1 次</td>
+                  <td>买家索取发电机组报价单。首发消息后未继续跟进。</td>
+                </tr>
+              
+                <tr class="row-fail">
+                  <td>2026-10-07 22:09:12</td>
+                  <td>eduardo rosales</td>
+                  <td><strong>Mark Zhang</strong></td>
+                  <td>不合格</td>
+                  <td>图文并茂不达标 (前3次人工追踪均为纯文字)</td>
+                  <td>1分钟</td>
+                  <td>5 次</td>
+                  <td>买家咨询手持焊机规格。多次文本沟通但前3次未达图文并茂要求。</td>
+                </tr>
+              
+                <tr class="row-fail">
+                  <td>2026-10-08 06:15:12</td>
+                  <td>Ted Corin Sendanga</td>
+                  <td><strong>IVA ZHANG</strong></td>
+                  <td>不合格</td>
+                  <td>图文并茂不达标 (前3次人工追踪均为纯文字)</td>
+                  <td>6分钟</td>
+                  <td>10 次</td>
+                  <td>买家咨询切割机现货。沟通极多(10次)但前3次无图片或视频。</td>
+                </tr>
+              
+                <tr class="row-fail">
+                  <td>2026-10-09 17:16:55</td>
+                  <td>Hamza Bounyamine</td>
+                  <td><strong>IVA ZHANG</strong></td>
+                  <td>不合格</td>
+                  <td>图文并茂不达标 (前3次人工追踪均为纯文字)</td>
+                  <td>1分钟</td>
+                  <td>4 次</td>
+                  <td>买家询问柴油发电机现货及发货。前3次未发送图文。</td>
+                </tr>
+              
+                <tr class="row-fail">
+                  <td>2026-10-10 02:55:02</td>
+                  <td>D KellyKelly</td>
+                  <td><strong>IVA ZHANG</strong></td>
+                  <td>不合格</td>
+                  <td>48h内人工追踪不足3次 (仅2次)</td>
+                  <td>35分钟</td>
+                  <td>2 次</td>
+                  <td>买家咨询激光打标配件。夜间回复后后续48h内未持续追踪。</td>
+                </tr>
+              
+                <tr class="row-fail">
+                  <td>2026-10-10 18:13:48</td>
+                  <td>Ahmed Maadane</td>
+                  <td><strong>Hale He</strong></td>
+                  <td>不合格</td>
+                  <td>S1人工首响超时 (分配18:13未达夜间窗口 -> 超过120分钟基准阈值，次日09:41回复)</td>
+                  <td>15小时28分</td>
+                  <td>2 次</td>
+                  <td>买家咨询激光设备出厂价。首响应答延迟。</td>
+                </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 视图 4: 定时任务调度列表与直达链接 -->
+  <div id="view-cron" class="view-content">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">⏱️ 8 大定时任务配置、状态与最新在线表格直通链接</div>
+        <span class="badge badge-ok">全部 8 项任务持续监控中</span>
+      </div>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 180px;">任务名称</th>
+              <th style="width: 100px;">排程 (Cron)</th>
+              <th style="width: 90px;">任务状态</th>
+              <th style="width: 130px;">上次运行时间</th>
+              <th>最新产出的在线钉钉表格（点击直接查看）</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td><strong>广告消耗快照-每日9点</strong></td>
+                <td><span class="cron-pill">0 9 * * *</span></td>
+                <td><span class="alert-pill alert-normal">已完成</span></td>
+                <td style="font-size: 12px; color: var(--text-secondary);">2026-10-15 09:03:00</td>
+                <td>
+                  
+                    <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz" target="_blank">📊 [贝诺美] 贝诺美·直通车消耗与转化统计（2026-10-14·9时） ↗</a>
+                  
+                    <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk" target="_blank">📊 [诺瓦] 诺瓦·直通车消耗与转化统计（2026-10-14·9时） ↗</a>
+                  
+                </td>
+              </tr>
+            
+              <tr>
+                <td><strong>平台风险监控-每日10点</strong></td>
+                <td><span class="cron-pill">0 10 * * *</span></td>
+                <td><span class="alert-pill alert-normal">已完成</span></td>
+                <td style="font-size: 12px; color: var(--text-secondary);">2026-10-15 10:00:00</td>
+                <td>
+                  
+                    <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz" target="_blank">📊 [贝诺美] 贝诺美·平台风险监控日志表 ↗</a>
+                  
+                    <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk" target="_blank">📊 [诺瓦] 诺瓦·平台风险监控日志表 ↗</a>
+                  
+                </td>
+              </tr>
+            
+              <tr>
+                <td><strong>询盘回复质检-每日11点</strong></td>
+                <td><span class="cron-pill">0 11 * * *</span></td>
+                <td><span class="alert-pill alert-normal">已完成</span></td>
+                <td style="font-size: 12px; color: var(--text-secondary);">2026-10-15 11:18:00</td>
+                <td>
+                  
+                    <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/N7dx2rn0JbzAa9qmfbrjM5kGJMGjLRb3" target="_blank">📊 [贝诺美] 贝诺美询盘回复质量检查（10.14·11时） ↗</a>
+                  
+                    <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/EpGBa2Lm8a2yev5aiRX3Ovo9WgN7R35y" target="_blank">📊 [诺瓦] 诺瓦询盘回复质量检查（10.14·11时） ↗</a>
+                  
+                </td>
+              </tr>
+            
+              <tr>
+                <td><strong>广告消耗快照-每日14点</strong></td>
+                <td><span class="cron-pill">0 14 * * *</span></td>
+                <td><span class="alert-pill alert-normal">已完成</span></td>
+                <td style="font-size: 12px; color: var(--text-secondary);">2026-10-15 14:00:00</td>
+                <td>
+                  
+                    <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/N7dx2rn0JbzAa9qmfbrxLARMJMGjLRb3" target="_blank">📊 [贝诺美] 贝诺美·直通车消耗与转化统计（2026-10-14 终态） ↗</a>
+                  
+                    <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/ZX6GRezwJl3LYDoOUjEq5RNAVdqbropQ" target="_blank">📊 [诺瓦] 诺瓦·直通车消耗与转化统计（2026-10-14 终态） ↗</a>
+                  
+                </td>
+              </tr>
+            
+              <tr>
+                <td><strong>平台风险监控-每日14:30</strong></td>
+                <td><span class="cron-pill">30 14 * * *</span></td>
+                <td><span class="alert-pill alert-normal">已完成</span></td>
+                <td style="font-size: 12px; color: var(--text-secondary);">2026-10-15 14:30:00</td>
+                <td>
+                  <span style="color: var(--text-muted); font-size: 12px;">自动推送到专属通知群</span>
+                </td>
+              </tr>
+            
+              <tr>
+                <td><strong>询盘统计同步-每日15点</strong></td>
+                <td><span class="cron-pill">0 15 * * *</span></td>
+                <td><span class="alert-pill alert-normal">监控中</span></td>
+                <td style="font-size: 12px; color: var(--text-secondary);">2026-10-14 15:00:00</td>
+                <td>
+                  
+                    <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz" target="_blank">📊 [贝诺美] 贝诺美询盘分配与客户沉淀总表 ↗</a>
+                  
+                    <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk" target="_blank">📊 [诺瓦] 诺瓦询盘分配与客户沉淀总表 ↗</a>
+                  
+                </td>
+              </tr>
+            
+              <tr>
+                <td><strong>询盘回复质检-每日16点</strong></td>
+                <td><span class="cron-pill">0 16 * * *</span></td>
+                <td><span class="alert-pill alert-normal">等待执行</span></td>
+                <td style="font-size: 12px; color: var(--text-secondary);">2026-10-14 16:00:00</td>
+                <td>
+                  
+                    <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/Qnp9zOoBVBMQyzdaFlDnNBRjW1DK0g6l" target="_blank">📊 [贝诺美] 贝诺美询盘回复质量检查（10.14·16时全天覆检） ↗</a>
+                  
+                    <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/QOG9lyrgJP0XLO25TPmXrxAZJzN67Mw4" target="_blank">📊 [诺瓦] 诺瓦询盘回复质量检查（10.14·16时全天覆检） ↗</a>
+                  
+                </td>
+              </tr>
+            
+              <tr>
+                <td><strong>询盘回复质检-周检(每周一16:30)</strong></td>
+                <td><span class="cron-pill">30 16 * * 1</span></td>
+                <td><span class="alert-pill alert-normal">已完成</span></td>
+                <td style="font-size: 12px; color: var(--text-secondary);">2026-10-12 16:30:00</td>
+                <td>
+                  
+                    <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T65DymM5JyeZqMmz" target="_blank">📊 [贝诺美] 贝诺美询盘回复质量检查（10.04-10.10） ↗</a>
+                  
+                    <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/20eMKjyp81E4MNdLur5NnPja8xAZB1Gv" target="_blank">📊 [诺瓦] 诺瓦询盘回复质量检查（10.04-10.10） ↗</a>
+                  
+                </td>
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function switchTab(tabId) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.view-content').forEach(view => view.classList.remove('active'));
+    
+    event.currentTarget.classList.add('active');
+    const target = document.getElementById('view-' + tabId);
+    if (target) target.classList.add('active');
+  }
+</script>
+
+</body>
+</html>

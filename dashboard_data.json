@@ -1,0 +1,501 @@
+{
+  "last_synced_at": "2026/10/16 11:14:01",
+  "system_status": {
+    "benomi_relay": {
+      "channel": "默认 Chrome 中继扩展 (Port 9236)",
+      "status": "normal",
+      "x_lid": "benomibeauty",
+      "last_health_check": "2026-10-15 11:18:00"
+    },
+    "nova_cdp": {
+      "channel": "ChromeProfile2 CDP 直连 (Port 9222)",
+      "status": "normal",
+      "x_lid": "jnnova",
+      "last_health_check": "2026-10-15 11:18:00"
+    }
+  },
+  "stores": {
+    "benomi": {
+      "name": "贝诺美",
+      "code": "benomibeauty",
+      "type": "美妆/个护平台",
+      "s1_threshold": "< 60 分钟 (1小时)",
+      "node_id": "YQBnd5ExVErqam47T602eEwnJyeZqMmz",
+      "base_sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz",
+      "ads": {
+        "latest_round": "09:00 轮 (PT 2026-10-15 真实数据)",
+        "spend": 820.24,
+        "active_campaigns": 2,
+        "paused_excluded": 1,
+        "cvr3_leads": 5,
+        "top3_products": [
+          "62891048210",
+          "62893450912",
+          "62879012345"
+        ],
+        "sheet_name": "贝诺美 · 直通车消耗与转化统计（2026-10-14）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/lyQod3RxJKaMQmjyTYx3kLMlWkb4Mw9r"
+      },
+      "risk": {
+        "latest_round": "14:30 轮",
+        "violations": 0,
+        "order_alerts": 0,
+        "balance": 6787.3,
+        "balance_threshold": 1000,
+        "rfq_quota": 9,
+        "rfq_expire": "2026-10-31",
+        "rfq_used_detail": "本月已用 1 条（按业务员：Lily Qie 1 条）",
+        "status": "warning",
+        "rfq_warning": "普通报价权益仅剩9条，处于临界警戒线",
+        "product_radar": "0 个 (暂无待整改任务)",
+        "delivery_type": "webhook",
+        "delivery_desc": "Accio 机器人 Webhook 专属群推送"
+      },
+      "inquiry_sync": {
+        "latest_round": "2026-10-14 15:00 轮",
+        "incremental_count": 2,
+        "latest_assign_time": "2026-10-14 14:52:10",
+        "sheet_name": "贝诺美询盘分配与客户沉淀总表",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
+      },
+      "daily_quality": {
+        "latest_round": "11:00 轮 (检 2026-10-14)",
+        "target_date": "2026-10-14",
+        "total_checked": 2,
+        "passed": 2,
+        "failed": 0,
+        "pending": 0,
+        "pass_rate": 100,
+        "gate_pass_rate": 100,
+        "night_relax_hits": 1,
+        "sheet_name": "贝诺美询盘回复质量检查（10.14·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/N7dx2rn0JbzAa9qmfbrjM5kGJMGjLRb3",
+        "records": [
+          {
+            "inquiry_time": "2026-10-14 03:56:12",
+            "buyer": "Pereira Ana Catarina",
+            "sales": "Monica",
+            "status": "合格",
+            "reason": "-",
+            "resp_time": "2小时47分",
+            "night_relax": "是 (分配 03:56 -> 截止 10:00:00，06:43 回复达标)",
+            "track_count": 3,
+            "gate_diff_sec": 1.2,
+            "summary": "买家咨询超微小气泡仪器配件及探头。业务员于早晨及时回复并解答。买家已读卖家最后一条消息（10-14 07:10）。"
+          },
+          {
+            "inquiry_time": "2026-10-14 10:15:30",
+            "buyer": "nicolas spritzer",
+            "sales": "王敏",
+            "status": "合格",
+            "reason": "-",
+            "resp_time": "1 分钟 (原始42秒，按1分钟计)",
+            "night_relax": "否",
+            "track_count": 4,
+            "gate_diff_sec": -1.2,
+            "summary": "买家咨询激光脱毛仪批发价与MOQ。首响迅速并发送规格表。买家已读卖家最后一条消息（10-14 10:45）。"
+          }
+        ]
+      },
+      "weekly_quality": {
+        "date_range": "2026-10-04 至 2026-10-10 (自然周 7 天)",
+        "run_time": "2026-10-12 16:30:00",
+        "total": 22,
+        "passed": 16,
+        "failed": 5,
+        "pending": 1,
+        "pass_rate": 72.73,
+        "gate_passed": 21,
+        "s1_fail_count": 2,
+        "s2_fail_count": 2,
+        "s3_fail_count": 4,
+        "sheet_name": "贝诺美询盘回复质量检查（10.04-10.10）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T65DymM5JyeZqMmz",
+        "failed_samples": [
+          {
+            "inquiry_time": "2026-10-04 06:23:42",
+            "buyer": "Agustina Larruina",
+            "sales": "Miya Zhang",
+            "reason": "48h内人工追踪不足3次(仅1次) + 图文并茂不达标",
+            "resp_time": "18分钟",
+            "track_count": 1,
+            "summary": "买家咨询脱毛仪批发及交期。首响虽快但48h内未持续跟进，前3次未发送图文。"
+          },
+          {
+            "inquiry_time": "2026-10-04 23:35:36",
+            "buyer": "PJ Salangsang",
+            "sales": "Jay Li",
+            "reason": "S1人工首响超时 (分配23:35 -> 夜间顺延截止10:00，次日12:05才回复)",
+            "resp_time": "12小时30分",
+            "track_count": 3,
+            "summary": "买家咨询面部清洁仪配件。夜间顺延后次日中午回复超时。"
+          },
+          {
+            "inquiry_time": "2026-10-05 21:32:19",
+            "buyer": "BODY BEAUTY FACTORY Dimitrova Genka",
+            "sales": "Miya Zhang",
+            "reason": "48h内人工追踪不足3次(仅1次) + 图文并茂不达标",
+            "resp_time": "1分钟",
+            "track_count": 1,
+            "summary": "买家索取美容仪器出厂价单。仅首发一次消息未继续追踪。"
+          },
+          {
+            "inquiry_time": "2026-10-05 22:09:25",
+            "buyer": "Maria Pabon",
+            "sales": "Daniel Wang",
+            "reason": "S1人工首响超时 (分配22:09未达夜间窗口 -> 超过60分钟基准阈值)",
+            "resp_time": "10小时10分",
+            "track_count": 5,
+            "summary": "买家咨询射频抗衰仪器。首响严重超时。"
+          },
+          {
+            "inquiry_time": "2026-10-08 20:53:02",
+            "buyer": "Didi Ellouk",
+            "sales": "Celin Wang",
+            "reason": "图文并茂不达标 (前3次人工追踪全为纯文本，未包含图片/视频)",
+            "resp_time": "10分钟",
+            "track_count": 11,
+            "summary": "买家咨询美白仪定制打标。沟通积极(11次)但前3次未发送图文产品资料。"
+          }
+        ]
+      }
+    },
+    "nova": {
+      "name": "诺瓦",
+      "code": "jnnova",
+      "type": "激光/智能制造平台",
+      "s1_threshold": "< 120 分钟 (2小时)",
+      "node_id": "ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk",
+      "base_sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk",
+      "ads": {
+        "latest_round": "09:00 轮 (PT 2026-10-15 真实数据)",
+        "spend": 509.91,
+        "active_campaigns": 1,
+        "paused_excluded": 0,
+        "cvr3_leads": 3,
+        "top3_products": [
+          "71029384756",
+          "71029384757",
+          "71029384758"
+        ],
+        "sheet_name": "诺瓦 · 直通车消耗与转化统计（2026-10-14）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/oP0MALyR8kYwn9oxSMPvLxvkV3bzYmDO"
+      },
+      "risk": {
+        "latest_round": "14:30 轮",
+        "violations": 0,
+        "order_alerts": 0,
+        "balance": 7237.15,
+        "balance_threshold": 1000,
+        "rfq_quota": 3,
+        "rfq_expire": "2026-10-31",
+        "rfq_used_detail": "本月已用 9 条（按业务员：Mark Zhang 3 条、Hale He 3 条、IVA ZHANG 3 条）",
+        "status": "warning",
+        "rfq_warning": "可用报价权益仅剩3条（极度紧缺，建议优先匹配高意向商机）",
+        "product_radar": "0 个 (暂无待整改任务)",
+        "delivery_type": "webhook",
+        "delivery_desc": "Accio 机器人 Webhook 专属群推送"
+      },
+      "inquiry_sync": {
+        "latest_round": "2026-10-14 15:00 轮",
+        "incremental_count": 1,
+        "latest_assign_time": "2026-10-14 11:20:05",
+        "sheet_name": "诺瓦询盘分配与客户沉淀总表",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
+      },
+      "daily_quality": {
+        "latest_round": "11:00 轮 (检 2026-10-14)",
+        "target_date": "2026-10-14",
+        "total_checked": 0,
+        "passed": 0,
+        "failed": 0,
+        "pending": 0,
+        "pass_rate": 100,
+        "gate_pass_rate": 100,
+        "night_relax_hits": 0,
+        "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
+        "sheet_name": "诺瓦询盘回复质量检查（10.14·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/EpGBa2Lm8a2yev5aiRX3Ovo9WgN7R35y",
+        "records": []
+      },
+      "weekly_quality": {
+        "date_range": "2026-10-04 至 2026-10-10 (自然周 7 天)",
+        "run_time": "2026-10-12 16:30:00",
+        "total": 21,
+        "passed": 12,
+        "failed": 9,
+        "pending": 0,
+        "pass_rate": 57.14,
+        "gate_passed": 21,
+        "s1_fail_count": 1,
+        "s2_fail_count": 4,
+        "s3_fail_count": 6,
+        "sheet_name": "诺瓦询盘回复质量检查（10.04-10.10）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/20eMKjyp81E4MNdLur5NnPja8xAZB1Gv",
+        "failed_samples": [
+          {
+            "inquiry_time": "2026-10-04 23:07:32",
+            "buyer": "Danny ObiChi",
+            "sales": "Mark Zhang",
+            "reason": "48h内人工追踪不足3次 (仅2次)",
+            "resp_time": "1分钟",
+            "track_count": 2,
+            "summary": "买家咨询激光打标机。首响应答迅速但48h内后续追踪不足。"
+          },
+          {
+            "inquiry_time": "2026-10-04 23:08:10",
+            "buyer": "Yormany Perez",
+            "sales": "IVA ZHANG",
+            "reason": "图文并茂不达标 (前3次人工追踪全为纯文本)",
+            "resp_time": "15分钟",
+            "track_count": 3,
+            "summary": "买家询问便携清洗机报价。回复及时但未发送图文或视频资料。"
+          },
+          {
+            "inquiry_time": "2026-10-05 17:31:01",
+            "buyer": "Tristan Dimacali",
+            "sales": "IVA ZHANG",
+            "reason": "48h内人工追踪不足3次(仅2次) + 图文并茂不达标",
+            "resp_time": "1分钟",
+            "track_count": 2,
+            "summary": "买家咨询激光设备参数。跟进仅2次且未发送图文资料。"
+          },
+          {
+            "inquiry_time": "2026-10-06 11:04:16",
+            "buyer": "Mareme Fall",
+            "sales": "IVA ZHANG",
+            "reason": "48h内人工追踪不足3次(仅1次) + 图文并茂不达标",
+            "resp_time": "1分钟",
+            "track_count": 1,
+            "summary": "买家索取发电机组报价单。首发消息后未继续跟进。"
+          },
+          {
+            "inquiry_time": "2026-10-07 22:09:12",
+            "buyer": "eduardo rosales",
+            "sales": "Mark Zhang",
+            "reason": "图文并茂不达标 (前3次人工追踪均为纯文字)",
+            "resp_time": "1分钟",
+            "track_count": 5,
+            "summary": "买家咨询手持焊机规格。多次文本沟通但前3次未达图文并茂要求。"
+          },
+          {
+            "inquiry_time": "2026-10-08 06:15:12",
+            "buyer": "Ted Corin Sendanga",
+            "sales": "IVA ZHANG",
+            "reason": "图文并茂不达标 (前3次人工追踪均为纯文字)",
+            "resp_time": "6分钟",
+            "track_count": 10,
+            "summary": "买家咨询切割机现货。沟通极多(10次)但前3次无图片或视频。"
+          },
+          {
+            "inquiry_time": "2026-10-09 17:16:55",
+            "buyer": "Hamza Bounyamine",
+            "sales": "IVA ZHANG",
+            "reason": "图文并茂不达标 (前3次人工追踪均为纯文字)",
+            "resp_time": "1分钟",
+            "track_count": 4,
+            "summary": "买家询问柴油发电机现货及发货。前3次未发送图文。"
+          },
+          {
+            "inquiry_time": "2026-10-10 02:55:02",
+            "buyer": "D KellyKelly",
+            "sales": "IVA ZHANG",
+            "reason": "48h内人工追踪不足3次 (仅2次)",
+            "resp_time": "35分钟",
+            "track_count": 2,
+            "summary": "买家咨询激光打标配件。夜间回复后后续48h内未持续追踪。"
+          },
+          {
+            "inquiry_time": "2026-10-10 18:13:48",
+            "buyer": "Ahmed Maadane",
+            "sales": "Hale He",
+            "reason": "S1人工首响超时 (分配18:13未达夜间窗口 -> 超过120分钟基准阈值，次日09:41回复)",
+            "resp_time": "15小时28分",
+            "track_count": 2,
+            "summary": "买家咨询激光设备出厂价。首响应答延迟。"
+          }
+        ]
+      }
+    }
+  },
+  "weekly_quality": {
+    "date_range": "2026-10-04 至 2026-10-10 (自然周 7 天)",
+    "run_time": "2026-10-12 16:30:00",
+    "total_inquiries": 43,
+    "benomi_total": 22,
+    "benomi_passed": 16,
+    "benomi_failed": 5,
+    "benomi_pending": 1,
+    "nova_total": 21,
+    "nova_passed": 12,
+    "nova_failed": 9
+  },
+  "cron_jobs": [
+    {
+      "id": "cron-1791593405507-bbdz97ef",
+      "name": "广告消耗快照-每日9点",
+      "schedule": "0 9 * * *",
+      "type": "广告快照 (9时轮)",
+      "target": "双店 (贝诺美 + 诺瓦)",
+      "status": "已完成",
+      "last_run": "2026-10-15 09:03:00",
+      "next_run": "2026-10-16 09:00:00",
+      "sheets": [
+        {
+          "store": "贝诺美",
+          "name": "贝诺美·直通车消耗与转化统计（2026-10-14·9时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
+        },
+        {
+          "store": "诺瓦",
+          "name": "诺瓦·直通车消耗与转化统计（2026-10-14·9时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
+        }
+      ]
+    },
+    {
+      "id": "cron-1790667065409-ywuvowg6",
+      "name": "平台风险监控-每日10点",
+      "schedule": "0 10 * * *",
+      "type": "风险与履约 (上午轮)",
+      "target": "双店 (贝诺美 + 诺瓦)",
+      "status": "已完成",
+      "last_run": "2026-10-15 10:00:00",
+      "next_run": "2026-10-16 10:00:00",
+      "sheets": [
+        {
+          "store": "贝诺美",
+          "name": "贝诺美·平台风险监控日志表",
+          "url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
+        },
+        {
+          "store": "诺瓦",
+          "name": "诺瓦·平台风险监控日志表",
+          "url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
+        }
+      ]
+    },
+    {
+      "id": "cron-1791515523931-nhmiriw5",
+      "name": "询盘回复质检-每日11点",
+      "schedule": "0 11 * * *",
+      "type": "询盘质检 (上午初检)",
+      "target": "双店 (贝诺美 + 诺瓦)",
+      "status": "已完成",
+      "last_run": "2026-10-15 11:18:00",
+      "next_run": "2026-10-16 11:00:00",
+      "sheets": [
+        {
+          "store": "贝诺美",
+          "name": "贝诺美询盘回复质量检查（10.14·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/N7dx2rn0JbzAa9qmfbrjM5kGJMGjLRb3"
+        },
+        {
+          "store": "诺瓦",
+          "name": "诺瓦询盘回复质量检查（10.14·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/EpGBa2Lm8a2yev5aiRX3Ovo9WgN7R35y"
+        }
+      ]
+    },
+    {
+      "id": "cron-1790664501099-3vqm6864",
+      "name": "广告消耗快照-每日14点",
+      "schedule": "0 14 * * *",
+      "type": "广告快照 (终态轮)",
+      "target": "双店 (贝诺美 + 诺瓦)",
+      "status": "已完成",
+      "last_run": "2026-10-15 14:00:00",
+      "next_run": "2026-10-16 14:00:00",
+      "sheets": [
+        {
+          "store": "贝诺美",
+          "name": "贝诺美·直通车消耗与转化统计（2026-10-14 终态）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/N7dx2rn0JbzAa9qmfbrxLARMJMGjLRb3"
+        },
+        {
+          "store": "诺瓦",
+          "name": "诺瓦·直通车消耗与转化统计（2026-10-14 终态）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/ZX6GRezwJl3LYDoOUjEq5RNAVdqbropQ"
+        }
+      ]
+    },
+    {
+      "id": "cron-1791350923907-1ap13va2",
+      "name": "平台风险监控-每日14:30",
+      "schedule": "30 14 * * *",
+      "type": "风险与履约 (下午轮)",
+      "target": "双店 (贝诺美 + 诺瓦)",
+      "status": "已完成",
+      "last_run": "2026-10-15 14:30:00",
+      "next_run": "2026-10-16 14:30:00",
+      "delivery": "Accio 机器人 Webhook 推送至专属通知群（@李冰）",
+      "sheets": []
+    },
+    {
+      "id": "cron-1789958330109-iqleqsux",
+      "name": "询盘统计同步-每日15点",
+      "schedule": "0 15 * * *",
+      "type": "询盘分配与CRM",
+      "target": "双店 (贝诺美 + 诺瓦)",
+      "status": "监控中",
+      "last_run": "2026-10-14 15:00:00",
+      "next_run": "2026-10-15 15:00:00",
+      "sheets": [
+        {
+          "store": "贝诺美",
+          "name": "贝诺美询盘分配与客户沉淀总表",
+          "url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
+        },
+        {
+          "store": "诺瓦",
+          "name": "诺瓦询盘分配与客户沉淀总表",
+          "url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
+        }
+      ]
+    },
+    {
+      "id": "cron-1791515533183-eg9uj0bw",
+      "name": "询盘回复质检-每日16点",
+      "schedule": "0 16 * * *",
+      "type": "询盘质检 (前一天全量重检)",
+      "target": "双店 (贝诺美 + 诺瓦)",
+      "status": "等待执行",
+      "last_run": "2026-10-14 16:00:00",
+      "next_run": "2026-10-15 16:00:00",
+      "sheets": [
+        {
+          "store": "贝诺美",
+          "name": "贝诺美询盘回复质量检查（10.14·16时全天覆检）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/Qnp9zOoBVBMQyzdaFlDnNBRjW1DK0g6l"
+        },
+        {
+          "store": "诺瓦",
+          "name": "诺瓦询盘回复质量检查（10.14·16时全天覆检）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/QOG9lyrgJP0XLO25TPmXrxAZJzN67Mw4"
+        }
+      ]
+    },
+    {
+      "id": "cron-1791524373299-9893ods0",
+      "name": "询盘回复质检-周检(每周一16:30)",
+      "schedule": "30 16 * * 1",
+      "type": "专项周检 (上周7天全量)",
+      "target": "双店 (贝诺美 + 诺瓦)",
+      "status": "已完成",
+      "last_run": "2026-10-12 16:30:00",
+      "next_run": "2026-10-19 16:30:00",
+      "sheets": [
+        {
+          "store": "贝诺美",
+          "name": "贝诺美询盘回复质量检查（10.04-10.10）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T65DymM5JyeZqMmz"
+        },
+        {
+          "store": "诺瓦",
+          "name": "诺瓦询盘回复质量检查（10.04-10.10）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/20eMKjyp81E4MNdLur5NnPja8xAZB1Gv"
+        }
+      ]
+    }
+  ]
+}
