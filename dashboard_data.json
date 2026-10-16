@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/16 11:58:58",
+  "last_synced_at": "2026/10/16 13:37:02",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -187,11 +187,11 @@
         "order_alerts": 0,
         "balance": 6727.24,
         "balance_threshold": 1000,
-        "rfq_quota": 3,
+        "rfq_quota": 11,
         "rfq_expire": "2026-10-31",
         "rfq_used_detail": "本月已用 9 条（按业务员：Mark Zhang 3 条、Hale He 3 条、IVA ZHANG 3 条）",
-        "status": "warning",
-        "rfq_warning": "可用报价权益仅剩3条（极度紧缺，建议优先匹配高意向商机）",
+        "status": "normal",
+        "rfq_warning": "权益充裕",
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送"
