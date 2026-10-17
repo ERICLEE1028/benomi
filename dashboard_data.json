@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/17 09:12:01",
+  "last_synced_at": "2026/10/17 10:05:31",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -37,10 +37,10 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/2Amq4vjg89EnZqdMuYGyZyN183kdP0wQ"
       },
       "risk": {
-        "latest_round": "14:30 轮",
+        "latest_round": "10:00 轮",
         "violations": 0,
         "order_alerts": 0,
-        "balance": 5954.91,
+        "balance": 5373.2,
         "balance_threshold": 1000,
         "rfq_quota": 10,
         "rfq_expire": "2026-10-31",
@@ -50,7 +50,7 @@
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "风险监控 (14:30 轮)"
+        "balance_source": "风险监控 (10:00 轮)"
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
@@ -265,12 +265,12 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/oP0MALyR8kYwn9oxSMP9GjDMV3bzYmDO"
       },
       "risk": {
-        "latest_round": "14:30 轮",
+        "latest_round": "10:00 轮",
         "violations": 0,
         "order_alerts": 0,
-        "balance": 6727.24,
+        "balance": 6304.36,
         "balance_threshold": 1000,
-        "rfq_quota": 11,
+        "rfq_quota": 8,
         "rfq_expire": "2026-10-31",
         "rfq_used_detail": "本月已用 9 条（按业务员：Mark Zhang 3 条、Hale He 3 条、IVA ZHANG 3 条）",
         "status": "normal",
@@ -278,7 +278,7 @@
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "风险监控 (14:30 轮)"
+        "balance_source": "风险监控 (10:00 轮)"
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
