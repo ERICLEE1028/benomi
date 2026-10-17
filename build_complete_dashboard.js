@@ -334,15 +334,25 @@ const htmlContent = `<!DOCTYPE html>
 
       <div class="grid-2">
         <!-- 贝诺美风险框 -->
-        <div class="card" style="border-top: 4px solid #2563EB; margin-bottom: 0;">
+        <div class="card" style="border-top: 4px solid ${data.stores.benomi.risk.rfq_quota < 5 ? '#DC2626' : '#2563EB'}; margin-bottom: 0;">
           <div class="card-header" style="margin-bottom: 10px; padding-bottom: 8px;">
             <div class="card-title">
               <span style="color: #2563EB;">🔵 贝诺美 (benomibeauty) · 平台风险监控</span>
               <span class="card-tag tag-benomi">中继 9236</span>
             </div>
-            <span class="alert-pill alert-normal">风险状态: 正常</span>
+            ${data.stores.benomi.risk.rfq_quota < 5 ? 
+              '<span class="alert-pill alert-danger">🚨 极度紧缺预警</span>' : 
+              '<span class="alert-pill alert-normal">风险状态: 正常</span>'}
           </div>
           <div class="detail-list">
+            <div class="detail-item" style="${data.stores.benomi.risk.rfq_quota < 5 ? 'background: #FEF2F2; padding: 6px 8px; border-radius: 4px;' : ''}">
+              <span class="detail-title" style="${data.stores.benomi.risk.rfq_quota < 5 ? 'color: #991B1B; font-weight: 700;' : ''}">
+                ${data.stores.benomi.risk.rfq_quota < 5 ? '🚨 ' : ''}可用报价权益剩余
+              </span>
+              <span class="detail-value" style="color: ${data.stores.benomi.risk.rfq_quota < 5 ? '#DC2626' : '#059669'}; font-size: 13px; font-weight: 700;">
+                ${data.stores.benomi.risk.rfq_quota} 条剩余 (到期: ${data.stores.benomi.risk.rfq_expire} ｜ ${data.stores.benomi.risk.rfq_used_detail})
+              </span>
+            </div>
             <div class="detail-item">
               <span class="detail-title">平台严重违规</span>
               <span class="detail-value" style="color: #059669;">0 条未读通知 (安全)</span>
@@ -354,12 +364,6 @@ const htmlContent = `<!DOCTYPE html>
             <div class="detail-item">
               <span class="detail-title">商品雷达待整改 (补充项)</span>
               <span class="detail-value" style="color: #059669; font-weight: 600;">${data.stores.benomi.risk.product_radar}</span>
-            </div>
-            <div class="detail-item">
-              <span class="detail-title">RFQ 普通报价权益</span>
-              <span class="detail-value" style="color: #059669; font-weight: 700;">
-                ${data.stores.benomi.risk.rfq_quota} 条剩余 (到期: ${data.stores.benomi.risk.rfq_expire} ｜ ${data.stores.benomi.risk.rfq_used_detail})
-              </span>
             </div>
             <div class="detail-item">
               <span class="detail-title">直通车当前可用现金</span>
