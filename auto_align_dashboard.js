@@ -165,8 +165,44 @@ function alignRiskData(dashboardData) {
       if (m) dashboardData.stores.benomi.risk.rfq_quota = parseInt(m[1], 10);
     } catch(e) {}
   }
-  dashboardData.stores.benomi.risk.rfq_expire = '2026-10-31';
-  dashboardData.stores.benomi.risk.rfq_used_detail = '本月已用 1 条（按业务员：Lily Qie 1 条）';
+  // 贝诺美「本月已用 / 到期时间」→ 从本轮结构化 JSON 解析（2026-10-19 修正：原先写死）
+  {
+    let applied = false;
+    const bRfqJson = path.join(targetDir, 'benomi_D_equity.json');
+    if (fs.existsSync(bRfqJson)) {
+      try {
+        const d = JSON.parse(fs.readFileSync(bRfqJson, 'utf8'));
+        const q = parseInt(d.availableQuoteEquity, 10);
+        if (!isNaN(q)) dashboardData.stores.benomi.risk.rfq_quota = q;
+        if (d.usageByAccount && typeof d.usageByAccount === 'object') {
+          const by = {};
+          let total = 0;
+          Object.keys(d.usageByAccount).forEach((k) => {
+            const n = parseInt(d.usageByAccount[k], 10) || 0;
+            if (n) { by[k] = n; total += n; }
+          });
+          const detail = fmtRfqUsedDetail({ total, by });
+          if (detail) { dashboardData.stores.benomi.risk.rfq_used_detail = detail; applied = true; }
+        }
+        const exp = extractExpireDate(d.expiryText);
+        if (exp) dashboardData.stores.benomi.risk.rfq_expire = exp;
+      } catch (e) {
+        console.error('[AutoAlign] 解析 benomi_D_equity.json 失败:', e.message);
+      }
+    }
+    if (!applied) {
+      const bRfqMd2 = path.join(targetDir, '04_RFQ权益明细_贝诺美.md');
+      if (fs.existsSync(bRfqMd2)) {
+        try {
+          const text = fs.readFileSync(bRfqMd2, 'utf8');
+          const exp = extractExpireDate(text);
+          if (exp) dashboardData.stores.benomi.risk.rfq_expire = exp;
+          const sum = text.match(/合计\s*(\d+)\s*=\s*页面/);
+          if (sum) dashboardData.stores.benomi.risk.rfq_used_detail = `本月已用 ${parseInt(sum[1], 10)} 条`;
+        } catch (e) {}
+      }
+    }
+  }
   dashboardData.stores.benomi.risk.product_radar = '0 个 (暂无待整改任务)';
   dashboardData.stores.benomi.risk.balance_source = `风险监控 (${roundLabel})`;
   console.log(`[AutoAlign] 贝诺美风险监控已对齐 (${roundLabel}): 余额 ¥${dashboardData.stores.benomi.risk.balance}, RFQ: ${dashboardData.stores.benomi.risk.rfq_quota}条`);
@@ -190,8 +226,16 @@ function alignRiskData(dashboardData) {
         const num = parseInt(full.overview.availBase.replace(/[^\d]/g, ''), 10);
         if (!isNaN(num)) dashboardData.stores.nova.risk.rfq_quota = num;
       }
-      dashboardData.stores.nova.risk.rfq_expire = '2026-10-31';
-      dashboardData.stores.nova.risk.rfq_used_detail = '本月已用 9 条（按业务员：Mark Zhang 3 条、Hale He 3 条、IVA ZHANG 3 条）';
+      // 「本月已用」由权益使用明细动态统计（2026-10-19 修正：原先写死 9 条/3-3-3）
+      {
+        const mk = full.monthKey || pacificMonthKey();
+        if (full.usage && Array.isArray(full.usage.rowsAll)) {
+          const detail = fmtRfqUsedDetail(computeRfqUsageFromRows(full.usage.rowsAll, mk));
+          if (detail) dashboardData.stores.nova.risk.rfq_used_detail = detail;
+        }
+        const nExp = extractExpireDate(full.overview && full.overview.expiryNotice);
+        if (nExp) dashboardData.stores.nova.risk.rfq_expire = nExp;
+      }
       dashboardData.stores.nova.risk.product_radar = '0 个 (暂无待整改任务)';
       dashboardData.stores.nova.risk.balance_source = `风险监控 (${roundLabel})`;
       dashboardData.stores.nova.risk.status = dashboardData.stores.nova.risk.rfq_quota < 5 ? 'warning' : 'normal';
@@ -207,14 +251,67 @@ function alignRiskData(dashboardData) {
         const text = fs.readFileSync(nRfqMd, 'utf8');
         const quota = text.match(/可用报价权益[」」]?\s*\|\s*(\d+)\s*条/);
         if (quota) dashboardData.stores.nova.risk.rfq_quota = parseInt(quota[1], 10);
-        dashboardData.stores.nova.risk.rfq_expire = '2026-10-31';
-        dashboardData.stores.nova.risk.rfq_used_detail = '本月已用 9 条（按业务员：Mark Zhang 3 条、Hale He 3 条、IVA ZHANG 3 条）';
+        const exp2 = extractExpireDate(text);
+        if (exp2) dashboardData.stores.nova.risk.rfq_expire = exp2;
+        const sum2 = text.match(/合计\s*(\d+)\s*=\s*页面/);
+        if (sum2) dashboardData.stores.nova.risk.rfq_used_detail = `本月已用 ${parseInt(sum2[1], 10)} 条`;
         dashboardData.stores.nova.risk.product_radar = '0 个 (暂无待整改任务)';
       } catch (e) {}
     }
   }
 
   return true;
+}
+
+// ===== RFQ「本月已用」动态解析辅助（2026-10-19 修正：不再写死） =====
+
+// 以美西时间取当前月份键 YYYY-MM（页面口径：采购直达权益相关时间均以美国时间为准）
+function pacificMonthKey(d) {
+  const dt = d || new Date();
+  try {
+    return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit' })
+      .format(dt).slice(0, 7);
+  } catch (e) {
+    const y = dt.getFullYear(), m = String(dt.getMonth() + 1).padStart(2, '0');
+    return `${y}-${m}`;
+  }
+}
+
+// 从「权益使用明细」行数组统计当月报价消耗：只取类型含「报价消耗」、排除帐号 alibaba、排除跨月
+function computeRfqUsageFromRows(rows, monthKey) {
+  const by = {};
+  let total = 0;
+  (rows || []).forEach((r) => {
+    if (!Array.isArray(r) || r.length < 3) return;
+    const time = String(r[0] || '');
+    const acct = String(r[1] || '').trim();
+    const type = String(r[2] || '');
+    if (monthKey && !time.startsWith(monthKey)) return;
+    if (type.indexOf('报价消耗') < 0) return;
+    if (acct === 'alibaba') return;
+    const raw = String(r[3] || '-1').replace(/[^\d.-]/g, '');
+    let n = Math.abs(parseInt(raw, 10));
+    if (isNaN(n) || n === 0) n = 1;
+    total += n;
+    by[acct] = (by[acct] || 0) + n;
+  });
+  return { total, by };
+}
+
+// 统一文案：本月已用 N 条（按业务员：A x 条、B y 条）
+function fmtRfqUsedDetail(usage) {
+  if (!usage || typeof usage.total !== 'number') return null;
+  const names = Object.keys(usage.by || {}).sort((a, b) => (usage.by[b] - usage.by[a]) || a.localeCompare(b));
+  if (!names.length) return '本月已用 0 条';
+  const parts = names.map((n) => `${n} ${usage.by[n]} 条`).join('、');
+  return `本月已用 ${usage.total} 条（按业务员：${parts}）`;
+}
+
+// 从「N 条权益将于 YYYY-MM-DD 到期」取日期
+function extractExpireDate(text) {
+  const s = String(text || '');
+  const m = s.match(/将于\s*(\d{4}-\d{2}-\d{2})\s*到期/) || s.match(/(\d{4}-\d{2}-\d{2})/);
+  return m ? m[1] : null;
 }
 
 // 辅助：解析 CSV
