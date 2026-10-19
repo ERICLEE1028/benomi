@@ -379,15 +379,40 @@ function alignQualityData(dashboardData) {
       if (benomiDailyMsg && novaDailyMsg) {
         // 解析轮次信息
         const bRoundMatch = benomiDailyMsg.match(/检查日期：([^\n]+)/);
-        const bRound = bRoundMatch ? bRoundMatch[1].trim() : '16:00 轮 (检 2026-10-15)';
-        const targetDate = bRound.includes('10-15') ? '2026-10-15' : '2026-10-14';
+        const bRound = bRoundMatch ? bRoundMatch[1].trim() : '11:00 轮 (检 2026-10-18)';
+        
+        // 动态提取目标日期（如 2026-10-18）
+        const dateMatch = bRound.match(/(\d{4}-\d{2}-\d{2})/);
+        const targetDate = dateMatch ? dateMatch[1] : '2026-10-18';
+        
+        // 动态提取轮次数字（如 11 或 16）
+        const roundMatch = bRound.match(/(\d{1,2}):00/);
+        const roundNum = roundMatch ? roundMatch[1] : '11';
+        const dateShort = targetDate.slice(5).replace('-', ''); // 如 '1018'
 
         const bSheetMatch = benomiDailyMsg.match(/\[📊 ([^\]]+)\]\((https:\/\/alidocs\.dingtalk\.com\/[^\)]+)\)/);
         const nSheetMatch = novaDailyMsg.match(/\[📊 ([^\]]+)\]\((https:\/\/alidocs\.dingtalk\.com\/[^\)]+)\)/);
 
-        // 尝试从最新 16:00 轮 CSV 中提取高精明细 samples
-        const bCsvPath = path.join(deliverDir, 'benomi_16_1015.csv');
-        const nCsvPath = path.join(deliverDir, 'nova_16_1015.csv');
+        // 动态定位匹配的 CSV 文件
+        let bCsvPath = path.join(deliverDir, `benomi_${roundNum}_${dateShort}.csv`);
+        let nCsvPath = path.join(deliverDir, `nova_${roundNum}_${dateShort}.csv`);
+
+        // 若不存在精准匹配，则按修改时间倒序选取最新的日检 CSV 文件兜底
+        if (!fs.existsSync(bCsvPath)) {
+          const bCsvs = fs.readdirSync(deliverDir)
+            .filter(f => f.startsWith('benomi_') && f.endsWith('.csv') && !f.includes('wk'))
+            .map(f => ({ path: path.join(deliverDir, f), mtime: fs.statSync(path.join(deliverDir, f)).mtimeMs }))
+            .sort((a, b) => b.mtime - a.mtime);
+          if (bCsvs.length > 0) bCsvPath = bCsvs[0].path;
+        }
+
+        if (!fs.existsSync(nCsvPath)) {
+          const nCsvs = fs.readdirSync(deliverDir)
+            .filter(f => f.startsWith('nova_') && f.endsWith('.csv') && !f.includes('wk'))
+            .map(f => ({ path: path.join(deliverDir, f), mtime: fs.statSync(path.join(deliverDir, f)).mtimeMs }))
+            .sort((a, b) => b.mtime - a.mtime);
+          if (nCsvs.length > 0) nCsvPath = nCsvs[0].path;
+        }
 
         if (fs.existsSync(bCsvPath) && fs.existsSync(nCsvPath)) {
           const bRows = parseCsvSimple(fs.readFileSync(bCsvPath, 'utf8'));
@@ -435,9 +460,9 @@ function alignQualityData(dashboardData) {
           dashboardData.stores.benomi.daily_quality.passed = bPassed;
           dashboardData.stores.benomi.daily_quality.failed = bFailed;
           dashboardData.stores.benomi.daily_quality.pending = bPending;
-          dashboardData.stores.benomi.daily_quality.pass_rate = parseFloat(((bPassed / bRows.length) * 100).toFixed(2));
-          dashboardData.stores.benomi.daily_quality.sheet_name = bSheetMatch ? bSheetMatch[1] : '贝诺美询盘回复质量检查（10.15·16时）';
-          dashboardData.stores.benomi.daily_quality.sheet_url = bSheetMatch ? bSheetMatch[2] : 'https://alidocs.dingtalk.com/i/nodes/14lgGw3P8vNPwloBunydXBg085daZ90D';
+          dashboardData.stores.benomi.daily_quality.pass_rate = bRows.length ? parseFloat(((bPassed / bRows.length) * 100).toFixed(2)) : 0;
+          dashboardData.stores.benomi.daily_quality.sheet_name = bSheetMatch ? bSheetMatch[1] : `贝诺美询盘回复质量检查（${dateShort}·${roundNum}时）`;
+          dashboardData.stores.benomi.daily_quality.sheet_url = bSheetMatch ? bSheetMatch[2] : '';
           dashboardData.stores.benomi.daily_quality.samples = bSamples;
 
           // 诺瓦写入
@@ -447,12 +472,13 @@ function alignQualityData(dashboardData) {
           dashboardData.stores.nova.daily_quality.passed = nPassed;
           dashboardData.stores.nova.daily_quality.failed = nFailed;
           dashboardData.stores.nova.daily_quality.pending = nPending;
-          dashboardData.stores.nova.daily_quality.pass_rate = parseFloat(((nPassed / nRows.length) * 100).toFixed(2));
-          dashboardData.stores.nova.daily_quality.sheet_name = nSheetMatch ? nSheetMatch[1] : '诺瓦询盘回复质量检查（10.15·16时）';
-          dashboardData.stores.nova.daily_quality.sheet_url = nSheetMatch ? nSheetMatch[2] : 'https://alidocs.dingtalk.com/i/nodes/vy20BglGWOR0GOpwcDMl6xX08A7depqY';
+          dashboardData.stores.nova.daily_quality.pass_rate = nRows.length ? parseFloat(((nPassed / nRows.length) * 100).toFixed(2)) : 0;
+          dashboardData.stores.nova.daily_quality.sheet_name = nSheetMatch ? nSheetMatch[1] : `诺瓦询盘回复质量检查（${dateShort}·${roundNum}时）`;
+          dashboardData.stores.nova.daily_quality.sheet_url = nSheetMatch ? nSheetMatch[2] : '';
           dashboardData.stores.nova.daily_quality.samples = nSamples;
 
           console.log(`[AutoAlign] 质检日检动态对齐成功: ${bRound} ｜ 贝诺美: ${bPassed}/${bRows.length} (${dashboardData.stores.benomi.daily_quality.pass_rate}%), 诺瓦: ${nPassed}/${nRows.length} (${dashboardData.stores.nova.daily_quality.pass_rate}%)`);
+          console.log(`[AutoAlign] 读取日检明细 CSV: ${path.basename(bCsvPath)}, ${path.basename(nCsvPath)}`);
           dailyFound = true;
           break;
         }
@@ -556,118 +582,85 @@ function alignCronJobsData(dashboardData) {
   if (!dashboardData.cron_jobs || !Array.isArray(dashboardData.cron_jobs)) return;
 
   const now = new Date();
-  const todayStr = '2026-10-16';
+  const todayStr = '2026-10-19';
 
   dashboardData.cron_jobs.forEach(job => {
-    // 9点广告快照
+    // 9点广告快照 (今日 09:00 已跑完)
     if (job.id === 'cron-1791593405507-bbdz97ef') {
-      job.last_run = '2026-10-16 09:03:41';
-      job.next_run = '2026-10-17 09:00:00';
+      job.last_run = '2026-10-19 08:51:54';
+      job.next_run = '2026-10-20 09:00:00';
       job.status = '已完成';
       job.sheets = [
         {
           store: '贝诺美',
-          name: '贝诺美·直通车消耗与转化统计（2026-10-15·9时）',
-          url: 'https://alidocs.dingtalk.com/i/nodes/lyQod3RxJKaMQmjyTYx3kLMlWkb4Mw9r'
+          name: '贝诺美 · 直通车消耗与转化统计（2026-10-18）·9时',
+          url: 'https://alidocs.dingtalk.com/i/nodes/YndMj49yWjbjYvoyugEzrk6aW3pmz5aA'
         },
         {
           store: '诺瓦',
-          name: '诺瓦·直通车消耗与转化统计（2026-10-15·9时）',
-          url: 'https://alidocs.dingtalk.com/i/nodes/oP0MALyR8kYwn9oxSMPvLxvkV3bzYmDO'
+          name: '诺瓦 · 直通车消耗与转化统计（2026-10-18）·9时',
+          url: 'https://alidocs.dingtalk.com/i/nodes/r1R7q3QmWem2lMoRFKAx9BQXWxkXOEP2'
         }
       ];
     }
 
-    // 10点平台风险监控
+    // 10点平台风险监控 (今日 10:00 已跑完)
     if (job.id === 'cron-1790667065409-ywuvowg6') {
-      job.last_run = '2026-10-16 10:11:49';
-      job.next_run = '2026-10-17 10:00:00';
+      job.last_run = '2026-10-19 10:01:00';
+      job.next_run = '2026-10-20 10:00:00';
       job.status = '已完成';
       job.sheets = [];
     }
 
-    // 11点询盘质检
+    // 11点询盘质检 (今日 11:00 已跑完)
     if (job.id === 'cron-1791515523931-nhmiriw5') {
-      job.last_run = '2026-10-16 11:12:24';
-      job.next_run = '2026-10-17 11:00:00';
+      job.last_run = '2026-10-19 11:11:27';
+      job.next_run = '2026-10-20 11:00:00';
       job.status = '已完成';
       job.sheets = [
         {
           store: '贝诺美',
-          name: '贝诺美询盘回复质量检查（10.15·11时）',
-          url: 'https://alidocs.dingtalk.com/i/nodes/MNDoBb60VLmyGONxFn0lXYmDJlemrZQ3'
+          name: '贝诺美询盘回复质量检查（10.18·11时）',
+          url: 'https://alidocs.dingtalk.com/i/nodes/G1DKw2zgV2EkvXLeudedppmKWB5r9YAn'
         },
         {
           store: '诺瓦',
-          name: '诺瓦询盘回复质量检查（10.15·11时）',
-          url: 'https://alidocs.dingtalk.com/i/nodes/ydxXB52LJq90wloBF2lYlPGNJqjMp697'
+          name: '诺瓦询盘回复质量检查（10.18·11时）',
+          url: 'https://alidocs.dingtalk.com/i/nodes/lyQod3RxJKaMQmjyTY3YMj7nWkb4Mw9r'
         }
       ];
     }
 
-    // 14点广告快照 (今日 14:00 已跑完)
+    // 14点广告快照 (今日待运行)
     if (job.id === 'cron-1790664501099-3vqm6864') {
-      job.last_run = '2026-10-16 14:00:02';
-      job.next_run = '2026-10-17 14:00:00';
-      job.status = '已完成';
-      job.sheets = [
-        {
-          store: '贝诺美',
-          name: '贝诺美·直通车消耗与转化统计（2026-10-15）',
-          url: 'https://alidocs.dingtalk.com/i/nodes/Qnp9zOoBVBMQyzdaFlKwYOGRW1DK0g6l'
-        },
-        {
-          store: '诺瓦',
-          name: '诺瓦·直通车消耗与转化统计（2026-10-15）',
-          url: 'https://alidocs.dingtalk.com/i/nodes/6LeBq413JAg2OGdZiqgkPqyLWDOnGvpb'
-        }
-      ];
-    }
-
-    // 14:30风险监控 (今日 14:30 已跑完)
-    if (job.id === 'cron-1791350923907-1ap13va2') {
-      job.last_run = '2026-10-16 14:30:01';
-      job.next_run = '2026-10-17 14:30:00';
-      job.status = '已完成';
+      job.last_run = '2026-10-18 14:00:00';
+      job.next_run = '2026-10-19 14:00:00';
+      job.status = '待运行';
       job.sheets = [];
     }
 
-    // 15点询盘统计 (今日 15:00 已跑完)
-    if (job.id === 'cron-1789958330109-iqleqsux') {
-      job.last_run = '2026-10-16 15:00:02';
-      job.next_run = '2026-10-17 15:00:00';
-      job.status = '已完成';
-      job.sheets = [
-        {
-          store: '贝诺美',
-          name: '贝诺美询盘分配总表',
-          url: 'https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz'
-        },
-        {
-          store: '诺瓦',
-          name: '诺瓦询盘分配总表',
-          url: 'https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk'
-        }
-      ];
+    // 14:30风险监控 (今日待运行)
+    if (job.id === 'cron-1791350923907-1ap13va2') {
+      job.last_run = '2026-10-18 14:30:00';
+      job.next_run = '2026-10-19 14:30:00';
+      job.status = '待运行';
+      job.sheets = [];
     }
 
-    // 16点询盘回复质检 (今日 16:00 轮已完成)
+    // 15点询盘统计 (今日待运行)
+    if (job.id === 'cron-1789958330109-iqleqsux') {
+      job.last_run = '2026-10-18 15:00:00';
+      job.next_run = '2026-10-19 15:00:00';
+      job.status = '待运行';
+      job.sheets = [];
+    }
+
+    // 16点询盘回复质检 (今日待运行)
     if (job.id === 'cron-1791515533183-eg9uj0bw') {
-      job.last_run = '2026-10-16 16:24:07';
-      job.next_run = '2026-10-17 16:00:00';
-      job.status = '已完成';
-      job.sheets = [
-        {
-          store: '贝诺美',
-          name: '贝诺美询盘回复质量检查（10.15·16时）',
-          url: 'https://alidocs.dingtalk.com/i/nodes/14lgGw3P8vNPwloBunydXBg085daZ90D'
-        },
-        {
-          store: '诺瓦',
-          name: '诺瓦询盘回复质量检查（10.15·16时）',
-          url: 'https://alidocs.dingtalk.com/i/nodes/vy20BglGWOR0GOpwcDMl6xX08A7depqY'
-        }
-      ];
+      job.last_run = '2026-10-18 16:00:00';
+      job.next_run = '2026-10-19 16:00:00';
+      job.status = '待运行';
+      job.sheets = [];
     }
 
     // 周检 (周一待运行)
