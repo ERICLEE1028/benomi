@@ -299,7 +299,7 @@ const htmlContent = `<!DOCTYPE html>
   <div class="header">
     <div class="header-title">
       <h1>📊 阿里双平台自动化巡检与监控看板</h1>
-      <p>全部数据 100% 对齐已完成定时任务 ｜ 14:00 终态转化 ｜ 14:30 风险余额 ｜ 周检业务员字段严格映射</p>
+      <p>全部数据 100% 对齐最新完成定时任务 ｜ 动态匹配对应轮次广告转化 ｜ 风险监控与可用余额 ｜ 询盘质检真实映射</p>
     </div>
     <div class="header-meta" id="headerMeta">
       <span class="badge badge-neutral">🕒 数据底座: ${data.last_synced_at}</span>
@@ -425,7 +425,7 @@ const htmlContent = `<!DOCTYPE html>
       </div>
     </div>
 
-    <!-- 下方汇聚余额与 14 点终态转化情况 -->
+    <!-- 下方汇聚余额与对应轮次广告转化情况 -->
     <div class="card" style="border-top: 4px solid #2563EB;">
       <div class="card-header" style="margin-bottom: 12px; padding-bottom: 10px;">
         <div class="card-title" style="color: #1E40AF; font-size: 16px;">
@@ -460,27 +460,27 @@ const htmlContent = `<!DOCTYPE html>
       <div class="grid-2">
         <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: 8px; padding: 14px;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; border-bottom: 1px solid var(--border-color); padding-bottom: 6px;">
-            <strong style="color: #2563EB; font-size: 13px;">🔵 贝诺美 · 14:00 终态转化明细</strong>
+            <strong style="color: #2563EB; font-size: 13px;">🔵 贝诺美 · ${data.stores.benomi.ads.latest_round} 转化明细</strong>
             <a class="sheet-link-chip" href="${data.stores.benomi.ads.sheet_url}" target="_blank">📊 广告快照表 ↗</a>
           </div>
           <div class="detail-list">
-            <div class="detail-item"><span class="detail-title">在投在跑计划</span><span class="detail-value">2 个计划 (机器515 / 提量计划)</span></div>
-            <div class="detail-item"><span class="detail-title">去重商机转化明细</span><span class="detail-value" style="color: #059669;">机器515: 1个 ｜ 提量计划: 6个 (共 7 个)</span></div>
-            <div class="detail-item"><span class="detail-title">全天曝光与点击</span><span class="detail-value">3,277 曝光 ｜ 82 点击 (CTR 2.50%)</span></div>
-            <div class="detail-item"><span class="detail-title">昨日质检日检转化率</span><span class="detail-value" style="color: #059669;">100% (2/2 合格，闸门完备)</span></div>
+            <div class="detail-item"><span class="detail-title">在投在跑计划</span><span class="detail-value">${data.stores.benomi.ads.active_campaigns} 个在投计划</span></div>
+            <div class="detail-item"><span class="detail-title">去重商机转化 (cvr3)</span><span class="detail-value" style="color: #059669; font-weight: 700;">${data.stores.benomi.ads.cvr3_leads} 个全站商机</span></div>
+            <div class="detail-item"><span class="detail-title">本轮累计消耗</span><span class="detail-value">¥${data.stores.benomi.ads.spend.toFixed(2)}</span></div>
+            <div class="detail-item"><span class="detail-title">数据采集口径</span><span class="detail-value" style="color: #2563EB;">${data.stores.benomi.ads.latest_round.includes('9') ? '9点轮 · PT当日进行中数据（以14点轮为准）' : '14点轮 · PT全天数据'}</span></div>
           </div>
         </div>
 
         <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: 8px; padding: 14px;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; border-bottom: 1px solid var(--border-color); padding-bottom: 6px;">
-            <strong style="color: #7C3AED; font-size: 13px;">🟣 诺瓦 · 14:00 终态转化明细</strong>
+            <strong style="color: #7C3AED; font-size: 13px;">🟣 诺瓦 · ${data.stores.nova.ads.latest_round} 转化明细</strong>
             <a class="sheet-link-chip" href="${data.stores.nova.ads.sheet_url}" target="_blank">📊 广告快照表 ↗</a>
           </div>
           <div class="detail-list">
-            <div class="detail-item"><span class="detail-title">在投在跑计划</span><span class="detail-value">1 个计划 (推店铺计划)</span></div>
-            <div class="detail-item"><span class="detail-title">去重商机转化明细</span><span class="detail-value" style="color: #059669;">推店铺计划: 1 个去重商机 (cvr3=1)</span></div>
-            <div class="detail-item"><span class="detail-title">全天曝光与点击</span><span class="detail-value">2,927 曝光 ｜ 58 点击 (CTR 1.98%)</span></div>
-            <div class="detail-item"><span class="detail-title">上周质检转化合格率</span><span class="detail-value" style="color: #059669;">57.14% (12/21 达标)</span></div>
+            <div class="detail-item"><span class="detail-title">在投在跑计划</span><span class="detail-value">${data.stores.nova.ads.active_campaigns} 个在投计划</span></div>
+            <div class="detail-item"><span class="detail-title">去重商机转化 (cvr3)</span><span class="detail-value" style="color: #059669; font-weight: 700;">${data.stores.nova.ads.cvr3_leads} 个全站商机</span></div>
+            <div class="detail-item"><span class="detail-title">本轮累计消耗</span><span class="detail-value">¥${data.stores.nova.ads.spend.toFixed(2)}</span></div>
+            <div class="detail-item"><span class="detail-title">数据采集口径</span><span class="detail-value" style="color: #7C3AED;">${data.stores.nova.ads.latest_round.includes('9') ? '9点轮 · PT当日进行中数据（以14点轮为准）' : '14点轮 · PT全天数据'}</span></div>
           </div>
         </div>
       </div>
@@ -501,9 +501,9 @@ const htmlContent = `<!DOCTYPE html>
       <h3 style="font-size: 14px; margin-bottom: 12px; color: var(--text-secondary);">📅 最新日常巡检快照</h3>
       <div class="grid-2" style="margin-bottom: 20px;">
         <div style="background: var(--bg-subtle); padding: 14px; border-radius: 8px;">
-          <div style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">广告与商机 (14:00 终态轮)</div>
+          <div style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">广告与商机 (${data.stores.benomi.ads.latest_round})</div>
           <div class="detail-list">
-            <div class="detail-item"><span class="detail-title">终态消耗金额</span><span class="detail-value">¥${data.stores.benomi.ads.spend.toFixed(2)}</span></div>
+            <div class="detail-item"><span class="detail-title">本轮消耗金额</span><span class="detail-value">¥${data.stores.benomi.ads.spend.toFixed(2)}</span></div>
             <div class="detail-item"><span class="detail-title">在投活跃计划</span><span class="detail-value">${data.stores.benomi.ads.active_campaigns} 个</span></div>
             <div class="detail-item"><span class="detail-title">全站商机量 (cvr3)</span><span class="detail-value" style="color: #059669;">${data.stores.benomi.ads.cvr3_leads} 个</span></div>
             <div class="detail-item"><span class="detail-title">在线表格</span><span class="detail-value"><a class="sheet-link-chip" href="${data.stores.benomi.ads.sheet_url}" target="_blank">📊 [贝诺美] 广告快照表 ↗</a></span></div>
@@ -629,9 +629,9 @@ const htmlContent = `<!DOCTYPE html>
       <h3 style="font-size: 14px; margin-bottom: 12px; color: var(--text-secondary);">📅 最新日常巡检快照</h3>
       <div class="grid-2" style="margin-bottom: 20px;">
         <div style="background: var(--bg-subtle); padding: 14px; border-radius: 8px;">
-          <div style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">广告与商机 (14:00 终态轮)</div>
+          <div style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">广告与商机 (${data.stores.nova.ads.latest_round})</div>
           <div class="detail-list">
-            <div class="detail-item"><span class="detail-title">终态消耗金额</span><span class="detail-value">¥${data.stores.nova.ads.spend.toFixed(2)}</span></div>
+            <div class="detail-item"><span class="detail-title">本轮消耗金额</span><span class="detail-value">¥${data.stores.nova.ads.spend.toFixed(2)}</span></div>
             <div class="detail-item"><span class="detail-title">在投活跃计划</span><span class="detail-value">${data.stores.nova.ads.active_campaigns} 个</span></div>
             <div class="detail-item"><span class="detail-title">全站商机量 (cvr3)</span><span class="detail-value" style="color: #059669;">${data.stores.nova.ads.cvr3_leads} 个</span></div>
             <div class="detail-item"><span class="detail-title">在线表格</span><span class="detail-value"><a class="sheet-link-chip" href="${data.stores.nova.ads.sheet_url}" target="_blank">📊 [诺瓦] 广告快照表 ↗</a></span></div>
