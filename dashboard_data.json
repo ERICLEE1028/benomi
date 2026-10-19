@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/19 14:38:21",
+  "last_synced_at": "2026/10/19 14:38:55",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -37,10 +37,10 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/Qnp9zOoBVBMQyzdaFlb307pwW1DK0g6l"
       },
       "risk": {
-        "latest_round": "10:00 轮",
+        "latest_round": "14:30 轮",
         "violations": 0,
         "order_alerts": 0,
-        "balance": 3586.68,
+        "balance": 3506.39,
         "balance_threshold": 1000,
         "rfq_quota": 10,
         "rfq_expire": "2026-10-31",
@@ -50,7 +50,7 @@
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "风险监控 (10:00 轮)"
+        "balance_source": "风险监控 (14:30 轮)"
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
@@ -235,7 +235,7 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/a9E05BDRVQbGeLzquZOrpl59J63zgkYA"
       },
       "risk": {
-        "latest_round": "10:00 轮",
+        "latest_round": "14:30 轮",
         "violations": 0,
         "order_alerts": 0,
         "balance": 5219.39,
@@ -248,7 +248,7 @@
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "风险监控 (10:00 轮)"
+        "balance_source": "风险监控 (14:30 轮)"
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
