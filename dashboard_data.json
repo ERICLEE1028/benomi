@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/17 11:09:48",
+  "last_synced_at": "2026/10/19 08:54:36",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -23,24 +23,24 @@
       "node_id": "YQBnd5ExVErqam47T602eEwnJyeZqMmz",
       "base_sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz",
       "ads": {
-        "latest_round": "09:00 轮 (PT 2026-10-16 真实数据)",
-        "spend": 551.28,
+        "latest_round": "09:00 轮 (PT 2026-10-18 真实数据)",
+        "spend": 767.94,
         "active_campaigns": 2,
         "paused_excluded": 1,
-        "cvr3_leads": 2,
+        "cvr3_leads": 4,
         "top3_products": [
           "62891048210",
           "62893450912",
           "62879012345"
         ],
         "sheet_name": "贝诺美 · 直通车消耗与转化统计（2026-10-14）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/2Amq4vjg89EnZqdMuYGyZyN183kdP0wQ"
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YndMj49yWjbjYvoyugEzrk6aW3pmz5aA"
       },
       "risk": {
-        "latest_round": "10:00 轮",
+        "latest_round": "14:30 轮",
         "violations": 0,
         "order_alerts": 0,
-        "balance": 5373.2,
+        "balance": 3667.48,
         "balance_threshold": 1000,
         "rfq_quota": 10,
         "rfq_expire": "2026-10-31",
@@ -50,7 +50,7 @@
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "风险监控 (10:00 轮)"
+        "balance_source": "风险监控 (14:30 轮)"
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
@@ -60,8 +60,8 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
       },
       "daily_quality": {
-        "latest_round": "2026-10-15（16:00 轮）",
-        "target_date": "2026-10-15",
+        "latest_round": "2026-10-16（11:00 轮）",
+        "target_date": "2026-10-14",
         "total_checked": 8,
         "passed": 6,
         "failed": 1,
@@ -69,8 +69,8 @@
         "pass_rate": 75,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
-        "sheet_name": "贝诺美询盘回复质量检查（10.15·16时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/14lgGw3P8vNPwloBunydXBg085daZ90D",
+        "sheet_name": "贝诺美询盘回复质量检查（10.16·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2JpvYONoqfpXNoyMpW9dEq3XD",
         "records": [
           {
             "inquiry_time": "2026-10-14 03:56:12",
@@ -251,24 +251,24 @@
       "node_id": "ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk",
       "base_sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk",
       "ads": {
-        "latest_round": "09:00 轮 (PT 2026-10-16 真实数据)",
-        "spend": 422.88,
+        "latest_round": "09:00 轮 (PT 2026-10-18 真实数据)",
+        "spend": 483.4,
         "active_campaigns": 1,
         "paused_excluded": 0,
-        "cvr3_leads": 1,
+        "cvr3_leads": 2,
         "top3_products": [
           "71029384756",
           "71029384757",
           "71029384758"
         ],
         "sheet_name": "诺瓦 · 直通车消耗与转化统计（2026-10-14）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/oP0MALyR8kYwn9oxSMP9GjDMV3bzYmDO"
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/r1R7q3QmWem2lMoRFKAx9BQXWxkXOEP2"
       },
       "risk": {
-        "latest_round": "10:00 轮",
+        "latest_round": "14:30 轮",
         "violations": 0,
         "order_alerts": 0,
-        "balance": 6304.36,
+        "balance": 5241.46,
         "balance_threshold": 1000,
         "rfq_quota": 8,
         "rfq_expire": "2026-10-31",
@@ -278,7 +278,7 @@
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "风险监控 (10:00 轮)"
+        "balance_source": "风险监控 (14:30 轮)"
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
@@ -288,8 +288,8 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
       },
       "daily_quality": {
-        "latest_round": "2026-10-15（16:00 轮）",
-        "target_date": "2026-10-15",
+        "latest_round": "2026-10-16（11:00 轮）",
+        "target_date": "2026-10-14",
         "total_checked": 3,
         "passed": 2,
         "failed": 1,
@@ -298,8 +298,8 @@
         "gate_pass_rate": 100,
         "night_relax_hits": 0,
         "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
-        "sheet_name": "诺瓦询盘回复质量检查（10.15·16时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/vy20BglGWOR0GOpwcDMl6xX08A7depqY",
+        "sheet_name": "诺瓦询盘回复质量检查（10.16·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YndMj49yWjbjYvoyugaNrML6W3pmz5aA",
         "records": [],
         "samples": [
           {
