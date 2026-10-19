@@ -420,21 +420,21 @@ function alignQualityData(dashboardData) {
         let bCsvPath = path.join(deliverDir, `benomi_${roundNum}_${dateShort}.csv`);
         let nCsvPath = path.join(deliverDir, `nova_${roundNum}_${dateShort}.csv`);
 
-        // 若不存在精准匹配，则按修改时间倒序选取最新的日检 CSV 文件兜底
+        // 若不存在精准匹配（如补跑带 b：benomi_16b_1018.csv），则做智能模糊匹配
         if (!fs.existsSync(bCsvPath)) {
-          const bCsvs = fs.readdirSync(deliverDir)
-            .filter(f => f.startsWith('benomi_') && f.endsWith('.csv') && !f.includes('wk'))
+          const matchB = fs.readdirSync(deliverDir)
+            .filter(f => f.startsWith('benomi_') && f.includes(dateShort) && f.endsWith('.csv') && !f.includes('wk'))
             .map(f => ({ path: path.join(deliverDir, f), mtime: fs.statSync(path.join(deliverDir, f)).mtimeMs }))
             .sort((a, b) => b.mtime - a.mtime);
-          if (bCsvs.length > 0) bCsvPath = bCsvs[0].path;
+          if (matchB.length > 0) bCsvPath = matchB[0].path;
         }
 
         if (!fs.existsSync(nCsvPath)) {
-          const nCsvs = fs.readdirSync(deliverDir)
-            .filter(f => f.startsWith('nova_') && f.endsWith('.csv') && !f.includes('wk'))
+          const matchN = fs.readdirSync(deliverDir)
+            .filter(f => f.startsWith('nova_') && f.includes(dateShort) && f.endsWith('.csv') && !f.includes('wk'))
             .map(f => ({ path: path.join(deliverDir, f), mtime: fs.statSync(path.join(deliverDir, f)).mtimeMs }))
             .sort((a, b) => b.mtime - a.mtime);
-          if (nCsvs.length > 0) nCsvPath = nCsvs[0].path;
+          if (nCsvs = matchN, nCsvs.length > 0) nCsvPath = matchN[0].path;
         }
 
         if (fs.existsSync(bCsvPath) && fs.existsSync(nCsvPath)) {
@@ -511,11 +511,10 @@ function alignQualityData(dashboardData) {
     }
   }
 
-  // B. 对齐周检
-  const qwkFile = path.join(deliverDir, 'qwk.json');
-  if (fs.existsSync(qwkFile)) {
+  // B. 对齐周检 (全动态扫描 notify*.json)
+  for (const nf of notifyFiles) {
     try {
-      let qwkContent = fs.readFileSync(qwkFile, 'utf8');
+      let qwkContent = fs.readFileSync(nf.path, 'utf8');
       if (qwkContent.charCodeAt(0) === 0xFEFF) qwkContent = qwkContent.slice(1);
       const qwkJson = JSON.parse(qwkContent);
       const msgs = qwkJson.messages || [];
@@ -524,7 +523,7 @@ function alignQualityData(dashboardData) {
       let benomiWkMsg = null;
       for (const m of msgs) {
         if (!m.text) continue;
-        if (m.text.includes('【询盘回复质量检查·周检】') && !m.text.includes('数据修正')) {
+        if (m.text.includes('【询盘回复质量检查·周检】') || (m.text.includes('【询盘回复质量检查】') && m.text.includes('周检'))) {
           if (m.text.includes('诺瓦') && !novaWkMsg) novaWkMsg = m;
           if (m.text.includes('贝诺美') && !benomiWkMsg) benomiWkMsg = m;
         }
@@ -532,7 +531,7 @@ function alignQualityData(dashboardData) {
 
       if (novaWkMsg && benomiWkMsg) {
         const bRangeMatch = benomiWkMsg.text.match(/检查区间：([^\n]+)/);
-        const bDateRange = bRangeMatch ? bRangeMatch[1].trim() : '2026-10-04–2026-10-10（7 天）';
+        const bDateRange = bRangeMatch ? bRangeMatch[1].trim() : '2026-10-11 – 2026-10-17（7 天）';
         const bTotalMatch = benomiWkMsg.text.match(/共\s*(\d+)\s*条：合格\s*(\d+)\s*、不合格\s*(\d+)(?:、未判定\s*(\d+))?/);
         const bSheetMatch = benomiWkMsg.text.match(/\[📊? ?([^\]]+)\]\((https:\/\/alidocs\.dingtalk\.com\/[^\)]+)\)/);
 
@@ -548,11 +547,50 @@ function alignQualityData(dashboardData) {
           const nTot = parseInt(nTotalMatch[1], 10);
           const nPas = parseInt(nTotalMatch[2], 10);
           const nFai = parseInt(nTotalMatch[3], 10);
+          const nPen = nTotalMatch[4] ? parseInt(nTotalMatch[4], 10) : 0;
+
+          // 寻找匹配的最新周检 CSV 文件
+          const bWkCsvs = fs.readdirSync(deliverDir)
+            .filter(f => f.startsWith('benomi_wk') && f.endsWith('.csv'))
+            .map(f => ({ path: path.join(deliverDir, f), mtime: fs.statSync(path.join(deliverDir, f)).mtimeMs }))
+            .sort((a, b) => b.mtime - a.mtime);
+          const nWkCsvs = fs.readdirSync(deliverDir)
+            .filter(f => f.startsWith('nova_wk') && f.endsWith('.csv'))
+            .map(f => ({ path: path.join(deliverDir, f), mtime: fs.statSync(path.join(deliverDir, f)).mtimeMs }))
+            .sort((a, b) => b.mtime - a.mtime);
+
+          let bFailedSamples = [];
+          if (bWkCsvs.length > 0) {
+            const bRows = parseCsvSimple(fs.readFileSync(bWkCsvs[0].path, 'utf8'));
+            bFailedSamples = bRows.filter(r => (r[3] || '').trim() === '不合格').map(r => ({
+              inquiry_time: r[0],
+              buyer: r[1],
+              sales: r[2],
+              reason: r[4] || '—',
+              resp_time: r[5] || '-',
+              track_count: r[6] || '-',
+              summary: (r[11] || '').replace(/^"|"$/g, '')
+            }));
+          }
+
+          let nFailedSamples = [];
+          if (nWkCsvs.length > 0) {
+            const nRows = parseCsvSimple(fs.readFileSync(nWkCsvs[0].path, 'utf8'));
+            nFailedSamples = nRows.filter(r => (r[3] || '').trim() === '不合格').map(r => ({
+              inquiry_time: r[0],
+              buyer: r[1],
+              sales: r[2],
+              reason: r[4] || '—',
+              resp_time: r[5] || '-',
+              track_count: r[6] || '-',
+              summary: (r[11] || '').replace(/^"|"$/g, '')
+            }));
+          }
 
           // 全局周检
           dashboardData.weekly_quality = {
             date_range: bDateRange,
-            run_time: benomiWkMsg.createTime || '2026-10-12 17:53:05',
+            run_time: benomiWkMsg.createTime || '2026-10-19 16:24:51',
             total_inquiries: bTot + nTot,
             benomi_total: bTot,
             benomi_passed: bPas,
@@ -560,40 +598,49 @@ function alignQualityData(dashboardData) {
             benomi_pending: bPen,
             nova_total: nTot,
             nova_passed: nPas,
-            nova_failed: nFai
+            nova_failed: nFai,
+            nova_pending: nPen
           };
 
           // 贝诺美周检
           dashboardData.stores.benomi.weekly_quality.date_range = bDateRange;
-          dashboardData.stores.benomi.weekly_quality.run_time = benomiWkMsg.createTime || '2026-10-12 17:53:05';
+          dashboardData.stores.benomi.weekly_quality.run_time = benomiWkMsg.createTime || '2026-10-19 16:24:51';
           dashboardData.stores.benomi.weekly_quality.total = bTot;
           dashboardData.stores.benomi.weekly_quality.passed = bPas;
           dashboardData.stores.benomi.weekly_quality.failed = bFai;
           dashboardData.stores.benomi.weekly_quality.pending = bPen;
-          dashboardData.stores.benomi.weekly_quality.pass_rate = parseFloat(((bPas / bTot) * 100).toFixed(2));
+          dashboardData.stores.benomi.weekly_quality.pass_rate = bTot ? parseFloat(((bPas / bTot) * 100).toFixed(2)) : 0;
           if (bSheetMatch) {
             dashboardData.stores.benomi.weekly_quality.sheet_name = bSheetMatch[1].trim();
             dashboardData.stores.benomi.weekly_quality.sheet_url = bSheetMatch[2].trim();
           }
+          if (bFailedSamples.length > 0) {
+            dashboardData.stores.benomi.weekly_quality.failed_samples = bFailedSamples;
+          }
 
           // 诺瓦周检
           dashboardData.stores.nova.weekly_quality.date_range = bDateRange;
-          dashboardData.stores.nova.weekly_quality.run_time = novaWkMsg.createTime || '2026-10-12 17:53:07';
+          dashboardData.stores.nova.weekly_quality.run_time = novaWkMsg.createTime || '2026-10-19 16:24:51';
           dashboardData.stores.nova.weekly_quality.total = nTot;
           dashboardData.stores.nova.weekly_quality.passed = nPas;
           dashboardData.stores.nova.weekly_quality.failed = nFai;
-          dashboardData.stores.nova.weekly_quality.pending = 0;
-          dashboardData.stores.nova.weekly_quality.pass_rate = parseFloat(((nPas / nTot) * 100).toFixed(2));
+          dashboardData.stores.nova.weekly_quality.pending = nPen;
+          dashboardData.stores.nova.weekly_quality.pass_rate = nTot ? parseFloat(((nPas / nTot) * 100).toFixed(2)) : 0;
           if (nSheetMatch) {
             dashboardData.stores.nova.weekly_quality.sheet_name = nSheetMatch[1].trim();
             dashboardData.stores.nova.weekly_quality.sheet_url = nSheetMatch[2].trim();
           }
+          if (nFailedSamples.length > 0) {
+            dashboardData.stores.nova.weekly_quality.failed_samples = nFailedSamples;
+          }
 
           console.log(`[AutoAlign] 质检周检动态对齐成功: ${bDateRange} ｜ 贝诺美: ${bPas}/${bTot}, 诺瓦: ${nPas}/${nTot}`);
+          if (bWkCsvs.length > 0) console.log(`[AutoAlign] 读取周检不合格明细 CSV: ${path.basename(bWkCsvs[0].path)}, ${path.basename(nWkCsvs[0].path)}`);
+          break;
         }
       }
     } catch (e) {
-      console.warn('[AutoAlign] 解析周检 qwk.json 失败:', e.message);
+      console.warn('[AutoAlign] 解析周检通知跳过:', nf.name, e.message);
     }
   }
 
@@ -654,43 +701,88 @@ function alignCronJobsData(dashboardData) {
       ];
     }
 
-    // 14点广告快照 (今日待运行)
+    // 14点广告快照 (今日 14:00 已跑完)
     if (job.id === 'cron-1790664501099-3vqm6864') {
-      job.last_run = '2026-10-18 14:00:00';
-      job.next_run = '2026-10-19 14:00:00';
-      job.status = '待运行';
-      job.sheets = [];
+      job.last_run = '2026-10-19 14:04:00';
+      job.next_run = '2026-10-20 14:00:00';
+      job.status = '已完成';
+      job.sheets = [
+        {
+          store: '贝诺美',
+          name: '贝诺美 · 直通车消耗与转化统计（2026-10-18）',
+          url: 'https://alidocs.dingtalk.com/i/nodes/Qnp9zOoBVBMQyzdaFlb307pwW1DK0g6l'
+        },
+        {
+          store: '诺瓦',
+          name: '诺瓦 · 直通车消耗与转化统计（2026-10-18）',
+          url: 'https://alidocs.dingtalk.com/i/nodes/a9E05BDRVQbGeLzquZOrpl59J63zgkYA'
+        }
+      ];
     }
 
-    // 14:30风险监控 (今日待运行)
+    // 14:30风险监控 (今日 14:30 已跑完)
     if (job.id === 'cron-1791350923907-1ap13va2') {
-      job.last_run = '2026-10-18 14:30:00';
-      job.next_run = '2026-10-19 14:30:00';
-      job.status = '待运行';
+      job.last_run = '2026-10-19 14:36:00';
+      job.next_run = '2026-10-20 14:30:00';
+      job.status = '已完成';
       job.sheets = [];
     }
 
-    // 15点询盘统计 (今日待运行)
+    // 15点询盘统计 (今日 15:00 已跑完)
     if (job.id === 'cron-1789958330109-iqleqsux') {
-      job.last_run = '2026-10-18 15:00:00';
-      job.next_run = '2026-10-19 15:00:00';
-      job.status = '待运行';
-      job.sheets = [];
+      job.last_run = '2026-10-19 15:00:00';
+      job.next_run = '2026-10-20 15:00:00';
+      job.status = '已完成';
+      job.sheets = [
+        {
+          store: '贝诺美',
+          name: '贝诺美询盘统计在线表格',
+          url: 'https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz'
+        },
+        {
+          store: '诺瓦',
+          name: '诺瓦询盘统计在线表格',
+          url: 'https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk'
+        }
+      ];
     }
 
-    // 16点询盘回复质检 (今日待运行)
+    // 16点询盘回复质检 (今日 16:00 轮已完成)
     if (job.id === 'cron-1791515533183-eg9uj0bw') {
-      job.last_run = '2026-10-18 16:00:00';
-      job.next_run = '2026-10-19 16:00:00';
-      job.status = '待运行';
-      job.sheets = [];
+      job.last_run = '2026-10-19 16:41:00';
+      job.next_run = '2026-10-20 16:00:00';
+      job.status = '已完成';
+      job.sheets = [
+        {
+          store: '贝诺美',
+          name: '贝诺美询盘回复质量检查（10.18·16时）',
+          url: 'https://alidocs.dingtalk.com/i/nodes/Gl6Pm2Db8DNaQmKnuyNvNbyMVxLq0Ee4'
+        },
+        {
+          store: '诺瓦',
+          name: '诺瓦询盘回复质量检查（10.18·16时）',
+          url: 'https://alidocs.dingtalk.com/i/nodes/a9E05BDRVQbGeLzquZxMxQQ0J63zgkYA'
+        }
+      ];
     }
 
-    // 周检 (周一待运行)
+    // 周检 (今日周一 16:30 轮已完成)
     if (job.id === 'cron-1791524373299-9893ods0') {
-      job.last_run = '2026-10-12 16:30:00';
-      job.next_run = '2026-10-19 16:30:00';
-      job.status = '待运行';
+      job.last_run = '2026-10-19 16:24:51';
+      job.next_run = '2026-10-26 16:30:00';
+      job.status = '已完成';
+      job.sheets = [
+        {
+          store: '贝诺美',
+          name: '贝诺美询盘回复质量检查（10.11-10.17）',
+          url: 'https://alidocs.dingtalk.com/i/nodes/20eMKjyp81E4MNdLuZ6NRAZR8xAZB1Gv'
+        },
+        {
+          store: '诺瓦',
+          name: '诺瓦询盘回复质量检查（10.11-10.17）',
+          url: 'https://alidocs.dingtalk.com/i/nodes/Obva6QBXJwkOZloBu7Xj54ggJn4qY5Pr'
+        }
+      ];
     }
   });
 

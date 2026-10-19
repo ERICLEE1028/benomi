@@ -572,10 +572,10 @@ const htmlContent = `<!DOCTYPE html>
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
           <div>
             <h3 style="font-size: 15px; font-weight: 700; color: #2563EB;">
-              📋 贝诺美 · 周检查独立分析专区 (2026-10-04 至 2026-10-10)
+              📋 贝诺美 · 周检查独立分析专区 (${data.stores.benomi.weekly_quality.date_range || '最新自然周'})
             </h3>
             <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">
-              业务员严格匹配阿里「负责人」列 ｜ 真实综合合格率: <strong>${data.stores.benomi.weekly_quality.pass_rate}%</strong> (16合格 / 5不合格 / 1未判定)
+              业务员严格匹配阿里「负责人」列 ｜ 真实综合合格率: <strong>${data.stores.benomi.weekly_quality.pass_rate}%</strong> (${data.stores.benomi.weekly_quality.passed}合格 / ${data.stores.benomi.weekly_quality.failed}不合格 / ${data.stores.benomi.weekly_quality.pending || 0}未判定)
             </div>
           </div>
           <a class="sheet-link-chip" href="${data.stores.benomi.weekly_quality.sheet_url}" target="_blank">📊 打开贝诺美周检在线表 ↗</a>
@@ -700,10 +700,10 @@ const htmlContent = `<!DOCTYPE html>
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
           <div>
             <h3 style="font-size: 15px; font-weight: 700; color: #7C3AED;">
-              📋 诺瓦 · 周检查独立分析专区 (2026-10-04 至 2026-10-10)
+              📋 诺瓦 · 周检查独立分析专区 (${data.stores.nova.weekly_quality.date_range || '最新自然周'})
             </h3>
             <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">
-              业务员严格匹配阿里「负责人」列 ｜ 真实综合合格率: <strong>${data.stores.nova.weekly_quality.pass_rate}%</strong> (12合格 / 9不合格 / 0未判定)
+              业务员严格匹配阿里「负责人」列 ｜ 真实综合合格率: <strong>${data.stores.nova.weekly_quality.pass_rate}%</strong> (${data.stores.nova.weekly_quality.passed}合格 / ${data.stores.nova.weekly_quality.failed}不合格 / ${data.stores.nova.weekly_quality.pending || 0}未判定)
             </div>
           </div>
           <a class="sheet-link-chip" href="${data.stores.nova.weekly_quality.sheet_url}" target="_blank">📊 打开诺瓦周检在线表 ↗</a>
