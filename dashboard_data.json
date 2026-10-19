@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/19 10:07:13",
+  "last_synced_at": "2026/10/19 10:11:38",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -44,7 +44,7 @@
         "balance_threshold": 1000,
         "rfq_quota": 10,
         "rfq_expire": "2026-10-31",
-        "rfq_used_detail": "本月已用 1 条",
+        "rfq_used_detail": "本月已用 1 条（按业务员：Lily Qie 1 条）",
         "status": "warning",
         "rfq_warning": "普通报价权益仅剩9条，处于临界警戒线",
         "product_radar": "0 个 (暂无待整改任务)",
