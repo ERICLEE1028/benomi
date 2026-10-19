@@ -108,13 +108,25 @@ function alignRiskData(dashboardData) {
   if (dateDirs.length === 0) return false;
 
   const todayDir = path.join(RISK_DIR, dateDirs[0]);
+  // 轮次目录选取：用「目录内最新文件时间」而非目录自身 mtime
+  // （2026-10-19 修正：Windows 下覆盖已有文件不会更新目录 mtime，导致新一轮被判为旧轮）
   const runEntries = fs.readdirSync(todayDir)
     .filter(name => name.startsWith('risk-'))
-    .map(name => ({
-      name,
-      path: path.join(todayDir, name),
-      mtime: fs.statSync(path.join(todayDir, name)).mtimeMs
-    }))
+    .map(name => {
+      const p = path.join(todayDir, name);
+      let newest = 0;
+      try {
+        fs.readdirSync(p).forEach((f) => {
+          try {
+            const st = fs.statSync(path.join(p, f));
+            if (st.isFile() && st.mtimeMs > newest) newest = st.mtimeMs;
+          } catch (e) {}
+        });
+      } catch (e) {}
+      let dirM = 0;
+      try { dirM = fs.statSync(p).mtimeMs; } catch (e) {}
+      return { name, path: p, mtime: Math.max(newest, dirM) };
+    })
     .sort((a, b) => b.mtime - a.mtime);
 
   if (runEntries.length === 0) return false;
@@ -174,15 +186,26 @@ function alignRiskData(dashboardData) {
         const d = JSON.parse(fs.readFileSync(bRfqJson, 'utf8'));
         const q = parseInt(d.availableQuoteEquity, 10);
         if (!isNaN(q)) dashboardData.stores.benomi.risk.rfq_quota = q;
-        if (d.usageByAccount && typeof d.usageByAccount === 'object') {
+        // 优先：按「权益使用明细」原始行现算（结构稳定，不受 usageByAccount 形状漂移影响）
+        if (!applied && Array.isArray(d.equityPages) && d.equityPages.length) {
+          const allRows = [];
+          d.equityPages.forEach((pg) => { if (pg && Array.isArray(pg.rows)) pg.rows.forEach((r) => allRows.push(r)); });
+          if (allRows.length) {
+            const usage = computeRfqUsageFromRows(allRows, pacificMonthKey());
+            dashboardData.stores.benomi.risk.rfq_used_detail = fmtRfqUsedDetail(usage);
+            applied = true;
+          }
+        }
+        // 兜底：usageByAccount 若为 {姓名: 条数} 的简单字典（注意：子代理偶尔返回 {account,count,quantity} 单条对象，需排除）
+        if (!applied && d.usageByAccount && typeof d.usageByAccount === 'object' && !Array.isArray(d.usageByAccount)) {
           const by = {};
           let total = 0;
           Object.keys(d.usageByAccount).forEach((k) => {
-            const n = parseInt(d.usageByAccount[k], 10) || 0;
-            if (n) { by[k] = n; total += n; }
+            const v = d.usageByAccount[k];
+            const n = (typeof v === 'number') ? v : parseInt(v, 10);
+            if (Number.isFinite(n) && n > 0) { by[k] = n; total += n; }
           });
-          const detail = fmtRfqUsedDetail({ total, by });
-          if (detail) { dashboardData.stores.benomi.risk.rfq_used_detail = detail; applied = true; }
+          if (total > 0) { dashboardData.stores.benomi.risk.rfq_used_detail = fmtRfqUsedDetail({ total, by }); applied = true; }
         }
         const exp = extractExpireDate(d.expiryText);
         if (exp) dashboardData.stores.benomi.risk.rfq_expire = exp;
