@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/20 09:03:36",
+  "last_synced_at": "2026/10/20 09:12:44",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -40,7 +40,7 @@
         "latest_round": "14:30 轮",
         "violations": 0,
         "order_alerts": 0,
-        "balance": 3506.39,
+        "balance": 2791.79,
         "balance_threshold": 1000,
         "rfq_quota": 10,
         "rfq_expire": "2026-10-31",
@@ -50,7 +50,8 @@
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "风险监控 (14:30 轮)"
+        "balance_source": "广告消耗快照 (09:00轮)",
+        "balance_at": 1792458138000
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
@@ -248,7 +249,8 @@
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "风险监控 (14:30 轮)"
+        "balance_source": "广告消耗快照 (09:00轮)",
+        "balance_at": 1792458142000
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
