@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/19 16:51:35",
+  "last_synced_at": "2026/10/20 09:03:36",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -23,18 +23,18 @@
       "node_id": "YQBnd5ExVErqam47T602eEwnJyeZqMmz",
       "base_sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz",
       "ads": {
-        "latest_round": "14:00 轮 (PT 2026-10-18 真实数据)",
-        "spend": 898.51,
+        "latest_round": "09:00 轮 (PT 2026-10-19 真实数据)",
+        "spend": 714.6,
         "active_campaigns": 2,
         "paused_excluded": 1,
-        "cvr3_leads": 5,
+        "cvr3_leads": 2,
         "top3_products": [
           "62891048210",
           "62893450912",
           "62879012345"
         ],
         "sheet_name": "贝诺美 · 直通车消耗与转化统计（2026-10-14）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/Qnp9zOoBVBMQyzdaFlb307pwW1DK0g6l"
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47TaQyAZ0NJyeZqMmz"
       },
       "risk": {
         "latest_round": "14:30 轮",
@@ -221,24 +221,24 @@
       "node_id": "ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk",
       "base_sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk",
       "ads": {
-        "latest_round": "14:00 轮 (PT 2026-10-18 真实数据)",
-        "spend": 505.47,
+        "latest_round": "09:00 轮 (PT 2026-10-19 真实数据)",
+        "spend": 500.39,
         "active_campaigns": 1,
         "paused_excluded": 0,
-        "cvr3_leads": 2,
+        "cvr3_leads": 1,
         "top3_products": [
           "71029384756",
           "71029384757",
           "71029384758"
         ],
         "sheet_name": "诺瓦 · 直通车消耗与转化统计（2026-10-14）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/a9E05BDRVQbGeLzquZOrpl59J63zgkYA"
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/jb9Y4gmKWrDdeloBsrGqQepBJGXn6lpz"
       },
       "risk": {
         "latest_round": "14:30 轮",
         "violations": 0,
         "order_alerts": 0,
-        "balance": 5219.39,
+        "balance": 4719,
         "balance_threshold": 1000,
         "rfq_quota": 8,
         "rfq_expire": "2026-10-31",
