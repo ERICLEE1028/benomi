@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/20 16:07:37",
+  "last_synced_at": "2026/10/20 16:10:02",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -61,17 +61,17 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
       },
       "daily_quality": {
-        "latest_round": "2026-10-19（11:00 轮）",
+        "latest_round": "2026-10-19（16:00 轮）",
         "target_date": "2026-10-19",
-        "total_checked": 0,
-        "passed": 0,
-        "failed": 0,
+        "total_checked": 2,
+        "passed": 1,
+        "failed": 1,
         "pending": 0,
-        "pass_rate": 0,
+        "pass_rate": 50,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
-        "sheet_name": "贝诺美询盘回复质量检查（10.19·11时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/6LeBq413JAg2OGdZiq5BnRbeWDOnGvpb",
+        "sheet_name": "贝诺美询盘回复质量检查（10.19·16时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ydxXB52LJq90wloBF2kDnpkoJqjMp697",
         "records": [
           {
             "inquiry_time": "2026-10-14 03:56:12",
@@ -98,7 +98,28 @@
             "summary": "买家咨询激光脱毛仪批发价与MOQ。首响迅速并发送规格表。买家已读卖家最后一条消息（10-14 10:45）。"
           }
         ],
-        "samples": []
+        "samples": [
+          {
+            "inquiry_time": "2026/10/19 15:58:15",
+            "buyer": "Mohamed Zidan",
+            "sales": "Harper Mu",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "1 分钟",
+            "track_count": "4",
+            "summary": "买家通过 RF Emshaping / Emslim Neo EMS 肌肉刺激塑形仪询盘卡发起咨询。卖家发送多张产品图并说明双手柄可同时为两人操作，买家两次追问价格（How much / I need the best price），卖家表示会给出最优价并询问目的港以便核算运费，次日补发产品图与操作视频。买家未读卖家最后一条消息（2026-10-20 11:16:02）。"
+          },
+          {
+            "inquiry_time": "2026/10/19 16:53:31",
+            "buyer": "sert erol",
+            "sales": "Jay Li",
+            "verdict": "不合格",
+            "reason": "前 3 次人工追踪未图文并茂",
+            "resp_time": "2 分钟",
+            "track_count": "1",
+            "summary": "买家经 WhatsApp 询盘卡咨询 808/755/940/1064nm 二极管激光脱毛机（德语询盘）。卖家仅以德语致意并说明正在前往办公室、稍后回复，此后无进一步回复。买家未读卖家最后一条消息（2026-10-19 16:55:10）。"
+          }
+        ]
       },
       "weekly_quality": {
         "date_range": "2026-10-11 – 2026-10-17（7 天）",
@@ -209,18 +230,18 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
       },
       "daily_quality": {
-        "latest_round": "2026-10-19（11:00 轮）",
+        "latest_round": "2026-10-19（16:00 轮）",
         "target_date": "2026-10-19",
-        "total_checked": 2,
-        "passed": 1,
+        "total_checked": 3,
+        "passed": 2,
         "failed": 1,
         "pending": 0,
-        "pass_rate": 50,
+        "pass_rate": 66.67,
         "gate_pass_rate": 100,
         "night_relax_hits": 0,
         "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
-        "sheet_name": "诺瓦询盘回复质量检查（10.19·11时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/dQPGYqjpJYDYR0bjs9MoEkGeVakx1Z5N",
+        "sheet_name": "诺瓦询盘回复质量检查（10.19·16时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/R1zknDm0WRYLzeZKSdYP90ME8BQEx5rG",
         "records": [],
         "samples": [
           {
@@ -231,7 +252,7 @@
             "reason": "—",
             "resp_time": "7 小时 58 分钟",
             "track_count": "3",
-            "summary": "买家以 Cummins/Weichai/Sdec 20–500kVA 三相无刷静音柴油发电机组询盘卡发起咨询（采购 1 件），仅附「interested in your supply for this」，未说明具体参数。卖家先询问所需功率，随后按 40kVA 机组介绍 Nova 20 年制造经验，并请买家确认是否需要 ATS、机组品牌与额定功率 kW。买家未读卖家最后一条消息（2026-10-20 09:27:30）。"
+            "summary": "买家通过 Cummins/Weichai/Sdec 20–500kVA 三相无刷静音柴油发电机组询盘卡发起咨询，未说明功率需求。卖家先询问所需功率，随后按 40kVA 机组介绍 Nova 20 年制造经验，并请买家确认是否需要 ATS、机组品牌与额定功率 kW，另发送 2 张机组图。买家未读卖家最后一条消息（2026-10-20 09:27:30）。"
           },
           {
             "inquiry_time": "2026/10/19 3:05:52",
@@ -242,6 +263,16 @@
             "resp_time": "3 小时 31 分钟",
             "track_count": "4",
             "summary": "买家以「认证 Cummins 30kVA 低噪音商用静音柴油发电机组」询盘卡发起咨询（标价 US$300-600，最小起订 1 Set）。卖家先问候，随后按 40kVA 机组介绍 Nova 20 年经验并请买家确认是否需要 ATS、机组品牌与额定功率 kW，并发送 2 张图片与工厂介绍。买家未读卖家最后一条消息（2026-10-19 11:30:44）。"
+          },
+          {
+            "inquiry_time": "2026/10/19 23:38:23",
+            "buyer": "FELIX CHEGE",
+            "sales": "Mark Zhang",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "2 分钟",
+            "track_count": "2",
+            "summary": "买家通过 75–150kVA 静音移动式柴油发电机组询盘卡发起咨询（标题含 150Kw/75Kva/150Kva、230V 远程启动、Cebu）。自动接待先回复将向经理确认价格与拖车配置，人工随后确认其需要 75kVA 移动式机组并核对功率。次日卖家补发 3 张机组图并说明所有机组均经第三方权威机构检测认证。买家未读卖家最后一条消息（2026-10-20 08:24:22）。"
           }
         ]
       },
