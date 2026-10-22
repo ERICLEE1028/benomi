@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/21 16:12:17",
+  "last_synced_at": "2026/10/22 09:08:36",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -23,24 +23,24 @@
       "node_id": "YQBnd5ExVErqam47T602eEwnJyeZqMmz",
       "base_sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz",
       "ads": {
-        "latest_round": "14:00 轮 (PT 2026-10-20 真实数据)",
-        "spend": 858.04,
+        "latest_round": "09:00 轮 (PT 2026-10-21 真实数据)",
+        "spend": 670.91,
         "active_campaigns": 2,
         "paused_excluded": 1,
-        "cvr3_leads": 9,
+        "cvr3_leads": 3,
         "top3_products": [
           "62891048210",
           "62893450912",
           "62879012345"
         ],
         "sheet_name": "贝诺美 · 直通车消耗与转化统计（2026-10-14）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/NZQYprEoWo4wPro5cXkQgzaaV1waOeDk"
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/QG53mjyd80EKgjdeuz6rXr7mW6zbX04v"
       },
       "risk": {
         "latest_round": "14:30 轮",
         "violations": 0,
         "order_alerts": 0,
-        "balance": 1846.71,
+        "balance": 1178.36,
         "balance_threshold": 1000,
         "rfq_quota": 9,
         "rfq_expire": "2026-10-31",
@@ -50,8 +50,8 @@
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "风险监控 (14:30 轮)",
-        "balance_at": 1792564910188.7292
+        "balance_source": "广告消耗快照 (09:00轮)",
+        "balance_at": 1792631166000
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
@@ -212,8 +212,8 @@
       "node_id": "ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk",
       "base_sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk",
       "ads": {
-        "latest_round": "14:00 轮 (PT 2026-10-20 真实数据)",
-        "spend": 505.32,
+        "latest_round": "09:00 轮 (PT 2026-10-21 真实数据)",
+        "spend": 500.33,
         "active_campaigns": 1,
         "paused_excluded": 0,
         "cvr3_leads": 2,
@@ -223,13 +223,13 @@
           "71029384758"
         ],
         "sheet_name": "诺瓦 · 直通车消耗与转化统计（2026-10-14）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/20eMKjyp81E4MNdLuZlrwRxy8xAZB1Gv"
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/dQPGYqjpJYDYR0bjs9NQrDlyVakx1Z5N"
       },
       "risk": {
         "latest_round": "14:30 轮",
         "violations": 0,
         "order_alerts": 0,
-        "balance": 4349.02,
+        "balance": 3848.69,
         "balance_threshold": 1000,
         "rfq_quota": 55,
         "rfq_expire": "2026-10-31",
@@ -239,8 +239,8 @@
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "风险监控 (14:30 轮)",
-        "balance_at": 1792564910188.7292
+        "balance_source": "广告消耗快照 (09:00轮)",
+        "balance_at": 1792631173000
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
