@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/22 11:17:40",
+  "last_synced_at": "2026/10/22 11:26:30",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -64,10 +64,10 @@
         "latest_round": "2026-10-21（11:00 轮）",
         "target_date": "2026-10-21",
         "total_checked": 7,
-        "passed": 4,
+        "passed": 5,
         "failed": 1,
-        "pending": 2,
-        "pass_rate": 57.14,
+        "pending": 1,
+        "pass_rate": 71.43,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
         "sheet_name": "贝诺美询盘回复质量检查（10.21·11时）",
@@ -163,11 +163,11 @@
             "inquiry_time": "2026/10/21 13:29:11",
             "buyer": "Ferenc Pollak",
             "sales": "Celin Wang",
-            "verdict": "未判定",
+            "verdict": "合格",
             "reason": "—",
-            "resp_time": "-",
-            "track_count": "-",
-            "summary": "无法判定：列表行已定位（询价单号 13945018317），但会话详情页未初始化、未发起任何消息请求，7 条入口均未能打开聊天记录。"
+            "resp_time": "4 分钟",
+            "track_count": "7",
+            "summary": "买家以 Mini Laser Diode Epilator（755/808/1064nm 家用冰点脱毛仪）产品卡发起咨询，说明自己是匈牙利分销商，索要机器价格与运费。卖家报 699 美元并发送参数与多张实拍图，随后给出含运费的更新报价；买家反馈另一供应商同款便宜 100 美元（599 美元）并要求降价，卖家询问对方配置是否一致、强调 18 年制造与品质保障。买家表示需先与其客户谈定，卖家回复期待好消息。买家已读卖家最后一条消息（2026-10-21 22:26:39）。"
           }
         ]
       },
