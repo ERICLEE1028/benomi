@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/22 14:03:29",
+  "last_synced_at": "2026/10/22 14:35:37",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -37,7 +37,7 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/R1zknDm0WRYLzeZKSdQgnQEd8BQEx5rG"
       },
       "risk": {
-        "latest_round": "10:00 轮",
+        "latest_round": "14:30 轮",
         "violations": 0,
         "order_alerts": 0,
         "balance": 976.77,
@@ -50,8 +50,8 @@
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "广告消耗快照 (14:00轮)",
-        "balance_at": 1792648924000
+        "balance_source": "风险监控 (14:30 轮)",
+        "balance_at": 1792650932436.3308
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
@@ -256,21 +256,21 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/m9bN7RYPWdaEPgB7TRP3y90LVZd1wyK0"
       },
       "risk": {
-        "latest_round": "10:00 轮",
+        "latest_round": "14:30 轮",
         "violations": 0,
         "order_alerts": 0,
         "balance": 3848.69,
         "balance_threshold": 1000,
-        "rfq_quota": 53,
-        "rfq_expire": "2026-10-31",
-        "rfq_used_detail": "本月已用 17 条（按业务员：Mark Zhang 7 条、Hale He 6 条、IVA ZHANG 4 条）",
+        "rfq_quota": 50,
+        "rfq_expire": "2027-01-18",
+        "rfq_used_detail": "本月已用 20 条（按业务员：Mark Zhang 9 条、Hale He 6 条、IVA ZHANG 5 条）",
         "status": "normal",
         "rfq_warning": "权益充裕",
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "广告消耗快照 (14:00轮)",
-        "balance_at": 1792648926000
+        "balance_source": "风险监控 (14:30 轮)",
+        "balance_at": 1792650932436.3308
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
