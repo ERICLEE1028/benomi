@@ -660,256 +660,254 @@ const htmlContent = `<!DOCTYPE html>
     </div>
   </div>
 
-  <!-- 视图 2: 贝诺美专属 (含周检真实业务员) -->
+  <!-- 视图 2: 贝诺美专属 (上中下三段独立布局) -->
   <div id="view-benomi" class="view-content">
+    <!-- 上段: 日常巡检与风控资金大盘 -->
     <div class="card">
       <div class="card-header">
         <div class="card-title">
-          <span style="color: #2563EB;">🔵 贝诺美 (benomibeauty) · 专属日常巡检与周检大盘</span>
+          <span style="color: #2563EB;">🔵 贝诺美 (benomibeauty) · 日常巡检与风控资金大盘</span>
           <span class="card-tag tag-benomi">美妆个护/仪器</span>
         </div>
       </div>
-
-      <h3 style="font-size: 14px; margin-bottom: 12px; color: var(--text-secondary);">📅 最新日常巡检快照</h3>
-      <div class="grid-2" style="margin-bottom: 20px;">
-        <div style="background: var(--bg-subtle); padding: 14px; border-radius: 8px;">
-          <div style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">广告与商机 (${data.stores.benomi.ads.latest_round})</div>
+      <div class="grid-2">
+        <div style="background: var(--bg-subtle); padding: 16px; border-radius: 8px; border: 1px solid var(--border-color);">
+          <div style="font-size: 13px; font-weight: 700; color: #2563EB; margin-bottom: 8px;">广告与商机 (${data.stores.benomi.ads.latest_round})</div>
           <div class="detail-list">
             <div class="detail-item"><span class="detail-title">本轮消耗金额</span><span class="detail-value">¥${data.stores.benomi.ads.spend.toFixed(2)}</span></div>
             <div class="detail-item"><span class="detail-title">在投活跃计划</span><span class="detail-value">${data.stores.benomi.ads.active_campaigns} 个</span></div>
-            <div class="detail-item"><span class="detail-title">全站商机量 (cvr3)</span><span class="detail-value" style="color: #059669;">${data.stores.benomi.ads.cvr3_leads} 个</span></div>
+            <div class="detail-item"><span class="detail-title">全站商机量 (cvr3)</span><span class="detail-value" style="color: #059669; font-weight: 700;">${data.stores.benomi.ads.cvr3_leads} 个</span></div>
             <div class="detail-item"><span class="detail-title">在线表格</span><span class="detail-value"><a class="sheet-link-chip" href="${data.stores.benomi.ads.sheet_url}" target="_blank">📊 [贝诺美] 广告快照表 ↗</a></span></div>
           </div>
         </div>
-        <div style="background: var(--bg-subtle); padding: 14px; border-radius: 8px;">
-          <div style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">平台风控与资金 (含商品雷达补充项)</div>
+        <div style="background: var(--bg-subtle); padding: 16px; border-radius: 8px; border: 1px solid var(--border-color);">
+          <div style="font-size: 13px; font-weight: 700; color: #2563EB; margin-bottom: 8px;">平台风控与资金 (含商品雷达补充项)</div>
           <div class="detail-list">
             <div class="detail-item"><span class="detail-title">商品雷达待整改</span><span class="detail-value" style="color: #059669;">${data.stores.benomi.risk.product_radar}</span></div>
             <div class="detail-item"><span class="detail-title">直通车当前可用余额</span><span class="detail-value" style="font-weight: 700; color: #2563EB;">¥${data.stores.benomi.risk.balance.toFixed(2)} (${data.stores.benomi.risk.balance_source || '实时同步'})</span></div>
             <div class="detail-item"><span class="detail-title">RFQ 普通报价权益</span><span class="detail-value" style="color: #059669; font-weight: 600;">${data.stores.benomi.risk.rfq_quota} 条剩余 (${data.stores.benomi.risk.rfq_used_detail})</span></div>
-            <div class="detail-item"><span class="detail-title">最新质检日检 (${data.stores.benomi.daily_quality.target_date})</span><span class="detail-value" style="color: #059669;">${data.stores.benomi.daily_quality.passed}/${data.stores.benomi.daily_quality.total_checked} 合格 (${data.stores.benomi.daily_quality.pass_rate}%)</span></div>
+            <div class="detail-item"><span class="detail-title">最新质检日检 (${data.stores.benomi.daily_quality.target_date})</span><span class="detail-value" style="color: #059669; font-weight: 700;">${data.stores.benomi.daily_quality.passed}/${data.stores.benomi.daily_quality.total_checked} 合格 (${data.stores.benomi.daily_quality.pass_rate}%)</span></div>
             <div class="detail-item"><span class="detail-title">最新日检在线表</span><span class="detail-value"><a class="sheet-link-chip" href="${data.stores.benomi.daily_quality.sheet_url}" target="_blank">📊 [贝诺美] ${data.stores.benomi.daily_quality.target_date}日检表 ↗</a></span></div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- 贝诺美 · 日巡检最新数据专属看板 (今日实测最新) -->
-      <div style="border-top: 1px solid var(--border-color); padding-top: 16px; margin-bottom: 24px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-          <div>
-            <h3 style="font-size: 15px; font-weight: 700; color: #2563EB;">
-              🔍 贝诺美 · 日巡检最新数据专属看板 (${data.stores.benomi.daily_quality.target_date} 全天)
-            </h3>
-            <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">
-              巡检轮次: ${data.stores.benomi.daily_quality.latest_round} ｜ 检查会话: <strong>${data.stores.benomi.daily_quality.total_checked}</strong> 条 ｜ 合格: <strong style="color: #059669;">${data.stores.benomi.daily_quality.passed}</strong> ｜ 不合格: <strong style="color: #DC2626;">${data.stores.benomi.daily_quality.failed}</strong> ｜ 日检合格率: <strong style="color: #059669;">${data.stores.benomi.daily_quality.pass_rate}%</strong>
-            </div>
+    <!-- 中段: 日检数据展示版块 (独立卡片) -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">
+            <span style="color: #2563EB;">🔍 贝诺美 · 日巡检最新数据专属看板 (${data.stores.benomi.daily_quality.target_date} 全天)</span>
           </div>
-          <a class="sheet-link-chip" href="${data.stores.benomi.daily_quality.sheet_url}" target="_blank">📊 打开贝诺美最新日检在线表 ↗</a>
+          <div style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">
+            巡检轮次: ${data.stores.benomi.daily_quality.latest_round} ｜ 检查会话: <strong>${data.stores.benomi.daily_quality.total_checked}</strong> 条 ｜ 合格: <strong style="color: #059669;">${data.stores.benomi.daily_quality.passed}</strong> ｜ 不合格: <strong style="color: #DC2626;">${data.stores.benomi.daily_quality.failed}</strong> ｜ 日检合格率: <strong style="color: #059669;">${data.stores.benomi.daily_quality.pass_rate}%</strong>
+          </div>
         </div>
-
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>询盘时间</th>
-                <th>买家名称</th>
-                <th>真实业务员</th>
-                <th>结论</th>
-                <th>不合格判定原因</th>
-                <th>首响耗时</th>
-                <th>追踪次数</th>
-                <th>会话内容总结与已读状态</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${(data.stores.benomi.daily_quality.samples || []).map(item => `
-                <tr class="${item.verdict === '不合格' ? 'row-fail' : ''}">
-                  <td>${item.inquiry_time}</td>
-                  <td>${item.buyer}</td>
-                  <td><strong>${item.sales}</strong></td>
-                  <td><span class="alert-pill ${item.verdict === '不合格' ? 'alert-danger' : 'alert-normal'}">${item.verdict}</span></td>
-                  <td>${item.reason}</td>
-                  <td>${item.resp_time}</td>
-                  <td>${item.track_count} 次</td>
-                  <td>${item.summary}</td>
-                </tr>
-              `).join('')}
-            </tbody>
-          </table>
-        </div>
+        <a class="sheet-link-chip" href="${data.stores.benomi.daily_quality.sheet_url}" target="_blank">📊 打开贝诺美最新日检在线表 ↗</a>
       </div>
 
-      <!-- 周检独立分析专区 (真实业务员与买家) -->
-      <div style="border-top: 1px solid var(--border-color); padding-top: 16px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-          <div>
-            <h3 style="font-size: 15px; font-weight: 700; color: #2563EB;">
-              📋 贝诺美 · 周检查独立分析专区 (${data.stores.benomi.weekly_quality.date_range || '最新自然周'})
-            </h3>
-            <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">
-              业务员严格匹配阿里「负责人」列 ｜ 真实综合合格率: <strong>${data.stores.benomi.weekly_quality.pass_rate}%</strong> (${data.stores.benomi.weekly_quality.passed}合格 / ${data.stores.benomi.weekly_quality.failed}不合格 / ${data.stores.benomi.weekly_quality.pending || 0}未判定)
-            </div>
-          </div>
-          <a class="sheet-link-chip" href="${data.stores.benomi.weekly_quality.sheet_url}" target="_blank">📊 打开贝诺美周检在线表 ↗</a>
-        </div>
-
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>询盘时间</th>
-                <th>买家名称</th>
-                <th>真实业务员 (负责人)</th>
-                <th>结论</th>
-                <th>不合格判定原因</th>
-                <th>首响耗时</th>
-                <th>48h追踪</th>
-                <th>会话内容总结与已读状态</th>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>询盘时间</th>
+              <th>买家名称</th>
+              <th>真实业务员</th>
+              <th>结论</th>
+              <th>不合格判定原因</th>
+              <th>首响耗时</th>
+              <th>追踪次数</th>
+              <th>会话内容总结与已读状态</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${(data.stores.benomi.daily_quality.samples || []).map(item => `
+              <tr class="${item.verdict === '不合格' ? 'row-fail' : ''}">
+                <td>${item.inquiry_time}</td>
+                <td>${item.buyer}</td>
+                <td><strong>${item.sales}</strong></td>
+                <td><span class="alert-pill ${item.verdict === '不合格' ? 'alert-danger' : 'alert-normal'}">${item.verdict}</span></td>
+                <td>${item.reason}</td>
+                <td>${item.resp_time}</td>
+                <td>${item.track_count} 次</td>
+                <td>${item.summary}</td>
               </tr>
-            </thead>
-            <tbody>
-              ${data.stores.benomi.weekly_quality.failed_samples.map(item => `
-                <tr class="row-fail">
-                  <td>${item.inquiry_time}</td>
-                  <td>${item.buyer}</td>
-                  <td><strong>${item.sales}</strong></td>
-                  <td>不合格</td>
-                  <td>${item.reason}</td>
-                  <td>${item.resp_time}</td>
-                  <td>${item.track_count} 次</td>
-                  <td>${item.summary}</td>
-                </tr>
-              `).join('')}
-            </tbody>
-          </table>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 下段: 周检独立分析专区 (独立卡片) -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">
+            <span style="color: #2563EB;">📋 贝诺美 · 周检查独立分析专区 (${data.stores.benomi.weekly_quality.date_range || '最新自然周'})</span>
+          </div>
+          <div style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">
+            业务员严格匹配阿里「负责人」列 ｜ 真实综合合格率: <strong>${data.stores.benomi.weekly_quality.pass_rate}%</strong> (${data.stores.benomi.weekly_quality.passed}合格 / ${data.stores.benomi.weekly_quality.failed}不合格 / ${data.stores.benomi.weekly_quality.pending || 0}未判定)
+          </div>
         </div>
+        <a class="sheet-link-chip" href="${data.stores.benomi.weekly_quality.sheet_url}" target="_blank">📊 打开贝诺美周检在线表 ↗</a>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>询盘时间</th>
+              <th>买家名称</th>
+              <th>真实业务员 (负责人)</th>
+              <th>结论</th>
+              <th>不合格判定原因</th>
+              <th>首响耗时</th>
+              <th>48h追踪</th>
+              <th>会话内容总结与已读状态</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${data.stores.benomi.weekly_quality.failed_samples.map(item => `
+              <tr class="row-fail">
+                <td>${item.inquiry_time}</td>
+                <td>${item.buyer}</td>
+                <td><strong>${item.sales}</strong></td>
+                <td>不合格</td>
+                <td>${item.reason}</td>
+                <td>${item.resp_time}</td>
+                <td>${item.track_count} 次</td>
+                <td>${item.summary}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
 
-  <!-- 视图 3: 诺瓦专属 (含周检真实业务员) -->
+  <!-- 视图 3: 诺瓦专属 (上中下三段独立布局) -->
   <div id="view-nova" class="view-content">
+    <!-- 上段: 日常巡检与风控资金大盘 -->
     <div class="card">
       <div class="card-header">
         <div class="card-title">
-          <span style="color: #7C3AED;">🟣 诺瓦 (jnnova) · 专属日常巡检与周检大盘</span>
+          <span style="color: #7C3AED;">🟣 诺瓦 (jnnova) · 日常巡检与风控资金大盘</span>
           <span class="card-tag tag-nova">智能制造/激光设备</span>
         </div>
       </div>
-
-      <h3 style="font-size: 14px; margin-bottom: 12px; color: var(--text-secondary);">📅 最新日常巡检快照</h3>
-      <div class="grid-2" style="margin-bottom: 20px;">
-        <div style="background: var(--bg-subtle); padding: 14px; border-radius: 8px;">
-          <div style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">广告与商机 (${data.stores.nova.ads.latest_round})</div>
+      <div class="grid-2">
+        <div style="background: var(--bg-subtle); padding: 16px; border-radius: 8px; border: 1px solid var(--border-color);">
+          <div style="font-size: 13px; font-weight: 700; color: #7C3AED; margin-bottom: 8px;">广告与商机 (${data.stores.nova.ads.latest_round})</div>
           <div class="detail-list">
             <div class="detail-item"><span class="detail-title">本轮消耗金额</span><span class="detail-value">¥${data.stores.nova.ads.spend.toFixed(2)}</span></div>
             <div class="detail-item"><span class="detail-title">在投活跃计划</span><span class="detail-value">${data.stores.nova.ads.active_campaigns} 个</span></div>
-            <div class="detail-item"><span class="detail-title">全站商机量 (cvr3)</span><span class="detail-value" style="color: #059669;">${data.stores.nova.ads.cvr3_leads} 个</span></div>
+            <div class="detail-item"><span class="detail-title">全站商机量 (cvr3)</span><span class="detail-value" style="color: #059669; font-weight: 700;">${data.stores.nova.ads.cvr3_leads} 个</span></div>
             <div class="detail-item"><span class="detail-title">在线表格</span><span class="detail-value"><a class="sheet-link-chip" href="${data.stores.nova.ads.sheet_url}" target="_blank">📊 [诺瓦] 广告快照表 ↗</a></span></div>
           </div>
         </div>
-        <div style="background: var(--bg-subtle); padding: 14px; border-radius: 8px;">
-          <div style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">平台风控与资金 (含商品雷达补充项)</div>
+        <div style="background: var(--bg-subtle); padding: 16px; border-radius: 8px; border: 1px solid var(--border-color);">
+          <div style="font-size: 13px; font-weight: 700; color: #7C3AED; margin-bottom: 8px;">平台风控与资金 (含商品雷达补充项)</div>
           <div class="detail-list">
             <div class="detail-item"><span class="detail-title">商品雷达待整改</span><span class="detail-value" style="color: #059669;">${data.stores.nova.risk.product_radar}</span></div>
             <div class="detail-item"><span class="detail-title">直通车当前可用余额</span><span class="detail-value" style="font-weight: 700; color: #7C3AED;">¥${data.stores.nova.risk.balance.toFixed(2)} (${data.stores.nova.risk.balance_source || '实时同步'})</span></div>
             <div class="detail-item"><span class="detail-title">可用报价权益 (直读真实)</span><span class="detail-value" style="color: #DC2626; font-weight: 700;">${data.stores.nova.risk.rfq_quota} 条剩余 (${data.stores.nova.risk.rfq_used_detail})</span></div>
-            <div class="detail-item"><span class="detail-title">最新质检日检 (${data.stores.nova.daily_quality.target_date})</span><span class="detail-value" style="color: #059669;">${data.stores.nova.daily_quality.passed}/${data.stores.nova.daily_quality.total_checked} 合格 (${data.stores.nova.daily_quality.pass_rate}%)</span></div>
+            <div class="detail-item"><span class="detail-title">最新质检日检 (${data.stores.nova.daily_quality.target_date})</span><span class="detail-value" style="color: #059669; font-weight: 700;">${data.stores.nova.daily_quality.passed}/${data.stores.nova.daily_quality.total_checked} 合格 (${data.stores.nova.daily_quality.pass_rate}%)</span></div>
             <div class="detail-item"><span class="detail-title">最新日检在线表</span><span class="detail-value"><a class="sheet-link-chip" href="${data.stores.nova.daily_quality.sheet_url}" target="_blank">📊 [诺瓦] ${data.stores.nova.daily_quality.target_date}日检表 ↗</a></span></div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- 诺瓦 · 日巡检最新数据专属看板 (今日实测最新) -->
-      <div style="border-top: 1px solid var(--border-color); padding-top: 16px; margin-bottom: 24px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-          <div>
-            <h3 style="font-size: 15px; font-weight: 700; color: #7C3AED;">
-              🔍 诺瓦 · 日巡检最新数据专属看板 (${data.stores.nova.daily_quality.target_date} 全天)
-            </h3>
-            <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">
-              巡检轮次: ${data.stores.nova.daily_quality.latest_round} ｜ 检查会话: <strong>${data.stores.nova.daily_quality.total_checked}</strong> 条 ｜ 合格: <strong style="color: #059669;">${data.stores.nova.daily_quality.passed}</strong> ｜ 不合格: <strong style="color: #DC2626;">${data.stores.nova.daily_quality.failed}</strong> ｜ 日检合格率: <strong style="color: #059669;">${data.stores.nova.daily_quality.pass_rate}%</strong>
-            </div>
+    <!-- 中段: 日检数据展示版块 (独立卡片) -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">
+            <span style="color: #7C3AED;">🔍 诺瓦 · 日巡检最新数据专属看板 (${data.stores.nova.daily_quality.target_date} 全天)</span>
           </div>
-          <a class="sheet-link-chip" href="${data.stores.nova.daily_quality.sheet_url}" target="_blank">📊 打开诺瓦最新日检在线表 ↗</a>
+          <div style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">
+            巡检轮次: ${data.stores.nova.daily_quality.latest_round} ｜ 检查会话: <strong>${data.stores.nova.daily_quality.total_checked}</strong> 条 ｜ 合格: <strong style="color: #059669;">${data.stores.nova.daily_quality.passed}</strong> ｜ 不合格: <strong style="color: #DC2626;">${data.stores.nova.daily_quality.failed}</strong> ｜ 日检合格率: <strong style="color: #059669;">${data.stores.nova.daily_quality.pass_rate}%</strong>
+          </div>
         </div>
-
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>询盘时间</th>
-                <th>买家名称</th>
-                <th>真实业务员</th>
-                <th>结论</th>
-                <th>不合格判定原因</th>
-                <th>首响耗时</th>
-                <th>追踪次数</th>
-                <th>会话内容总结与已读状态</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${(data.stores.nova.daily_quality.samples || []).map(item => `
-                <tr class="${item.verdict === '不合格' ? 'row-fail' : ''}">
-                  <td>${item.inquiry_time}</td>
-                  <td>${item.buyer}</td>
-                  <td><strong>${item.sales}</strong></td>
-                  <td><span class="alert-pill ${item.verdict === '不合格' ? 'alert-danger' : 'alert-normal'}">${item.verdict}</span></td>
-                  <td>${item.reason}</td>
-                  <td>${item.resp_time}</td>
-                  <td>${item.track_count} 次</td>
-                  <td>${item.summary}</td>
-                </tr>
-              `).join('')}
-            </tbody>
-          </table>
-        </div>
+        <a class="sheet-link-chip" href="${data.stores.nova.daily_quality.sheet_url}" target="_blank">📊 打开诺瓦最新日检在线表 ↗</a>
       </div>
 
-      <!-- 周检独立分析专区 (真实业务员与买家) -->
-      <div style="border-top: 1px solid var(--border-color); padding-top: 16px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-          <div>
-            <h3 style="font-size: 15px; font-weight: 700; color: #7C3AED;">
-              📋 诺瓦 · 周检查独立分析专区 (${data.stores.nova.weekly_quality.date_range || '最新自然周'})
-            </h3>
-            <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">
-              业务员严格匹配阿里「负责人」列 ｜ 真实综合合格率: <strong>${data.stores.nova.weekly_quality.pass_rate}%</strong> (${data.stores.nova.weekly_quality.passed}合格 / ${data.stores.nova.weekly_quality.failed}不合格 / ${data.stores.nova.weekly_quality.pending || 0}未判定)
-            </div>
-          </div>
-          <a class="sheet-link-chip" href="${data.stores.nova.weekly_quality.sheet_url}" target="_blank">📊 打开诺瓦周检在线表 ↗</a>
-        </div>
-
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>询盘时间</th>
-                <th>买家名称</th>
-                <th>真实业务员 (负责人)</th>
-                <th>结论</th>
-                <th>不合格判定原因</th>
-                <th>首响耗时</th>
-                <th>48h追踪</th>
-                <th>会话内容总结与已读状态</th>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>询盘时间</th>
+              <th>买家名称</th>
+              <th>真实业务员</th>
+              <th>结论</th>
+              <th>不合格判定原因</th>
+              <th>首响耗时</th>
+              <th>追踪次数</th>
+              <th>会话内容总结与已读状态</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${(data.stores.nova.daily_quality.samples || []).map(item => `
+              <tr class="${item.verdict === '不合格' ? 'row-fail' : ''}">
+                <td>${item.inquiry_time}</td>
+                <td>${item.buyer}</td>
+                <td><strong>${item.sales}</strong></td>
+                <td><span class="alert-pill ${item.verdict === '不合格' ? 'alert-danger' : 'alert-normal'}">${item.verdict}</span></td>
+                <td>${item.reason}</td>
+                <td>${item.resp_time}</td>
+                <td>${item.track_count} 次</td>
+                <td>${item.summary}</td>
               </tr>
-            </thead>
-            <tbody>
-              ${data.stores.nova.weekly_quality.failed_samples.map(item => `
-                <tr class="row-fail">
-                  <td>${item.inquiry_time}</td>
-                  <td>${item.buyer}</td>
-                  <td><strong>${item.sales}</strong></td>
-                  <td>不合格</td>
-                  <td>${item.reason}</td>
-                  <td>${item.resp_time}</td>
-                  <td>${item.track_count} 次</td>
-                  <td>${item.summary}</td>
-                </tr>
-              `).join('')}
-            </tbody>
-          </table>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 下段: 周检独立分析专区 (独立卡片) -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">
+            <span style="color: #7C3AED;">📋 诺瓦 · 周检查独立分析专区 (${data.stores.nova.weekly_quality.date_range || '最新自然周'})</span>
+          </div>
+          <div style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">
+            业务员严格匹配阿里「负责人」列 ｜ 真实综合合格率: <strong>${data.stores.nova.weekly_quality.pass_rate}%</strong> (${data.stores.nova.weekly_quality.passed}合格 / ${data.stores.nova.weekly_quality.failed}不合格 / ${data.stores.nova.weekly_quality.pending || 0}未判定)
+          </div>
         </div>
+        <a class="sheet-link-chip" href="${data.stores.nova.weekly_quality.sheet_url}" target="_blank">📊 打开诺瓦周检在线表 ↗</a>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>询盘时间</th>
+              <th>买家名称</th>
+              <th>真实业务员 (负责人)</th>
+              <th>结论</th>
+              <th>不合格判定原因</th>
+              <th>首响耗时</th>
+              <th>48h追踪</th>
+              <th>会话内容总结与已读状态</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${data.stores.nova.weekly_quality.failed_samples.map(item => `
+              <tr class="row-fail">
+                <td>${item.inquiry_time}</td>
+                <td>${item.buyer}</td>
+                <td><strong>${item.sales}</strong></td>
+                <td>不合格</td>
+                <td>${item.reason}</td>
+                <td>${item.resp_time}</td>
+                <td>${item.track_count} 次</td>
+                <td>${item.summary}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
