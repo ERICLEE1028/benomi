@@ -179,29 +179,20 @@ const htmlContent = `<!DOCTYPE html>
     .tab-btn {
       background: #F8FAFC;
       border: 1px solid #E2E8F0;
-      padding: 12px 16px;
-      font-size: 14px;
+      padding: 13px 20px;
+      font-size: 15px;
       font-weight: 800;
       color: #334155;
       cursor: pointer;
       border-radius: 10px;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 4px;
+      gap: 8px;
       position: relative;
       white-space: nowrap;
       user-select: none;
-    }
-
-    .tab-btn .tab-sub {
-      font-size: 11px;
-      font-weight: 600;
-      color: #64748B;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
     }
 
     .tab-btn:hover {
@@ -211,7 +202,7 @@ const htmlContent = `<!DOCTYPE html>
       transform: translateY(-1px);
     }
 
-    /* 激活态：深邃科技蓝渐变 + 发光科技底托 + 状态提示，一眼看清 */
+    /* 激活态：深邃科技蓝渐变 + 发光科技底托 + 底部微光高亮指示条 */
     .tab-btn.active {
       background: linear-gradient(135deg, #0284C7 0%, #2563EB 100%);
       border-color: #0284C7;
@@ -219,17 +210,16 @@ const htmlContent = `<!DOCTYPE html>
       box-shadow: 0 6px 18px -2px rgba(37, 99, 235, 0.42), 0 0 0 2px rgba(186, 230, 253, 0.5);
     }
 
-    .tab-btn.active .tab-sub {
-      color: #BAE6FD;
-    }
-
     .tab-btn.active::after {
-      content: "▼ 正在查看";
+      content: "";
       position: absolute;
-      bottom: 2px;
-      font-size: 9px;
-      font-weight: 700;
-      color: #E0F2FE;
+      bottom: 0;
+      left: 25%;
+      right: 25%;
+      height: 3px;
+      background: #BAE6FD;
+      border-radius: 3px 3px 0 0;
+      box-shadow: 0 0 8px rgba(186, 230, 253, 0.8);
     }
 
     .view-content { display: none; }
@@ -479,19 +469,15 @@ const htmlContent = `<!DOCTYPE html>
   <div class="tabs-wrapper">
     <div class="tabs">
       <button class="tab-btn active" onclick="switchTab('overview')">
-        <span class="tab-sub">PAGE 01 · 核心大盘</span>
         <span>🌐 全局总览</span>
       </button>
       <button class="tab-btn" onclick="switchTab('benomi')">
-        <span class="tab-sub">PAGE 02 · 平台专属</span>
         <span>🔵 贝诺美专属</span>
       </button>
       <button class="tab-btn" onclick="switchTab('nova')">
-        <span class="tab-sub">PAGE 03 · 平台专属</span>
         <span>🟣 诺瓦专属</span>
       </button>
       <button class="tab-btn" onclick="switchTab('cron')">
-        <span class="tab-sub">PAGE 04 · 自动化矩阵</span>
         <span>⏱️ 定时任务与表格</span>
       </button>
     </div>
