@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>双平台定时任务监控与巡检看板 (中度科技蓝版)</title>
+  <title>双平台定时任务监控与巡检看板 (中度科技蓝旗舰版)</title>
   <style>
     :root {
-      /* 默认：居中中度科技蓝 (Medium Slate Azure) - 既不泛白，也不发黑，色彩饱满沉稳 */
+      /* 中度科技蓝 (Medium Slate Azure) 专属调色板 */
       --theme-bg-gradient: linear-gradient(135deg, #99BFE0 0%, #82A9CE 50%, #6C94BE 100%);
       --tech-grid-color: rgba(2, 132, 199, 0.08);
 
@@ -17,7 +17,7 @@
       --border-accent: #0284C7;
       --card-shadow: 0 6px 22px -2px rgba(15, 35, 60, 0.18), 0 1px 3px rgba(0, 0, 0, 0.05);
 
-      /* 高清晰深墨蓝文字，字字锐利 */
+      /* 高清晰深墨蓝文字，字字锐利如印刷 */
       --text-main: #0A1C2E;
       --text-secondary: #1E3A5F;
       --text-muted: #475569;
@@ -46,34 +46,6 @@
       --status-error-border: #EF4444;
     }
 
-    /* 预置 4 档精选科技主题供您随时一键微调 */
-    body.theme-steel {
-      /* 雾霾钢灰蓝 (中偏灰冷调) */
-      --theme-bg-gradient: linear-gradient(135deg, #8798A8 0%, #6F8294 50%, #576B7D 100%);
-      --bg-header: rgba(240, 244, 248, 0.95);
-      --bg-card: rgba(245, 248, 250, 0.95);
-      --border-color: #60A5FA;
-    }
-    body.theme-dark {
-      /* 大屏深海蓝 (沉浸暗色) */
-      --theme-bg-gradient: radial-gradient(circle at 15% 15%, #1C334E 0%, #15273C 50%, #0E1C2C 100%);
-      --bg-header: rgba(21, 38, 59, 0.95);
-      --bg-card: rgba(21, 38, 59, 0.94);
-      --bg-subtle: #192E46;
-      --border-color: rgba(56, 189, 248, 0.35);
-      --text-main: #FFFFFF;
-      --text-secondary: #CBD5E1;
-      --text-muted: #94A3B8;
-    }
-    body.theme-light {
-      /* 冰川浅蓝 (明亮清爽) */
-      --theme-bg-gradient: radial-gradient(circle at 15% 15%, #F4F9FD 0%, #E8F2FA 50%, #DCEAF7 100%);
-      --bg-header: #FFFFFF;
-      --bg-card: #FFFFFF;
-      --bg-subtle: #F0F6FC;
-      --border-color: #BAE6FD;
-    }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
     
     body {
@@ -85,9 +57,9 @@
       line-height: 1.5;
       min-height: 100vh;
       position: relative;
-      transition: background 0.3s ease, color 0.3s ease;
     }
 
+    /* 科技感大屏微点阵网格微纹理 */
     body::before {
       content: "";
       position: fixed;
@@ -108,7 +80,7 @@
       z-index: 1;
     }
 
-    /* 顶部导航与状态栏 */
+    /* 顶部导航与状态栏 - 科技控制台 */
     .header {
       background: var(--bg-header);
       backdrop-filter: blur(14px);
@@ -169,34 +141,6 @@
       background: #E2E8F0;
       color: var(--text-secondary);
       border: 1px solid #CBD5E1;
-    }
-
-    /* 调色板快捷选择器 */
-    .theme-picker {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: rgba(255,255,255,0.7);
-      padding: 3px 6px;
-      border-radius: 20px;
-      border: 1px solid rgba(2, 132, 199, 0.3);
-      font-size: 11px;
-      font-weight: 700;
-    }
-    .theme-chip {
-      border: none;
-      background: transparent;
-      padding: 3px 8px;
-      border-radius: 12px;
-      cursor: pointer;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--text-secondary);
-      transition: all 0.2s ease;
-    }
-    .theme-chip.active, .theme-chip:hover {
-      background: #0284C7;
-      color: #FFFFFF;
     }
 
     /* ================= 中度科技蓝分页控制台 (Tabs) ================= */
@@ -515,13 +459,6 @@
       <p>全部数据 100% 对齐最新完成定时任务 ｜ 动态匹配对应轮次广告转化 ｜ 风险监控与可用余额 ｜ 询盘质检真实映射</p>
     </div>
     <div class="header-meta" id="headerMeta">
-      <div class="theme-picker" title="快速切换色彩明暗度">
-        <span>🎨 色度:</span>
-        <button class="theme-chip active" onclick="switchTheme('medium')">中度蓝</button>
-        <button class="theme-chip" onclick="switchTheme('steel')">雾霾钢青</button>
-        <button class="theme-chip" onclick="switchTheme('dark')">深邃大屏</button>
-        <button class="theme-chip" onclick="switchTheme('light')">冰川浅蓝</button>
-      </div>
       <span class="badge" id="autoSyncBadge" style="background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE;">🟢 半点主动获取: 开启中</span>
       <button onclick="manualSyncNow()" style="background:#2563EB;color:#fff;border:none;border-radius:12px;padding:3px 10px;font-size:11px;font-weight:600;cursor:pointer;">🔄 立即检查</button>
     </div>
@@ -1255,26 +1192,6 @@
 </div>
 
 <script>
-  
-  function switchTheme(theme) {
-    document.body.className = '';
-    document.querySelectorAll('.theme-chip').forEach(c => c.classList.remove('active'));
-    if (theme !== 'medium') {
-      document.body.classList.add('theme-' + theme);
-    }
-    const targetBtn = Array.from(document.querySelectorAll('.theme-chip')).find(b => b.innerText.includes(
-      theme === 'medium' ? '中度' : (theme === 'steel' ? '钢青' : (theme === 'dark' ? '深邃' : '浅蓝'))
-    ));
-    if (targetBtn) targetBtn.classList.add('active');
-    try { localStorage.setItem('dashboard_theme', theme); } catch(e){}
-  }
-
-  // 恢复上次选择的色度
-  try {
-    const saved = localStorage.getItem('dashboard_theme');
-    if (saved) switchTheme(saved);
-  } catch(e){}
-
   function switchTab(tabId) {
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
     document.querySelectorAll('.view-content').forEach(view => view.classList.remove('active'));
