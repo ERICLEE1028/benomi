@@ -302,7 +302,6 @@ const htmlContent = `<!DOCTYPE html>
       <p>全部数据 100% 对齐最新完成定时任务 ｜ 动态匹配对应轮次广告转化 ｜ 风险监控与可用余额 ｜ 询盘质检真实映射</p>
     </div>
     <div class="header-meta" id="headerMeta">
-      <span class="badge badge-neutral">🕒 数据底座: ${data.last_synced_at}</span>
       <span class="badge" id="autoSyncBadge" style="background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE;">🟢 半点主动获取: 开启中</span>
       <button onclick="manualSyncNow()" style="background:#2563EB;color:#fff;border:none;border-radius:12px;padding:3px 10px;font-size:11px;font-weight:600;cursor:pointer;">🔄 立即检查</button>
     </div>
