@@ -925,10 +925,9 @@ const htmlContent = `<!DOCTYPE html>
         <table>
           <thead>
             <tr>
-              <th style="width: 180px;">任务名称</th>
-              <th style="width: 100px;">排程 (Cron)</th>
-              <th style="width: 90px;">任务状态</th>
-              <th style="width: 130px;">上次运行时间</th>
+              <th style="width: 220px;">任务名称</th>
+              <th style="width: 110px;">任务状态</th>
+              <th style="width: 150px;">上次运行时间</th>
               <th>最新产出的在线钉钉表格（点击直接查看）</th>
             </tr>
           </thead>
@@ -936,9 +935,8 @@ const htmlContent = `<!DOCTYPE html>
             ${data.cron_jobs.map(job => `
               <tr data-job-id="${job.id}" data-last-run="${job.last_run}">
                 <td><strong>${job.name}</strong></td>
-                <td><span class="cron-pill">${job.schedule}</span></td>
                 <td class="status-cell">${job.status === '已完成' ? '<span class="alert-pill alert-done">已完成</span>' : '<span class="alert-pill alert-pending">待运行</span>'}</td>
-                <td style="font-size: 12px; color: var(--text-secondary);">${job.last_run}</td>
+                <td style="font-size: 12px; color: var(--text-secondary); font-weight: 600;">${job.last_run}</td>
                 <td>
                   ${job.sheets && job.sheets.length > 0 ? job.sheets.map(s => `
                     <a class="sheet-link-chip" href="${s.url}" target="_blank">📊 [${s.store}] ${s.name} ↗</a>
