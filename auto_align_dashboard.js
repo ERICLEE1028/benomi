@@ -49,16 +49,28 @@ function alignAdsData(dashboardData) {
       dashboardData.stores.benomi.ads.latest_round = `${roundName.includes('-9') ? '09:00' : '14:00'} 轮 (PT ${state.pt_date} 真实数据)`;
       if (state.doc_url) dashboardData.stores.benomi.ads.sheet_url = state.doc_url;
 
-      // 提取广告快照中的直通车账户实时余额 (双源对齐)
+      // 提取广告快照中的直通车账户实时余额（2026-10-20 用户要求：随广告快照一并统计并同步看板）
+      // 优先 build_state.balance（prep 阶段从 account_balance.cashBalance 解析），兜底 ads-daily.json
+      let benomiAdsBal = (typeof state.balance === 'number') ? state.balance : null;
+      let benomiAdsTs = Date.parse(state.snapshot || '') || 0;
       const benomiDailyFile = path.join(latestDir, 'benomi', 'ads-daily.json');
       if (fs.existsSync(benomiDailyFile)) {
         try {
           const adsDaily = JSON.parse(fs.readFileSync(benomiDailyFile, 'utf-8'));
-          if (adsDaily.account_balance && adsDaily.account_balance.cashBalance) {
-            dashboardData.stores.benomi.risk.balance = adsDaily.account_balance.cashBalance;
-            dashboardData.stores.benomi.risk.balance_source = `广告消耗快照 (${roundName.includes('-9') ? '09:00' : '14:00'}轮)`;
+          if (benomiAdsBal === null && adsDaily.account_balance && adsDaily.account_balance.cashBalance) {
+            benomiAdsBal = parseFloat(adsDaily.account_balance.cashBalance);
           }
+          if (!benomiAdsTs) benomiAdsTs = fs.statSync(benomiDailyFile).mtimeMs;
         } catch(e) {}
+      }
+      if (benomiAdsBal !== null) {
+        // 只在新于看板现有余额来源时覆盖（避免 9 点快照把更新一轮的余额冲掉）
+        const prevAt = dashboardData.stores.benomi.risk.balance_at || 0;
+        if (benomiAdsTs >= prevAt) {
+          dashboardData.stores.benomi.risk.balance = benomiAdsBal;
+          dashboardData.stores.benomi.risk.balance_source = `广告消耗快照 (${roundName.includes('-9') ? '09:00' : '14:00'}轮)`;
+          dashboardData.stores.benomi.risk.balance_at = benomiAdsTs;
+        }
       }
 
       console.log(`[AutoAlign] 贝诺美广告已对齐: ${dashboardData.stores.benomi.ads.latest_round}, 消耗: ¥${state.total_cost}`);
@@ -78,16 +90,26 @@ function alignAdsData(dashboardData) {
       dashboardData.stores.nova.ads.latest_round = `${roundName.includes('-9') ? '09:00' : '14:00'} 轮 (PT ${state.pt_date} 真实数据)`;
       if (state.doc_url) dashboardData.stores.nova.ads.sheet_url = state.doc_url;
 
-      // 提取广告快照中的直通车账户实时余额 (双源对齐)
+      // 提取广告快照中的直通车账户实时余额（2026-10-20 用户要求：随广告快照一并统计并同步看板）
+      let novaAdsBal = (typeof state.balance === 'number') ? state.balance : null;
+      let novaAdsTs = Date.parse(state.snapshot || '') || 0;
       const novaDailyFile = path.join(latestDir, 'nova', 'ads-daily.json');
       if (fs.existsSync(novaDailyFile)) {
         try {
           const adsDaily = JSON.parse(fs.readFileSync(novaDailyFile, 'utf-8'));
-          if (adsDaily.account_balance && adsDaily.account_balance.cashBalance) {
-            dashboardData.stores.nova.risk.balance = adsDaily.account_balance.cashBalance;
-            dashboardData.stores.nova.risk.balance_source = `广告消耗快照 (${roundName.includes('-9') ? '09:00' : '14:00'}轮)`;
+          if (novaAdsBal === null && adsDaily.account_balance && adsDaily.account_balance.cashBalance) {
+            novaAdsBal = parseFloat(adsDaily.account_balance.cashBalance);
           }
+          if (!novaAdsTs) novaAdsTs = fs.statSync(novaDailyFile).mtimeMs;
         } catch(e) {}
+      }
+      if (novaAdsBal !== null) {
+        const prevAt = dashboardData.stores.nova.risk.balance_at || 0;
+        if (novaAdsTs >= prevAt) {
+          dashboardData.stores.nova.risk.balance = novaAdsBal;
+          dashboardData.stores.nova.risk.balance_source = `广告消耗快照 (${roundName.includes('-9') ? '09:00' : '14:00'}轮)`;
+          dashboardData.stores.nova.risk.balance_at = novaAdsTs;
+        }
       }
 
       console.log(`[AutoAlign] 诺瓦广告已对齐: ${dashboardData.stores.nova.ads.latest_round}, 消耗: ¥${state.total_cost}`);
@@ -133,20 +155,26 @@ function alignRiskData(dashboardData) {
   const targetDir = runEntries[0].path;
   const runName = runEntries[0].name;
   const roundLabel = runName.includes('-1000') ? '10:00 轮' : '14:30 轮';
+  // 本轮风险监控的数据新鲜度（用于与广告快照余额比较，谁新用谁）
+  const riskTs = runEntries[0].mtime;
 
   dashboardData.stores.benomi.risk.latest_round = roundLabel;
   dashboardData.stores.nova.risk.latest_round = roundLabel;
 
   // 1. 读取贝诺美
   // 优先读取结构化 benomi_C_bal.json
+  // 余额「按新鲜度取胜」：风险监控只在比现有来源更新时覆盖（2026-10-20 起广告快照也写余额）
+  let benomiRiskBal = null;
   const bBalJson = path.join(targetDir, 'benomi_C_bal.json');
   if (fs.existsSync(bBalJson)) {
     try {
       let raw = fs.readFileSync(bBalJson, 'utf8');
       if (raw.startsWith('__BAL_RESULT__')) raw = raw.replace('__BAL_RESULT__', '');
-      const balObj = JSON.parse(raw);
-      if (balObj.cashBalanceNum) dashboardData.stores.benomi.risk.balance = balObj.cashBalanceNum;
-      else if (balObj.cashBalance) dashboardData.stores.benomi.risk.balance = parseFloat(balObj.cashBalance);
+      let balObj = JSON.parse(raw);
+      // 2026-10-21 修正：子代理可能写出 {segment, raw_bal_result:{...}} 嵌套结构
+      if (balObj && balObj.raw_bal_result && typeof balObj.raw_bal_result === 'object') balObj = balObj.raw_bal_result;
+      if (balObj.cashBalanceNum) benomiRiskBal = balObj.cashBalanceNum;
+      else if (balObj.cashBalance) benomiRiskBal = parseFloat(balObj.cashBalance);
     } catch(e) {}
   } else {
     const bBalMd = path.join(targetDir, '03_直通车余额明细_贝诺美.md');
@@ -154,7 +182,7 @@ function alignRiskData(dashboardData) {
       try {
         const text = fs.readFileSync(bBalMd, 'utf8');
         const m = text.match(/cashBalance\s*=\s*([\d.]+)/) || text.match(/当前可用现金\s*\|\s*([\d.]+)/);
-        if (m) dashboardData.stores.benomi.risk.balance = parseFloat(m[1]);
+        if (m) benomiRiskBal = parseFloat(m[1]);
       } catch(e) {}
     } else {
       const directAnswer = path.join(targetDir, 'direct_answer.md');
@@ -162,7 +190,7 @@ function alignRiskData(dashboardData) {
         try {
           const text = fs.readFileSync(directAnswer, 'utf8');
           const bBal = text.match(/cashBalance=([\d.]+)/);
-          if (bBal) dashboardData.stores.benomi.risk.balance = parseFloat(bBal[1]);
+          if (bBal) benomiRiskBal = parseFloat(bBal[1]);
         } catch (e) {}
       }
     }
@@ -227,17 +255,40 @@ function alignRiskData(dashboardData) {
     }
   }
   dashboardData.stores.benomi.risk.product_radar = '0 个 (暂无待整改任务)';
-  dashboardData.stores.benomi.risk.balance_source = `风险监控 (${roundLabel})`;
+  if (benomiRiskBal !== null && riskTs >= (dashboardData.stores.benomi.risk.balance_at || 0)) {
+    dashboardData.stores.benomi.risk.balance = benomiRiskBal;
+    dashboardData.stores.benomi.risk.balance_source = `风险监控 (${roundLabel})`;
+    dashboardData.stores.benomi.risk.balance_at = riskTs;
+  }
   console.log(`[AutoAlign] 贝诺美风险监控已对齐 (${roundLabel}): 余额 ¥${dashboardData.stores.benomi.risk.balance}, RFQ: ${dashboardData.stores.benomi.risk.rfq_quota}条`);
 
   // 2. 读取诺瓦
-  const nBalMd = path.join(targetDir, '03_直通车余额明细_诺瓦.md');
-  if (fs.existsSync(nBalMd)) {
+  let novaRiskBal = null;
+  // 2026-10-21 修正：优先读 cdp_run.js 产出的 nova_raw.json 的 bal 段（结构化），
+  // 原实现只认 md 里「当前可用现金 | <数字>」，本仓库 md 习惯写「¥4214.83」→ 正则不匹配 → 长期沿用旧余额
+  const nRawJson = path.join(targetDir, 'nova_raw.json');
+  if (fs.existsSync(nRawJson)) {
     try {
-      const text = fs.readFileSync(nBalMd, 'utf8');
-      const bal = text.match(/当前可用现金\s*\|\s*([\d.]+)/);
-      if (bal) dashboardData.stores.nova.risk.balance = parseFloat(bal[1]);
+      const rawObj = JSON.parse(fs.readFileSync(nRawJson, 'utf8'));
+      const balRaw = rawObj && rawObj.bal;
+      if (typeof balRaw === 'string' && balRaw.trim()) {
+        const parsed = JSON.parse(balRaw.replace('__BAL_RESULT__', ''));
+        if (parsed && parsed.cashBalanceNum) novaRiskBal = parsed.cashBalanceNum;
+        else if (parsed && parsed.cashBalance) novaRiskBal = parseFloat(parsed.cashBalance);
+      } else if (balRaw && typeof balRaw === 'object' && balRaw.cashBalanceNum) {
+        novaRiskBal = balRaw.cashBalanceNum;
+      }
     } catch (e) {}
+  }
+  if (novaRiskBal === null) {
+    const nBalMd = path.join(targetDir, '03_直通车余额明细_诺瓦.md');
+    if (fs.existsSync(nBalMd)) {
+      try {
+        const text = fs.readFileSync(nBalMd, 'utf8');
+        const bal = text.match(/当前可用现金\s*\|\s*[¥￥]?\s*([\d.]+)/);
+        if (bal) novaRiskBal = parseFloat(bal[1]);
+      } catch (e) {}
+    }
   }
 
   // 诺瓦 RFQ (优先结构化 JSON)
@@ -260,7 +311,6 @@ function alignRiskData(dashboardData) {
         if (nExp) dashboardData.stores.nova.risk.rfq_expire = nExp;
       }
       dashboardData.stores.nova.risk.product_radar = '0 个 (暂无待整改任务)';
-      dashboardData.stores.nova.risk.balance_source = `风险监控 (${roundLabel})`;
       dashboardData.stores.nova.risk.status = dashboardData.stores.nova.risk.rfq_quota < 5 ? 'warning' : 'normal';
       dashboardData.stores.nova.risk.rfq_warning = dashboardData.stores.nova.risk.rfq_quota < 5 ? '可用报价权益紧缺' : '权益充裕';
       console.log(`[AutoAlign] 诺瓦风险监控已对齐 (${roundLabel}): 余额 ¥${dashboardData.stores.nova.risk.balance}, RFQ: ${dashboardData.stores.nova.risk.rfq_quota}条`);
@@ -281,6 +331,12 @@ function alignRiskData(dashboardData) {
         dashboardData.stores.nova.risk.product_radar = '0 个 (暂无待整改任务)';
       } catch (e) {}
     }
+  }
+
+  if (novaRiskBal !== null && riskTs >= (dashboardData.stores.nova.risk.balance_at || 0)) {
+    dashboardData.stores.nova.risk.balance = novaRiskBal;
+    dashboardData.stores.nova.risk.balance_source = `风险监控 (${roundLabel})`;
+    dashboardData.stores.nova.risk.balance_at = riskTs;
   }
 
   return true;
@@ -651,89 +707,93 @@ function alignQualityData(dashboardData) {
 function alignCronJobsData(dashboardData) {
   if (!dashboardData.cron_jobs || !Array.isArray(dashboardData.cron_jobs)) return;
 
-  const now = new Date();
-  const todayStr = '2026-10-19';
+  // 1. 获取当前北京时间 (Asia/Shanghai)
+  const beijingDate = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Shanghai' }));
+  const y = beijingDate.getFullYear();
+  const m = String(beijingDate.getMonth() + 1).padStart(2, '0');
+  const d = String(beijingDate.getDate()).padStart(2, '0');
+  const todayStr = `${y}-${m}-${d}`;
+  const dayOfWeek = beijingDate.getDay(); // 0 是周日，1 是周一...
+  const curHours = beijingDate.getHours();
+  const curMinutes = beijingDate.getMinutes();
 
-  dashboardData.cron_jobs.forEach(job => {
-    // 9点广告快照 (今日 09:00 已跑完)
-    if (job.id === 'cron-1791593405507-bbdz97ef') {
-      job.last_run = '2026-10-19 08:51:54';
-      job.next_run = '2026-10-20 09:00:00';
-      job.status = '已完成';
-      job.sheets = [
+  // 明天的字符串
+  const tomorrowDate = new Date(beijingDate.getTime() + 24 * 60 * 60 * 1000);
+  const ty = tomorrowDate.getFullYear();
+  const tm = String(tomorrowDate.getMonth() + 1).padStart(2, '0');
+  const td = String(tomorrowDate.getDate()).padStart(2, '0');
+  const tomorrowStr = `${ty}-${tm}-${td}`;
+
+  // 各项任务真实最新的历史执行记录与最新在线表格映射（持续追踪系统最高新鲜度产出）
+  const jobConfig = {
+    // 9点广告快照 (每天 09:00)
+    'cron-1791593405507-bbdz97ef': {
+      targetHour: 9, targetMin: 0,
+      latestRunHistorical: '2026-10-22 09:03:00',
+      sheets: [
         {
           store: '贝诺美',
-          name: '贝诺美 · 直通车消耗与转化统计（2026-10-18）·9时',
-          url: 'https://alidocs.dingtalk.com/i/nodes/YndMj49yWjbjYvoyugEzrk6aW3pmz5aA'
+          name: '贝诺美 · 直通车消耗与转化统计（2026-10-21）·9时',
+          url: 'https://alidocs.dingtalk.com/i/nodes/QG53mjyd80EKgjdeuz6rXr7mW6zbX04v'
         },
         {
           store: '诺瓦',
-          name: '诺瓦 · 直通车消耗与转化统计（2026-10-18）·9时',
-          url: 'https://alidocs.dingtalk.com/i/nodes/r1R7q3QmWem2lMoRFKAx9BQXWxkXOEP2'
+          name: '诺瓦 · 直通车消耗与转化统计（2026-10-21）·9时',
+          url: 'https://alidocs.dingtalk.com/i/nodes/dQPGYqjpJYDYR0bjs9NQrDlyVakx1Z5N'
         }
-      ];
-    }
-
-    // 10点平台风险监控 (今日 10:00 已跑完)
-    if (job.id === 'cron-1790667065409-ywuvowg6') {
-      job.last_run = '2026-10-19 10:01:00';
-      job.next_run = '2026-10-20 10:00:00';
-      job.status = '已完成';
-      job.sheets = [];
-    }
-
-    // 11点询盘质检 (今日 11:00 已跑完)
-    if (job.id === 'cron-1791515523931-nhmiriw5') {
-      job.last_run = '2026-10-19 11:11:27';
-      job.next_run = '2026-10-20 11:00:00';
-      job.status = '已完成';
-      job.sheets = [
+      ]
+    },
+    // 10点平台风险监控 (每天 10:00)
+    'cron-1790667065409-ywuvowg6': {
+      targetHour: 10, targetMin: 0,
+      latestRunHistorical: '2026-10-22 10:00:23',
+      sheets: []
+    },
+    // 11点询盘质检 (每天 11:00)
+    'cron-1791515523931-nhmiriw5': {
+      targetHour: 11, targetMin: 0,
+      latestRunHistorical: '2026-10-22 11:11:00',
+      sheets: [
         {
           store: '贝诺美',
-          name: '贝诺美询盘回复质量检查（10.18·11时）',
-          url: 'https://alidocs.dingtalk.com/i/nodes/G1DKw2zgV2EkvXLeudedppmKWB5r9YAn'
+          name: '贝诺美询盘回复质量检查（10.21·11时）',
+          url: 'https://alidocs.dingtalk.com/i/nodes/a9E05BDRVQbGeLzquZv9oK9eJ63zgkYA'
         },
         {
           store: '诺瓦',
-          name: '诺瓦询盘回复质量检查（10.18·11时）',
-          url: 'https://alidocs.dingtalk.com/i/nodes/lyQod3RxJKaMQmjyTY3YMj7nWkb4Mw9r'
+          name: '诺瓦询盘回复质量检查（10.21·11时）',
+          url: 'https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsA4Okyrv8yMoPYe1'
         }
-      ];
-    }
-
-    // 14点广告快照 (今日 14:00 已跑完)
-    if (job.id === 'cron-1790664501099-3vqm6864') {
-      job.last_run = '2026-10-19 14:04:00';
-      job.next_run = '2026-10-20 14:00:00';
-      job.status = '已完成';
-      job.sheets = [
+      ]
+    },
+    // 14点广告快照 (每天 14:00)
+    'cron-1790664501099-3vqm6864': {
+      targetHour: 14, targetMin: 0,
+      latestRunHistorical: '2026-10-22 14:04:00',
+      sheets: [
         {
           store: '贝诺美',
-          name: '贝诺美 · 直通车消耗与转化统计（2026-10-18）',
-          url: 'https://alidocs.dingtalk.com/i/nodes/Qnp9zOoBVBMQyzdaFlb307pwW1DK0g6l'
+          name: '贝诺美 · 直通车消耗与转化统计（2026-10-21）',
+          url: 'https://alidocs.dingtalk.com/i/nodes/R1zknDm0WRYLzeZKSdQgnQEd8BQEx5rG'
         },
         {
           store: '诺瓦',
-          name: '诺瓦 · 直通车消耗与转化统计（2026-10-18）',
-          url: 'https://alidocs.dingtalk.com/i/nodes/a9E05BDRVQbGeLzquZOrpl59J63zgkYA'
+          name: '诺瓦 · 直通车消耗与转化统计（2026-10-21）',
+          url: 'https://alidocs.dingtalk.com/i/nodes/m9bN7RYPWdaEPgB7TRP3y90LVZd1wyK0'
         }
-      ];
-    }
-
-    // 14:30风险监控 (今日 14:30 已跑完)
-    if (job.id === 'cron-1791350923907-1ap13va2') {
-      job.last_run = '2026-10-19 14:36:00';
-      job.next_run = '2026-10-20 14:30:00';
-      job.status = '已完成';
-      job.sheets = [];
-    }
-
-    // 15点询盘统计 (今日 15:00 已跑完)
-    if (job.id === 'cron-1789958330109-iqleqsux') {
-      job.last_run = '2026-10-19 15:00:00';
-      job.next_run = '2026-10-20 15:00:00';
-      job.status = '已完成';
-      job.sheets = [
+      ]
+    },
+    // 14:30风险监控 (每天 14:30)
+    'cron-1791350923907-1ap13va2': {
+      targetHour: 14, targetMin: 30,
+      latestRunHistorical: '2026-10-22 14:30:17',
+      sheets: []
+    },
+    // 15点询盘统计 (每天 15:00)
+    'cron-1789958330109-iqleqsux': {
+      targetHour: 15, targetMin: 0,
+      latestRunHistorical: '2026-10-22 15:00:00',
+      sheets: [
         {
           store: '贝诺美',
           name: '贝诺美询盘统计在线表格',
@@ -744,34 +804,30 @@ function alignCronJobsData(dashboardData) {
           name: '诺瓦询盘统计在线表格',
           url: 'https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk'
         }
-      ];
-    }
-
-    // 16点询盘回复质检 (今日 16:00 轮已完成)
-    if (job.id === 'cron-1791515533183-eg9uj0bw') {
-      job.last_run = '2026-10-19 16:41:00';
-      job.next_run = '2026-10-20 16:00:00';
-      job.status = '已完成';
-      job.sheets = [
+      ]
+    },
+    // 16点询盘回复质检 (每天 16:00)
+    'cron-1791515533183-eg9uj0bw': {
+      targetHour: 16, targetMin: 0,
+      latestRunHistorical: '2026-10-22 16:41:00',
+      sheets: [
         {
           store: '贝诺美',
-          name: '贝诺美询盘回复质量检查（10.18·16时）',
-          url: 'https://alidocs.dingtalk.com/i/nodes/Gl6Pm2Db8DNaQmKnuyNvNbyMVxLq0Ee4'
+          name: '贝诺美询盘回复质量检查（10.21·16时）',
+          url: 'https://alidocs.dingtalk.com/i/nodes/QOG9lyrgJP0XLO25TR9r8B72JzN67Mw4'
         },
         {
           store: '诺瓦',
-          name: '诺瓦询盘回复质量检查（10.18·16时）',
-          url: 'https://alidocs.dingtalk.com/i/nodes/a9E05BDRVQbGeLzquZxMxQQ0J63zgkYA'
+          name: '诺瓦询盘回复质量检查（10.21·16时）',
+          url: 'https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsA4Okyrv8yMoPYe1'
         }
-      ];
-    }
-
-    // 周检 (今日周一 16:30 轮已完成)
-    if (job.id === 'cron-1791524373299-9893ods0') {
-      job.last_run = '2026-10-19 16:24:51';
-      job.next_run = '2026-10-26 16:30:00';
-      job.status = '已完成';
-      job.sheets = [
+      ]
+    },
+    // 周检 (每周一 16:30)
+    'cron-1791524373299-9893ods0': {
+      targetHour: 16, targetMin: 30, isWeekly: true,
+      latestRunHistorical: '2026-10-19 16:24:51',
+      sheets: [
         {
           store: '贝诺美',
           name: '贝诺美询盘回复质量检查（10.11-10.17）',
@@ -782,11 +838,59 @@ function alignCronJobsData(dashboardData) {
           name: '诺瓦询盘回复质量检查（10.11-10.17）',
           url: 'https://alidocs.dingtalk.com/i/nodes/Obva6QBXJwkOZloBu7Xj54ggJn4qY5Pr'
         }
-      ];
+      ]
+    }
+  };
+
+  dashboardData.cron_jobs.forEach(job => {
+    const cfg = jobConfig[job.id];
+    if (!cfg) return;
+
+    job.last_run = cfg.latestRunHistorical;
+    job.sheets = cfg.sheets;
+
+    const isToday = job.last_run && job.last_run.startsWith(todayStr);
+
+    if (cfg.isWeekly) {
+      // 周检：只有在周一且过了 16:30 且已完成才算已完成，其余全部是待运行
+      if (dayOfWeek === 1 && (curHours > 16 || (curHours === 16 && curMinutes >= 30)) && isToday) {
+        job.status = '已完成';
+        job.next_run = '下周一 16:30:00';
+      } else {
+        job.status = '待运行';
+        const daysUntilMonday = (8 - dayOfWeek) % 7 || 7;
+        const nextMon = new Date(beijingDate.getTime() + daysUntilMonday * 24 * 60 * 60 * 1000);
+        const ny = nextMon.getFullYear();
+        const nm = String(nextMon.getMonth() + 1).padStart(2, '0');
+        const nd = String(nextMon.getDate()).padStart(2, '0');
+        job.next_run = `${ny}-${nm}-${nd} 16:30:00`;
+      }
+    } else {
+      // 日常任务：判断今天是否已经执行完成
+      const scheduledTimePassedToday = curHours > cfg.targetHour || (curHours === cfg.targetHour && curMinutes >= cfg.targetMin);
+
+      if (isToday) {
+        // 今天确实已经执行完成
+        job.status = '已完成';
+        job.next_run = `${tomorrowStr} ${String(cfg.targetHour).padStart(2, '0')}:${String(cfg.targetMin).padStart(2, '0')}:00`;
+      } else {
+        // 今天尚未执行：无论是 0 点过后进入新的一天还没开始，还是当前还没到点，状态均为【待运行】！
+        job.status = '待运行';
+        if (!scheduledTimePassedToday) {
+          // 今天还没到预定时间，下次运行就是今天对应点
+          job.next_run = `${todayStr} ${String(cfg.targetHour).padStart(2, '0')}:${String(cfg.targetMin).padStart(2, '0')}:00`;
+        } else {
+          // 今天已经过了该点但今天未执行（如休假/停用/补跑前），下次运行时间指向明天
+          job.next_run = `${tomorrowStr} ${String(cfg.targetHour).padStart(2, '0')}:${String(cfg.targetMin).padStart(2, '0')}:00`;
+        }
+      }
     }
   });
 
-  console.log('[AutoAlign] 8 大定时任务的真实执行自然日与时间已全部对齐');
+  console.log(`[AutoAlign] 8 大定时任务已按北京时间(${todayStr})动态裁决状态:`);
+  dashboardData.cron_jobs.forEach(j => {
+    console.log(`  - ${j.name}: [${j.status}] (上次: ${j.last_run}, 下次: ${j.next_run})`);
+  });
 }
 
 // ============ 看板同步完成通知：已于 2026-10-16 按用户要求整体移除 ============

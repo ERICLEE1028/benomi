@@ -754,10 +754,10 @@ const htmlContent = `<!DOCTYPE html>
           </thead>
           <tbody>
             ${data.cron_jobs.map(job => `
-              <tr>
+              <tr data-job-id="${job.id}" data-last-run="${job.last_run}">
                 <td><strong>${job.name}</strong></td>
                 <td><span class="cron-pill">${job.schedule}</span></td>
-                <td>${job.status === '已完成' ? '<span class="alert-pill alert-done">已完成</span>' : '<span class="alert-pill alert-pending">待运行</span>'}</td>
+                <td class="status-cell">${job.status === '已完成' ? '<span class="alert-pill alert-done">已完成</span>' : '<span class="alert-pill alert-pending">待运行</span>'}</td>
                 <td style="font-size: 12px; color: var(--text-secondary);">${job.last_run}</td>
                 <td>
                   ${job.sheets && job.sheets.length > 0 ? job.sheets.map(s => `
@@ -860,10 +860,38 @@ const htmlContent = `<!DOCTYPE html>
     }, 3500);
   }
 
-  // 页面就绪后启动半点定时器 + 兜底 5 分钟心跳检查
+  // ================= 客户端实时根据北京时间校准任务状态 (0点过后自动进入待运行) =================
+  function refreshCronStatusRealtime() {
+    try {
+      const beijingNow = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Shanghai' }));
+      const y = beijingNow.getFullYear();
+      const m = String(beijingNow.getMonth() + 1).padStart(2, '0');
+      const d = String(beijingNow.getDate()).padStart(2, '0');
+      const todayStr = y + '-' + m + '-' + d;
+
+      document.querySelectorAll('tr[data-job-id]').forEach(row => {
+        const lastRun = row.getAttribute('data-last-run') || '';
+        const statusCell = row.querySelector('.status-cell');
+        if (!statusCell) return;
+        
+        // 如果上次运行时间不是今天（跨过午夜0点进入新的一天），立即动态置为黄色“待运行”
+        if (!lastRun.startsWith(todayStr)) {
+          statusCell.innerHTML = '<span class="alert-pill alert-pending">待运行</span>';
+        }
+      });
+    } catch (e) {
+      console.warn('[RealtimeStatus] 状态校对跳过:', e.message);
+    }
+  }
+
+  // 页面就绪后启动半点定时器 + 兜底 5 分钟心跳检查 + 客户端北京时间状态校对
   window.addEventListener('DOMContentLoaded', () => {
+    refreshCronStatusRealtime();
     scheduleHalfHourSync();
-    setInterval(() => { fetchLatestData(false); }, 5 * 60 * 1000);
+    setInterval(() => { 
+      refreshCronStatusRealtime();
+      fetchLatestData(false); 
+    }, 5 * 60 * 1000);
   });
 </script>
 
