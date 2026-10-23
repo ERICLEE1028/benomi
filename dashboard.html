@@ -289,12 +289,9 @@
       <p>全部数据 100% 对齐最新完成定时任务 ｜ 动态匹配对应轮次广告转化 ｜ 风险监控与可用余额 ｜ 询盘质检真实映射</p>
     </div>
     <div class="header-meta" id="headerMeta">
-      <span class="badge badge-neutral">🕒 数据底座: 2026/10/22 16:16:44</span>
+      <span class="badge badge-neutral">🕒 数据底座: 2026/10/23 08:39:38</span>
       <span class="badge" id="autoSyncBadge" style="background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE;">🟢 半点主动获取: 开启中</span>
       <button onclick="manualSyncNow()" style="background:#2563EB;color:#fff;border:none;border-radius:12px;padding:3px 10px;font-size:11px;font-weight:600;cursor:pointer;">🔄 立即检查</button>
-      <span class="badge badge-ok">● 贝诺美: 9236 正常</span>
-      <span class="badge badge-ok">● 诺瓦: 9222 正常</span>
-      <span class="badge badge-ok">● 诺瓦 RFQ: 50 条 (正常)</span>
     </div>
   </div>
 
@@ -323,7 +320,6 @@
           <div class="card-header" style="margin-bottom: 10px; padding-bottom: 8px;">
             <div class="card-title">
               <span style="color: #2563EB;">🔵 贝诺美 (benomibeauty) · 平台风险监控</span>
-              <span class="card-tag tag-benomi">中继 9236</span>
             </div>
             <span class="alert-pill alert-normal">风险状态: 正常</span>
           </div>
@@ -366,7 +362,6 @@
           <div class="card-header" style="margin-bottom: 10px; padding-bottom: 8px;">
             <div class="card-title">
               <span style="color: #7C3AED;">🟣 诺瓦 (jnnova) · 平台风险监控</span>
-              <span class="card-tag tag-nova">CDP 9222</span>
             </div>
             <span class="alert-pill alert-normal">风险状态: 正常</span>
           </div>
@@ -474,9 +469,8 @@
       <div class="card-header">
         <div class="card-title">
           <span style="color: #2563EB;">🔵 贝诺美 (benomibeauty) · 专属日常巡检与周检大盘</span>
-          <span class="card-tag tag-benomi">美妆/个护平台</span>
+          <span class="card-tag tag-benomi">美妆个护/仪器</span>
         </div>
-        <span class="badge badge-ok">通道: 默认 Chrome 中继通道 (9236)</span>
       </div>
 
       <h3 style="font-size: 14px; margin-bottom: 12px; color: var(--text-secondary);">📅 最新日常巡检快照</h3>
@@ -714,7 +708,6 @@
           <span style="color: #7C3AED;">🟣 诺瓦 (jnnova) · 专属日常巡检与周检大盘</span>
           <span class="card-tag tag-nova">智能制造/激光设备</span>
         </div>
-        <span class="badge badge-ok">通道: ChromeProfile2 CDP 直连 (9222)</span>
       </div>
 
       <h3 style="font-size: 14px; margin-bottom: 12px; color: var(--text-secondary);">📅 最新日常巡检快照</h3>
@@ -1042,7 +1035,7 @@
   }
 
   // ================= 每到半点主动获取与自动更新脚本 (与主动推送双轨并行) =================
-  let currentSyncedAt = "2026/10/22 16:16:44";
+  let currentSyncedAt = "2026/10/23 08:39:38";
 
   // 计算距离下一个半点（XX:00 或 XX:30，留 10 秒缓冲以便后端任务完成生成）
   function getNextHalfHourMs() {
