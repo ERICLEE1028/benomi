@@ -16,49 +16,51 @@ const htmlContent = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>双平台定时任务监控与巡检看板 (明亮浅蓝科技版)</title>
+  <title>双平台定时任务监控与巡检看板 (中度科技蓝大屏版)</title>
   <style>
     :root {
-      /* 明亮浅蓝科技调色盘 */
-      --tech-bg: #EDF5FC;
-      --tech-gradient: radial-gradient(circle at 15% 15%, #F4F9FD 0%, #E8F2FA 50%, #DCEAF7 100%);
-      --tech-grid-color: rgba(2, 132, 199, 0.04);
+      /* 中度科技蓝核心调色板 */
+      --tech-bg: #15263A;
+      --tech-gradient: radial-gradient(circle at 15% 15%, #1C334E 0%, #15273C 50%, #0E1C2C 100%);
+      --tech-grid-color: rgba(56, 189, 248, 0.08);
 
-      --bg-card: #FFFFFF;
-      --bg-subtle: #F0F6FC;
-      --border-color: #BAE6FD;
-      --border-glow: rgba(14, 165, 233, 0.25);
+      --bg-card: rgba(21, 38, 59, 0.94);
+      --bg-subtle: #192E46;
+      --border-color: rgba(56, 189, 248, 0.35);
+      --border-glow: rgba(56, 189, 248, 0.5);
 
-      /* 文字必须极高对比度，深黑墨蓝，像印刷品一样清晰 */
-      --text-main: #0F172A;
-      --text-secondary: #334155;
-      --text-muted: #64748B;
+      /* 高对比发光文字：纯白与高亮冰蓝，绝不看不清 */
+      --text-main: #FFFFFF;
+      --text-secondary: #CBD5E1;
+      --text-muted: #94A3B8;
 
-      --tech-cyan: #0284C7;
-      --tech-blue: #2563EB;
-      --tech-blue-accent: #0369A1;
+      --tech-cyan: #00F0FF;
+      --tech-blue: #38BDF8;
+      --tech-blue-accent: #0284C7;
+      --tech-gold: #FBBF24;
+      --tech-emerald: #34D399;
 
       /* 双店专属冷调科技标色 */
-      --benomi-accent: #0284C7;
-      --benomi-bg: #E0F2FE;
-      --benomi-border: #7DD3FC;
+      --benomi-accent: #38BDF8;
+      --benomi-bg: rgba(56, 189, 248, 0.16);
+      --benomi-border: #38BDF8;
 
-      --nova-accent: #6366F1;
-      --nova-bg: #EEF2FF;
-      --nova-border: #C7D2FE;
+      --nova-accent: #C084FC;
+      --nova-bg: rgba(192, 132, 252, 0.16);
+      --nova-border: #C084FC;
 
-      /* 状态色（明亮底高辨识度） */
-      --status-success-bg: #ECFDF5;
-      --status-success-text: #047857;
-      --status-success-border: #6EE7B7;
+      /* 状态色（高对比亮色） */
+      --status-success-bg: rgba(16, 185, 129, 0.22);
+      --status-success-text: #34D399;
+      --status-success-border: #10B981;
 
-      --status-warning-bg: #FEF3C7;
-      --status-warning-text: #B45309;
-      --status-warning-border: #FCD34D;
+      --status-warning-bg: rgba(245, 158, 11, 0.22);
+      --status-warning-text: #FBBF24;
+      --status-warning-border: #F59E0B;
 
-      --status-error-bg: #FEF2F2;
-      --status-error-text: #DC2626;
-      --status-error-border: #FCA5A5;
+      --status-error-bg: rgba(239, 68, 68, 0.25);
+      --status-error-text: #FCA5A5;
+      --status-error-border: #EF4444;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -74,7 +76,7 @@ const htmlContent = `<!DOCTYPE html>
       position: relative;
     }
 
-    /* 淡雅科技微网格底纹 */
+    /* 科技感大屏精密点阵网格微纹理 */
     body::before {
       content: "";
       position: fixed;
@@ -96,11 +98,12 @@ const htmlContent = `<!DOCTYPE html>
       z-index: 1;
     }
 
-    /* 顶部导航与状态栏 - 明亮科技控制台 */
+    /* 顶部导航与状态栏 - 科技控制台 */
     .header {
-      background: #FFFFFF;
+      background: rgba(21, 38, 59, 0.95);
+      backdrop-filter: blur(14px);
       border: 1.5px solid var(--border-color);
-      border-top: 4px solid var(--tech-cyan);
+      border-top: 3.5px solid var(--tech-cyan);
       border-radius: 12px;
       padding: 16px 24px;
       margin-bottom: 18px;
@@ -109,21 +112,22 @@ const htmlContent = `<!DOCTYPE html>
       align-items: center;
       flex-wrap: wrap;
       gap: 16px;
-      box-shadow: 0 4px 18px -2px rgba(2, 132, 199, 0.08), 0 1px 3px rgba(0,0,0,0.03);
+      box-shadow: 0 6px 24px -2px rgba(0,0,0,0.35), 0 0 16px -2px rgba(56, 189, 248, 0.2);
     }
     .header-title h1 {
       font-size: 20px;
       font-weight: 800;
-      color: #0F172A;
+      color: #FFFFFF;
       display: flex;
       align-items: center;
       gap: 10px;
-      letter-spacing: -0.2px;
+      letter-spacing: 0.3px;
+      text-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
     }
     .header-title p {
       font-size: 13px;
       font-weight: 600;
-      color: var(--text-secondary);
+      color: #94A3B8;
       margin-top: 4px;
     }
     .header-meta {
@@ -153,19 +157,20 @@ const htmlContent = `<!DOCTYPE html>
       border: 1px solid var(--status-error-border);
     }
     .badge-neutral {
-      background: #F1F5F9;
-      color: var(--text-secondary);
-      border: 1px solid #CBD5E1;
+      background: #1E293B;
+      color: #CBD5E1;
+      border: 1px solid #334155;
     }
 
-    /* ================= 选项卡导航卡槽 (明亮科技 Tabs) ================= */
+    /* ================= 中度科技蓝分页控制台 (Tabs) ================= */
     .tabs-wrapper {
       margin-bottom: 20px;
-      background: #E4F0FA;
+      background: rgba(15, 29, 46, 0.88);
+      backdrop-filter: blur(12px);
       padding: 6px;
       border-radius: 12px;
-      border: 1.5px solid #BAE6FD;
-      box-shadow: 0 4px 14px -2px rgba(2, 132, 199, 0.08);
+      border: 1.5px solid rgba(56, 189, 248, 0.3);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.3);
     }
 
     .tabs {
@@ -180,15 +185,15 @@ const htmlContent = `<!DOCTYPE html>
       .tabs { grid-template-columns: repeat(2, 1fr); }
     }
 
-    /* 选项卡按钮：维持原有高度56px、居中对齐、无上方小字、下方保留「▼ 正在查看」 */
+    /* 选项卡按钮：高度56px、居中对齐、无上方小字、下方保留「▼ 正在查看」 */
     .tab-btn {
-      background: #FFFFFF;
-      border: 1px solid #CBD5E1;
+      background: rgba(25, 45, 69, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.25);
       padding: 10px 16px;
       min-height: 56px;
       font-size: 15px;
       font-weight: 800;
-      color: #1E293B;
+      color: #CBD5E1;
       cursor: pointer;
       border-radius: 8px;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -199,22 +204,21 @@ const htmlContent = `<!DOCTYPE html>
       position: relative;
       white-space: nowrap;
       user-select: none;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
     }
 
     .tab-btn:hover {
-      background: #EFF6FF;
+      background: rgba(35, 63, 97, 0.95);
       border-color: #38BDF8;
-      color: #0284C7;
+      color: #38BDF8;
       transform: translateY(-1px);
     }
 
-    /* 激活态：深邃青蓝渐变 + 纯白大字 + 发光微外托 + 下方「▼ 正在查看」提示 */
+    /* 激活态：深邃青蓝渐变 + 纯白大字 + 荧光青蓝发光外托 + 下方「▼ 正在查看」提示 */
     .tab-btn.active {
-      background: linear-gradient(135deg, #0284C7 0%, #2563EB 100%);
-      border-color: #0284C7;
+      background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+      border-color: #38BDF8;
       color: #FFFFFF;
-      box-shadow: 0 6px 18px -2px rgba(37, 99, 235, 0.38), 0 0 0 2px rgba(186, 230, 253, 0.6);
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.4), inset 0 1px 0 rgba(255,255,255,0.3);
       padding-bottom: 16px;
     }
 
@@ -224,7 +228,7 @@ const htmlContent = `<!DOCTYPE html>
       bottom: 3px;
       font-size: 9px;
       font-weight: 700;
-      color: #E0F2FE;
+      color: #BAE6FD;
       letter-spacing: 0.5px;
     }
 
@@ -236,21 +240,22 @@ const htmlContent = `<!DOCTYPE html>
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ================= 模块卡片 - 高对比明亮立体卡片 ================= */
+    /* ================= 模块卡片 - 中度科技蓝立体分层 ================= */
     .card {
       background: var(--bg-card);
-      border: 1px solid var(--border-color);
+      backdrop-filter: blur(14px);
+      border: 1.5px solid var(--border-color);
       border-radius: 12px;
       padding: 22px;
       margin-bottom: 22px;
-      box-shadow: 0 4px 18px -2px rgba(2, 132, 199, 0.08), 0 1px 3px rgba(0,0,0,0.03);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.28);
       transition: all 0.2s ease;
       position: relative;
     }
 
     .card:hover {
-      box-shadow: 0 8px 24px -2px rgba(2, 132, 199, 0.14);
-      border-color: #7DD3FC;
+      box-shadow: 0 8px 28px rgba(56, 189, 248, 0.18);
+      border-color: rgba(56, 189, 248, 0.6);
     }
 
     .card-header {
@@ -258,26 +263,26 @@ const htmlContent = `<!DOCTYPE html>
       justify-content: space-between;
       align-items: center;
       margin-bottom: 16px;
-      border-bottom: 1.5px solid #E2E8F0;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.22);
       padding-bottom: 12px;
     }
     .card-title {
       font-size: 16px;
       font-weight: 800;
-      color: #0F172A;
+      color: #FFFFFF;
       display: flex;
       align-items: center;
       gap: 10px;
-      letter-spacing: -0.2px;
+      letter-spacing: 0.2px;
     }
     .card-tag {
       font-size: 11px;
       padding: 3px 10px;
-      border-radius: 6px;
+      border-radius: 4px;
       font-weight: 700;
     }
-    .tag-benomi { background: var(--benomi-bg); color: #0369A1; border: 1px solid var(--benomi-border); }
-    .tag-nova { background: var(--nova-bg); color: #4338CA; border: 1px solid var(--nova-border); }
+    .tag-benomi { background: var(--benomi-bg); color: #38BDF8; border: 1px solid var(--benomi-border); }
+    .tag-nova { background: var(--nova-bg); color: #C084FC; border: 1px solid var(--nova-border); }
 
     /* 网格布局 */
     .grid-2 {
@@ -302,65 +307,65 @@ const htmlContent = `<!DOCTYPE html>
       .grid-4 { grid-template-columns: 1fr; }
     }
 
-    /* 科技数显指标盒 - 白底深字，高反差高可读性 */
+    /* 科技数显指标盒 - 中深蓝底 + 高亮发光数值 */
     .stat-box {
-      background: linear-gradient(180deg, #FFFFFF 0%, #F0F7FD 100%);
-      border: 1.5px solid #BAE6FD;
+      background: linear-gradient(180deg, #1A314B 0%, #14263B 100%);
+      border: 1.5px solid rgba(56, 189, 248, 0.3);
       border-radius: 10px;
       padding: 16px;
-      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.04);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
       transition: all 0.2s ease;
     }
     .stat-box:hover {
       transform: translateY(-2px);
       border-color: #38BDF8;
-      box-shadow: 0 6px 16px -2px rgba(2, 132, 199, 0.12);
+      box-shadow: 0 6px 18px rgba(56, 189, 248, 0.25);
     }
     .stat-label { 
       font-size: 12px; 
       font-weight: 700; 
-      color: #334155; 
+      color: #94A3B8; 
       margin-bottom: 6px; 
     }
     .stat-value { 
       font-size: 22px; 
       font-weight: 800; 
-      color: #0F172A; 
-      letter-spacing: -0.4px;
+      color: #FFFFFF; 
+      letter-spacing: -0.2px;
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
     }
     .stat-desc { 
       font-size: 11px; 
       font-weight: 600; 
-      color: #64748B; 
+      color: #94A3B8; 
       margin-top: 6px; 
     }
 
-    /* 明细列表 */
+    /* 明细列表 - 文字高对比 */
     .detail-list { display: flex; flex-direction: column; gap: 8px; }
     .detail-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 13px;
-      padding: 8px 10px;
+      padding: 8px 12px;
       border-radius: 6px;
-      background: #F8FAFC;
-      border-bottom: 1px dashed #CBD5E1;
+      background: rgba(255, 255, 255, 0.04);
+      border-bottom: 1px dashed rgba(56, 189, 248, 0.18);
       transition: background 0.15s ease;
     }
     .detail-item:last-child { border-bottom: none; }
-    .detail-item:hover { background: #EFF6FF; }
-    .detail-title { color: #334155; font-weight: 600; }
-    .detail-value { font-weight: 700; color: #0F172A; text-align: right; }
+    .detail-item:hover { background: rgba(56, 189, 248, 0.1); }
+    .detail-title { color: #CBD5E1; font-weight: 600; }
+    .detail-value { font-weight: 700; color: #FFFFFF; text-align: right; }
 
-    /* 表格与科技表头 - 纯白数据行，文字高对比 */
+    /* 表格与大屏表头 - 高对比清晰数据 */
     .table-container {
       overflow-x: auto;
-      border: 1px solid var(--border-color);
+      border: 1.5px solid rgba(56, 189, 248, 0.3);
       border-radius: 10px;
       margin-top: 14px;
-      background: #FFFFFF;
-      box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);
+      background: #112033;
     }
     table {
       width: 100%;
@@ -369,30 +374,30 @@ const htmlContent = `<!DOCTYPE html>
       text-align: left;
     }
     th {
-      background: linear-gradient(180deg, #F0F7FF 0%, #E2EFFC 100%);
-      color: #0369A1;
+      background: linear-gradient(180deg, #1C3552 0%, #152940 100%);
+      color: #38BDF8;
       font-weight: 800;
       padding: 12px 14px;
-      border-bottom: 2px solid #BAE6FD;
+      border-bottom: 2px solid rgba(56, 189, 248, 0.4);
       white-space: nowrap;
       letter-spacing: 0.2px;
     }
     td {
       padding: 12px 14px;
-      border-bottom: 1px solid #F1F5F9;
-      color: #0F172A;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.12);
+      color: #E2E8F0;
       vertical-align: middle;
       font-weight: 500;
     }
     tr:last-child td { border-bottom: none; }
-    tr:hover td { background: #F0F9FF; }
+    tr:hover td { background: rgba(56, 189, 248, 0.08); }
 
-    /* 不合格整行标红硬约束（醒目红底红字） */
+    /* 不合格整行标红硬约束（高亮红字） */
     tr.row-fail td {
-      color: #DC2626 !important;
-      background-color: #FEF2F2 !important;
+      color: #FCA5A5 !important;
+      background-color: rgba(239, 68, 68, 0.2) !important;
       font-weight: 700;
-      border-bottom-color: #FECACA;
+      border-bottom-color: rgba(239, 68, 68, 0.35);
     }
 
     .sheet-link-chip {
@@ -401,20 +406,19 @@ const htmlContent = `<!DOCTYPE html>
       gap: 4px;
       margin: 2px 4px 2px 0;
       padding: 4px 10px;
-      background: #EFF6FF;
-      color: #1D4ED8;
-      border: 1.5px solid #93C5FD;
-      border-radius: 6px;
+      background: rgba(56, 189, 248, 0.16);
+      color: #38BDF8;
+      border: 1.5px solid rgba(56, 189, 248, 0.4);
+      border-radius: 4px;
       text-decoration: none;
       font-size: 11px;
       font-weight: 700;
       transition: all 0.2s ease;
-      box-shadow: 0 1px 2px rgba(37,99,235,0.04);
     }
     .sheet-link-chip:hover {
-      background: #DBEAFE;
-      border-color: #2563EB;
-      color: #1E40AF;
+      background: rgba(56, 189, 248, 0.28);
+      border-color: #38BDF8;
+      color: #FFFFFF;
       transform: translateY(-1px);
     }
 
@@ -432,13 +436,11 @@ const htmlContent = `<!DOCTYPE html>
       background: var(--status-success-bg); 
       color: var(--status-success-text); 
       border: 1px solid var(--status-success-border); 
-      box-shadow: 0 1px 2px rgba(4,120,87,0.08);
     }
     .alert-pending { 
       background: var(--status-warning-bg); 
       color: var(--status-warning-text); 
       border: 1px solid var(--status-warning-border); 
-      box-shadow: 0 1px 2px rgba(180,83,9,0.08);
     }
     .alert-normal { 
       background: var(--status-success-bg); 
@@ -455,10 +457,10 @@ const htmlContent = `<!DOCTYPE html>
       font-size: 11px;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       padding: 3px 8px;
-      background: #F1F5F9;
-      border: 1px solid #CBD5E1;
-      border-radius: 6px;
-      color: #334155;
+      background: #182C44;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 4px;
+      color: #CBD5E1;
       font-weight: 600;
     }
   </style>
@@ -478,7 +480,7 @@ const htmlContent = `<!DOCTYPE html>
     </div>
   </div>
 
-  <!-- 选项卡导航 (明亮浅蓝科技控制台) -->
+  <!-- 选项卡导航 (中度科技蓝控制台) -->
   <div class="tabs-wrapper">
     <div class="tabs">
       <button class="tab-btn active" onclick="switchTab('overview')">
