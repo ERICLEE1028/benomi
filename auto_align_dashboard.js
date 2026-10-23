@@ -763,12 +763,13 @@ function alignCronJobsData(dashboardData) {
   let today11QualitySheets = [];
   const qDeliverDir = path.join(QUALITY_DIR, 'deliver');
   if (fs.existsSync(qDeliverDir)) {
-    const notify11Today = fs.readdirSync(qDeliverDir).find(f => f.startsWith('notify11') && f.includes(todayMMDD));
+    const notify11Today = fs.readdirSync(qDeliverDir).find(f => (f.startsWith('notify11') || f.startsWith('notify_11')) && f.includes(todayMMDD));
     if (notify11Today) {
       try {
         const nd = JSON.parse(fs.readFileSync(path.join(qDeliverDir, notify11Today), 'utf8'));
         today11QualityCompleted = true;
-        today11QualityTime = `${todayStr} 11:11:00`;
+        const firstMsg = (nd.messages || [])[0];
+        today11QualityTime = (firstMsg && firstMsg.createTime) || `${todayStr} 11:12:36`;
         (nd.messages || []).forEach(msg => {
           const match = (msg.text || '').match(/\[📊 ([^\]]+)\]\((https:\/\/alidocs\.dingtalk\.com\/[^\)]+)\)/);
           if (match) {
