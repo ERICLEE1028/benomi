@@ -362,12 +362,6 @@ const htmlContent = `<!DOCTYPE html>
               <span class="detail-title">直通车当前可用现金</span>
               <span class="detail-value" style="color: #059669;">¥${data.stores.benomi.risk.balance.toFixed(2)} (${data.stores.benomi.risk.balance_source || '平台实时同步'})</span>
             </div>
-            <div class="detail-item">
-              <span class="detail-title">风险监控交付形式</span>
-              <span class="detail-value" style="color: #2563EB;">
-                🔔 Accio 机器人 Webhook 专属群推送 (@李冰)
-              </span>
-            </div>
           </div>
         </div>
 
@@ -405,12 +399,6 @@ const htmlContent = `<!DOCTYPE html>
             <div class="detail-item">
               <span class="detail-title">直通车当前可用现金</span>
               <span class="detail-value" style="color: #059669;">¥${data.stores.nova.risk.balance.toFixed(2)} (${data.stores.nova.risk.balance_source || '平台实时同步'})</span>
-            </div>
-            <div class="detail-item">
-              <span class="detail-title">风险监控交付形式</span>
-              <span class="detail-value" style="color: #7C3AED;">
-                🔔 Accio 机器人 Webhook 专属群推送 (@李冰)
-              </span>
             </div>
           </div>
         </div>
