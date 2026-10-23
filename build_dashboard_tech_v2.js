@@ -16,21 +16,35 @@ const htmlContent = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>双平台定时任务监控与巡检看板 (中度科技蓝旗舰版)</title>
+  <title>双平台定时任务监控与巡检看板 (泛光金属科技版)</title>
   <style>
     :root {
-      /* 中度科技蓝 (Medium Slate Azure) 专属调色板 */
-      --theme-bg-gradient: linear-gradient(135deg, #99BFE0 0%, #82A9CE 50%, #6C94BE 100%);
-      --tech-grid-color: rgba(2, 132, 199, 0.08);
+      /* 中度蓝金属质感渐变：模拟精密阳极氧化金属与钛合金反光折射 */
+      --theme-bg-gradient: linear-gradient(135deg, 
+        #82A4C6 0%, 
+        #A2C3E2 16%, 
+        #799DBE 36%, 
+        #95B8DA 58%, 
+        #6B8EB1 80%, 
+        #88AACC 100%
+      );
 
-      --bg-header: rgba(240, 247, 255, 0.94);
-      --bg-card: rgba(244, 249, 255, 0.94);
+      /* 金属卡片与高光倒角 */
+      --bg-header: rgba(244, 248, 253, 0.95);
+      --bg-card: rgba(247, 250, 255, 0.94);
       --bg-subtle: #FFFFFF;
-      --border-color: #38BDF8;
+      --border-color: rgba(255, 255, 255, 0.7);
+      --border-metal-cyan: #38BDF8;
       --border-accent: #0284C7;
-      --card-shadow: 0 6px 22px -2px rgba(15, 35, 60, 0.18), 0 1px 3px rgba(0, 0, 0, 0.05);
+      
+      /* 金属立体倒角阴影：顶沿高光线 + 底部金属深投影 */
+      --card-shadow: 
+        0 10px 30px -4px rgba(15, 35, 60, 0.22), 
+        inset 0 1.5px 0 rgba(255, 255, 255, 0.95), 
+        inset 0 -1.5px 0 rgba(2, 132, 199, 0.2),
+        0 1px 3px rgba(0, 0, 0, 0.05);
 
-      /* 高清晰深墨蓝文字，字字锐利如印刷 */
+      /* 高清晰深墨蓝文字，字字锐利 */
       --text-main: #0A1C2E;
       --text-secondary: #1E3A5F;
       --text-muted: #475569;
@@ -72,15 +86,18 @@ const htmlContent = `<!DOCTYPE html>
       position: relative;
     }
 
-    /* 科技感大屏微点阵网格微纹理 */
+    /* 彻底移除网格微纹理，升级为柔和通透的全屏金属环境泛光微光层 */
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background-image: 
-        linear-gradient(var(--tech-grid-color) 1px, transparent 1px),
-        linear-gradient(90deg, var(--tech-grid-color) 1px, transparent 1px);
-      background-size: 28px 28px;
+      background: 
+        /* 顶部中央强光照射泛光晕 */
+        radial-gradient(ellipse 80% 45% at 50% -10%, rgba(255, 255, 255, 0.45) 0%, transparent 65%),
+        /* 右上方冷蓝光芒软晕 */
+        radial-gradient(circle 650px at 85% 20%, rgba(186, 230, 253, 0.3) 0%, transparent 60%),
+        /* 左下方沉浸金属蓝微光 */
+        radial-gradient(circle 550px at 15% 85%, rgba(14, 165, 233, 0.2) 0%, transparent 60%);
       pointer-events: none;
       z-index: 0;
     }
@@ -93,10 +110,10 @@ const htmlContent = `<!DOCTYPE html>
       z-index: 1;
     }
 
-    /* 顶部导航与状态栏 - 科技控制台 */
+    /* 顶部导航与状态栏 - 泛光金属控制台面板 */
     .header {
       background: var(--bg-header);
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(16px);
       border: 1.5px solid var(--border-color);
       border-top: 4px solid var(--tech-cyan);
       border-radius: 12px;
@@ -108,6 +125,7 @@ const htmlContent = `<!DOCTYPE html>
       flex-wrap: wrap;
       gap: 16px;
       box-shadow: var(--card-shadow);
+      position: relative;
     }
     .header-title h1 {
       font-size: 20px;
@@ -139,6 +157,7 @@ const htmlContent = `<!DOCTYPE html>
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.2px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
     }
     .badge-ok {
       background: var(--status-success-bg);
@@ -156,15 +175,15 @@ const htmlContent = `<!DOCTYPE html>
       border: 1px solid #CBD5E1;
     }
 
-    /* ================= 中度科技蓝分页控制台 (Tabs) ================= */
+    /* ================= 泛光金属质感分页控制台 (Tabs) ================= */
     .tabs-wrapper {
       margin-bottom: 20px;
-      background: rgba(240, 247, 255, 0.88);
-      backdrop-filter: blur(12px);
+      background: linear-gradient(180deg, rgba(240, 246, 254, 0.94) 0%, rgba(222, 236, 250, 0.92) 100%);
+      backdrop-filter: blur(14px);
       padding: 6px;
       border-radius: 12px;
-      border: 1.5px solid var(--border-color);
-      box-shadow: 0 4px 16px -2px rgba(15, 35, 60, 0.12);
+      border: 1.5px solid rgba(255, 255, 255, 0.85);
+      box-shadow: inset 0 1.5px 3px rgba(15, 35, 60, 0.08), 0 6px 18px -2px rgba(15, 35, 60, 0.16);
     }
 
     .tabs {
@@ -182,7 +201,7 @@ const htmlContent = `<!DOCTYPE html>
     /* 选项卡按钮：高度56px、居中对齐、无上方小字、下方保留「▼ 正在查看」 */
     .tab-btn {
       background: #FFFFFF;
-      border: 1px solid #BAE6FD;
+      border: 1.5px solid rgba(186, 230, 253, 0.8);
       padding: 10px 16px;
       min-height: 56px;
       font-size: 15px;
@@ -198,7 +217,7 @@ const htmlContent = `<!DOCTYPE html>
       position: relative;
       white-space: nowrap;
       user-select: none;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      box-shadow: 0 1px 3px rgba(15, 35, 60, 0.05), inset 0 1px 0 rgba(255,255,255,0.9);
     }
 
     .tab-btn:hover {
@@ -206,14 +225,15 @@ const htmlContent = `<!DOCTYPE html>
       border-color: #0284C7;
       color: #0284C7;
       transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
     }
 
-    /* 激活态：深邃青蓝渐变 + 纯白大字 + 发光微外托 + 下方「▼ 正在查看」提示 */
+    /* 激活态：金属蓝流光渐变 + 纯白大字 + 金属倒角发光 + 下方「▼ 正在查看」提示 */
     .tab-btn.active {
-      background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
-      border-color: #0284C7;
+      background: linear-gradient(135deg, #0284C7 0%, #0369A1 50%, #0284C7 100%);
+      border-color: #38BDF8;
       color: #FFFFFF;
-      box-shadow: 0 6px 18px -2px rgba(2, 132, 199, 0.42), 0 0 0 2px rgba(186, 230, 253, 0.7);
+      box-shadow: 0 6px 20px -2px rgba(2, 132, 199, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.6);
       padding-bottom: 16px;
     }
 
@@ -235,7 +255,7 @@ const htmlContent = `<!DOCTYPE html>
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ================= 模块卡片 - 中度科技立体分层 ================= */
+    /* ================= 模块卡片 - 泛光金属立体分层 ================= */
     .card {
       background: var(--bg-card);
       border: 1.5px solid var(--border-color);
@@ -248,8 +268,8 @@ const htmlContent = `<!DOCTYPE html>
     }
 
     .card:hover {
-      box-shadow: 0 10px 28px -2px rgba(15, 35, 60, 0.22);
-      border-color: #0284C7;
+      box-shadow: 0 14px 34px -2px rgba(15, 35, 60, 0.25), inset 0 1.5px 0 rgba(255, 255, 255, 1);
+      border-color: #38BDF8;
     }
 
     .card-header {
@@ -257,7 +277,7 @@ const htmlContent = `<!DOCTYPE html>
       justify-content: space-between;
       align-items: center;
       margin-bottom: 16px;
-      border-bottom: 1.5px solid rgba(2, 132, 199, 0.18);
+      border-bottom: 1.5px solid rgba(2, 132, 199, 0.2);
       padding-bottom: 12px;
     }
     .card-title {
@@ -301,19 +321,19 @@ const htmlContent = `<!DOCTYPE html>
       .grid-4 { grid-template-columns: 1fr; }
     }
 
-    /* 科技数显指标盒 */
+    /* 科技数显指标盒 - 金属立体切角质感 */
     .stat-box {
       background: var(--bg-subtle);
-      border: 1.5px solid var(--border-color);
+      border: 1.5px solid rgba(186, 230, 253, 0.9);
       border-radius: 10px;
       padding: 16px;
-      box-shadow: 0 2px 8px rgba(15, 35, 60, 0.06);
+      box-shadow: 0 3px 10px rgba(15, 35, 60, 0.08), inset 0 1px 0 rgba(255,255,255,0.9);
       transition: all 0.2s ease;
     }
     .stat-box:hover {
       transform: translateY(-2px);
       border-color: #0284C7;
-      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.18);
+      box-shadow: 0 8px 22px rgba(2, 132, 199, 0.22);
     }
     .stat-label { 
       font-size: 12px; 
@@ -344,7 +364,8 @@ const htmlContent = `<!DOCTYPE html>
       padding: 8px 12px;
       border-radius: 6px;
       background: var(--bg-subtle);
-      border-bottom: 1px dashed rgba(2, 132, 199, 0.18);
+      border-bottom: 1px dashed rgba(2, 132, 199, 0.22);
+      box-shadow: 0 1px 2px rgba(15, 35, 60, 0.03);
       transition: background 0.15s ease;
     }
     .detail-item:last-child { border-bottom: none; }
@@ -352,14 +373,14 @@ const htmlContent = `<!DOCTYPE html>
     .detail-title { color: var(--text-secondary); font-weight: 600; }
     .detail-value { font-weight: 700; color: var(--text-main); text-align: right; }
 
-    /* 表格与科技表头 */
+    /* 表格与金属表头 */
     .table-container {
       overflow-x: auto;
-      border: 1.5px solid var(--border-color);
+      border: 1.5px solid rgba(186, 230, 253, 0.9);
       border-radius: 10px;
       margin-top: 14px;
       background: var(--bg-subtle);
-      box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.03), 0 2px 6px rgba(15, 35, 60, 0.05);
     }
     table {
       width: 100%;
@@ -408,7 +429,7 @@ const htmlContent = `<!DOCTYPE html>
       font-size: 11px;
       font-weight: 700;
       transition: all 0.2s ease;
-      box-shadow: 0 1px 2px rgba(2, 132, 199, 0.08);
+      box-shadow: 0 1px 3px rgba(2, 132, 199, 0.1);
     }
     .sheet-link-chip:hover {
       background: #DBEAFE;
@@ -455,7 +476,7 @@ const htmlContent = `<!DOCTYPE html>
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       padding: 3px 8px;
       background: var(--bg-subtle);
-      border: 1px solid var(--border-color);
+      border: 1px solid #BAE6FD;
       border-radius: 6px;
       color: var(--text-secondary);
       font-weight: 600;
@@ -477,7 +498,7 @@ const htmlContent = `<!DOCTYPE html>
     </div>
   </div>
 
-  <!-- 选项卡导航 (中度科技蓝控制台) -->
+  <!-- 选项卡导航 (泛光金属科技控制台) -->
   <div class="tabs-wrapper">
     <div class="tabs">
       <button class="tab-btn active" onclick="switchTab('overview')">
