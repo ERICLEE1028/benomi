@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/23 11:12:20",
+  "last_synced_at": "2026/10/23 11:13:54",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -61,17 +61,17 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
       },
       "daily_quality": {
-        "latest_round": "2026-10-21（16:00 轮）",
-        "target_date": "2026-10-21",
-        "total_checked": 7,
-        "passed": 5,
+        "latest_round": "2026-10-22（11:00 轮）",
+        "target_date": "2026-10-22",
+        "total_checked": 5,
+        "passed": 4,
         "failed": 1,
-        "pending": 1,
-        "pass_rate": 71.43,
+        "pending": 0,
+        "pass_rate": 80,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
-        "sheet_name": "贝诺美询盘回复质量检查（10.21·16时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/dpYLaezmVN76GOXrsNl5zkzPJrMqPxX6",
+        "sheet_name": "贝诺美询盘回复质量检查（10.22·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsAj1zZYA8yMoPYe1",
         "records": [
           {
             "inquiry_time": "2026-10-14 03:56:12",
@@ -100,74 +100,54 @@
         ],
         "samples": [
           {
-            "inquiry_time": "2026-10-21 00:00:22",
-            "buyer": "ire gomez",
+            "inquiry_time": "2026-10-22 02:15:58",
+            "buyer": "Andreia DuarteVicente",
             "sales": "Harper Mu",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "7 小时 11 分钟",
+            "resp_time": "4 小时 49 分钟",
             "track_count": "4",
-            "summary": "买家以 Portable Tesla EMS 肌肉塑形仪（TeslaSculpt 系列，1 套）询盘卡发起咨询。自动接待先答产品来源与用途问询；业务员 Harper 上午补发公司介绍与多张实机图，说明可选二手柄或四手柄、以及是否含 RF 功能。买家未读卖家最后一条消息（2026-10-21 22:05:33）（自动）。"
+            "summary": "买家（法语）以 808/755/940/1064nm 二极管激光脱毛机询盘，说明用于自己的美容院、预算上限 1000 欧元，希望先买基础款。卖家以法语介绍 1000–2400W、15.6 吋触屏、水冷加风冷加 TEC 加蓝宝石制冷，并询问要立式还是台式。次日按立式机型发送多张实机图，说明采用美国 Coherent 激光条与 TEC 冷凝器＋蓝宝石＋风冷＋水冷超强制冷。买家未读卖家最后一条消息（2026-10-23 10:49:16）。"
           },
           {
-            "inquiry_time": "2026-10-21 00:24:08",
-            "buyer": "Amani Messaad",
+            "inquiry_time": "2026-10-22 03:46:41",
+            "buyer": "KIRAN BANSAL",
             "sales": "Jay Li",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "6 小时 15 分钟",
+            "resp_time": "3 小时 45 分钟",
             "track_count": "3",
-            "summary": "买家（法语）以二极管激光脱毛机询盘卡发起，逐条追问手柄输出功率（如 600W）、波长与售后等参数。卖家上午致意，下午逐条以法语答复：美国 Coherent 激光器 300W、755+808+1064nm 三波长、单手柄、整机保修 1 年，并说明首单为试单。卖家最后询问其预算以便推荐配置。买家未读卖家最后一条消息（2026-10-21 18:29:43）。"
+            "summary": "买家以 2/4 手柄 EMS 塑形机（Hiems Max4）商品需求卡发起，1 款 1 套。卖家先回「正在去办公室、稍后回复」，随后发送桌面式 EMSculpt 实机图，说明含 2 个手柄、无 RF、整机保修 1 年、语言与 logo 免费定制，并补发公司介绍。卖家最后询问其预算以便推荐配置。买家未读卖家最后一条消息（2026-10-22 18:02:00）。"
           },
           {
-            "inquiry_time": "2026-10-21 00:37:07",
-            "buyer": "Emad Alsokary",
-            "sales": "Miya Zhang",
+            "inquiry_time": "2026-10-22 08:25:11",
+            "buyer": "konny abreu",
+            "sales": "Harper Mu",
             "verdict": "不合格",
             "reason": "前 3 次人工追踪未图文并茂",
-            "resp_time": "5 小时 36 分钟",
-            "track_count": "2",
-            "summary": "买家以 Cryoskin 4.0 冷冻溶脂／EMS 塑形机询盘卡发起（标价 650–1,540 美元）。自动接待先答产品与用途；业务员 Miya 早上发公司介绍，随后仅回复「已请同事跟进」，未提供参数或图片。买家未读卖家最后一条消息（2026-10-21 08:29:05）。"
+            "resp_time": "1 分钟",
+            "track_count": "1",
+            "summary": "买家（西语）以 808/755/940/1064nm 二极管激光脱毛机询盘卡发起，只问「这台设备多少钱」。卖家回复西班牙语欢迎语，称同事 Tina 会与其联系，此后无进一步跟进。买家未读卖家最后一条消息（2026-10-22 08:26:22）。"
           },
           {
-            "inquiry_time": "2026-10-21 00:56:26",
-            "buyer": "Peter Kisfali",
-            "sales": "Daniel Wang",
+            "inquiry_time": "2026-10-22 08:44:46",
+            "buyer": "Ssv Repres",
+            "sales": "Miya Zhang",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "6 小时 30 分钟",
-            "track_count": "8",
-            "summary": "买家询问 2/4 手柄 TeslaSculpt 塑形机的 DDP 到岸价，并提供匈牙利收件地址。卖家发送多角度实机图、说明 150Hz，报机器 2459 美元、DDP 卡车门到门 35–40 天。次日买家追问是否空运 DDP，卖家报空运 674 美元、13–17 天并包清关税费，随后询问其意见。买家已读卖家最后一条消息（2026-10-22 13:57:15）。"
-          },
-          {
-            "inquiry_time": "2026-10-21 03:23:17",
-            "buyer": "Miguel Bioasis",
-            "sales": "Daniel Wang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "4 小时 4 分钟",
+            "resp_time": "1 分钟",
             "track_count": "4",
-            "summary": "买家（西语）以 Cryo Toning／Shockwave／EMS 三合一冷冻塑形机询盘卡发起，说明用于筹建中的 Spa、若效果好会批发。卖家以西班牙语介绍三档配置并逐档发送图片，说明三种技术结合比单一冷冻减重效果高 33%，并解释圆头手柄与方形静态手柄的区别。卖家最后询问其选择哪一档配置。买家未读卖家最后一条消息（2026-10-21 09:12:41）。"
+            "summary": "买家（葡语）询问该二极管激光脱毛机发到巴西的到岸价，要一台完整配置的机器。卖家介绍产品卖点并发送多张实机图，双方就巴西清关代理问题反复确认，买家表示没有清关代理。卖家随后补发公司介绍与无尘车间说明，次日说明一年整机保修加终身维护、发货前全检。买家未读卖家最后一条消息（2026-10-23 08:23:03）。"
           },
           {
-            "inquiry_time": "2026-10-21 09:57:13",
-            "buyer": "Natalia Oyaneder",
-            "sales": "Yuli Guo",
-            "verdict": "未判定",
-            "reason": "—",
-            "resp_time": "-",
-            "track_count": "-",
-            "summary": "无法判定：该询价单仅在「垃圾询价」中命中且无「查看详情」入口，未采到任何会话内容。"
-          },
-          {
-            "inquiry_time": "2026-10-21 13:29:11",
-            "buyer": "Ferenc Pollak",
-            "sales": "Celin Wang",
+            "inquiry_time": "2026-10-22 12:33:06",
+            "buyer": "Laidy Palomares",
+            "sales": "Daniel Wang",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "4 分钟",
-            "track_count": "7",
-            "summary": "买家以 Mini Laser Diode Epilator（755/808/1064nm 家用冰点脱毛仪）产品卡发起，自述为匈牙利分销商并索要机器价格与运费。卖家报 699 美元并发送参数与多张实拍图；买家后反馈另一供应商同款便宜 100 美元（599 美元）并要求降价，卖家询问对方配置是否一致、强调 18 年制造与品质保障。买家表示需先与其客户谈定，卖家回复期待好消息。买家已读卖家最后一条消息（2026-10-21 22:26:39）。"
+            "resp_time": "33 分钟",
+            "track_count": "5",
+            "summary": "买家（西语）同时询问桌面式 EMS 塑形机与 150W 桌面二极管脱毛机发往墨西哥的价格，并提供瓜纳华托州 Salamanca 的详细地址。卖家逐项介绍两款机型与多手柄配置，按「二手柄含 RF」方案报 1579 美元、DDP 海运 45–55 天；买家称超预算并给出 1000 美元预算，卖家改报迷你单手柄含 RF 880 美元。买家表示已找到更便宜的渠道，卖家补充品质与工艺说明，并报脱毛机 589 美元空运 DDP 方案。买家已读卖家最后一条消息（2026-10-22 14:16:08）。"
           }
         ]
       },
@@ -280,61 +260,20 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
       },
       "daily_quality": {
-        "latest_round": "2026-10-21（16:00 轮）",
-        "target_date": "2026-10-21",
-        "total_checked": 4,
-        "passed": 3,
+        "latest_round": "2026-10-22（11:00 轮）",
+        "target_date": "2026-10-22",
+        "total_checked": 0,
+        "passed": 0,
         "failed": 0,
-        "pending": 1,
-        "pass_rate": 75,
+        "pending": 0,
+        "pass_rate": 0,
         "gate_pass_rate": 100,
         "night_relax_hits": 0,
         "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
-        "sheet_name": "诺瓦询盘回复质量检查（10.21·16时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsA4Okyrv8yMoPYe1",
+        "sheet_name": "诺瓦询盘回复质量检查（10.22·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/Gl6Pm2Db8DNaQmKnuyQ6vnN9VxLq0Ee4",
         "records": [],
-        "samples": [
-          {
-            "inquiry_time": "2026-10-21 01:48:50",
-            "buyer": "mswd mqdry",
-            "sales": "Mark Zhang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "6 小时 43 分钟",
-            "track_count": "5",
-            "summary": "买家询问 Cummins／Stamford 72.5kVA 与 50kVA 柴油发电机是否有货，随后改称两种功率各要 50 台。卖家发送机组图并确认是静音型带 ATS 自动切换，追问具体功率与电压／频率／相数；买家以「直接报价，不然别问无用的问题」回应，卖家说明需先确认需求才能报准价。买家已读卖家最后一条消息（2026-10-21 14:09:08）。"
-          },
-          {
-            "inquiry_time": "2026-10-21 19:56:17",
-            "buyer": "Abeta Tilahun",
-            "sales": "IVA ZHANG",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "3 分钟",
-            "track_count": "2",
-            "summary": "买家以 16kW／20kVA 静音柴油发电机询盘卡发起，并提交埃塞俄比亚 Hossana 的收货地址。卖家两次追问所需功率与数量，随后确认是否要 20kVA 拖车式机组并发送 1 张机组图。次日卖家再次跟进，询问该配置是否符合项目需求。买家未读卖家最后一条消息（2026-10-22 11:13:23）。"
-          },
-          {
-            "inquiry_time": "2026-10-21 20:07:56",
-            "buyer": "Min Maria",
-            "sales": "Mark Zhang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "2 分钟",
-            "track_count": "3",
-            "summary": "买家以 24/30/40kVA 开架式柴油发电机（全铜 alternator、120/240V 单相 60Hz）询盘卡发起。卖家介绍 7000㎡ 厂房与质保，次日补发 3 张机组图并说明所有机组经第三方权威机构检测认证。卖家随后追问用途与配置以便报准价。买家未读卖家最后一条消息（2026-10-22 10:43:05）。"
-          },
-          {
-            "inquiry_time": "2026-10-21 23:56:21",
-            "buyer": "Sujun Hu",
-            "sales": "IVA ZHANG",
-            "verdict": "未判定",
-            "reason": "—",
-            "resp_time": "-",
-            "track_count": "-",
-            "summary": "无法判定：该询价单按客户名在询盘列表与垃圾询价中均未命中，未采到任何会话内容。"
-          }
-        ]
+        "samples": []
       },
       "weekly_quality": {
         "date_range": "2026-10-11 – 2026-10-17（7 天）",
