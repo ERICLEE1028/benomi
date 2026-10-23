@@ -16,43 +16,50 @@ const htmlContent = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>双平台定时任务监控与巡检看板 (浅蓝科技风预览版)</title>
+  <title>双平台定时任务监控与巡检看板 (大屏科技风版)</title>
   <style>
     :root {
-      /* 浅蓝科技调色盘 */
-      --tech-bg: #EAF4FC;
-      --tech-gradient: radial-gradient(circle at 12% 18%, #F2F8FE 0%, #E5F2FC 45%, #D7EBFB 100%);
-      --tech-grid-color: rgba(2, 132, 199, 0.05);
+      /* 大屏科技冷色调（中深冷青蓝，不过深死黑） */
+      --tech-bg: #0F1D2B;
+      --tech-gradient: radial-gradient(circle at 15% 15%, #182C40 0%, #102030 50%, #0A1624 100%);
+      --tech-grid-color: rgba(56, 189, 248, 0.06);
 
-      --bg-card: rgba(255, 255, 255, 0.90);
-      --bg-subtle: #F0F7FD;
-      --border-color: #BAE6FD;
-      --border-glow: rgba(14, 165, 233, 0.3);
+      --bg-card: rgba(18, 33, 49, 0.88);
+      --bg-subtle: #142537;
+      --border-color: rgba(56, 189, 248, 0.22);
+      --border-glow: rgba(56, 189, 248, 0.45);
 
-      --text-main: #0B2545;
-      --text-secondary: #2C4A6F;
-      --text-muted: #5F7E9F;
+      --text-main: #F1F5F9;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
 
-      --brand-blue: #0284C7;
-      --brand-blue-accent: #2563EB;
-      --brand-blue-soft: #E0F2FE;
+      --tech-cyan: #00F0FF;
+      --tech-blue: #38BDF8;
+      --tech-blue-accent: #0284C7;
+      --tech-gold: #FBBF24;
+      --tech-emerald: #10B981;
 
-      --benomi-accent: #0284C7;
-      --benomi-bg: #E0F2FE;
-      --nova-accent: #6366F1;
-      --nova-bg: #EEF2FF;
+      /* 双店专属冷调科技标色 */
+      --benomi-accent: #38BDF8;
+      --benomi-bg: rgba(56, 189, 248, 0.12);
+      --benomi-border: rgba(56, 189, 248, 0.45);
 
-      --status-success-bg: #ECFDF5;
-      --status-success-text: #047857;
-      --status-success-border: #6EE7B7;
+      --nova-accent: #A78BFA;
+      --nova-bg: rgba(167, 139, 250, 0.12);
+      --nova-border: rgba(167, 139, 250, 0.45);
 
-      --status-warning-bg: #FEF3C7;
-      --status-warning-text: #B45309;
-      --status-warning-border: #FCD34D;
+      /* 状态色（暗底高辨识度） */
+      --status-success-bg: rgba(16, 185, 129, 0.16);
+      --status-success-text: #34D399;
+      --status-success-border: rgba(16, 185, 129, 0.4);
 
-      --status-error-bg: #FEE2E2;
-      --status-error-text: #B91C1C;
-      --status-error-border: #FCA5A5;
+      --status-warning-bg: rgba(245, 158, 11, 0.16);
+      --status-warning-text: #FBBF24;
+      --status-warning-border: rgba(245, 158, 11, 0.4);
+
+      --status-error-bg: rgba(239, 68, 68, 0.18);
+      --status-error-text: #F87171;
+      --status-error-border: rgba(239, 68, 68, 0.45);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -62,13 +69,13 @@ const htmlContent = `<!DOCTYPE html>
       background: var(--tech-gradient);
       background-attachment: fixed;
       color: var(--text-main);
-      padding: 18px 24px;
+      padding: 16px 24px;
       line-height: 1.5;
       min-height: 100vh;
       position: relative;
     }
 
-    /* 科技感背景网格微纹理 */
+    /* 大屏微细科技点阵网格 */
     body::before {
       content: "";
       position: fixed;
@@ -76,12 +83,12 @@ const htmlContent = `<!DOCTYPE html>
       background-image: 
         linear-gradient(var(--tech-grid-color) 1px, transparent 1px),
         linear-gradient(90deg, var(--tech-grid-color) 1px, transparent 1px);
-      background-size: 32px 32px;
+      background-size: 28px 28px;
       pointer-events: none;
       z-index: 0;
     }
 
-    /* 全屏自适应容器：打破1280px硬限制，常规1080P/2K屏幕自动撑满并留有合适呼吸间距 */
+    /* 全屏自适应容器 */
     .container {
       width: 100%;
       max-width: 1920px;
@@ -90,36 +97,37 @@ const htmlContent = `<!DOCTYPE html>
       z-index: 1;
     }
 
-    /* 顶部导航与状态栏 - 科技控制台风格 */
+    /* 顶部导航与状态栏 - 大屏控制台 */
     .header {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(18, 33, 49, 0.92);
       backdrop-filter: blur(14px);
       border: 1px solid var(--border-color);
-      border-top: 3.5px solid var(--brand-blue);
-      border-radius: 14px;
-      padding: 18px 24px;
-      margin-bottom: 20px;
+      border-top: 3px solid var(--tech-cyan);
+      border-radius: 12px;
+      padding: 16px 24px;
+      margin-bottom: 18px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 16px;
-      box-shadow: 0 4px 20px -2px rgba(14, 165, 233, 0.08), 0 1px 3px rgba(0,0,0,0.03);
+      box-shadow: 0 4px 20px -2px rgba(0,0,0,0.35), 0 0 16px -4px rgba(56, 189, 248, 0.15);
     }
     .header-title h1 {
-      font-size: 21px;
+      font-size: 20px;
       font-weight: 800;
-      color: #0B2545;
+      color: #FFFFFF;
       display: flex;
       align-items: center;
       gap: 10px;
-      letter-spacing: -0.2px;
+      letter-spacing: 0.3px;
+      text-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
     }
     .header-title p {
       font-size: 13px;
       font-weight: 500;
       color: var(--text-secondary);
-      margin-top: 6px;
+      margin-top: 4px;
     }
     .header-meta {
       display: flex;
@@ -131,11 +139,11 @@ const htmlContent = `<!DOCTYPE html>
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 6px 14px;
+      padding: 5px 12px;
       border-radius: 20px;
       font-size: 12px;
       font-weight: 700;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+      letter-spacing: 0.2px;
     }
     .badge-ok {
       background: var(--status-success-bg);
@@ -148,20 +156,20 @@ const htmlContent = `<!DOCTYPE html>
       border: 1px solid var(--status-error-border);
     }
     .badge-neutral {
-      background: #F1F5F9;
+      background: #1E293B;
       color: var(--text-secondary);
-      border: 1px solid #CBD5E1;
+      border: 1px solid #334155;
     }
 
-    /* ================= 极其醒目的科技分页导航卡槽 (Tab Console) ================= */
+    /* ================= 大屏科技分页卡槽 (Tabs) ================= */
     .tabs-wrapper {
-      margin-bottom: 22px;
-      background: rgba(255, 255, 255, 0.72);
+      margin-bottom: 20px;
+      background: rgba(14, 26, 39, 0.85);
       backdrop-filter: blur(12px);
       padding: 6px;
-      border-radius: 14px;
-      border: 1.5px solid #BAE6FD;
-      box-shadow: 0 4px 16px -2px rgba(14, 165, 233, 0.08);
+      border-radius: 12px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
     }
 
     .tabs {
@@ -176,16 +184,17 @@ const htmlContent = `<!DOCTYPE html>
       .tabs { grid-template-columns: repeat(2, 1fr); }
     }
 
+    /* 选项卡按钮：保持原高度、无上方小字、下方保留「▼ 正在查看」 */
     .tab-btn {
-      background: #F8FAFC;
-      border: 1px solid #E2E8F0;
-      padding: 12px 16px;
+      background: rgba(22, 38, 56, 0.7);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      padding: 10px 16px;
       min-height: 56px;
       font-size: 14px;
       font-weight: 800;
-      color: #334155;
+      color: #94A3B8;
       cursor: pointer;
-      border-radius: 10px;
+      border-radius: 8px;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
       flex-direction: column;
@@ -197,19 +206,19 @@ const htmlContent = `<!DOCTYPE html>
     }
 
     .tab-btn:hover {
-      background: #EFF6FF;
-      border-color: #93C5FD;
-      color: #0284C7;
+      background: rgba(30, 52, 76, 0.9);
+      border-color: rgba(56, 189, 248, 0.4);
+      color: #38BDF8;
       transform: translateY(-1px);
     }
 
-    /* 激活态：深邃科技蓝渐变 + 发光科技底托 + 下方保留「▼ 正在查看」提示 */
+    /* 激活态：深邃青蓝渐变 + 发光外托 + 保留下方「▼ 正在查看」提示 */
     .tab-btn.active {
-      background: linear-gradient(135deg, #0284C7 0%, #2563EB 100%);
-      border-color: #0284C7;
+      background: linear-gradient(135deg, #0369A1 0%, #0F4871 100%);
+      border-color: #38BDF8;
       color: #FFFFFF;
-      box-shadow: 0 6px 18px -2px rgba(37, 99, 235, 0.42), 0 0 0 2px rgba(186, 230, 253, 0.5);
-      padding-bottom: 18px; /* 为下方提示语预留对称间距，保持大字居中 */
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.35), inset 0 1px 0 rgba(255,255,255,0.2);
+      padding-bottom: 16px;
     }
 
     .tab-btn.active::after {
@@ -218,68 +227,67 @@ const htmlContent = `<!DOCTYPE html>
       bottom: 3px;
       font-size: 9px;
       font-weight: 700;
-      color: #E0F2FE;
+      color: #38BDF8;
       letter-spacing: 0.5px;
     }
 
     .view-content { display: none; }
-    .view-content.active { display: block; animation: tabFadeIn 0.22s ease-out; }
+    .view-content.active { display: block; animation: tabFadeIn 0.2s ease-out; }
 
     @keyframes tabFadeIn {
       from { opacity: 0; transform: translateY(4px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ================= 模块卡片 - 高对比立体分层 ================= */
+    /* ================= 模块卡片 - 大屏立体暗青分层 ================= */
     .card {
       background: var(--bg-card);
       backdrop-filter: blur(14px);
       border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 22px;
-      margin-bottom: 24px;
-      box-shadow: 0 4px 18px -2px rgba(14, 165, 233, 0.08), 0 1px 3px rgba(0,0,0,0.02);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 22px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.3);
       transition: all 0.2s ease;
       position: relative;
     }
 
     .card:hover {
-      box-shadow: 0 8px 28px -4px rgba(14, 165, 233, 0.15);
-      border-color: #7DD3FC;
+      box-shadow: 0 6px 24px rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.4);
     }
 
     .card-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 16px;
-      border-bottom: 1px solid #E0F2FE;
-      padding-bottom: 12px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+      padding-bottom: 10px;
     }
     .card-title {
       font-size: 16px;
       font-weight: 800;
-      color: #0B2545;
+      color: #FFFFFF;
       display: flex;
       align-items: center;
       gap: 10px;
-      letter-spacing: -0.2px;
+      letter-spacing: 0.2px;
     }
     .card-tag {
       font-size: 11px;
-      padding: 3px 10px;
-      border-radius: 6px;
+      padding: 3px 9px;
+      border-radius: 4px;
       font-weight: 700;
-      letter-spacing: 0.3px;
     }
-    .tag-benomi { background: var(--benomi-bg); color: #0369A1; border: 1px solid #BAE6FD; }
-    .tag-nova { background: var(--nova-bg); color: #4F46E5; border: 1px solid #C7D2FE; }
+    .tag-benomi { background: var(--benomi-bg); color: var(--benomi-accent); border: 1px solid var(--benomi-border); }
+    .tag-nova { background: var(--nova-bg); color: var(--nova-accent); border: 1px solid var(--nova-border); }
 
     /* 网格布局 */
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 18px;
     }
     @media (max-width: 960px) {
       .grid-2 { grid-template-columns: 1fr; }
@@ -288,8 +296,8 @@ const htmlContent = `<!DOCTYPE html>
     .grid-4 {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-bottom: 20px;
+      gap: 14px;
+      margin-bottom: 18px;
     }
     @media (max-width: 1200px) {
       .grid-4 { grid-template-columns: repeat(2, 1fr); }
@@ -298,65 +306,65 @@ const htmlContent = `<!DOCTYPE html>
       .grid-4 { grid-template-columns: 1fr; }
     }
 
-    /* 科技数显指标盒 */
+    /* 科技数显指标盒 - 大屏数字发光 */
     .stat-box {
-      background: linear-gradient(180deg, #F8FAFC 0%, #F0F7FD 100%);
-      border: 1px solid #BAE6FD;
-      border-radius: 12px;
-      padding: 16px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+      background: linear-gradient(180deg, #152638 0%, #101F2F 100%);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      border-radius: 10px;
+      padding: 14px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
       transition: all 0.2s ease;
     }
     .stat-box:hover {
       transform: translateY(-2px);
       border-color: #38BDF8;
-      box-shadow: 0 6px 14px -2px rgba(14, 165, 233, 0.16);
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.2);
     }
     .stat-label { 
       font-size: 12px; 
       font-weight: 600; 
-      color: var(--text-secondary); 
-      margin-bottom: 6px; 
+      color: #94A3B8; 
+      margin-bottom: 5px; 
     }
     .stat-value { 
       font-size: 22px; 
       font-weight: 800; 
-      color: #0F172A; 
-      letter-spacing: -0.4px;
+      color: #FFFFFF; 
+      letter-spacing: -0.2px;
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
     }
     .stat-desc { 
       font-size: 11px; 
       font-weight: 600; 
-      color: var(--text-muted); 
-      margin-top: 6px; 
+      color: #64748B; 
+      margin-top: 5px; 
     }
 
     /* 明细列表 */
-    .detail-list { display: flex; flex-direction: column; gap: 8px; }
+    .detail-list { display: flex; flex-direction: column; gap: 7px; }
     .detail-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 13px;
-      padding: 8px 10px;
+      padding: 7px 10px;
       border-radius: 6px;
-      background: rgba(255, 255, 255, 0.6);
-      border-bottom: 1px dashed #CBD5E1;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px dashed rgba(56, 189, 248, 0.12);
       transition: background 0.15s ease;
     }
     .detail-item:last-child { border-bottom: none; }
-    .detail-item:hover { background: #F0F9FF; }
-    .detail-title { color: var(--text-secondary); font-weight: 500; }
-    .detail-value { font-weight: 700; color: #0B2545; text-align: right; }
+    .detail-item:hover { background: rgba(56, 189, 248, 0.08); }
+    .detail-title { color: #94A3B8; font-weight: 500; }
+    .detail-value { font-weight: 700; color: #F1F5F9; text-align: right; }
 
-    /* 表格与科技表头 */
+    /* 表格与大屏表头 */
     .table-container {
       overflow-x: auto;
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      margin-top: 14px;
-      background: #FFFFFF;
-      box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      border-radius: 8px;
+      margin-top: 12px;
+      background: #0E1B28;
     }
     table {
       width: 100%;
@@ -365,29 +373,29 @@ const htmlContent = `<!DOCTYPE html>
       text-align: left;
     }
     th {
-      background: linear-gradient(180deg, #F0F7FF 0%, #E2EFFC 100%);
-      color: #1E3A8A;
+      background: linear-gradient(180deg, #182C40 0%, #122232 100%);
+      color: #38BDF8;
       font-weight: 700;
-      padding: 12px 14px;
-      border-bottom: 1.5px solid #BAE6FD;
+      padding: 11px 12px;
+      border-bottom: 1.5px solid rgba(56, 189, 248, 0.35);
       white-space: nowrap;
       letter-spacing: 0.2px;
     }
     td {
-      padding: 12px 14px;
-      border-bottom: 1px solid #F1F5F9;
-      color: #1E293B;
+      padding: 11px 12px;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.08);
+      color: #CBD5E1;
       vertical-align: middle;
     }
     tr:last-child td { border-bottom: none; }
-    tr:hover td { background: #F0F9FF; }
+    tr:hover td { background: rgba(56, 189, 248, 0.06); }
 
-    /* 不合格整行标红硬约束 */
+    /* 不合格整行标红硬约束（大屏暗红微光） */
     tr.row-fail td {
-      color: #DC2626 !important;
-      background-color: #FEF2F2 !important;
-      font-weight: 600;
-      border-bottom-color: #FECACA;
+      color: #F87171 !important;
+      background-color: rgba(239, 68, 68, 0.14) !important;
+      font-weight: 700;
+      border-bottom-color: rgba(239, 68, 68, 0.25);
     }
 
     .sheet-link-chip {
@@ -395,21 +403,20 @@ const htmlContent = `<!DOCTYPE html>
       align-items: center;
       gap: 4px;
       margin: 2px 4px 2px 0;
-      padding: 4px 10px;
-      background: #EFF6FF;
-      color: #1D4ED8;
-      border: 1px solid #93C5FD;
-      border-radius: 6px;
+      padding: 4px 9px;
+      background: rgba(56, 189, 248, 0.12);
+      color: #38BDF8;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 4px;
       text-decoration: none;
       font-size: 11px;
       font-weight: 700;
       transition: all 0.2s ease;
-      box-shadow: 0 1px 2px rgba(37,99,235,0.05);
     }
     .sheet-link-chip:hover {
-      background: #DBEAFE;
-      border-color: #3B82F6;
-      color: #1E40AF;
+      background: rgba(56, 189, 248, 0.22);
+      border-color: #38BDF8;
+      color: #FFFFFF;
       transform: translateY(-1px);
     }
 
@@ -417,35 +424,41 @@ const htmlContent = `<!DOCTYPE html>
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      padding: 3px 10px;
+      padding: 3px 9px;
       border-radius: 20px;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.2px;
     }
     .alert-done { 
-      background: #ECFDF5; 
-      color: #047857; 
-      border: 1px solid #6EE7B7; 
-      box-shadow: 0 1px 2px rgba(4,120,87,0.08);
+      background: var(--status-success-bg); 
+      color: var(--status-success-text); 
+      border: 1px solid var(--status-success-border); 
     }
     .alert-pending { 
-      background: #FEF3C7; 
-      color: #B45309; 
-      border: 1px solid #FCD34D; 
-      box-shadow: 0 1px 2px rgba(180,83,9,0.08);
+      background: var(--status-warning-bg); 
+      color: var(--status-warning-text); 
+      border: 1px solid var(--status-warning-border); 
     }
-    .alert-normal { background: #ECFDF5; color: #047857; border: 1px solid #A7F3D0; }
-    .alert-danger { background: #FEF2F2; color: #DC2626; border: 1px solid #FCA5A5; }
+    .alert-normal { 
+      background: var(--status-success-bg); 
+      color: var(--status-success-text); 
+      border: 1px solid var(--status-success-border); 
+    }
+    .alert-danger { 
+      background: var(--status-error-bg); 
+      color: var(--status-error-text); 
+      border: 1px solid var(--status-error-border); 
+    }
 
     .cron-pill {
       font-size: 11px;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      padding: 3px 8px;
-      background: #F1F5F9;
-      border: 1px solid #CBD5E1;
-      border-radius: 6px;
-      color: #334155;
+      padding: 2px 7px;
+      background: #152638;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 4px;
+      color: #94A3B8;
       font-weight: 600;
     }
   </style>
@@ -465,7 +478,7 @@ const htmlContent = `<!DOCTYPE html>
     </div>
   </div>
 
-  <!-- 选项卡导航 (超醒目科技分页控制台) -->
+  <!-- 选项卡导航 (大屏科技风格) -->
   <div class="tabs-wrapper">
     <div class="tabs">
       <button class="tab-btn active" onclick="switchTab('overview')">
