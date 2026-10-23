@@ -305,11 +305,6 @@ const htmlContent = `<!DOCTYPE html>
       <span class="badge badge-neutral">🕒 数据底座: ${data.last_synced_at}</span>
       <span class="badge" id="autoSyncBadge" style="background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE;">🟢 半点主动获取: 开启中</span>
       <button onclick="manualSyncNow()" style="background:#2563EB;color:#fff;border:none;border-radius:12px;padding:3px 10px;font-size:11px;font-weight:600;cursor:pointer;">🔄 立即检查</button>
-      <span class="badge badge-ok">● 贝诺美: 9236 正常</span>
-      <span class="badge badge-ok">● 诺瓦: 9222 正常</span>
-      ${data.stores.nova.risk.rfq_quota < 5 ? 
-        `<span class="badge badge-danger">🚨 诺瓦 RFQ 仅剩 ${data.stores.nova.risk.rfq_quota} 条</span>` : 
-        `<span class="badge badge-ok">● 诺瓦 RFQ: ${data.stores.nova.risk.rfq_quota} 条 (正常)</span>`}
     </div>
   </div>
 
@@ -338,7 +333,6 @@ const htmlContent = `<!DOCTYPE html>
           <div class="card-header" style="margin-bottom: 10px; padding-bottom: 8px;">
             <div class="card-title">
               <span style="color: #2563EB;">🔵 贝诺美 (benomibeauty) · 平台风险监控</span>
-              <span class="card-tag tag-benomi">中继 9236</span>
             </div>
             ${data.stores.benomi.risk.rfq_quota < 5 ? 
               '<span class="alert-pill alert-danger">🚨 极度紧缺预警</span>' : 
@@ -367,7 +361,7 @@ const htmlContent = `<!DOCTYPE html>
             </div>
             <div class="detail-item">
               <span class="detail-title">直通车当前可用现金</span>
-              <span class="detail-value" style="color: #059669;">¥${data.stores.benomi.risk.balance.toFixed(2)} (扣除今日消耗后双源一致)</span>
+              <span class="detail-value" style="color: #059669;">¥${data.stores.benomi.risk.balance.toFixed(2)} (${data.stores.benomi.risk.balance_source || '平台实时同步'})</span>
             </div>
             <div class="detail-item">
               <span class="detail-title">风险监控交付形式</span>
@@ -383,7 +377,6 @@ const htmlContent = `<!DOCTYPE html>
           <div class="card-header" style="margin-bottom: 10px; padding-bottom: 8px;">
             <div class="card-title">
               <span style="color: #7C3AED;">🟣 诺瓦 (jnnova) · 平台风险监控</span>
-              <span class="card-tag tag-nova">CDP 9222</span>
             </div>
             ${data.stores.nova.risk.rfq_quota < 5 ? 
               '<span class="alert-pill alert-danger">🚨 极度紧缺预警</span>' : 
@@ -412,7 +405,7 @@ const htmlContent = `<!DOCTYPE html>
             </div>
             <div class="detail-item">
               <span class="detail-title">直通车当前可用现金</span>
-              <span class="detail-value" style="color: #059669;">¥${data.stores.nova.risk.balance.toFixed(2)} (安全充裕)</span>
+              <span class="detail-value" style="color: #059669;">¥${data.stores.nova.risk.balance.toFixed(2)} (${data.stores.nova.risk.balance_source || '平台实时同步'})</span>
             </div>
             <div class="detail-item">
               <span class="detail-title">风险监控交付形式</span>
@@ -493,9 +486,8 @@ const htmlContent = `<!DOCTYPE html>
       <div class="card-header">
         <div class="card-title">
           <span style="color: #2563EB;">🔵 贝诺美 (benomibeauty) · 专属日常巡检与周检大盘</span>
-          <span class="card-tag tag-benomi">美妆/个护平台</span>
+          <span class="card-tag tag-benomi">美妆个护/仪器</span>
         </div>
-        <span class="badge badge-ok">通道: 默认 Chrome 中继通道 (9236)</span>
       </div>
 
       <h3 style="font-size: 14px; margin-bottom: 12px; color: var(--text-secondary);">📅 最新日常巡检快照</h3>
@@ -623,7 +615,6 @@ const htmlContent = `<!DOCTYPE html>
           <span style="color: #7C3AED;">🟣 诺瓦 (jnnova) · 专属日常巡检与周检大盘</span>
           <span class="card-tag tag-nova">智能制造/激光设备</span>
         </div>
-        <span class="badge badge-ok">通道: ChromeProfile2 CDP 直连 (9222)</span>
       </div>
 
       <h3 style="font-size: 14px; margin-bottom: 12px; color: var(--text-secondary);">📅 最新日常巡检快照</h3>
