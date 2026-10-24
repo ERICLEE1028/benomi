@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/24 11:05:50",
+  "last_synced_at": "2026/10/24 11:07:24",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -61,17 +61,17 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
       },
       "daily_quality": {
-        "latest_round": "2026-10-22（16:00 轮）",
-        "target_date": "2026-10-22",
-        "total_checked": 11,
-        "passed": 8,
-        "failed": 3,
+        "latest_round": "2026-10-23（11:00 轮）",
+        "target_date": "2026-10-23",
+        "total_checked": 1,
+        "passed": 1,
+        "failed": 0,
         "pending": 0,
-        "pass_rate": 72.73,
+        "pass_rate": 100,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
-        "sheet_name": "贝诺美询盘回复质量检查（10.22·16时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/amweZ92PV6EzOZd9uRlgvnvqWxEKBD6p",
+        "sheet_name": "贝诺美询盘回复质量检查（10.23·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2JpvYONoqfprjdD9nW9dEq3XD",
         "records": [
           {
             "inquiry_time": "2026-10-14 03:56:12",
@@ -100,114 +100,14 @@
         ],
         "samples": [
           {
-            "inquiry_time": "2026-10-22 02:15:58",
-            "buyer": "Andreia DuarteVicente",
-            "sales": "Harper Mu",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "4 小时 49 分钟",
-            "track_count": "4",
-            "summary": "买家（法语）以 808/755/940/1064nm 二极管激光脱毛机询盘，说明用于自己的美容院、预算上限 1000 欧元，希望先买基础款。卖家以法语介绍 1000–2400W、15.6 吋触屏、水冷加风冷加 TEC 加蓝宝石制冷，并询问要立式还是台式。次日按立式机型发送多张实机图，说明采用美国 Coherent 激光条与 TEC 冷凝器＋蓝宝石＋风冷＋水冷超强制冷。买家未读卖家最后一条消息（2026-10-23 10:49:16）。"
-          },
-          {
-            "inquiry_time": "2026-10-22 03:46:41",
-            "buyer": "KIRAN BANSAL",
-            "sales": "Jay Li",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "3 小时 45 分钟",
-            "track_count": "3",
-            "summary": "买家以 2/4 手柄 EMS 塑形机（Hiems Max4）商品需求卡发起，1 款 1 套。卖家先回「正在去办公室、稍后回复」，随后发送桌面式 EMSculpt 实机图，说明含 2 个手柄、无 RF、整机保修 1 年、语言与 logo 免费定制，并补发公司介绍。卖家最后询问其预算以便推荐配置。买家未读卖家最后一条消息（2026-10-22 18:02:00）。"
-          },
-          {
-            "inquiry_time": "2026-10-22 08:25:11",
-            "buyer": "konny abreu",
-            "sales": "Harper Mu",
-            "verdict": "不合格",
-            "reason": "前 3 次人工追踪未图文并茂",
-            "resp_time": "1 分钟",
-            "track_count": "1",
-            "summary": "买家（西语）以 808/755/940/1064nm 二极管激光脱毛机询盘卡发起，只问「这台设备多少钱」。卖家回复西班牙语欢迎语，称同事 Tina 会与其联系，此后无进一步跟进。买家未读卖家最后一条消息（2026-10-22 08:26:22）。"
-          },
-          {
-            "inquiry_time": "2026-10-22 08:44:46",
-            "buyer": "Ssv Repres",
-            "sales": "Miya Zhang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "1 分钟",
-            "track_count": "4",
-            "summary": "买家（葡语）询问该二极管激光脱毛机发到巴西的到岸价，要一台完整配置的机器。卖家介绍产品卖点并发送多张实机图，双方就巴西清关代理问题反复确认，买家表示没有清关代理。卖家随后补发公司介绍与无尘车间说明，次日说明一年整机保修加终身维护、发货前全检。买家未读卖家最后一条消息（2026-10-23 08:23:03）。"
-          },
-          {
-            "inquiry_time": "2026-10-22 12:33:06",
-            "buyer": "Laidy Palomares",
-            "sales": "Daniel Wang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "33 分钟",
-            "track_count": "5",
-            "summary": "买家（西语）同时询问桌面式 EMS 塑形机与 150W 桌面二极管脱毛机发往墨西哥的价格，并提供瓜纳华托州 Salamanca 的详细地址。卖家逐项介绍两款机型与多手柄配置，按「二手柄含 RF」方案报 1579 美元、DDP 海运 45–55 天；买家称超预算并给出 1000 美元预算，卖家改报迷你单手柄含 RF 880 美元。买家表示已找到更便宜的渠道，卖家补充品质与工艺说明，并报脱毛机 589 美元空运 DDP 方案。买家已读卖家最后一条消息（2026-10-22 14:16:08）。"
-          },
-          {
-            "inquiry_time": "2026-10-22 17:30:40",
-            "buyer": "Aarti Saxena",
+            "inquiry_time": "2026-10-23 05:26:54",
+            "buyer": "Alexandra Rusoiu",
             "sales": "Yuli Guo",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "1 分钟",
+            "resp_time": "1 小时 17 分钟",
             "track_count": "4",
-            "summary": "印度买家以桌面式 EMS 塑形机询盘卡发起，要 10 台、发到佛山，要求最优价格；确认要 4 手柄版本后，卖家报 1829 美元、带 RF 为 2009 美元，说明该价送至买家指定货代。买家追问是否含运费，卖家说明 RF 为射频加热功能，次日补充多张实机图与操作视频，说明可双人同时操作。买家未读卖家最后一条消息（2026-10-23 12:01:18）。"
-          },
-          {
-            "inquiry_time": "2026-10-22 18:55:44",
-            "buyer": "Bia Bee",
-            "sales": "Celin Wang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "2 分钟",
-            "track_count": "7",
-            "summary": "波兰买家询问 Crystallite Depth 8 针微针＋冰锤＋黄金射频美容仪，要求含 VAT 与关税的门到门总价、是否在欧洲有仓，并提供 Słodowa 7, 67-200 Głogów 地址，索取波兰语说明书与操作视频。卖家询问预算，买家表示要比价其他卖家后回复。卖家随后发送波兰语产品说明与多张实机图、报价，次日更新报价，并追问是自用门店还是做分销。买家未读卖家最后一条消息（2026-10-23 15:51:05）。"
-          },
-          {
-            "inquiry_time": "2026-10-22 18:56:40",
-            "buyer": "Dlda Haval",
-            "sales": "Harper Mu",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "3 分钟",
-            "track_count": "4",
-            "summary": "买家（阿拉伯语）以 808/755/940/1064nm 二极管激光脱毛机询盘卡发起，询问该设备效果如何。卖家介绍 Benomi 公司并发送实机图，确认买家用于自己的美容院后，说明采用美国 Coherent 激光条、TEC 冷凝器＋蓝宝石＋风冷＋水冷超强制冷，次日补充激光为美国进口及制冷系统细节。买家已读卖家最后一条消息（2026-10-23 09:12:46）。"
-          },
-          {
-            "inquiry_time": "2026-10-22 19:14:42",
-            "buyer": "Emilia Azambuja",
-            "sales": "Jay Li",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "2 分钟",
-            "track_count": "1",
-            "summary": "买家以 2024 款冷冻溶脂＋EMS 冷冻减脂紧肤（Cryoskin 4.0）面部塑形机询盘卡发起。卖家回复「正在去办公室、稍后回复」，并发送一张产品实机图，此后未再跟进。买家未读卖家最后一条消息（2026-10-22 19:17:01）。"
-          },
-          {
-            "inquiry_time": "2026-10-22 21:46:54",
-            "buyer": "Maria Zurita",
-            "sales": "Miya Zhang",
-            "verdict": "不合格",
-            "reason": "首响超时（2 小时 16 分钟，阈值 基础 60 分钟）",
-            "resp_time": "2 小时 16 分钟",
-            "track_count": "5",
-            "summary": "智利买家两次以 2024 新款 Sport 7 13 Tesla EMSLIM NEO Sculpt 射频增肌塑形机询盘卡发起，询问机器价格与运至圣地亚哥的费用。卖家次日介绍产品，发送多张实机图并说明 HIFEM＋射频双能量、6 种训练模式、四手柄可 2/4 头同步输出。买家称预算尚差、需时间筹备，表示这是其最喜欢的机型；卖家提出 30% 定金与 Klarna 分期方案，双方互换联系方式（买家 +56977260527，Ma. Alejandra Zurita）。买家未读卖家最后一条消息（2026-10-23 13:43:43）。"
-          },
-          {
-            "inquiry_time": "2026-10-22 22:23:13",
-            "buyer": "Abigail Simkin",
-            "sales": "Daniel Wang",
-            "verdict": "不合格",
-            "reason": "首响超时（6 小时 38 分钟，阈值 基础 60 分钟）；前 3 次人工追踪未图文并茂",
-            "resp_time": "6 小时 38 分钟",
-            "track_count": "1",
-            "summary": "买家以 808/755/940/1064nm 二极管激光脱毛机询盘卡发起，询问运至以色列的运费。卖家次日仅回复「Will let our colleagues to contact you soon」，未给出报价或产品信息。买家未读卖家最后一条消息（2026-10-23 05:01:16）。"
+            "summary": "荷兰买家（L2）以 808/755/940/1064nm 四波长二极管激光脱毛机询盘卡发起，说明自用诊所、正考虑建站销售设备、初期只买 1 台、预算约 800 美元。自动接待先问机型、数量与预算，人工业务员随后介绍 Coherent 美国激光条与 TEC＋蓝宝石＋风冷＋水冷超强制冷，报 1600W 手柄配置 2580 美元并索要邮编。买家称超预算并致谢，卖家改推台式机、发送图片与视频并报价 860 美元。买家未读卖家最后一条消息（2026-10-24 09:39:17）。"
           }
         ]
       },
@@ -320,20 +220,41 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
       },
       "daily_quality": {
-        "latest_round": "2026-10-22（16:00 轮）",
-        "target_date": "2026-10-22",
-        "total_checked": 0,
-        "passed": 0,
+        "latest_round": "2026-10-23（11:00 轮）",
+        "target_date": "2026-10-23",
+        "total_checked": 2,
+        "passed": 2,
         "failed": 0,
         "pending": 0,
-        "pass_rate": 0,
+        "pass_rate": 100,
         "gate_pass_rate": 100,
         "night_relax_hits": 0,
         "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
-        "sheet_name": "诺瓦询盘回复质量检查（10.22·16时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/gwva2dxOW4EDkpd4unjBmOjRVbkz3BRL",
+        "sheet_name": "诺瓦询盘回复质量检查（10.23·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/QOG9lyrgJP0XLO25TPkq0g61JzN67Mw4",
         "records": [],
-        "samples": []
+        "samples": [
+          {
+            "inquiry_time": "2026-10-23 05:30:29",
+            "buyer": "Moussa Mbye",
+            "sales": "Mark Zhang",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "3 小时 8 分钟",
+            "track_count": "3",
+            "summary": "塞内加尔买家（L1）以柴油发电机组商品卡（Ricardo 22kVA–750kVA、80kW 等规格，标价 599 美元起）发起询盘，未附文字需求。业务员当日 08:38 自我介绍并说明公司为专业发电机组制造商，11:20 发送三张机组图片并说明产品均经第三方权威机构检测，16:01 再次致意跟进。买家未读卖家最后一条消息（2026-10-23 16:01:14）。"
+          },
+          {
+            "inquiry_time": "2026-10-23 11:03:03",
+            "buyer": "Sam Sam",
+            "sales": "IVA ZHANG",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "1 分钟",
+            "track_count": "3",
+            "summary": "菲律宾买家（L1）以 Cummins 便携式静音柴油发电机商品卡（200–1500 美元）发起询盘，先问功率，明确需要 25kVA 单相静音机型、不需要 ATS，并希望获得多品牌价格方案。业务员逐项确认用电设备、品牌与 ATS 需求，报潍柴 25kVA 静音机组 3700 美元，随后补充另一款静音机型 2250 美元并发送图片与视频。买家未读卖家最后一条消息（2026-10-24 10:40:05）。"
+          }
+        ]
       },
       "weekly_quality": {
         "date_range": "2026-10-11 – 2026-10-17（7 天）",
@@ -443,19 +364,19 @@
       "schedule": "0 11 * * *",
       "type": "询盘质检 (上午初检)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-10-22 11:11:00",
+      "status": "已完成",
+      "last_run": "2026-10-24 11:06:09",
       "next_run": "2026-10-25 11:00:00",
       "sheets": [
         {
-          "store": "贝诺美",
-          "name": "贝诺美询盘回复质量检查（10.21·11时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/a9E05BDRVQbGeLzquZv9oK9eJ63zgkYA"
+          "store": "诺瓦",
+          "name": "诺瓦询盘回复质量检查（10.23·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/QOG9lyrgJP0XLO25TPkq0g61JzN67Mw4"
         },
         {
-          "store": "诺瓦",
-          "name": "诺瓦询盘回复质量检查（10.21·11时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsA4Okyrv8yMoPYe1"
+          "store": "贝诺美",
+          "name": "贝诺美询盘回复质量检查（10.23·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2JpvYONoqfprjdD9nW9dEq3XD"
         }
       ]
     },
