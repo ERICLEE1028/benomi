@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/26 14:43:10",
+  "last_synced_at": "2026/10/26 15:22:06",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -51,7 +51,7 @@
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
         "balance_source": "风险监控 (14:30 轮)",
-        "balance_at": 1792996984672.5837
+        "balance_at": 1792996994116.8955
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
@@ -199,7 +199,7 @@
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
         "balance_source": "风险监控 (14:30 轮)",
-        "balance_at": 1792996984672.5837
+        "balance_at": 1792996994116.8955
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
@@ -390,7 +390,7 @@
       "target": "双店 (贝诺美 + 诺瓦)",
       "status": "待运行",
       "last_run": "2026-10-22 15:00:00",
-      "next_run": "2026-10-26 15:00:00",
+      "next_run": "2026-10-27 15:00:00",
       "sheets": [
         {
           "store": "贝诺美",
