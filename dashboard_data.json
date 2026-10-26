@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/26 11:01:45",
+  "last_synced_at": "2026/10/26 11:03:13",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -61,17 +61,17 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
       },
       "daily_quality": {
-        "latest_round": "2026-10-23（11:00 轮）",
-        "target_date": "2026-10-23",
-        "total_checked": 1,
-        "passed": 1,
+        "latest_round": "2026-10-25（星期日，11:00 轮）",
+        "target_date": "2026-10-25",
+        "total_checked": 0,
+        "passed": 0,
         "failed": 0,
         "pending": 0,
-        "pass_rate": 100,
+        "pass_rate": 0,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
-        "sheet_name": "贝诺美询盘回复质量检查（10.23·11时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2JpvYONoqfprjdD9nW9dEq3XD",
+        "sheet_name": "贝诺美询盘回复质量检查（10.25·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/QOG9lyrgJP0XLO25TPkoad3NJzN67Mw4",
         "records": [
           {
             "inquiry_time": "2026-10-14 03:56:12",
@@ -98,18 +98,7 @@
             "summary": "买家咨询激光脱毛仪批发价与MOQ。首响迅速并发送规格表。买家已读卖家最后一条消息（10-14 10:45）。"
           }
         ],
-        "samples": [
-          {
-            "inquiry_time": "2026-10-23 05:26:54",
-            "buyer": "Alexandra Rusoiu",
-            "sales": "Yuli Guo",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "1 小时 17 分钟",
-            "track_count": "4",
-            "summary": "荷兰买家（L2）以 808/755/940/1064nm 四波长二极管激光脱毛机询盘卡发起，说明自用诊所、正考虑建站销售设备、初期只买 1 台、预算约 800 美元。自动接待先问机型、数量与预算，人工业务员随后介绍 Coherent 美国激光条与 TEC＋蓝宝石＋风冷＋水冷超强制冷，报 1600W 手柄配置 2580 美元并索要邮编。买家称超预算并致谢，卖家改推台式机、发送图片与视频并报价 860 美元。买家未读卖家最后一条消息（2026-10-24 09:39:17）。"
-          }
-        ]
+        "samples": []
       },
       "weekly_quality": {
         "date_range": "2026-10-11 – 2026-10-17（7 天）",
@@ -220,41 +209,20 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
       },
       "daily_quality": {
-        "latest_round": "2026-10-23（11:00 轮）",
-        "target_date": "2026-10-23",
-        "total_checked": 2,
-        "passed": 2,
+        "latest_round": "2026-10-25（星期日，11:00 轮）",
+        "target_date": "2026-10-25",
+        "total_checked": 0,
+        "passed": 0,
         "failed": 0,
         "pending": 0,
-        "pass_rate": 100,
+        "pass_rate": 0,
         "gate_pass_rate": 100,
         "night_relax_hits": 0,
         "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
-        "sheet_name": "诺瓦询盘回复质量检查（10.23·11时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/QOG9lyrgJP0XLO25TPkq0g61JzN67Mw4",
+        "sheet_name": "诺瓦询盘回复质量检查（10.25·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/93NwLYZXWypzrloBu0BqRB5K8kyEqBQm",
         "records": [],
-        "samples": [
-          {
-            "inquiry_time": "2026-10-23 05:30:29",
-            "buyer": "Moussa Mbye",
-            "sales": "Mark Zhang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "3 小时 8 分钟",
-            "track_count": "3",
-            "summary": "塞内加尔买家（L1）以柴油发电机组商品卡（Ricardo 22kVA–750kVA、80kW 等规格，标价 599 美元起）发起询盘，未附文字需求。业务员当日 08:38 自我介绍并说明公司为专业发电机组制造商，11:20 发送三张机组图片并说明产品均经第三方权威机构检测，16:01 再次致意跟进。买家未读卖家最后一条消息（2026-10-23 16:01:14）。"
-          },
-          {
-            "inquiry_time": "2026-10-23 11:03:03",
-            "buyer": "Sam Sam",
-            "sales": "IVA ZHANG",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "1 分钟",
-            "track_count": "3",
-            "summary": "菲律宾买家（L1）以 Cummins 便携式静音柴油发电机商品卡（200–1500 美元）发起询盘，先问功率，明确需要 25kVA 单相静音机型、不需要 ATS，并希望获得多品牌价格方案。业务员逐项确认用电设备、品牌与 ATS 需求，报潍柴 25kVA 静音机组 3700 美元，随后补充另一款静音机型 2250 美元并发送图片与视频。买家未读卖家最后一条消息（2026-10-24 10:40:05）。"
-          }
-        ]
+        "samples": []
       },
       "weekly_quality": {
         "date_range": "2026-10-11 – 2026-10-17（7 天）",
