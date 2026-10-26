@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/26 16:46:27",
+  "last_synced_at": "2026/10/26 16:48:11",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -101,19 +101,19 @@
         "samples": []
       },
       "weekly_quality": {
-        "date_range": "2026-10-11 – 2026-10-17（7 天）",
-        "run_time": "2026-10-19 16:26:26",
-        "total": 32,
-        "passed": 25,
-        "failed": 5,
+        "date_range": "2026-10-18 – 2026-10-24（7 天）",
+        "run_time": "2026-10-26 16:46:48",
+        "total": 35,
+        "passed": 23,
+        "failed": 10,
         "pending": 2,
-        "pass_rate": 78.13,
+        "pass_rate": 65.71,
         "gate_passed": 21,
         "s1_fail_count": 2,
         "s2_fail_count": 2,
         "s3_fail_count": 4,
-        "sheet_name": "贝诺美询盘回复质量检查（10.11-10.17）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/20eMKjyp81E4MNdLuZ6NRAZR8xAZB1Gv",
+        "sheet_name": "贝诺美询盘回复质量检查（10.18-10.24）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/R1zknDm0WRYLzeZKSdl6padl8BQEx5rG",
         "failed_samples": [
           {
             "inquiry_time": "2026-10-18 06:40:43",
@@ -270,19 +270,19 @@
         "samples": []
       },
       "weekly_quality": {
-        "date_range": "2026-10-11 – 2026-10-17（7 天）",
-        "run_time": "2026-10-19 16:26:27",
-        "total": 16,
-        "passed": 11,
-        "failed": 4,
-        "pending": 1,
-        "pass_rate": 68.75,
+        "date_range": "2026-10-18 – 2026-10-24（7 天）",
+        "run_time": "2026-10-26 16:46:49",
+        "total": 26,
+        "passed": 16,
+        "failed": 8,
+        "pending": 2,
+        "pass_rate": 61.54,
         "gate_passed": 21,
         "s1_fail_count": 1,
         "s2_fail_count": 4,
         "s3_fail_count": 6,
-        "sheet_name": "诺瓦询盘回复质量检查（10.11-10.17）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/Obva6QBXJwkOZloBu7Xj54ggJn4qY5Pr",
+        "sheet_name": "诺瓦询盘回复质量检查（10.18-10.24）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/QG53mjyd80EKgjdeuzRMNLrdW6zbX04v",
         "failed_samples": [
           {
             "inquiry_time": "2026-10-18 03:09:51",
@@ -361,17 +361,17 @@
     }
   },
   "weekly_quality": {
-    "date_range": "2026-10-11 – 2026-10-17（7 天）",
-    "run_time": "2026-10-19 16:26:26",
-    "total_inquiries": 48,
-    "benomi_total": 32,
-    "benomi_passed": 25,
-    "benomi_failed": 5,
+    "date_range": "2026-10-18 – 2026-10-24（7 天）",
+    "run_time": "2026-10-26 16:46:48",
+    "total_inquiries": 61,
+    "benomi_total": 35,
+    "benomi_passed": 23,
+    "benomi_failed": 10,
     "benomi_pending": 2,
-    "nova_total": 16,
-    "nova_passed": 11,
-    "nova_failed": 4,
-    "nova_pending": 1
+    "nova_total": 26,
+    "nova_passed": 16,
+    "nova_failed": 8,
+    "nova_pending": 2
   },
   "cron_jobs": [
     {
