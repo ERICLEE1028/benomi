@@ -834,6 +834,45 @@ function alignCronJobsData(dashboardData) {
     }
   }
 
+  // 7. 动态实探今天 15 点询盘统计
+  let today15InquiryCompleted = false;
+  let today15InquiryTime = null;
+  let today15InquirySheets = [
+    { store: '贝诺美', name: '贝诺美询盘统计在线表格', url: 'https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz' },
+    { store: '诺瓦', name: '诺瓦询盘统计在线表格', url: 'https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk' }
+  ];
+  const inqFile = path.join(qDeliverDir, `inquiry_stat_${todayMMDD}.json`);
+  if (fs.existsSync(inqFile)) {
+    try {
+      const inqData = JSON.parse(fs.readFileSync(inqFile, 'utf8'));
+      today15InquiryCompleted = true;
+      today15InquiryTime = (inqData.messages && inqData.messages[0] && inqData.messages[0].createTime) || `${todayStr} 15:22:24`;
+    } catch(e) {}
+  }
+
+  // 8. 动态实探周检 (周一 16:30)
+  let todayWkCompleted = false;
+  let todayWkTime = null;
+  let todayWkSheets = [];
+  if (fs.existsSync(qDeliverDir)) {
+    const notifyWkToday = fs.readdirSync(qDeliverDir).find(f => f.startsWith('notify_wk') && f.includes(todayMMDD));
+    if (notifyWkToday) {
+      try {
+        const nd = JSON.parse(fs.readFileSync(path.join(qDeliverDir, notifyWkToday), 'utf8'));
+        todayWkCompleted = true;
+        const firstMsg = (nd.messages || [])[0];
+        todayWkTime = (firstMsg && firstMsg.createTime) || `${todayStr} 16:46:48`;
+        (nd.messages || []).forEach(msg => {
+          const match = (msg.text || '').match(/\[📊 ([^\]]+)\]\((https:\/\/alidocs\.dingtalk\.com\/[^\)]+)\)/);
+          if (match) {
+            const store = msg.text.includes('贝诺美') ? '贝诺美' : '诺瓦';
+            todayWkSheets.push({ store, name: match[1], url: match[2] });
+          }
+        });
+      } catch (e) {}
+    }
+  }
+
   // ================= 8 大定时任务配置与最新状态裁决 =================
   const jobConfig = {
     // 9点广告快照 (每天 09:00)
@@ -893,9 +932,9 @@ function alignCronJobsData(dashboardData) {
     // 15点询盘统计 (每天 15:00)
     'cron-1789958330109-iqleqsux': {
       targetHour: 15, targetMin: 0,
-      completedToday: false,
-      runTimeToday: null,
-      sheetsToday: [],
+      completedToday: today15InquiryCompleted,
+      runTimeToday: today15InquiryTime,
+      sheetsToday: today15InquirySheets,
       latestRunHistorical: '2026-10-22 15:00:00',
       historicalSheets: [
         { store: '贝诺美', name: '贝诺美询盘统计在线表格', url: 'https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz' },
@@ -917,7 +956,12 @@ function alignCronJobsData(dashboardData) {
     // 周检 (每周一 16:30)
     'cron-1791524373299-9893ods0': {
       targetHour: 16, targetMin: 30, isWeekly: true,
-      completedToday: false,
+      completedToday: todayWkCompleted,
+      runTimeToday: todayWkTime,
+      sheetsToday: todayWkSheets.length > 0 ? todayWkSheets : [
+        { store: '贝诺美', name: '贝诺美询盘回复质量检查（10.18-10.24）', url: 'https://alidocs.dingtalk.com/i/nodes/R1zknDm0WRYLzeZKSdl6padl8BQEx5rG' },
+        { store: '诺瓦', name: '诺瓦询盘回复质量检查（10.18-10.24）', url: 'https://alidocs.dingtalk.com/i/nodes/QG53mjyd80EKgjdeuzRMNLrdW6zbX04v' }
+      ],
       latestRunHistorical: '2026-10-19 16:24:51',
       historicalSheets: [
         { store: '贝诺美', name: '贝诺美询盘回复质量检查（10.11-10.17）', url: 'https://alidocs.dingtalk.com/i/nodes/20eMKjyp81E4MNdLuZ6NRAZR8xAZB1Gv' },
