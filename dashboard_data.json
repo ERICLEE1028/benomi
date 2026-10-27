@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/27 11:08:06",
+  "last_synced_at": "2026/10/27 14:05:17",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -437,7 +437,7 @@
       "target": "双店 (贝诺美 + 诺瓦)",
       "status": "待运行",
       "last_run": "2026-10-22 14:04:00",
-      "next_run": "2026-10-27 14:00:00",
+      "next_run": "2026-10-28 14:00:00",
       "sheets": [
         {
           "store": "贝诺美",
