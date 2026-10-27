@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/27 14:06:31",
+  "last_synced_at": "2026/10/27 14:42:00",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -37,10 +37,10 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/Obva6QBXJwkOZloBu7n5jL3yJn4qY5Pr"
       },
       "risk": {
-        "latest_round": "10:00 轮",
+        "latest_round": "14:30 轮",
         "violations": 0,
         "order_alerts": 0,
-        "balance": 6699.99,
+        "balance": 6695.01,
         "balance_threshold": 1000,
         "rfq_quota": 9,
         "rfq_expire": "2026-10-31",
@@ -50,8 +50,8 @@
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "广告消耗快照 (14:00轮)",
-        "balance_at": 1793080963000
+        "balance_source": "风险监控 (14:30 轮)",
+        "balance_at": 1793083311447.9407
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
@@ -230,21 +230,21 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/lyQod3RxJKaMQmjyTYbvLNBOWkb4Mw9r"
       },
       "risk": {
-        "latest_round": "10:00 轮",
+        "latest_round": "14:30 轮",
         "violations": 0,
         "order_alerts": 0,
         "balance": 1059.9,
         "balance_threshold": 1000,
-        "rfq_quota": 39,
+        "rfq_quota": 38,
         "rfq_expire": "2027-01-18",
-        "rfq_used_detail": "本月已用 32 条（按业务员：Mark Zhang 15 条、IVA ZHANG 11 条、Hale He 6 条）",
+        "rfq_used_detail": "本月已用 33 条（按业务员：Mark Zhang 16 条、IVA ZHANG 11 条、Hale He 6 条）",
         "status": "normal",
         "rfq_warning": "权益充裕",
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "广告消耗快照 (14:00轮)",
-        "balance_at": 1793080971000
+        "balance_source": "风险监控 (14:30 轮)",
+        "balance_at": 1793083311447.9407
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
@@ -457,9 +457,9 @@
       "schedule": "30 14 * * *",
       "type": "风险与履约 (下午轮)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-10-22 14:30:17",
-      "next_run": "2026-10-27 14:30:00",
+      "status": "已完成",
+      "last_run": "2026-10-27 14:30:17",
+      "next_run": "2026-10-28 14:30:00",
       "delivery": "Accio 机器人 Webhook 推送至专属通知群（@李冰）",
       "sheets": []
     },
