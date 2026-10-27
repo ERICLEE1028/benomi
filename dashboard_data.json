@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/27 16:18:26",
+  "last_synced_at": "2026/10/27 16:24:24",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -61,17 +61,17 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
       },
       "daily_quality": {
-        "latest_round": "2026-10-25（星期日，11:00 轮）",
-        "target_date": "2026-10-25",
-        "total_checked": 0,
-        "passed": 0,
+        "latest_round": "2026-10-26（16:00 轮）",
+        "target_date": "2026-10-26",
+        "total_checked": 2,
+        "passed": 2,
         "failed": 0,
         "pending": 0,
-        "pass_rate": 0,
+        "pass_rate": 100,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
-        "sheet_name": "贝诺美询盘回复质量检查（10.25·11时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/QOG9lyrgJP0XLO25TPkoad3NJzN67Mw4",
+        "sheet_name": "贝诺美询盘回复质量检查（10.26·16时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/amweZ92PV6EzOZd9uRjnrA40WxEKBD6p",
         "records": [
           {
             "inquiry_time": "2026-10-14 03:56:12",
@@ -98,7 +98,28 @@
             "summary": "买家咨询激光脱毛仪批发价与MOQ。首响迅速并发送规格表。买家已读卖家最后一条消息（10-14 10:45）。"
           }
         ],
-        "samples": []
+        "samples": [
+          {
+            "inquiry_time": "2026-10-26 02:13:57",
+            "buyer": "Mehmed Ramic",
+            "sales": "Celin Wang",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "4 小时 55 分钟",
+            "track_count": "9",
+            "summary": "德国买家通过商品卡咨询 808nm 二极管激光脱毛仪（Soprano Titanium D1，755/808/1064nm），明确为个人家用而非转售，要求 230V 欧标插头与木箱包装，并索取含运费、关税税费的总价及 CE 认证文件。业务员报整机 US$4,590，买家指出远高于页面标价 €720.01–1,080.02、预算仅 €700–1,000；业务员改推小型便携机型（买家称报价 €990）并说明千欧元内买不到立式大机型，2026-10-27 下午又推荐另一款 755/808/1064nm 多波长机型并询问买家是否喜欢。 已读：买家已读卖家最后一条消息（2026-10-27 15:40:43）。"
+          },
+          {
+            "inquiry_time": "2026-10-26 08:40:04",
+            "buyer": "chang wan",
+            "sales": "Jay Li",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "1 分钟",
+            "track_count": "4",
+            "summary": "中文买家咨询台式三波长（755/808/1064nm）808 半导体激光脱毛机，询问是否需要连 WiFi 使用及具体参数，并追问联网款能否带后台、远程锁机、云端存储、云端客户档案与美容院管理系统。业务员说明联网仅用于定位与远程租赁、附加功能需额外开发费用且实际用处不大，随后发送台式家用 808 机型参数并询问买家还希望增加哪些附加功能。 已读：买家未读卖家最后一条消息（2026-10-26 17:29:30）。"
+          }
+        ]
       },
       "weekly_quality": {
         "date_range": "2026-10-18 – 2026-10-24（7 天）",
@@ -254,20 +275,51 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
       },
       "daily_quality": {
-        "latest_round": "2026-10-25（星期日，11:00 轮）",
-        "target_date": "2026-10-25",
-        "total_checked": 0,
-        "passed": 0,
-        "failed": 0,
+        "latest_round": "2026-10-26（16:00 轮）",
+        "target_date": "2026-10-26",
+        "total_checked": 3,
+        "passed": 2,
+        "failed": 1,
         "pending": 0,
-        "pass_rate": 0,
+        "pass_rate": 66.67,
         "gate_pass_rate": 100,
         "night_relax_hits": 0,
         "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
-        "sheet_name": "诺瓦询盘回复质量检查（10.25·11时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/93NwLYZXWypzrloBu0BqRB5K8kyEqBQm",
+        "sheet_name": "诺瓦询盘回复质量检查（10.26·16时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/93NwLYZXWypzrloBu0wrjZOK8kyEqBQm",
         "records": [],
-        "samples": []
+        "samples": [
+          {
+            "inquiry_time": "2026-10-26 01:08:35",
+            "buyer": "Jose Hernandez",
+            "sales": "Mark Zhang",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "7 小时 22 分钟",
+            "track_count": "3",
+            "summary": "西语买家通过商品需求卡咨询柴油发电机（10–1000kW，潍柴发动机），明确需要 1000kVA、双电压输出 220V/380V、三相电。业务员用西语询问使用地区，确认 1000kVA 双电压需求后发送多张产品图及第三方检测、国际认证说明。 已读：买家未读卖家最后一条消息（2026-10-26 17:28:47）。"
+          },
+          {
+            "inquiry_time": "2026-10-26 17:40:10",
+            "buyer": "samir khaddaj",
+            "sales": "IVA ZHANG",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "1 分钟",
+            "track_count": "5",
+            "summary": "买家咨询 20kW 三相柴油发电机，只要 20kW 价格，明确不要 ATS，要求 FOB 价、满负荷油耗与每相最大电流，随后指定 Perkins 发动机、开架式，先买 1 台、后续可能 30 台，并称在中国有货代。业务员报开架 $1,599／静音 $2,200（FOB），满负荷油耗约 4 升，电流先误报 54A 后更正为 20kW 的 36A，最后重复开架 20kW 报价 $1,599。 已读：买家未读卖家最后一条消息（2026-10-27 08:42:50）。"
+          },
+          {
+            "inquiry_time": "2026-10-26 19:18:46",
+            "buyer": "Jake Ignatenko",
+            "sales": "Mark Zhang",
+            "verdict": "不合格",
+            "reason": "S3 前 3 次人工追踪无图文并茂（#1T- #2T- #3T-）",
+            "resp_time": "1 分钟",
+            "track_count": "3",
+            "summary": "俄罗斯买家一次性列出 10kW 至 150kW 多档功率柴油发电机需求（含数量），要求自动启动、静音罩、独立 ATS 柜并索取商业报价。业务员确认独立 ATS 柜、400/230V 50Hz、买家自有中国货代、采购用于转售且无品牌硬性要求，最后说明按买家定制方案核价。 已读：买家已读卖家最后一条消息（2026-10-26 20:44:23）。"
+          }
+        ]
       },
       "weekly_quality": {
         "date_range": "2026-10-18 – 2026-10-24（7 天）",
@@ -491,19 +543,19 @@
       "schedule": "0 16 * * *",
       "type": "询盘质检 (前一天全量重检)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-10-22 16:41:00",
+      "status": "已完成",
+      "last_run": "2026-10-27 16:41:00",
       "next_run": "2026-10-28 16:00:00",
       "sheets": [
         {
-          "store": "贝诺美",
-          "name": "贝诺美询盘回复质量检查（10.21·16时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/QOG9lyrgJP0XLO25TR9r8B72JzN67Mw4"
+          "store": "诺瓦",
+          "name": "诺瓦询盘回复质量检查（10.26·16时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/93NwLYZXWypzrloBu0wrjZOK8kyEqBQm"
         },
         {
-          "store": "诺瓦",
-          "name": "诺瓦询盘回复质量检查（10.21·16时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsA4Okyrv8yMoPYe1"
+          "store": "贝诺美",
+          "name": "贝诺美询盘回复质量检查（10.26·16时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/amweZ92PV6EzOZd9uRjnrA40WxEKBD6p"
         }
       ]
     },
