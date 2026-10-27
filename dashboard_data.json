@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/27 09:06:21",
+  "last_synced_at": "2026/10/27 10:13:38",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -37,10 +37,10 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/vy20BglGWOR0GOpwcD7ld7lz8A7depqY"
       },
       "risk": {
-        "latest_round": "14:30 轮",
+        "latest_round": "10:00 轮",
         "violations": 0,
         "order_alerts": 0,
-        "balance": 6767.06,
+        "balance": 6763.75,
         "balance_threshold": 1000,
         "rfq_quota": 9,
         "rfq_expire": "2026-10-31",
@@ -50,8 +50,8 @@
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "广告消耗快照 (09:00轮)",
-        "balance_at": 1793063074000
+        "balance_source": "风险监控 (10:00 轮)",
+        "balance_at": 1793067218811.3447
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
@@ -230,21 +230,21 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/vy20BglGWOR0GOpwcD7lQlmP8A7depqY"
       },
       "risk": {
-        "latest_round": "14:30 轮",
+        "latest_round": "10:00 轮",
         "violations": 0,
         "order_alerts": 0,
         "balance": 1059.9,
         "balance_threshold": 1000,
-        "rfq_quota": 40,
+        "rfq_quota": 39,
         "rfq_expire": "2027-01-18",
-        "rfq_used_detail": "本月已用 31 条（按业务员：Mark Zhang 14 条、IVA ZHANG 11 条、Hale He 6 条）",
+        "rfq_used_detail": "本月已用 32 条（按业务员：Mark Zhang 15 条、IVA ZHANG 11 条、Hale He 6 条）",
         "status": "normal",
         "rfq_warning": "权益充裕",
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "广告消耗快照 (09:00轮)",
-        "balance_at": 1793063079000
+        "balance_source": "风险监控 (10:00 轮)",
+        "balance_at": 1793067218811.3447
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
@@ -402,9 +402,9 @@
       "schedule": "0 10 * * *",
       "type": "风险与履约 (上午轮)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-10-22 10:00:23",
-      "next_run": "2026-10-27 10:00:00",
+      "status": "已完成",
+      "last_run": "2026-10-27 10:00:23",
+      "next_run": "2026-10-28 10:00:00",
       "sheets": []
     },
     {
