@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/29 11:12:20",
+  "last_synced_at": "2026/10/29 11:24:48",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -61,17 +61,17 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
       },
       "daily_quality": {
-        "latest_round": "2026-10-27（16:00 轮）",
-        "target_date": "2026-10-27",
-        "total_checked": 4,
-        "passed": 4,
+        "latest_round": "2026-10-28（11:00 轮）",
+        "target_date": "2026-10-28",
+        "total_checked": 1,
+        "passed": 1,
         "failed": 0,
         "pending": 0,
         "pass_rate": 100,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
-        "sheet_name": "贝诺美询盘回复质量检查（10.27·16时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YMyQA2dXW7Ezo36DudomYpanJzlwrZgb",
+        "sheet_name": "贝诺美询盘回复质量检查（10.28·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/gvNG4YZ7JnKOpM1wHov10zoj82LD0oRE",
         "records": [
           {
             "inquiry_time": "2026-10-14 03:56:12",
@@ -100,44 +100,14 @@
         ],
         "samples": [
           {
-            "inquiry_time": "2026-10-27 01:35:28",
-            "buyer": "Liliancarina Gimenezaguayo",
-            "sales": "Miya Zhang",
+            "inquiry_time": "2026-10-28 01:57:33",
+            "buyer": "Esida Esida",
+            "sales": "Harper Mu",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "2 小时 3 分钟",
-            "track_count": "6",
-            "summary": "买家（西班牙）西语询盘，明确要找 lipolaser（溶脂激光）与 CO2 点阵（fraccionado）设备；业务员先用西语发送 980+1470+635nm 半导体溶脂/私密激光机的 7 项卖点与工作原理，再发送 CO2 点阵多功能机（私密紧致+点阵焕肤四模式）的图文资料，并留下 WhatsApp 号码请买家添加。已读：买家未读卖家最后一条消息（2026-10-28 08:31:34）"
-          },
-          {
-            "inquiry_time": "2026-10-27 07:16:57",
-            "buyer": "Otabek Nishonov",
-            "sales": "Daniel Wang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "4 分钟",
-            "track_count": "4",
-            "summary": "买家经产品卡（Cryo 冷疗+EMS 塑形减脂机）询盘，表示为健身房客户批量采购，询问套餐与大批量优惠；业务员说明 Cryo+EMS+热疗机按手柄区分的不同配置与报价逻辑，并介绍磁力塑形（RF）机的两/四手柄、带或不带 RF 等选型，强调 18 年工厂可批量供货并给特别折扣。已读：买家未读卖家最后一条消息（2026-10-27 09:21:03）"
-          },
-          {
-            "inquiry_time": "2026-10-27 10:46:31",
-            "buyer": "Cotant Gauthier",
-            "sales": "Yuli Guo",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "1 分钟",
-            "track_count": "3",
-            "summary": "买家（马来西亚）为公司采购激光脱毛设备，询问是否自主生产；业务员介绍半导体脱毛激光的四波长、TEC+蓝宝石+风冷+水冷散热与 1000W/1200W/1600W 功率对应的日接待量，买家主动留下 WhatsApp（+60 11-1135 3116）转私下沟通，业务员回复将加其 WhatsApp。已读：买家已读卖家最后一条消息（2026-10-27 13:47:59）"
-          },
-          {
-            "inquiry_time": "2026-10-27 23:12:48",
-            "buyer": "Twizyyy lil",
-            "sales": "Celin Wang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "30 分钟",
-            "track_count": "2",
-            "summary": "买家 Andrey 经产品卡（3D 人体成分/体脂分析仪）询盘，两次要求改用 Telegram 等外部通讯工具沟通；业务员（先自动接待、后人工）坚持以阿里旺旺留存资料，当晚说明次日早回复并索要邮编算运费，次日上午发送产品 7 项功能图文资料，最后询问是自用还是用于沙龙/健身房。已读：买家未读卖家最后一条消息（2026-10-28 09:49:02）"
+            "resp_time": "5 小时 16 分钟",
+            "track_count": "5",
+            "summary": "买家 Esida Esida 询盘 Aqua Peel 水磨皮精华液套装（AS.1/SA.2/AO.3 三瓶 400ml），询问运到阿尔巴尼亚（邮编 2001）的费用与运费，确认要 3 套；先由自动接待答问，后由 Harper 报 3 套含运至阿尔巴尼亚 2001 合计 124 美元，并发送产品图与实拍视频，买家回 “ok” 后未再回复。已读：买家未读卖家最后一条消息（2026-10-29 08:56:01）"
           }
         ]
       },
@@ -295,20 +265,41 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
       },
       "daily_quality": {
-        "latest_round": "2026-10-27（16:00 轮）",
-        "target_date": "2026-10-27",
-        "total_checked": 0,
-        "passed": 0,
-        "failed": 0,
+        "latest_round": "2026-10-28（11:00 轮）",
+        "target_date": "2026-10-28",
+        "total_checked": 2,
+        "passed": 1,
+        "failed": 1,
         "pending": 0,
-        "pass_rate": 0,
+        "pass_rate": 50,
         "gate_pass_rate": 100,
         "night_relax_hits": 0,
         "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
-        "sheet_name": "诺瓦询盘回复质量检查（10.27·16时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/gwva2dxOW4EDkpd4unZw12o1Vbkz3BRL",
+        "sheet_name": "诺瓦询盘回复质量检查（10.28·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/amweZ92PV6EzOZd9uRPE5jK6WxEKBD6p",
         "records": [],
-        "samples": []
+        "samples": [
+          {
+            "inquiry_time": "2026-10-28 00:04:28",
+            "buyer": "Askia Daoud Malick",
+            "sales": "IVA ZHANG",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "6 小时 32 分钟",
+            "track_count": "6",
+            "summary": "买家 Askia Daoud Malick（加拿大，项目地在马里巴马科工厂）采购 2 台 1500kVA/1200kW 常用功率柴油发电机组，要求集装箱式机房、45–50℃ 环境、集中并机柜；业务员先报 2 台 254,000 美元＋并机 22,200 美元，买家指出总价算错后更正为 276,200 美元，再补充集装箱每台加 17,000 美元、合计 310,200 美元。已读：买家未读卖家最后一条消息（2026-10-29 09:36:06）"
+          },
+          {
+            "inquiry_time": "2026-10-28 08:13:40",
+            "buyer": "Mohamed Saleck",
+            "sales": "Mark Zhang",
+            "verdict": "不合格",
+            "reason": "前 3 次人工追踪未图文并茂",
+            "resp_time": "15 分钟",
+            "track_count": "1",
+            "summary": "买家（法语沟通）询盘卡片为 20kVA Perkins 柴油发电机，但实际需求是 20kW/400V 自带动力柴油电焊机（500A/35%）；业务员用法语说明其产品为柴油发电机、不含焊接设备，且公司没有柴油电焊机，无法供货。已读：买家已读卖家最后一条消息（2026-10-28 08:32:16）"
+          }
+        ]
       },
       "weekly_quality": {
         "date_range": "2026-10-18 – 2026-10-24（7 天）",
