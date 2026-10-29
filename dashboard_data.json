@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/29 16:45:46",
+  "last_synced_at": "2026/10/29 16:56:02",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -51,7 +51,7 @@
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
         "balance_source": "风险监控 (14:30 轮)",
-        "balance_at": 1793263258641.764
+        "balance_at": 1793264121347.951
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
@@ -231,6 +231,30 @@
         "captured_at": "2026-10-29T08:40:58.366Z",
         "round": "14:30 轮",
         "at": 1793263258370.2358
+      },
+      "review": {
+        "available": true,
+        "ok": true,
+        "new_count": 1,
+        "low_star_total": 1,
+        "items": [
+          {
+            "orderId": "30118536501042160",
+            "buyer": "kenny timmer",
+            "country": "Netherlands",
+            "product": "Body Analyzer MNLT-S9 High-specmodel Quad-band 10-inchscreen Foldabledesign.",
+            "rating": 1,
+            "level": "非常不满意",
+            "content": "Delivery: Delivery took an extremely long time.Quality: The product doesn't work properly. The measurements are inaccurate. According to this device, all women are overweight?!Design: The design is okay.Service: Extremely poor customer service. They keep saying there's nothing th...",
+            "time": "2026-10-29 01:47"
+          }
+        ],
+        "score": 4.9,
+        "total": 29,
+        "latest_time": "2026-10-29 01:47",
+        "captured_at": "2026-10-29T08:55:21.347Z",
+        "round": "14:30 轮",
+        "at": 1793264121347.951
       }
     },
     "nova": {
@@ -269,7 +293,7 @@
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
         "balance_source": "风险监控 (14:30 轮)",
-        "balance_at": 1793263258641.764
+        "balance_at": 1793264121347.951
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
@@ -417,6 +441,19 @@
         "captured_at": "2026-10-29T08:40:58.639Z",
         "round": "14:30 轮",
         "at": 1793263258641.764
+      },
+      "review": {
+        "available": true,
+        "ok": true,
+        "new_count": 0,
+        "low_star_total": 1,
+        "items": [],
+        "score": 4.6,
+        "total": 5,
+        "latest_time": "2026-08-05 07:51",
+        "captured_at": "2026-10-29T08:55:21.127Z",
+        "round": "14:30 轮",
+        "at": 1793264121128.1968
       }
     }
   },
