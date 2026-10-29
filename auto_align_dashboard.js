@@ -443,7 +443,13 @@ function alignQualityData(dashboardData) {
       let content = fs.readFileSync(nf.path, 'utf8');
       if (content.charCodeAt(0) === 0xFEFF) content = content.slice(1);
       const notifyJson = JSON.parse(content);
-      const msgs = notifyJson.messages || [];
+      let msgs = notifyJson.messages || [];
+      // 兼容「发送日志」格式（{benomi:{text}, nova:{text}}），避免因缺少 messages 数组
+      // 而回退到上一轮旧通知、导致看板日期不更新
+      if (!msgs.length && notifyJson.benomi && notifyJson.nova
+          && typeof notifyJson.benomi.text === 'string' && typeof notifyJson.nova.text === 'string') {
+        msgs = [{ text: notifyJson.benomi.text }, { text: notifyJson.nova.text }];
+      }
       
       let benomiDailyMsg = null;
       let novaDailyMsg = null;
@@ -482,7 +488,13 @@ function alignQualityData(dashboardData) {
             .filter(f => f.startsWith('benomi_') && f.includes(dateShort) && f.endsWith('.csv') && !f.includes('wk'))
             .map(f => ({ path: path.join(deliverDir, f), mtime: fs.statSync(path.join(deliverDir, f)).mtimeMs }))
             .sort((a, b) => b.mtime - a.mtime);
-          if (matchB.length > 0) bCsvPath = matchB[0].path;
+          if (matchB.length > 0) {
+            bCsvPath = matchB[0].path;
+            const head = fs.readFileSync(bCsvPath, 'utf8').split(/\r?\n/).slice(1, 2).join(' ');
+            if (!head.includes(targetDate) && !head.includes(targetDate.replace(/-/g, '/'))) {
+              console.warn('[AutoAlign] ⚠ 模糊匹配到的贝诺美 CSV 与目标日不符:', path.basename(bCsvPath), '目标日', targetDate);
+            }
+          }
         }
 
         if (!fs.existsSync(nCsvPath)) {
@@ -490,11 +502,19 @@ function alignQualityData(dashboardData) {
             .filter(f => f.startsWith('nova_') && f.includes(dateShort) && f.endsWith('.csv') && !f.includes('wk'))
             .map(f => ({ path: path.join(deliverDir, f), mtime: fs.statSync(path.join(deliverDir, f)).mtimeMs }))
             .sort((a, b) => b.mtime - a.mtime);
-          if (nCsvs = matchN, nCsvs.length > 0) nCsvPath = matchN[0].path;
+          if (matchN.length > 0) {
+            nCsvPath = matchN[0].path;
+            const head = fs.readFileSync(nCsvPath, 'utf8').split(/\r?\n/).slice(1, 2).join(' ');
+            if (!head.includes(targetDate) && !head.includes(targetDate.replace(/-/g, '/'))) {
+              console.warn('[AutoAlign] ⚠ 模糊匹配到的诺瓦 CSV 与目标日不符:', path.basename(nCsvPath), '目标日', targetDate);
+            }
+          }
         }
 
         if (fs.existsSync(bCsvPath) && fs.existsSync(nCsvPath)) {
-          const bRows = parseCsvSimple(fs.readFileSync(bCsvPath, 'utf8'));
+          // 「（当日无询盘）」占位行不是真实询盘，不得计入未判定
+          const bRows = parseCsvSimple(fs.readFileSync(bCsvPath, 'utf8'))
+            .filter(r => !String(r[1] || '').includes('当日无询盘'));
           let bPassed = 0, bFailed = 0, bPending = 0;
           const bSamples = bRows.map(r => {
             const verdict = r[3] || '未判定';
@@ -513,7 +533,8 @@ function alignQualityData(dashboardData) {
             };
           });
 
-          const nRows = parseCsvSimple(fs.readFileSync(nCsvPath, 'utf8'));
+          const nRows = parseCsvSimple(fs.readFileSync(nCsvPath, 'utf8'))
+            .filter(r => !String(r[1] || '').includes('当日无询盘'));
           let nPassed = 0, nFailed = 0, nPending = 0;
           const nSamples = nRows.map(r => {
             const verdict = r[3] || '未判定';
@@ -763,7 +784,7 @@ function alignCronJobsData(dashboardData) {
   let today11QualitySheets = [];
   const qDeliverDir = path.join(QUALITY_DIR, 'deliver');
   if (fs.existsSync(qDeliverDir)) {
-    const notify11Today = fs.readdirSync(qDeliverDir).find(f => (f.startsWith('notify11') || f.startsWith('notify_11')) && f.includes(todayMMDD));
+    const notify11Today = fs.readdirSync(qDeliverDir).find(f => (f.startsWith('notify11') || f.startsWith('notify_11')) && f.endsWith('.json') && f.includes(todayMMDD));
     if (notify11Today) {
       try {
         const nd = JSON.parse(fs.readFileSync(path.join(qDeliverDir, notify11Today), 'utf8'));
@@ -817,7 +838,7 @@ function alignCronJobsData(dashboardData) {
   let today16QualityTime = null;
   let today16QualitySheets = [];
   if (fs.existsSync(qDeliverDir)) {
-    const notify16Today = fs.readdirSync(qDeliverDir).find(f => (f.startsWith('notify16') || f.startsWith('notify_16')) && f.includes(todayMMDD));
+    const notify16Today = fs.readdirSync(qDeliverDir).find(f => (f.startsWith('notify16') || f.startsWith('notify_16')) && f.endsWith('.json') && f.includes(todayMMDD));
     if (notify16Today) {
       try {
         const nd = JSON.parse(fs.readFileSync(path.join(qDeliverDir, notify16Today), 'utf8'));
@@ -842,11 +863,24 @@ function alignCronJobsData(dashboardData) {
     { store: '诺瓦', name: '诺瓦询盘统计在线表格', url: 'https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk' }
   ];
   const inqFile = path.join(qDeliverDir, `inquiry_stat_${todayMMDD}.json`);
+  if (!fs.existsSync(inqFile)) {
+    try {
+      const dwsCmd = 'C:/Users/Administrator/.accio/accounts/1771426563_410002/plugins/data/cli-tools/plugins/dingtalk-assistant/tools/dws/generations/1.0.58/muak9rmw-021b9f802ae9/prefix/dws.cmd';
+      if (fs.existsSync(dwsCmd)) {
+        const out = execSync(`"${dwsCmd}" chat +search-msg --group cidbg0YcfG4KQeEWQzkca09uA== --limit 12`, { env: { ...process.env, CI: 'true' }, encoding: 'utf8' });
+        const parsed = JSON.parse(out);
+        const inqMsgs = (parsed.messages || []).filter(m => m.createTime && m.createTime.startsWith(todayStr) && (m.text || '').includes('询盘统计在线表格'));
+        if (inqMsgs.length >= 1) {
+          fs.writeFileSync(inqFile, JSON.stringify({ complete: true, count: inqMsgs.length, messages: inqMsgs }, null, 2), 'utf8');
+        }
+      }
+    } catch(e) {}
+  }
   if (fs.existsSync(inqFile)) {
     try {
       const inqData = JSON.parse(fs.readFileSync(inqFile, 'utf8'));
       today15InquiryCompleted = true;
-      today15InquiryTime = (inqData.messages && inqData.messages[0] && inqData.messages[0].createTime) || `${todayStr} 15:22:24`;
+      today15InquiryTime = (inqData.messages && inqData.messages[0] && inqData.messages[0].createTime) || `${todayStr} 15:06:32`;
     } catch(e) {}
   }
 
