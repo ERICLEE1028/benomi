@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/29 11:24:48",
+  "last_synced_at": "2026/10/29 11:27:21",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -445,19 +445,19 @@
       "schedule": "0 11 * * *",
       "type": "询盘质检 (上午初检)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-10-22 11:11:00",
+      "status": "已完成",
+      "last_run": "2026-10-29 11:16:09",
       "next_run": "2026-10-30 11:00:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美询盘回复质量检查（10.21·11时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/a9E05BDRVQbGeLzquZv9oK9eJ63zgkYA"
+          "name": "贝诺美询盘回复质量检查（10.28·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/gvNG4YZ7JnKOpM1wHov10zoj82LD0oRE"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦询盘回复质量检查（10.21·11时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsA4Okyrv8yMoPYe1"
+          "name": "诺瓦询盘回复质量检查（10.28·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/amweZ92PV6EzOZd9uRPE5jK6WxEKBD6p"
         }
       ]
     },
