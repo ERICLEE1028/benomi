@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/29 16:11:19",
+  "last_synced_at": "2026/10/29 16:42:01",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -51,7 +51,7 @@
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
         "balance_source": "风险监控 (14:30 轮)",
-        "balance_at": 1793256073079.9824
+        "balance_at": 1793263258641.764
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
@@ -217,6 +217,20 @@
             "summary": "美国买家咨询皮肤检测仪，说明用于转销、只要标准配置，并留下 WhatsApp。卖家介绍 X5PRO-AI 可检测痘痘、敏感、色素与头皮，确认标准配置后追问首单数量，并称已添加其 WhatsApp。买家已读卖家最后一条消息（2026-10-24 12:32:59）。"
           }
         ]
+      },
+      "refund": {
+        "available": true,
+        "ok": true,
+        "total": 0,
+        "dispute": 0,
+        "chargeback": 0,
+        "aftersales": 0,
+        "breakdown_text": "纠纷 0 ｜ 拒付 0 ｜ 售后 0",
+        "terminal_text": "完结 50 / 撤销 16 ｜ 银行已判责 7 ｜ 预警完结 2",
+        "items": [],
+        "captured_at": "2026-10-29T08:40:58.366Z",
+        "round": "14:30 轮",
+        "at": 1793263258370.2358
       }
     },
     "nova": {
@@ -255,7 +269,7 @@
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
         "balance_source": "风险监控 (14:30 轮)",
-        "balance_at": 1793256073079.9824
+        "balance_at": 1793263258641.764
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
@@ -389,6 +403,20 @@
             "summary": "买家以 75kVA/60kW 静音柴油发电机（偏远地区用）询盘卡发起，需求 70kW 三相。卖家确认 2 年/2000 小时保修，10-25 与 10-26 两次致函介绍工厂并发机组图，未获回复。买家未读卖家最后一条消息（2026-10-26 09:36:03）。"
           }
         ]
+      },
+      "refund": {
+        "available": true,
+        "ok": true,
+        "total": 0,
+        "dispute": 0,
+        "chargeback": 0,
+        "aftersales": 0,
+        "breakdown_text": "纠纷 0 ｜ 拒付 0 ｜ 售后 0",
+        "terminal_text": "完结 3 / 撤销 1 ｜ 银行已判责 0 ｜ 预警完结 0",
+        "items": [],
+        "captured_at": "2026-10-29T08:40:58.639Z",
+        "round": "14:30 轮",
+        "at": 1793263258641.764
       }
     }
   },
