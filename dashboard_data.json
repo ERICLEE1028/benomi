@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/29 11:27:21",
+  "last_synced_at": "2026/10/29 14:04:50",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -23,8 +23,8 @@
       "node_id": "YQBnd5ExVErqam47T602eEwnJyeZqMmz",
       "base_sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz",
       "ads": {
-        "latest_round": "09:00 轮 (PT 2026-10-28 真实数据)",
-        "spend": 736.2,
+        "latest_round": "14:00 轮 (PT 2026-10-28 真实数据)",
+        "spend": 750.36,
         "active_campaigns": 2,
         "paused_excluded": 1,
         "cvr3_leads": 4,
@@ -34,13 +34,13 @@
           "62879012345"
         ],
         "sheet_name": "贝诺美 · 直通车消耗与转化统计（2026-10-14）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/a9E05BDRVQbGeLzquZ4YwpNzJ63zgkYA"
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/qnYMoO1rWxX2mloBiRPQb9vQW47Z3je9"
       },
       "risk": {
         "latest_round": "10:00 轮",
         "violations": 0,
         "order_alerts": 0,
-        "balance": 5185.23,
+        "balance": 5181.57,
         "balance_threshold": 1000,
         "rfq_quota": 9,
         "rfq_expire": "2026-10-31",
@@ -50,8 +50,8 @@
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "风险监控 (10:00 轮)",
-        "balance_at": 1793240054572.6758
+        "balance_source": "广告消耗快照 (14:00轮)",
+        "balance_at": 1793253775000
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
@@ -227,7 +227,7 @@
       "node_id": "ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk",
       "base_sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk",
       "ads": {
-        "latest_round": "09:00 轮 (PT 2026-10-28 真实数据)",
+        "latest_round": "14:00 轮 (PT 2026-10-28 真实数据)",
         "spend": 454.23,
         "active_campaigns": 1,
         "paused_excluded": 0,
@@ -238,13 +238,13 @@
           "71029384758"
         ],
         "sheet_name": "诺瓦 · 直通车消耗与转化统计（2026-10-14）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/Gl6Pm2Db8DNaQmKnuy3rm7raVxLq0Ee4"
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/r1R7q3QmWem2lMoRFKwXGl4pWxkXOEP2"
       },
       "risk": {
         "latest_round": "10:00 轮",
         "violations": 0,
         "order_alerts": 0,
-        "balance": 125.08,
+        "balance": 10125.08,
         "balance_threshold": 1000,
         "rfq_quota": 35,
         "rfq_expire": "2027-01-18",
@@ -254,8 +254,8 @@
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "风险监控 (10:00 轮)",
-        "balance_at": 1793240054572.6758
+        "balance_source": "广告消耗快照 (14:00轮)",
+        "balance_at": 1793253783000
       },
       "inquiry_sync": {
         "latest_round": "2026-10-14 15:00 轮",
@@ -467,19 +467,19 @@
       "schedule": "0 14 * * *",
       "type": "广告快照 (终态轮)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-10-22 14:04:00",
-      "next_run": "2026-10-29 14:00:00",
+      "status": "已完成",
+      "last_run": "2026-10-29 14:02",
+      "next_run": "2026-10-30 14:00:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美 · 直通车消耗与转化统计（2026-10-21）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/R1zknDm0WRYLzeZKSdQgnQEd8BQEx5rG"
+          "name": "贝诺美 · 直通车消耗与转化统计（2026-10-28）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/qnYMoO1rWxX2mloBiRPQb9vQW47Z3je9"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦 · 直通车消耗与转化统计（2026-10-21）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/m9bN7RYPWdaEPgB7TRP3y90LVZd1wyK0"
+          "name": "诺瓦 · 直通车消耗与转化统计（2026-10-28）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/r1R7q3QmWem2lMoRFKwXGl4pWxkXOEP2"
         }
       ]
     },
