@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/30 10:28:48",
+  "last_synced_at": "2026/10/30 10:45:20",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -246,7 +246,8 @@
             "track_count": "1",
             "summary": "美国买家咨询皮肤检测仪，说明用于转销、只要标准配置，并留下 WhatsApp。卖家介绍 X5PRO-AI 可检测痘痘、敏感、色素与头皮，确认标准配置后追问首单数量，并称已添加其 WhatsApp。买家已读卖家最后一条消息（2026-10-24 12:32:59）。"
           }
-        ]
+        ],
+        "total_checked": 35
       },
       "refund": {
         "available": true,
@@ -458,7 +459,8 @@
             "track_count": "3",
             "summary": "买家以 75kVA/60kW 静音柴油发电机（偏远地区用）询盘卡发起，需求 70kW 三相。卖家确认 2 年/2000 小时保修，10-25 与 10-26 两次致函介绍工厂并发机组图，未获回复。买家未读卖家最后一条消息（2026-10-26 09:36:03）。"
           }
-        ]
+        ],
+        "total_checked": 26
       },
       "refund": {
         "available": true,
