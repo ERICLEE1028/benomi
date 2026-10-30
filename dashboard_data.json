@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/30 11:07:12",
+  "last_synced_at": "2026/10/30 11:18:15",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -61,17 +61,17 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
       },
       "daily_quality": {
-        "latest_round": "2026-10-28（16:00 轮）",
-        "target_date": "2026-10-28",
-        "total_checked": 4,
-        "passed": 3,
-        "failed": 1,
+        "latest_round": "2026-10-29（11:00 轮）",
+        "target_date": "2026-10-29",
+        "total_checked": 2,
+        "passed": 2,
+        "failed": 0,
         "pending": 0,
-        "pass_rate": 75,
+        "pass_rate": 100,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
-        "sheet_name": "贝诺美询盘回复质量检查（10.28·16时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/G1DKw2zgV2EkvXLeudk7KdxQWB5r9YAn",
+        "sheet_name": "贝诺美询盘回复质量检查（10.29·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YMyQA2dXW7Ezo36Dudzyep5dJzlwrZgb",
         "records": [
           {
             "inquiry_time": "2026-10-14 03:56:12",
@@ -100,44 +100,24 @@
         ],
         "samples": [
           {
-            "inquiry_time": "2026-10-28 01:57:33",
-            "buyer": "Esida Esida",
-            "sales": "Harper Mu",
+            "inquiry_time": "2026-10-29 00:06:43",
+            "buyer": "Marluz Aguero",
+            "sales": "Yuli Guo",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "5 小时 16 分钟",
-            "track_count": "5",
-            "summary": "买家（阿尔巴尼亚）经 Aqua Peel 溶液套装产品卡询盘（3 瓶/套，MOQ 3），要 3 套并询问含运费到阿尔巴尼亚 2001 的到岸总价。自动接待说明套装构成（AS.1 去角质 / SA.2 去黑头 / AO.3 舒缓补水）后转人工，业务员 Harper 报 3 套含运费共 124 美元，并补发产品图片与实拍视频追问是否查看报价。已读：买家未读卖家最后一条消息（2026-10-29 08:56:01）"
+            "resp_time": "8 小时 20 分钟",
+            "track_count": "4",
+            "summary": "买家 Marluz Aguero（巴拉圭）询盘 2025 新款三波长（755/808/1064nm）便携半导体激光脱毛仪，采购 1 套；问电压 110V/220V 与运费，说明货发迈阿密后再转运巴拉圭、当地用 220V。Yuli 于 08:26 接手，介绍公司 18 年经验、Intertek 认证与 CE/MDR/ROHS 资质，报三波长脱毛机 649 美元并索要邮编核算运费，另发多张产品与手柄实拍图。已读：买家未读卖家最后一条消息（2026-10-30 09:04:38）"
           },
           {
-            "inquiry_time": "2026-10-28 18:36:42",
-            "buyer": "sam aq",
-            "sales": "Jay Li",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "1 分钟",
-            "track_count": "3",
-            "summary": "买家（阿曼）经 RF 导电膏产品卡询盘（17–25 美元，MOQ 1），质疑其他工厂价格更低（6 美元）。业务员 Jay Li 解释高价源于浓度与效果差异，给出 1–5/5–49/50–99/100+ 瓶的阶梯价（25/21/19/17 美元），建议先买 1 罐与其对比。已读：买家未读卖家最后一条消息（2026-10-29 11:55:09）"
-          },
-          {
-            "inquiry_time": "2026-10-28 19:47:45",
-            "buyer": "luis pons",
-            "sales": "Miya Zhang",
+            "inquiry_time": "2026-10-29 13:50:00",
+            "buyer": "Rafael Gornati",
+            "sales": "Celin Wang",
             "verdict": "合格",
             "reason": "—",
             "resp_time": "1 分钟",
             "track_count": "4",
-            "summary": "买家（西班牙，美容产品经销商）用西语询问是否为厂家，对应产品为纳米碳粉/碳 peeling 套装（1.6–2 美元，MOQ 20 袋），表示即将下单并问数量价格、是否含运费与关税。业务员 Miya 报 50 支 2 美元、150 支 1.75 美元、300 支以上 1.4 美元，说明报价不含清关关税、运费待算，随后补发功效说明、成分与产品图、视频。已读：买家未读卖家最后一条消息（2026-10-29 13:36:20）"
-          },
-          {
-            "inquiry_time": "2026-10-28 22:31:09",
-            "buyer": "Alejandra Rojas",
-            "sales": "Daniel Wang",
-            "verdict": "不合格",
-            "reason": "前 3 次人工追踪未图文并茂",
-            "resp_time": "1 分钟",
-            "track_count": "5",
-            "summary": "买家（智利）经人体成分分析仪卡片询盘（BIA 八电极、57 项数据、7 寸安卓屏），用于自营理疗中心，要求西语报告与中心 logo 定制，并索要打印报告样张。业务员 Daniel Wang 说明西语报告为内置语言、logo 可定制，先发英文报告 PDF 样张，再批量发送功能图文与技术参数、视频。已读：买家未读卖家最后一条消息（2026-10-29 08:51:30）"
+            "summary": "买家 Rafael Gornati（巴西）先问是否为工厂、工厂位置（山东潍坊，距上海约 1.5 小时飞机）；称只在上海停留 3 天、已在广交会看过供应商，要求介绍专业机型并指定「body scales」。Celin 于 1 分钟内回复并介绍 18 年经验自有工厂，随后发送内球滚轮仪资料与人体成分分析仪（body scale）图文，14:19 询问采购数量，次日 08:20 再次跟进。已读：买家未读卖家最后一条消息（2026-10-30 08:20:54）"
           }
         ]
       },
@@ -336,39 +316,29 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
       },
       "daily_quality": {
-        "latest_round": "2026-10-28（16:00 轮）",
-        "target_date": "2026-10-28",
-        "total_checked": 2,
-        "passed": 1,
-        "failed": 1,
+        "latest_round": "2026-10-29（11:00 轮）",
+        "target_date": "2026-10-29",
+        "total_checked": 1,
+        "passed": 0,
+        "failed": 0,
         "pending": 0,
-        "pass_rate": 50,
+        "pass_rate": 0,
         "gate_pass_rate": 100,
         "night_relax_hits": 0,
         "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
-        "sheet_name": "诺瓦询盘回复质量检查（10.28·16时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/QG53mjyd80EKgjdeuzM1OyR3W6zbX04v",
+        "sheet_name": "诺瓦询盘回复质量检查（10.29·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/14lgGw3P8vNPwloBunerP6nn85daZ90D",
         "records": [],
         "samples": [
           {
-            "inquiry_time": "2026-10-28 00:04:28",
-            "buyer": "Askia Daoud Malick",
-            "sales": "IVA ZHANG",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "6 小时 32 分钟",
-            "track_count": "6",
-            "summary": "买家（加拿大，为马里工厂采购）求购 2 台 1500kVA/1200kW 常用功率柴油发电机组（50Hz、400/230V），要求集装箱式、耐 50℃ 与粉尘，集中并机柜置于独立控制室，并询问中性点接地方案与 FOB/CIF 达喀尔报价。自动接待逐项确认参数，人工业务员 IVA 报 2 台开架机组 25.4 万美元、并机 2.22 万美元（首次合计误写 47.6 万），随后更正为 27.62 万美元，确认潍柴 12M33D1500E31 引擎与无锡斯坦福电机、一年质保、30 天交期，集装箱版每台加 1.7 万美元后合计 31.02 万美元。已读：买家未读卖家最后一条消息（2026-10-29 09:36:06）"
-          },
-          {
-            "inquiry_time": "2026-10-28 08:13:40",
-            "buyer": "Mohamed Saleck",
-            "sales": "Mark Zhang",
-            "verdict": "不合格",
-            "reason": "前 3 次人工追踪未图文并茂",
-            "resp_time": "15 分钟",
-            "track_count": "1",
-            "summary": "买家（毛里塔尼亚）经 20kVA 柴油发电机产品卡询盘，实际需求是 20kW/400V 自行式柴油焊机（500A/35%），并要求 Perkins 发动机。业务员 Mark 说明该 20kW 机型为柴油发电机、不含焊接设备，进一步确认无法提供柴油焊机后明确回复无法供货。已读：买家已读卖家最后一条消息（2026-10-28 08:32:16）"
+            "inquiry_time": "2026/10/29",
+            "buyer": "（当日无询盘）",
+            "sales": "-",
+            "verdict": "-",
+            "reason": "-",
+            "resp_time": "-",
+            "track_count": "-",
+            "summary": "无有效沟通内容（当日无询盘）"
           }
         ]
       },
@@ -546,19 +516,19 @@
       "schedule": "0 11 * * *",
       "type": "询盘质检 (上午初检)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-10-22 11:11:00",
+      "status": "已完成",
+      "last_run": "2026-10-30 11:08:25",
       "next_run": "2026-10-31 11:00:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美询盘回复质量检查（10.21·11时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/a9E05BDRVQbGeLzquZv9oK9eJ63zgkYA"
+          "name": "贝诺美询盘回复质量检查（10.29·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/YMyQA2dXW7Ezo36Dudzyep5dJzlwrZgb"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦询盘回复质量检查（10.21·11时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsA4Okyrv8yMoPYe1"
+          "name": "诺瓦询盘回复质量检查（10.29·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/14lgGw3P8vNPwloBunerP6nn85daZ90D"
         }
       ]
     },
