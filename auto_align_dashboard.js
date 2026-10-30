@@ -339,6 +339,85 @@ function alignRiskData(dashboardData) {
     dashboardData.stores.nova.risk.balance_at = riskTs;
   }
 
+  // ===== F 段：退款/售后「进行中」单量（2026-10-29 新增，两店各自独立、按文件 mtime 取新） =====
+  ['benomi', 'nova'].forEach((st) => {
+    const fPath = path.join(targetDir, st + '_F_refund.json');
+    const cur = dashboardData.stores[st].refund || {};
+    if (!fs.existsSync(fPath)) {
+      // 本轮没跑 F 段 → 保留上一轮数据，但标注轮次；从未有过则标未获取
+      if (cur.total === undefined) {
+        dashboardData.stores[st].refund = Object.assign({
+          available: false, total: null, breakdown_text: '纠纷 – ｜ 拒付 – ｜ 售后 –',
+          terminal_text: '', items: [], captured_at: '', round: roundLabel, at: 0
+        }, cur);
+      }
+      return;
+    }
+    try {
+      const f = JSON.parse(fs.readFileSync(fPath, 'utf8'));
+      const fTs = fs.statSync(fPath).mtimeMs;
+      if (fTs < (cur.at || 0)) return; // 旧文件不覆盖新数据
+      const ip = f.in_progress || {};
+      const numOrNull = (v) => (Number.isFinite(v) ? v : null);
+      dashboardData.stores[st].refund = {
+        available: true,
+        ok: !!f.ok,
+        total: numOrNull(ip.total),
+        dispute: numOrNull(ip.dispute),
+        chargeback: numOrNull(ip.chargeback),
+        aftersales: numOrNull(ip.aftersales),
+        breakdown_text: f.breakdown_text || '',
+        terminal_text: f.terminal_text || '',
+        items: Array.isArray(f.in_progress_items) ? f.in_progress_items : [],
+        captured_at: f.captured_at || '',
+        round: roundLabel,
+        at: fTs
+      };
+      console.log(`[AutoAlign] ${st} 退款/售后已对齐 (${roundLabel}): 进行中 ${ip.total} 条 (${f.breakdown_text})`);
+    } catch (e) {
+      console.error('[AutoAlign] 解析 ' + st + '_F_refund.json 失败:', e.message);
+    }
+  });
+
+  // ===== G 段：新增不足五星评价（2026-10-29 新增，两店各自独立、按文件 mtime 取新） =====
+  ['benomi', 'nova'].forEach((st) => {
+    const gPath = path.join(targetDir, st + '_G_review.json');
+    const curRev = dashboardData.stores[st].review || {};
+    if (!fs.existsSync(gPath)) {
+      if (curRev.new_count === undefined) {
+        dashboardData.stores[st].review = Object.assign({
+          available: false, new_count: null, items: [],
+          at: 0, round: roundLabel
+        }, curRev);
+      }
+      return;
+    }
+    try {
+      const g = JSON.parse(fs.readFileSync(gPath, 'utf8'));
+      const gTs = fs.statSync(gPath).mtimeMs;
+      if (gTs < (curRev.at || 0)) return;
+      // 不再写入店铺评分（用户 2026-10-29：看板不展示店铺评分）
+      dashboardData.stores[st].review = {
+        available: true,
+        ok: !!g.ok,
+        new_count: Number.isFinite(g.new_count) ? g.new_count : 0,
+        low_star_total: Number.isFinite(g.low_star_total) ? g.low_star_total : null,
+        items: Array.isArray(g.new_items) ? g.new_items : [],
+        window_items: Array.isArray(g.low_star_items) ? g.low_star_items : [],
+        window_days: Number.isFinite(g.window_days) ? g.window_days : 30,
+        window_start: g.window_start || '',
+        in_window_count: Number.isFinite(g.in_window_count) ? g.in_window_count : null,
+        latest_time: g.latest_time || '',
+        captured_at: g.at || '',
+        round: roundLabel,
+        at: gTs
+      };
+      console.log(`[AutoAlign] ${st} 评价已对齐 (${roundLabel}): 近 ${dashboardData.stores[st].review.window_days} 天新增差评 ${g.new_count} 条（窗口内 ${g.in_window_count} 条评价）`);
+    } catch (e) {
+      console.error('[AutoAlign] 解析 ' + st + '_G_review.json 失败:', e.message);
+    }
+  });
+
   return true;
 }
 
@@ -426,8 +505,6 @@ function alignQualityData(dashboardData) {
   const deliverDir = path.join(QUALITY_DIR, 'deliver');
   if (!fs.existsSync(deliverDir)) return false;
 
-  // A. 对齐日检
-  // 查找所有 notify*.json，按修改时间倒序寻找最新的日检通知
   const notifyFiles = fs.readdirSync(deliverDir)
     .filter(name => name.startsWith('notify') && name.endsWith('.json'))
     .map(name => ({
@@ -437,123 +514,72 @@ function alignQualityData(dashboardData) {
     }))
     .sort((a, b) => b.mtime - a.mtime);
 
+  // A. 对齐日检
+  // 【解耦架构优先】：优先直接消费本地结构化质检状态文件（quality_state_*.json），完全不依赖钉钉群通知发送与回读
   let dailyFound = false;
-  for (const nf of notifyFiles) {
+  const qualityStateFiles = fs.readdirSync(deliverDir)
+    .filter(name => (name.startsWith('quality_state_') || name.startsWith('quality_summary_')) && name.endsWith('.json') && !name.includes('wk'))
+    .map(name => ({
+      name,
+      path: path.join(deliverDir, name),
+      mtime: fs.statSync(path.join(deliverDir, name)).mtimeMs
+    }))
+    .sort((a, b) => b.mtime - a.mtime);
+
+  for (const qsf of qualityStateFiles) {
     try {
-      let content = fs.readFileSync(nf.path, 'utf8');
-      if (content.charCodeAt(0) === 0xFEFF) content = content.slice(1);
-      const notifyJson = JSON.parse(content);
-      let msgs = notifyJson.messages || [];
-      // 兼容「发送日志」格式（{benomi:{text}, nova:{text}}），避免因缺少 messages 数组
-      // 而回退到上一轮旧通知、导致看板日期不更新
-      if (!msgs.length && notifyJson.benomi && notifyJson.nova
-          && typeof notifyJson.benomi.text === 'string' && typeof notifyJson.nova.text === 'string') {
-        msgs = [{ text: notifyJson.benomi.text }, { text: notifyJson.nova.text }];
-      }
-      
-      let benomiDailyMsg = null;
-      let novaDailyMsg = null;
-      for (const m of msgs) {
-        if (!m.text) continue;
-        if (m.text.includes('【询盘回复质量检查】') && !m.text.includes('周检')) {
-          if (m.text.includes('贝诺美') && !benomiDailyMsg) benomiDailyMsg = m.text;
-          if (m.text.includes('诺瓦') && !novaDailyMsg) novaDailyMsg = m.text;
-        }
-      }
+      const qState = JSON.parse(fs.readFileSync(qsf.path, 'utf8'));
+      if (qState && qState.checkDate && qState.benomi && qState.nova) {
+        const targetDate = qState.checkDate;
+        const roundNum = qState.roundNum || (qState.round ? qState.round.replace(':00', '') : '16');
+        const bRound = qState.roundLabel || `${targetDate}（${roundNum}:00 轮）`;
+        const dateShort = targetDate.slice(5).replace('-', '');
 
-      if (benomiDailyMsg && novaDailyMsg) {
-        // 解析轮次信息
-        const bRoundMatch = benomiDailyMsg.match(/检查日期：([^\n]+)/);
-        const bRound = bRoundMatch ? bRoundMatch[1].trim() : '11:00 轮 (检 2026-10-18)';
-        
-        // 动态提取目标日期（如 2026-10-18）
-        const dateMatch = bRound.match(/(\d{4}-\d{2}-\d{2})/);
-        const targetDate = dateMatch ? dateMatch[1] : '2026-10-18';
-        
-        // 动态提取轮次数字（如 11 或 16）
-        const roundMatch = bRound.match(/(\d{1,2}):00/);
-        const roundNum = roundMatch ? roundMatch[1] : '11';
-        const dateShort = targetDate.slice(5).replace('-', ''); // 如 '1018'
-
-        const bSheetMatch = benomiDailyMsg.match(/\[📊 ([^\]]+)\]\((https:\/\/alidocs\.dingtalk\.com\/[^\)]+)\)/);
-        const nSheetMatch = novaDailyMsg.match(/\[📊 ([^\]]+)\]\((https:\/\/alidocs\.dingtalk\.com\/[^\)]+)\)/);
-
-        // 动态定位匹配的 CSV 文件
-        let bCsvPath = path.join(deliverDir, `benomi_${roundNum}_${dateShort}.csv`);
-        let nCsvPath = path.join(deliverDir, `nova_${roundNum}_${dateShort}.csv`);
-
-        // 若不存在精准匹配（如补跑带 b：benomi_16b_1018.csv），则做智能模糊匹配
+        let bCsvPath = qState.benomi.csvPath || path.join(deliverDir, qState.benomi.csvFile || `benomi_${roundNum}_${dateShort}.csv`);
+        let nCsvPath = qState.nova.csvPath || path.join(deliverDir, qState.nova.csvFile || `nova_${roundNum}_${dateShort}.csv`);
         if (!fs.existsSync(bCsvPath)) {
-          const matchB = fs.readdirSync(deliverDir)
-            .filter(f => f.startsWith('benomi_') && f.includes(dateShort) && f.endsWith('.csv') && !f.includes('wk'))
-            .map(f => ({ path: path.join(deliverDir, f), mtime: fs.statSync(path.join(deliverDir, f)).mtimeMs }))
-            .sort((a, b) => b.mtime - a.mtime);
-          if (matchB.length > 0) {
-            bCsvPath = matchB[0].path;
-            const head = fs.readFileSync(bCsvPath, 'utf8').split(/\r?\n/).slice(1, 2).join(' ');
-            if (!head.includes(targetDate) && !head.includes(targetDate.replace(/-/g, '/'))) {
-              console.warn('[AutoAlign] ⚠ 模糊匹配到的贝诺美 CSV 与目标日不符:', path.basename(bCsvPath), '目标日', targetDate);
-            }
-          }
+          const matchB = fs.readdirSync(deliverDir).filter(f => f.startsWith('benomi_') && f.includes(dateShort) && f.endsWith('.csv') && !f.includes('wk'));
+          if (matchB.length) bCsvPath = path.join(deliverDir, matchB[0]);
         }
-
         if (!fs.existsSync(nCsvPath)) {
-          const matchN = fs.readdirSync(deliverDir)
-            .filter(f => f.startsWith('nova_') && f.includes(dateShort) && f.endsWith('.csv') && !f.includes('wk'))
-            .map(f => ({ path: path.join(deliverDir, f), mtime: fs.statSync(path.join(deliverDir, f)).mtimeMs }))
-            .sort((a, b) => b.mtime - a.mtime);
-          if (matchN.length > 0) {
-            nCsvPath = matchN[0].path;
-            const head = fs.readFileSync(nCsvPath, 'utf8').split(/\r?\n/).slice(1, 2).join(' ');
-            if (!head.includes(targetDate) && !head.includes(targetDate.replace(/-/g, '/'))) {
-              console.warn('[AutoAlign] ⚠ 模糊匹配到的诺瓦 CSV 与目标日不符:', path.basename(nCsvPath), '目标日', targetDate);
-            }
-          }
+          const matchN = fs.readdirSync(deliverDir).filter(f => f.startsWith('nova_') && f.includes(dateShort) && f.endsWith('.csv') && !f.includes('wk'));
+          if (matchN.length) nCsvPath = path.join(deliverDir, matchN[0]);
         }
 
         if (fs.existsSync(bCsvPath) && fs.existsSync(nCsvPath)) {
-          // 「（当日无询盘）」占位行不是真实询盘，不得计入未判定
-          const bRows = parseCsvSimple(fs.readFileSync(bCsvPath, 'utf8'))
-            .filter(r => !String(r[1] || '').includes('当日无询盘'));
-          let bPassed = 0, bFailed = 0, bPending = 0;
-          const bSamples = bRows.map(r => {
-            const verdict = r[3] || '未判定';
-            if (verdict === '合格') bPassed++;
-            else if (verdict === '不合格') bFailed++;
-            else bPending++;
-            return {
-              inquiry_time: r[0],
-              buyer: r[1],
-              sales: r[2],
-              verdict,
-              reason: r[4] || '—',
-              resp_time: r[5] || '-',
-              track_count: r[6] || '-',
-              summary: (r[11] || '').replace(/^"|"$/g, '')
-            };
-          });
+          const bRows = parseCsvSimple(fs.readFileSync(bCsvPath, 'utf8'));
+          const nRows = parseCsvSimple(fs.readFileSync(nCsvPath, 'utf8'));
 
-          const nRows = parseCsvSimple(fs.readFileSync(nCsvPath, 'utf8'))
-            .filter(r => !String(r[1] || '').includes('当日无询盘'));
-          let nPassed = 0, nFailed = 0, nPending = 0;
-          const nSamples = nRows.map(r => {
-            const verdict = r[3] || '未判定';
-            if (verdict === '合格') nPassed++;
-            else if (verdict === '不合格') nFailed++;
-            else nPending++;
-            return {
-              inquiry_time: r[0],
-              buyer: r[1],
-              sales: r[2],
-              verdict,
-              reason: r[4] || '—',
-              resp_time: r[5] || '-',
-              track_count: r[6] || '-',
-              summary: (r[11] || '').replace(/^"|"$/g, '')
-            };
-          });
+          const bPassed = bRows.filter(r => (r[3] || '').trim() === '合格').length;
+          const bFailed = bRows.filter(r => (r[3] || '').trim() === '不合格').length;
+          const bPending = bRows.filter(r => (r[3] || '').trim() === '未判定').length;
 
-          // 贝诺美写入
+          const nPassed = nRows.filter(r => (r[3] || '').trim() === '合格').length;
+          const nFailed = nRows.filter(r => (r[3] || '').trim() === '不合格').length;
+          const nPending = nRows.filter(r => (r[3] || '').trim() === '未判定').length;
+
+          const bSamples = bRows.map(r => ({
+            inquiry_time: r[0],
+            buyer: r[1],
+            sales: r[2],
+            verdict: r[3],
+            reason: r[4] || '—',
+            resp_time: r[5] || '-',
+            track_count: r[6] || '-',
+            summary: (r[11] || '').replace(/^"|"$/g, '')
+          }));
+
+          const nSamples = nRows.map(r => ({
+            inquiry_time: r[0],
+            buyer: r[1],
+            sales: r[2],
+            verdict: r[3],
+            reason: r[4] || '—',
+            resp_time: r[5] || '-',
+            track_count: r[6] || '-',
+            summary: (r[11] || '').replace(/^"|"$/g, '')
+          }));
+
           dashboardData.stores.benomi.daily_quality.latest_round = bRound;
           dashboardData.stores.benomi.daily_quality.target_date = targetDate;
           dashboardData.stores.benomi.daily_quality.total_checked = bRows.length;
@@ -561,11 +587,10 @@ function alignQualityData(dashboardData) {
           dashboardData.stores.benomi.daily_quality.failed = bFailed;
           dashboardData.stores.benomi.daily_quality.pending = bPending;
           dashboardData.stores.benomi.daily_quality.pass_rate = bRows.length ? parseFloat(((bPassed / bRows.length) * 100).toFixed(2)) : 0;
-          dashboardData.stores.benomi.daily_quality.sheet_name = bSheetMatch ? bSheetMatch[1] : `贝诺美询盘回复质量检查（${dateShort}·${roundNum}时）`;
-          dashboardData.stores.benomi.daily_quality.sheet_url = bSheetMatch ? bSheetMatch[2] : '';
+          dashboardData.stores.benomi.daily_quality.sheet_name = qState.benomi.sheetName || `贝诺美询盘回复质量检查（${dateShort}·${roundNum}时）`;
+          dashboardData.stores.benomi.daily_quality.sheet_url = qState.benomi.sheetUrl || '';
           dashboardData.stores.benomi.daily_quality.samples = bSamples;
 
-          // 诺瓦写入
           dashboardData.stores.nova.daily_quality.latest_round = bRound;
           dashboardData.stores.nova.daily_quality.target_date = targetDate;
           dashboardData.stores.nova.daily_quality.total_checked = nRows.length;
@@ -573,23 +598,215 @@ function alignQualityData(dashboardData) {
           dashboardData.stores.nova.daily_quality.failed = nFailed;
           dashboardData.stores.nova.daily_quality.pending = nPending;
           dashboardData.stores.nova.daily_quality.pass_rate = nRows.length ? parseFloat(((nPassed / nRows.length) * 100).toFixed(2)) : 0;
-          dashboardData.stores.nova.daily_quality.sheet_name = nSheetMatch ? nSheetMatch[1] : `诺瓦询盘回复质量检查（${dateShort}·${roundNum}时）`;
-          dashboardData.stores.nova.daily_quality.sheet_url = nSheetMatch ? nSheetMatch[2] : '';
+          dashboardData.stores.nova.daily_quality.sheet_name = qState.nova.sheetName || `诺瓦询盘回复质量检查（${dateShort}·${roundNum}时）`;
+          dashboardData.stores.nova.daily_quality.sheet_url = qState.nova.sheetUrl || '';
           dashboardData.stores.nova.daily_quality.samples = nSamples;
 
-          console.log(`[AutoAlign] 质检日检动态对齐成功: ${bRound} ｜ 贝诺美: ${bPassed}/${bRows.length} (${dashboardData.stores.benomi.daily_quality.pass_rate}%), 诺瓦: ${nPassed}/${nRows.length} (${dashboardData.stores.nova.daily_quality.pass_rate}%)`);
+          console.log(`[AutoAlign] 🚀 本地解耦引擎生效：直接从 ${qsf.name} 对齐日检成功！${bRound} ｜ 贝诺美: ${bPassed}/${bRows.length}, 诺瓦: ${nPassed}/${nRows.length}`);
           console.log(`[AutoAlign] 读取日检明细 CSV: ${path.basename(bCsvPath)}, ${path.basename(nCsvPath)}`);
           dailyFound = true;
           break;
         }
       }
-    } catch (e) {
-      console.warn('[AutoAlign] 解析日检通知文件跳过:', nf.name, e.message);
+    } catch(e) {
+      console.warn('[AutoAlign] 解析本地 quality_state 失败，尝试其他来源:', e.message);
     }
   }
 
-  // B. 对齐周检 (全动态扫描 notify*.json)
-  for (const nf of notifyFiles) {
+  // 若无本地 quality_state 文件，则兜底查找历史 notify*.json
+  if (!dailyFound) {
+    for (const nf of notifyFiles) {
+      try {
+        let content = fs.readFileSync(nf.path, 'utf8');
+        if (content.charCodeAt(0) === 0xFEFF) content = content.slice(1);
+        const notifyJson = JSON.parse(content);
+        let msgs = notifyJson.messages || [];
+        if (!msgs.length && notifyJson.benomi && notifyJson.nova
+            && typeof notifyJson.benomi.text === 'string' && typeof notifyJson.nova.text === 'string') {
+          msgs = [{ text: notifyJson.benomi.text }, { text: notifyJson.nova.text }];
+        }
+        
+        let benomiDailyMsg = null;
+        let novaDailyMsg = null;
+        for (const m of msgs) {
+          if (!m.text) continue;
+          if (m.text.includes('【询盘回复质量检查】') && !m.text.includes('周检')) {
+            if (m.text.includes('贝诺美') && !benomiDailyMsg) benomiDailyMsg = m.text;
+            if (m.text.includes('诺瓦') && !novaDailyMsg) novaDailyMsg = m.text;
+          }
+        }
+
+        if (benomiDailyMsg && novaDailyMsg) {
+          const bRoundMatch = benomiDailyMsg.match(/检查日期：([^\n]+)/);
+          const bRound = bRoundMatch ? bRoundMatch[1].trim() : '11:00 轮 (检 2026-10-18)';
+          const dateMatch = bRound.match(/(\d{4}-\d{2}-\d{2})/);
+          const targetDate = dateMatch ? dateMatch[1] : '2026-10-18';
+          const roundMatch = bRound.match(/(\d{1,2}):00/);
+          const roundNum = roundMatch ? roundMatch[1] : '11';
+          const dateShort = targetDate.slice(5).replace('-', '');
+
+          const bSheetMatch = benomiDailyMsg.match(/\[📊 ([^\]]+)\]\((https:\/\/alidocs\.dingtalk\.com\/[^\)]+)\)/);
+          const nSheetMatch = novaDailyMsg.match(/\[📊 ([^\]]+)\]\((https:\/\/alidocs\.dingtalk\.com\/[^\)]+)\)/);
+
+          let bCsvPath = path.join(deliverDir, `benomi_${roundNum}_${dateShort}.csv`);
+          let nCsvPath = path.join(deliverDir, `nova_${roundNum}_${dateShort}.csv`);
+
+          if (!fs.existsSync(bCsvPath)) {
+            const matchB = fs.readdirSync(deliverDir).filter(f => f.startsWith('benomi_') && f.includes(dateShort) && f.endsWith('.csv') && !f.includes('wk'));
+            if (matchB.length) bCsvPath = path.join(deliverDir, matchB[0]);
+          }
+          if (!fs.existsSync(nCsvPath)) {
+            const matchN = fs.readdirSync(deliverDir).filter(f => f.startsWith('nova_') && f.includes(dateShort) && f.endsWith('.csv') && !f.includes('wk'));
+            if (matchN.length) nCsvPath = path.join(deliverDir, matchN[0]);
+          }
+
+          if (fs.existsSync(bCsvPath) && fs.existsSync(nCsvPath)) {
+            const bRows = parseCsvSimple(fs.readFileSync(bCsvPath, 'utf8'));
+            const nRows = parseCsvSimple(fs.readFileSync(nCsvPath, 'utf8'));
+
+            const bPassed = bRows.filter(r => (r[3] || '').trim() === '合格').length;
+            const bFailed = bRows.filter(r => (r[3] || '').trim() === '不合格').length;
+            const bPending = bRows.filter(r => (r[3] || '').trim() === '未判定').length;
+
+            const nPassed = nRows.filter(r => (r[3] || '').trim() === '合格').length;
+            const nFailed = nRows.filter(r => (r[3] || '').trim() === '不合格').length;
+            const nPending = nRows.filter(r => (r[3] || '').trim() === '未判定').length;
+
+            const bSamples = bRows.map(r => ({
+              inquiry_time: r[0],
+              buyer: r[1],
+              sales: r[2],
+              verdict: r[3],
+              reason: r[4] || '—',
+              resp_time: r[5] || '-',
+              track_count: r[6] || '-',
+              summary: (r[11] || '').replace(/^"|"$/g, '')
+            }));
+
+            const nSamples = nRows.map(r => ({
+              inquiry_time: r[0],
+              buyer: r[1],
+              sales: r[2],
+              verdict: r[3],
+              reason: r[4] || '—',
+              resp_time: r[5] || '-',
+              track_count: r[6] || '-',
+              summary: (r[11] || '').replace(/^"|"$/g, '')
+            }));
+
+            dashboardData.stores.benomi.daily_quality.latest_round = bRound;
+            dashboardData.stores.benomi.daily_quality.target_date = targetDate;
+            dashboardData.stores.benomi.daily_quality.total_checked = bRows.length;
+            dashboardData.stores.benomi.daily_quality.passed = bPassed;
+            dashboardData.stores.benomi.daily_quality.failed = bFailed;
+            dashboardData.stores.benomi.daily_quality.pending = bPending;
+            dashboardData.stores.benomi.daily_quality.pass_rate = bRows.length ? parseFloat(((bPassed / bRows.length) * 100).toFixed(2)) : 0;
+            dashboardData.stores.benomi.daily_quality.sheet_name = bSheetMatch ? bSheetMatch[1] : `贝诺美询盘回复质量检查（${dateShort}·${roundNum}时）`;
+            dashboardData.stores.benomi.daily_quality.sheet_url = bSheetMatch ? bSheetMatch[2] : '';
+            dashboardData.stores.benomi.daily_quality.samples = bSamples;
+
+            dashboardData.stores.nova.daily_quality.latest_round = bRound;
+            dashboardData.stores.nova.daily_quality.target_date = targetDate;
+            dashboardData.stores.nova.daily_quality.total_checked = nRows.length;
+            dashboardData.stores.nova.daily_quality.passed = nPassed;
+            dashboardData.stores.nova.daily_quality.failed = nFailed;
+            dashboardData.stores.nova.daily_quality.pending = nPending;
+            dashboardData.stores.nova.daily_quality.pass_rate = nRows.length ? parseFloat(((nPassed / nRows.length) * 100).toFixed(2)) : 0;
+            dashboardData.stores.nova.daily_quality.sheet_name = nSheetMatch ? nSheetMatch[1] : `诺瓦询盘回复质量检查（${dateShort}·${roundNum}时）`;
+            dashboardData.stores.nova.daily_quality.sheet_url = nSheetMatch ? nSheetMatch[2] : '';
+            dashboardData.stores.nova.daily_quality.samples = nSamples;
+
+            console.log(`[AutoAlign] 质检日检动态对齐成功: ${bRound} ｜ 贝诺美: ${bPassed}/${bRows.length} (${dashboardData.stores.benomi.daily_quality.pass_rate}%), 诺瓦: ${nPassed}/${nRows.length} (${dashboardData.stores.nova.daily_quality.pass_rate}%)`);
+            console.log(`[AutoAlign] 读取日检明细 CSV: ${path.basename(bCsvPath)}, ${path.basename(nCsvPath)}`);
+            dailyFound = true;
+            break;
+          }
+        }
+      } catch (e) {
+        console.warn('[AutoAlign] 解析日检通知文件跳过:', nf.name, e.message);
+      }
+    }
+  }
+      
+  // B. 对齐周检
+  // 【解耦架构优先】：优先直接消费本地结构化周检状态文件（quality_state_wk*.json）
+  let weeklyFound = false;
+  const wkStateFiles = fs.readdirSync(deliverDir)
+    .filter(name => (name.startsWith('quality_state_wk') || name.startsWith('quality_summary_wk')) && name.endsWith('.json'))
+    .map(name => ({
+      name,
+      path: path.join(deliverDir, name),
+      mtime: fs.statSync(path.join(deliverDir, name)).mtimeMs
+    }))
+    .sort((a, b) => b.mtime - a.mtime);
+
+  if (wkStateFiles.length > 0) {
+    try {
+      const wkState = JSON.parse(fs.readFileSync(wkStateFiles[0].path, 'utf8'));
+      if (wkState && wkState.benomi && wkState.nova) {
+        const bDateRange = wkState.checkDate || wkState.roundLabel || '2026-10-18 – 2026-10-24（7 天）';
+        let bWkCsvPath = wkState.benomi.csvPath || path.join(deliverDir, wkState.benomi.csvFile || 'benomi_wk_1018.csv');
+        let nWkCsvPath = wkState.nova.csvPath || path.join(deliverDir, wkState.nova.csvFile || 'nova_wk_1018.csv');
+
+        let bFailedSamples = [];
+        if (fs.existsSync(bWkCsvPath)) {
+          const bRows = parseCsvSimple(fs.readFileSync(bWkCsvPath, 'utf8'));
+          bFailedSamples = bRows.filter(r => (r[3] || '').trim() === '不合格').map(r => ({
+            inquiry_time: r[0],
+            buyer: r[1],
+            sales: r[2],
+            reason: r[4] || '—',
+            resp_time: r[5] || '-',
+            track_count: r[6] || '-',
+            summary: (r[11] || '').replace(/^"|"$/g, '')
+          }));
+        }
+
+        let nFailedSamples = [];
+        if (fs.existsSync(nWkCsvPath)) {
+          const nRows = parseCsvSimple(fs.readFileSync(nWkCsvPath, 'utf8'));
+          nFailedSamples = nRows.filter(r => (r[3] || '').trim() === '不合格').map(r => ({
+            inquiry_time: r[0],
+            buyer: r[1],
+            sales: r[2],
+            reason: r[4] || '—',
+            resp_time: r[5] || '-',
+            track_count: r[6] || '-',
+            summary: (r[11] || '').replace(/^"|"$/g, '')
+          }));
+        }
+
+        dashboardData.stores.benomi.weekly_quality.date_range = bDateRange;
+        dashboardData.stores.benomi.weekly_quality.total_checked = wkState.benomi.total;
+        dashboardData.stores.benomi.weekly_quality.passed = wkState.benomi.passed;
+        dashboardData.stores.benomi.weekly_quality.failed = wkState.benomi.failed;
+        dashboardData.stores.benomi.weekly_quality.pending = wkState.benomi.pending;
+        dashboardData.stores.benomi.weekly_quality.pass_rate = wkState.benomi.passRate;
+        dashboardData.stores.benomi.weekly_quality.sheet_name = wkState.benomi.sheetName;
+        dashboardData.stores.benomi.weekly_quality.sheet_url = wkState.benomi.sheetUrl;
+        dashboardData.stores.benomi.weekly_quality.failed_samples = bFailedSamples;
+
+        dashboardData.stores.nova.weekly_quality.date_range = bDateRange;
+        dashboardData.stores.nova.weekly_quality.total_checked = wkState.nova.total;
+        dashboardData.stores.nova.weekly_quality.passed = wkState.nova.passed;
+        dashboardData.stores.nova.weekly_quality.failed = wkState.nova.failed;
+        dashboardData.stores.nova.weekly_quality.pending = wkState.nova.pending;
+        dashboardData.stores.nova.weekly_quality.pass_rate = wkState.nova.passRate;
+        dashboardData.stores.nova.weekly_quality.sheet_name = wkState.nova.sheetName;
+        dashboardData.stores.nova.weekly_quality.sheet_url = wkState.nova.sheetUrl;
+        dashboardData.stores.nova.weekly_quality.failed_samples = nFailedSamples;
+
+        console.log(`[AutoAlign] 🚀 本地解耦引擎生效：直接从 ${wkStateFiles[0].name} 对齐周检成功！${bDateRange} ｜ 贝诺美: ${wkState.benomi.passed}/${wkState.benomi.total}, 诺瓦: ${wkState.nova.passed}/${wkState.nova.total}`);
+        weeklyFound = true;
+      }
+    } catch(e) {
+      console.warn('[AutoAlign] 解析本地 quality_state_wk 失败，兜底历史通知:', e.message);
+    }
+  }
+
+  // 若无本地周检状态文件，则兜底查找历史 notify*.json
+  if (!weeklyFound) {
+    for (const nf of notifyFiles) {
     try {
       let qwkContent = fs.readFileSync(nf.path, 'utf8');
       if (qwkContent.charCodeAt(0) === 0xFEFF) qwkContent = qwkContent.slice(1);
@@ -720,6 +937,7 @@ function alignQualityData(dashboardData) {
       console.warn('[AutoAlign] 解析周检通知跳过:', nf.name, e.message);
     }
   }
+  }
 
   return true;
 }
@@ -784,7 +1002,19 @@ function alignCronJobsData(dashboardData) {
   let today11QualitySheets = [];
   const qDeliverDir = path.join(QUALITY_DIR, 'deliver');
   if (fs.existsSync(qDeliverDir)) {
-    const notify11Today = fs.readdirSync(qDeliverDir).find(f => (f.startsWith('notify11') || f.startsWith('notify_11')) && f.endsWith('.json') && f.includes(todayMMDD));
+    const qState11 = path.join(qDeliverDir, 'quality_state_11.json');
+    if (fs.existsSync(qState11)) {
+      try {
+        const qs = JSON.parse(fs.readFileSync(qState11, 'utf8'));
+        if (qs.updatedAt && qs.updatedAt.startsWith(todayStr)) {
+          today11QualityCompleted = true;
+          today11QualityTime = qs.updatedAt;
+          if (qs.benomi && qs.benomi.sheetUrl) today11QualitySheets.push({ store: '贝诺美', name: qs.benomi.sheetName, url: qs.benomi.sheetUrl });
+          if (qs.nova && qs.nova.sheetUrl) today11QualitySheets.push({ store: '诺瓦', name: qs.nova.sheetName, url: qs.nova.sheetUrl });
+        }
+      } catch(e) {}
+    }
+    const notify11Today = !today11QualityCompleted ? fs.readdirSync(qDeliverDir).find(f => (f.startsWith('notify11') || f.startsWith('notify_11')) && f.endsWith('.json') && f.includes(todayMMDD)) : null;
     if (notify11Today) {
       try {
         const nd = JSON.parse(fs.readFileSync(path.join(qDeliverDir, notify11Today), 'utf8'));
@@ -838,7 +1068,19 @@ function alignCronJobsData(dashboardData) {
   let today16QualityTime = null;
   let today16QualitySheets = [];
   if (fs.existsSync(qDeliverDir)) {
-    const notify16Today = fs.readdirSync(qDeliverDir).find(f => (f.startsWith('notify16') || f.startsWith('notify_16')) && f.endsWith('.json') && f.includes(todayMMDD));
+    const qState16 = path.join(qDeliverDir, 'quality_state_16.json');
+    if (fs.existsSync(qState16)) {
+      try {
+        const qs = JSON.parse(fs.readFileSync(qState16, 'utf8'));
+        if (qs.updatedAt && qs.updatedAt.startsWith(todayStr)) {
+          today16QualityCompleted = true;
+          today16QualityTime = qs.updatedAt;
+          if (qs.benomi && qs.benomi.sheetUrl) today16QualitySheets.push({ store: '贝诺美', name: qs.benomi.sheetName, url: qs.benomi.sheetUrl });
+          if (qs.nova && qs.nova.sheetUrl) today16QualitySheets.push({ store: '诺瓦', name: qs.nova.sheetName, url: qs.nova.sheetUrl });
+        }
+      } catch(e) {}
+    }
+    const notify16Today = !today16QualityCompleted ? fs.readdirSync(qDeliverDir).find(f => (f.startsWith('notify16') || f.startsWith('notify_16')) && f.endsWith('.json') && f.includes(todayMMDD)) : null;
     if (notify16Today) {
       try {
         const nd = JSON.parse(fs.readFileSync(path.join(qDeliverDir, notify16Today), 'utf8'));
@@ -889,7 +1131,19 @@ function alignCronJobsData(dashboardData) {
   let todayWkTime = null;
   let todayWkSheets = [];
   if (fs.existsSync(qDeliverDir)) {
-    const notifyWkToday = fs.readdirSync(qDeliverDir).find(f => f.startsWith('notify_wk') && f.includes(todayMMDD));
+    const qStateWk = path.join(qDeliverDir, 'quality_state_wk.json');
+    if (fs.existsSync(qStateWk)) {
+      try {
+        const qs = JSON.parse(fs.readFileSync(qStateWk, 'utf8'));
+        if (qs.updatedAt && qs.updatedAt.startsWith(todayStr)) {
+          todayWkCompleted = true;
+          todayWkTime = qs.updatedAt;
+          if (qs.benomi && qs.benomi.sheetUrl) todayWkSheets.push({ store: '贝诺美', name: qs.benomi.sheetName, url: qs.benomi.sheetUrl });
+          if (qs.nova && qs.nova.sheetUrl) todayWkSheets.push({ store: '诺瓦', name: qs.nova.sheetName, url: qs.nova.sheetUrl });
+        }
+      } catch(e) {}
+    }
+    const notifyWkToday = !todayWkCompleted ? fs.readdirSync(qDeliverDir).find(f => f.startsWith('notify_wk') && f.includes(todayMMDD)) : null;
     if (notifyWkToday) {
       try {
         const nd = JSON.parse(fs.readFileSync(path.join(qDeliverDir, notifyWkToday), 'utf8'));
