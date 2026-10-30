@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/29 17:11:41",
+  "last_synced_at": "2026/10/30 09:04:34",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -481,19 +481,19 @@
       "schedule": "0 9 * * *",
       "type": "广告快照 (9时轮)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "已完成",
-      "last_run": "2026-10-29 09:01",
-      "next_run": "2026-10-30 09:00:00",
+      "status": "待运行",
+      "last_run": "2026-10-22 09:03:00",
+      "next_run": "2026-10-31 09:00:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美 · 直通车消耗与转化统计（2026-10-28）·9时",
-          "url": "https://alidocs.dingtalk.com/i/nodes/a9E05BDRVQbGeLzquZ4YwpNzJ63zgkYA"
+          "name": "贝诺美 · 直通车消耗与转化统计（2026-10-21）·9时",
+          "url": "https://alidocs.dingtalk.com/i/nodes/QG53mjyd80EKgjdeuz6rXr7mW6zbX04v"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦 · 直通车消耗与转化统计（2026-10-28）·9时",
-          "url": "https://alidocs.dingtalk.com/i/nodes/Gl6Pm2Db8DNaQmKnuy3rm7raVxLq0Ee4"
+          "name": "诺瓦 · 直通车消耗与转化统计（2026-10-21）·9时",
+          "url": "https://alidocs.dingtalk.com/i/nodes/dQPGYqjpJYDYR0bjs9NQrDlyVakx1Z5N"
         }
       ]
     },
@@ -503,8 +503,8 @@
       "schedule": "0 10 * * *",
       "type": "风险与履约 (上午轮)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "已完成",
-      "last_run": "2026-10-29 10:00:23",
+      "status": "待运行",
+      "last_run": "2026-10-22 10:00:23",
       "next_run": "2026-10-30 10:00:00",
       "sheets": []
     },
@@ -514,19 +514,19 @@
       "schedule": "0 11 * * *",
       "type": "询盘质检 (上午初检)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "已完成",
-      "last_run": "2026-10-29 11:16:09",
+      "status": "待运行",
+      "last_run": "2026-10-22 11:11:00",
       "next_run": "2026-10-30 11:00:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美询盘回复质量检查（10.28·11时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/gvNG4YZ7JnKOpM1wHov10zoj82LD0oRE"
+          "name": "贝诺美询盘回复质量检查（10.21·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/a9E05BDRVQbGeLzquZv9oK9eJ63zgkYA"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦询盘回复质量检查（10.28·11时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/amweZ92PV6EzOZd9uRPE5jK6WxEKBD6p"
+          "name": "诺瓦询盘回复质量检查（10.21·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsA4Okyrv8yMoPYe1"
         }
       ]
     },
@@ -536,19 +536,19 @@
       "schedule": "0 14 * * *",
       "type": "广告快照 (终态轮)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "已完成",
-      "last_run": "2026-10-29 14:02",
+      "status": "待运行",
+      "last_run": "2026-10-22 14:04:00",
       "next_run": "2026-10-30 14:00:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美 · 直通车消耗与转化统计（2026-10-28）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/qnYMoO1rWxX2mloBiRPQb9vQW47Z3je9"
+          "name": "贝诺美 · 直通车消耗与转化统计（2026-10-21）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/R1zknDm0WRYLzeZKSdQgnQEd8BQEx5rG"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦 · 直通车消耗与转化统计（2026-10-28）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/r1R7q3QmWem2lMoRFKwXGl4pWxkXOEP2"
+          "name": "诺瓦 · 直通车消耗与转化统计（2026-10-21）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/m9bN7RYPWdaEPgB7TRP3y90LVZd1wyK0"
         }
       ]
     },
@@ -558,8 +558,8 @@
       "schedule": "30 14 * * *",
       "type": "风险与履约 (下午轮)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "已完成",
-      "last_run": "2026-10-29 14:30:17",
+      "status": "待运行",
+      "last_run": "2026-10-22 14:30:17",
       "next_run": "2026-10-30 14:30:00",
       "delivery": "Accio 机器人 Webhook 推送至专属通知群（@李冰）",
       "sheets": []
@@ -570,8 +570,8 @@
       "schedule": "0 15 * * *",
       "type": "询盘分配与CRM",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "已完成",
-      "last_run": "2026-10-29 15:06:32",
+      "status": "待运行",
+      "last_run": "2026-10-22 15:00:00",
       "next_run": "2026-10-30 15:00:00",
       "sheets": [
         {
