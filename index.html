@@ -1144,8 +1144,8 @@
   <div id="view-cron" class="view-content">
     <div class="card">
       <div class="card-header">
-        <div class="card-title">⏱️ 8 大定时任务配置、状态与最新在线表格直通链接</div>
-        <span class="badge badge-ok">全部 8 项任务持续监控中</span>
+        <div class="card-title">⏱️ 9 大定时任务配置、状态与最新在线表格直通链接</div>
+        <span class="badge badge-ok">全部 9 项任务持续监控中</span>
       </div>
       <div class="table-container">
         <table>
@@ -1242,15 +1242,26 @@
                 </td>
               </tr>
             
-              <tr data-job-id="cron-1791524373299-9893ods0" data-last-run="2026-10-19 16:24:51">
-                <td><strong>询盘回复质检-周检(每周一16:30)</strong></td>
-                <td class="status-cell"><span class="alert-pill alert-pending">待运行</span></td>
-                <td style="font-size: 12px; color: var(--text-secondary); font-weight: 600;">2026-10-19 16:24:51</td>
+              <tr data-job-id="cron-1792569485324-y80m6yn2" data-last-run="2026-10-30 16:30:00">
+                <td><strong>贝诺美询盘统计-产品主图补录</strong></td>
+                <td class="status-cell"><span class="alert-pill alert-done">已完成</span></td>
+                <td style="font-size: 12px; color: var(--text-secondary); font-weight: 600;">2026-10-30 16:30:00</td>
                 <td>
                   
-                    <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/20eMKjyp81E4MNdLuZ6NRAZR8xAZB1Gv" target="_blank">📊 [贝诺美] 贝诺美询盘回复质量检查（10.11-10.17） ↗</a>
+                    <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz" target="_blank">📊 [贝诺美] 贝诺美询盘统计在线表格(含G列主图) ↗</a>
                   
-                    <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/Obva6QBXJwkOZloBu7Xj54ggJn4qY5Pr" target="_blank">📊 [诺瓦] 诺瓦询盘回复质量检查（10.11-10.17） ↗</a>
+                </td>
+              </tr>
+            
+              <tr data-job-id="cron-1791524373299-9893ods0" data-last-run="2026-10-26 16:46:48">
+                <td><strong>询盘回复质检-周检(每周一16:30)</strong></td>
+                <td class="status-cell"><span class="alert-pill alert-pending">待运行</span></td>
+                <td style="font-size: 12px; color: var(--text-secondary); font-weight: 600;">2026-10-26 16:46:48</td>
+                <td>
+                  
+                    <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/R1zknDm0WRYLzeZKSdl6padl8BQEx5rG" target="_blank">📊 [贝诺美] 贝诺美询盘回复质量检查（10.18-10.24） ↗</a>
+                  
+                    <a class="sheet-link-chip" href="https://alidocs.dingtalk.com/i/nodes/QG53mjyd80EKgjdeuzRMNLrdW6zbX04v" target="_blank">📊 [诺瓦] 诺瓦询盘回复质量检查（10.18-10.24） ↗</a>
                   
                 </td>
               </tr>
@@ -1273,7 +1284,7 @@
   }
 
   // ================= 每到半点主动获取与自动更新脚本 (与主动推送双轨并行) =================
-  let currentSyncedAt = "2026/10/30 16:58:35";
+  let currentSyncedAt = "2026/10/30 17:00:23";
 
   // 计算距离下一个半点（XX:00 或 XX:30，留 10 秒缓冲以便后端任务完成生成）
   function getNextHalfHourMs() {

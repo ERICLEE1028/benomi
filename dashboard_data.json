@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/10/30 16:58:35",
+  "last_synced_at": "2026/10/30 17:00:23",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -631,24 +631,41 @@
       ]
     },
     {
+      "id": "cron-1792569485324-y80m6yn2",
+      "name": "贝诺美询盘统计-产品主图补录",
+      "schedule": "30 16 * * 1-5",
+      "type": "产品主图补录 (工作日 16:30)",
+      "target": "贝诺美 (benomibeauty)",
+      "status": "已完成",
+      "last_run": "2026-10-30 16:30:00",
+      "next_run": "2026-10-31 16:30:00",
+      "sheets": [
+        {
+          "store": "贝诺美",
+          "name": "贝诺美询盘统计在线表格(含G列主图)",
+          "url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
+        }
+      ]
+    },
+    {
       "id": "cron-1791524373299-9893ods0",
       "name": "询盘回复质检-周检(每周一16:30)",
       "schedule": "30 16 * * 1",
       "type": "专项周检 (上周7天全量)",
       "target": "双店 (贝诺美 + 诺瓦)",
       "status": "待运行",
-      "last_run": "2026-10-19 16:24:51",
+      "last_run": "2026-10-26 16:46:48",
       "next_run": "2026-11-02 16:30:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美询盘回复质量检查（10.11-10.17）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/20eMKjyp81E4MNdLuZ6NRAZR8xAZB1Gv"
+          "name": "贝诺美询盘回复质量检查（10.18-10.24）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/R1zknDm0WRYLzeZKSdl6padl8BQEx5rG"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦询盘回复质量检查（10.11-10.17）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/Obva6QBXJwkOZloBu7Xj54ggJn4qY5Pr"
+          "name": "诺瓦询盘回复质量检查（10.18-10.24）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/QG53mjyd80EKgjdeuzRMNLrdW6zbX04v"
         }
       ]
     }
