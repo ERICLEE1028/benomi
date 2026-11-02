@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/2 08:50:21",
+  "last_synced_at": "2026/11/2 08:51:45",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -54,8 +54,8 @@
         "balance_at": 1793412904575.8645
       },
       "inquiry_sync": {
-        "latest_round": "2026-10-30 15:00 轮",
-        "incremental_count": 7,
+        "latest_round": "2026-11-02 08:45 轮",
+        "incremental_count": 6,
         "latest_assign_time": "2026-11-02 01:07:57",
         "sheet_name": "贝诺美询盘分配与客户沉淀总表",
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
@@ -339,8 +339,8 @@
         "balance_at": 1793412904575.8645
       },
       "inquiry_sync": {
-        "latest_round": "2026-10-30 15:00 轮",
-        "incremental_count": 2,
+        "latest_round": "2026-11-02 08:45 轮",
+        "incremental_count": 4,
         "latest_assign_time": "2026-11-02 7:28:30",
         "sheet_name": "诺瓦询盘分配与客户沉淀总表",
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
