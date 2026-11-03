@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/3 11:14:05",
+  "last_synced_at": "2026/11/3 11:15:27",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -61,17 +61,17 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
       },
       "daily_quality": {
-        "latest_round": "2026-11-01（11:00 轮）",
-        "target_date": "2026-11-01",
-        "total_checked": 4,
+        "latest_round": "2026-11-02（11:00 轮）",
+        "target_date": "2026-11-02",
+        "total_checked": 5,
         "passed": 4,
-        "failed": 0,
+        "failed": 1,
         "pending": 0,
-        "pass_rate": 100,
+        "pass_rate": 80,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
-        "sheet_name": "贝诺美询盘回复质量检查（11.01·11时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/14lgGw3P8vNPwloBun13PZnp85daZ90D",
+        "sheet_name": "贝诺美询盘回复质量检查（11.02·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/mExel2BLV5ePgXdvH7rGDOaDVgk9rpMq",
         "records": [
           {
             "inquiry_time": "2026-10-14 03:56:12",
@@ -100,44 +100,54 @@
         ],
         "samples": [
           {
-            "inquiry_time": "2026-11-01 04:45:33",
-            "buyer": "fatima melahadid",
+            "inquiry_time": "2026-11-02 01:07:57",
+            "buyer": "Glenn AgerWick",
+            "sales": "Daniel Wang",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "3 小时 5 分钟",
+            "track_count": "5",
+            "summary": "买家 Glenn AgerWick（挪威）咨询人体成分分析仪（Body Composition Analyzer，InBody 同类机型）能否输出相位角（Phase Angle）数值，说明自己在 Arendal 经营一家诊所、只要 1 台，并询问是否有其他带相位角功能的体成分仪，提到此前用过英国 Bodystat 的相位角测试仪。业务员先回复「稍后确认」，随后发送机器多角度实拍图与检测报告 PDF，确认该机型没有相位角功能，并推荐带相位角的高端机型（价格 5 万美元以上）。 已读：买家未读卖家最后一条消息（2026-11-02 09:44:08）｜readStatus 字段缺失，以气泡回执为据"
+          },
+          {
+            "inquiry_time": "2026-11-02 12:53:15",
+            "buyer": "Paul Eduardo",
+            "sales": "Jay Li",
+            "verdict": "不合格",
+            "reason": "S1 首响超时（1 小时 9 分钟，阈值<1h）",
+            "resp_time": "1 小时 9 分钟",
+            "track_count": "3",
+            "summary": "买家 Paul Eduardo（墨西哥）发来 Tesla Sculpt 肌肉塑形 / Neo RF EMS 塑身仪产品卡（US$600-1,469，MOQ 1 台）询价。业务员 Jay Li 先说明正在去办公室、稍后详谈，随后给出台式 EMSculpt 报价：含 2 个手柄（无 RF 功能）、整机 1 年保修、可免费定制语言与 LOGO，DDP 总价 2,160 美元（机器 1,480 + 空运含清关缴税 680），生产测试 3–5 天、门到门约 12–18 天，并追问用于沙龙还是分销、预算区间。 已读：买家已读卖家最后一条消息（2026-11-02 15:55:07）｜readStatus 字段缺失，以气泡回执为据"
+          },
+          {
+            "inquiry_time": "2026-11-02 13:00:45",
+            "buyer": "claudia ramirez",
+            "sales": "Yuli Guo",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "27 分钟",
+            "track_count": "3",
+            "summary": "买家 claudia ramirez（墨西哥）用西班牙语索取产品资料与价格。业务员 Yuli 先以公司 18 年美容设备生产经验自我介绍，次日在会话中发送便携式半导体激光脱毛仪资料与多张实拍图：3kg 机身、150W/40J、755/808/1064nm 三波长、美国 Coherent 激光条（8000 万发）、4.3 英寸触屏、半导体+风冷六档可调制冷、蓝宝石冰点手柄、EXP/PRO 双模式；最后报价 589 美元并索要详细地址或邮编以核算运费。 已读：买家未读卖家最后一条消息（2026-11-03 09:54:58）｜readStatus 字段缺失，以气泡回执为据"
+          },
+          {
+            "inquiry_time": "2026-11-02 13:25:48",
+            "buyer": "NantinoCarlitos Biriate",
             "sales": "Harper Mu",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "4 小时 28 分钟",
-            "track_count": "4",
-            "summary": "买家 fatima melahadid（德国）用阿拉伯语询问 808/755/940/1064nm 半导体激光脱毛仪 1 台的价格。业务员 Harper 以阿语自我介绍并发送机器实拍图，说明采用美国 Coherent 激光条（寿命 2 亿发以上）、TEC+蓝宝石+风冷+水冷六档可调制冷、15.6 英寸彩色触屏与多种光斑尺寸，全程未给出报价。已读：买家未读卖家最后一条消息（2026-11-02 09:31:03）"
-          },
-          {
-            "inquiry_time": "2026-11-01 18:58:51",
-            "buyer": "Anya Kolot",
-            "sales": "Jay Li",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "1 分钟",
-            "track_count": "2",
-            "summary": "买家 Anya Kolot（乌克兰）询问半导体激光脱毛仪价格及寄往乌克兰的运费，并希望推荐便宜但质量好、带氟利昂（压缩机制冷）的机型。业务员 Jay Li 先回复正在去办公室、稍后详谈，随后发送一段机器视频与一张产品图，确认有压缩机制冷机型，并承诺次日在办公室发送规格与最优价格。已读：买家未读卖家最后一条消息（2026-11-01 19:17:14）"
-          },
-          {
-            "inquiry_time": "2026-11-01 19:33:13",
-            "buyer": "Valentina Jallasi",
-            "sales": "Miya Zhang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "29 分钟",
+            "resp_time": "5 分钟",
             "track_count": "3",
-            "summary": "买家 Valentina Jallasi（玻利维亚）用西班牙语询问射频/空化仪器用的身体与面部导电凝胶（要求品质好），并索取产品目录。业务员 Miya 当晚回复已下班、次日在办公室发送详细资料与目录，次日上午发送多张产品图并逐条说明射频霜与导电凝胶的功效与优势（导热性强、不刺激皮肤、不伤探头、可 OEM/ODM），最后说明这些是公司热销产品。已读：买家未读卖家最后一条消息（2026-11-02 08:32:50）"
+            "summary": "买家 NantinoCarlitos Biriate（莫桑比克）发来 808/755/940/1064nm 半导体激光脱毛机产品卡（US$800-1,200，MOQ 1 台）询价。业务员 Harper 介绍公司 18 年美容设备生产经验，发送当前最热销的冰点无痛永久脱毛机实拍图，并说明采用美国 Coherent 激光条（寿命 2 亿发以上、能量更强输出更均匀）与 TEC 制冷片+蓝宝石+风冷+水冷超强制冷系统（水温 24 度主动制冷、六档可调、夏季可连续工作 24 小时以上），未给出报价。 已读：买家未读卖家最后一条消息（2026-11-03 09:27:39）｜readStatus 字段缺失，以气泡回执为据"
           },
           {
-            "inquiry_time": "2026-11-01 22:17:13",
-            "buyer": "Anamarija Loncar",
-            "sales": "Miya Zhang",
+            "inquiry_time": "2026-11-02 13:58:03",
+            "buyer": "Samuel Powell",
+            "sales": "Celin Wang",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "1 分钟",
-            "track_count": "5",
-            "summary": "买家 Anamarija Loncar（克罗地亚）询问白色激光脱毛仪（欧标插头）的规格、腿部所需疗程次数，以及含运至克罗地亚的总价。业务员 Miya 发送 Soprano Titanium 半导体机型资料（1000/1200/1600W 手柄、三色、美国 Coherent 激光条、四波长 755/808/1064/940nm、TEC+蓝宝石+风冷+水冷、15.6 英寸安卓屏、可免费加 LOGO），说明 3–6 次可永久脱毛、间隔 21–28 天，随后给出 D1 单手柄三波长 1000W 报价：机器 3790 美元 + DDP 空运 840 美元 = 4630 美元到克罗地亚，生产测试 3–5 天、门到门约 15 天且由卖家负责清关缴税，并补发腿部参数图。已读：买家未读卖家最后一条消息（2026-11-02 11:00:37）"
+            "resp_time": "5 分钟",
+            "track_count": "2",
+            "summary": "买家 Samuel Powell（阿根廷）询问公司从业年限，表示想先下 1–2 台小单测试市场并问价格，产品卡为 808/755/940/1064nm 半导体激光脱毛机（US$800-1,200）。业务员 Celin 介绍 Soprano Titanium D1，逐条发送卖点（美国 Coherent 激光条、TEC+蓝宝石+风冷+水冷、意大利水泵、一体成型不锈钢水箱、双过滤系统、350g 安卓触屏手柄、四波长 755/808/1064/940nm）及多张实拍图，随后给出 2 台试单报价：机器 4,590 美元（不含运费），并索要收货地址。 已读：买家未读卖家最后一条消息（2026-11-02 14:19:00）｜readStatus 字段缺失，以气泡回执为据"
           }
         ]
       },
@@ -263,39 +273,29 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
       },
       "daily_quality": {
-        "latest_round": "2026-11-01（11:00 轮）",
-        "target_date": "2026-11-01",
-        "total_checked": 2,
+        "latest_round": "2026-11-02（11:00 轮）",
+        "target_date": "2026-11-02",
+        "total_checked": 1,
         "passed": 1,
-        "failed": 1,
+        "failed": 0,
         "pending": 0,
-        "pass_rate": 50,
+        "pass_rate": 100,
         "gate_pass_rate": 100,
         "night_relax_hits": 0,
         "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
-        "sheet_name": "诺瓦询盘回复质量检查（11.01·11时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZX6GRezwJl3LYDoOUjPEbGdmVdqbropQ",
+        "sheet_name": "诺瓦询盘回复质量检查（11.02·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/G1DKw2zgV2EkvXLeudOaDEKXWB5r9YAn",
         "records": [],
         "samples": [
           {
-            "inquiry_time": "2026-11-01 18:57:32",
-            "buyer": "John Tobin",
-            "sales": "IVA ZHANG",
+            "inquiry_time": "2026-11-02 07:28:30",
+            "buyer": "Emmanuel AchuonjockPlaylist",
+            "sales": "Mark Zhang",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "5 分钟",
-            "track_count": "2",
-            "summary": "买家 John Tobin（爱尔兰）计划采购 2–5 台发电机组，询问是否有欧盟仓库存货及仓库所在国、可提供机型与数量、发货时效、价格、质保、欧盟合规文件与定制选项。自动接待先确认用途，买家说明公司从事发电机组租赁、销售与维修、常用功率段 10–150kW；业务员人工回复说明欧洲无仓库、全部由中国工厂直发，请其提供收货地址并确认能否接受中国发货，次日上午补发 4 张工厂/产品实拍与 20 年工厂、工程师团队与检验流程介绍。已读：买家未读卖家最后一条消息（2026-11-02 09:34:18）"
-          },
-          {
-            "inquiry_time": "2026-11-01 22:44:57",
-            "buyer": "Akeisha Mohammed",
-            "sales": "IVA ZHANG",
-            "verdict": "不合格",
-            "reason": "S3 图文并茂不足（前 3 次追踪无图文同批）",
-            "resp_time": "9 小时 15 分钟",
-            "track_count": "2",
-            "summary": "买家 Akeisha Mohammed（特立尼达和多巴哥）就静音柴油发电机组（20–1000kW 系列）询价 1 台，未说明所需功率与使用场景。自动接待先追问功率与用途未获回复，人工先发送「Hello」，随后发送公司与 20 年发电机组成套经验介绍，并询问是否需要 ATS、有无指定机组品牌、当地电压与频率标准，承诺收到回复后提供详细报价与规格。已读：买家未读卖家最后一条消息（2026-11-02 09:32:37）"
+            "resp_time": "53 分钟",
+            "track_count": "3",
+            "summary": "买家 Emmanuel AchuonjockPlaylist（比利时）通过产品卡询问 15kVA–3000kVA、50/60Hz 三相静音柴油发电机组，数量 1 台，未说明所需功率。业务员 Mark 介绍 7,000㎡ 工厂、可配 Perkins/Weichai/Yuchai 等品牌发动机、提供 OEM/ODM 与售后，并询问所需 kVA、工作电压与目标国家；随后发送 3 张机组实拍图，说明产品通过 ISO9001/CE/RoHS/FDA 等认证，再次追问功率段与用途（常用/备用）；当天下午再次跟进，请买家提供功率范围、电压与频率、单相/三相及应用场景。 已读：买家未读卖家最后一条消息（2026-11-02 15:24:33）｜readStatus 字段缺失，以气泡回执为据"
           }
         ]
       },
@@ -428,19 +428,19 @@
       "schedule": "0 11 * * *",
       "type": "询盘质检 (上午初检)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-10-22 11:11:00",
+      "status": "已完成",
+      "last_run": "2026-11-03 11:15:10",
       "next_run": "2026-11-04 11:00:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美询盘回复质量检查（10.21·11时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/a9E05BDRVQbGeLzquZv9oK9eJ63zgkYA"
+          "name": "贝诺美询盘回复质量检查（11.02·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/mExel2BLV5ePgXdvH7rGDOaDVgk9rpMq"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦询盘回复质量检查（10.21·11时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsA4Okyrv8yMoPYe1"
+          "name": "诺瓦询盘回复质量检查（11.02·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/G1DKw2zgV2EkvXLeudOaDEKXWB5r9YAn"
         }
       ]
     },
@@ -506,9 +506,9 @@
       "schedule": "0 16 * * *",
       "type": "询盘质检 (前一天全量重检)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-10-22 16:41:00",
-      "next_run": "2026-11-03 16:00:00",
+      "status": "已完成",
+      "last_run": "2026-11-03 11:15:09",
+      "next_run": "2026-11-04 16:00:00",
       "sheets": [
         {
           "store": "贝诺美",
