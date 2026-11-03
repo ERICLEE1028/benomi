@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/3 16:27:55",
+  "last_synced_at": "2026/11/3 16:30:24",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -54,8 +54,8 @@
         "balance_at": 1793688055383.0688
       },
       "inquiry_sync": {
-        "latest_round": "2026-11-02 15:00 轮",
-        "incremental_count": 4,
+        "latest_round": "2026-11-03 16:27 轮",
+        "incremental_count": 8,
         "latest_assign_time": "2026-11-02 01:07:57",
         "sheet_name": "贝诺美询盘分配与客户沉淀总表",
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
@@ -127,7 +127,7 @@
             "reason": "—",
             "resp_time": "27 分钟",
             "track_count": "3",
-            "summary": "买家 claudia ramirez（墨西哥）用西班牙语索取产品资料与价格。业务员 Yuli 先以公司 18 年美容设备生产经验自我介绍，次日在会话中发送便携式半导体激光脱毛仪资料与多张实拍图：3kg 机身、150W/40J、755/808/1064nm 三波长、美国 Coherent 激光条（8000 万发）、4.3 英寸触屏、半导体+风冷六档可调制冷、蓝宝石冰点手柄、EXP/PRO 双模式；最后报价 589 美元并索要详细地址或邮编以核算运费。 已读：买家未读卖家最后一条消息（2026-11-03 09:54:58）｜readStatus 字段缺失，以气泡回执为据"
+            "summary": "买家 claudia ramirez（墨西哥）用西班牙语索取产品资料与价格。业务员 Yuli 先以公司 18 年美容设备生产经验自我介绍，随后在同日发送便携式半导体激光脱毛仪资料与多张实拍图：3kg 机身、150W/40J、755/808/1064nm 三波长、美国 Coherent 激光条（8000 万发）、4.3 英寸触屏、半导体+风冷六档可调制冷、蓝宝石冰点手柄、EXP/PRO 双模式；次日上午报价 589 美元并索要详细地址或邮编以核算运费。 已读：买家未读卖家最后一条消息（2026-11-03 09:54:58）｜readStatus 字段缺失，以气泡回执为据"
           },
           {
             "inquiry_time": "2026-11-02 13:25:48",
@@ -317,8 +317,8 @@
         "balance_at": 1793688055383.0688
       },
       "inquiry_sync": {
-        "latest_round": "2026-11-02 15:00 轮",
-        "incremental_count": 0,
+        "latest_round": "2026-11-03 16:27 轮",
+        "incremental_count": 3,
         "latest_assign_time": "2026-11-02 7:28:30",
         "sheet_name": "诺瓦询盘分配与客户沉淀总表",
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
@@ -599,9 +599,9 @@
       "schedule": "30 16 * * 1-5",
       "type": "产品主图补录 (工作日 16:30)",
       "target": "贝诺美 (benomibeauty)",
-      "status": "待运行",
-      "last_run": "2026-10-30 16:30:00",
-      "next_run": "2026-11-03 16:30:00",
+      "status": "已完成",
+      "last_run": "2026-11-03 16:30:00",
+      "next_run": "2026-11-04 16:30:00",
       "sheets": [
         {
           "store": "贝诺美",
