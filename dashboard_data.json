@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/6 09:09:50",
+  "last_synced_at": "2026/11/6 10:12:41",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -37,10 +37,10 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/R1zknDm0WRYLzeZKSdEa4p5m8BQEx5rG"
       },
       "risk": {
-        "latest_round": "14:30 轮",
+        "latest_round": "10:00 轮",
         "violations": 0,
         "order_alerts": 0,
-        "balance": 9906.84,
+        "balance": 9885.07,
         "balance_threshold": 1000,
         "rfq_quota": 10,
         "rfq_expire": "2026-11-14",
@@ -50,8 +50,8 @@
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "广告消耗快照 (09:00轮)",
-        "balance_at": 1793926920000
+        "balance_source": "风险监控 (10:00 轮)",
+        "balance_at": 1793931138705.2498
       },
       "inquiry_sync": {
         "latest_round": "2026-11-05 16:33 轮",
@@ -336,15 +336,10 @@
         "aftersales": 0,
         "breakdown_text": "纠纷 1 ｜ 拒付 0 ｜ 售后 0",
         "terminal_text": "完结 50 / 撤销 16 ｜ 银行已判责 7 ｜ 预警完结 2",
-        "items": [
-          {
-            "tab": "纠纷退款管理",
-            "text": "Body Analyzer MNLT-S9 High-specmodel Quad-band 10-inchscreen Foldabledesign.\nUS $1249.00 x 1 | 申请退款金额\nUSD 1,619.00 | 待买家举证 | 查看详情"
-          }
-        ],
-        "captured_at": "2026-11-05T06:39:49.597Z",
-        "round": "14:30 轮",
-        "at": 1793860789599.9746
+        "items": [],
+        "captured_at": "2026-11-06T02:10:40.549Z",
+        "round": "10:00 轮",
+        "at": 1793931040551.244
       },
       "review": {
         "available": true,
@@ -365,12 +360,12 @@
           }
         ],
         "window_days": 30,
-        "window_start": "2026-10-06 14:39",
+        "window_start": "2026-10-07 10:10",
         "in_window_count": 1,
         "latest_time": "2026-10-29 01:47",
-        "captured_at": "2026-11-05T06:39:59.856Z",
-        "round": "14:30 轮",
-        "at": 1793860799857.328
+        "captured_at": "2026-11-06T02:10:46.930Z",
+        "round": "10:00 轮",
+        "at": 1793931046930.6072
       }
     },
     "nova": {
@@ -395,21 +390,21 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/gvNG4YZ7JnKOpM1wHo715mEZ82LD0oRE"
       },
       "risk": {
-        "latest_round": "14:30 轮",
+        "latest_round": "10:00 轮",
         "violations": 0,
         "order_alerts": 0,
         "balance": 6088.45,
         "balance_threshold": 1000,
-        "rfq_quota": 37,
+        "rfq_quota": 36,
         "rfq_expire": "2026-11-14",
-        "rfq_used_detail": "本月已用 6 条（按业务员：Mark Zhang 4 条、IVA ZHANG 2 条）",
+        "rfq_used_detail": "本月已用 7 条（按业务员：Mark Zhang 4 条、IVA ZHANG 3 条）",
         "status": "normal",
         "rfq_warning": "权益充裕",
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "广告消耗快照 (09:00轮)",
-        "balance_at": 1793926980000
+        "balance_source": "风险监控 (10:00 轮)",
+        "balance_at": 1793931138705.2498
       },
       "inquiry_sync": {
         "latest_round": "2026-11-05 16:33 轮",
@@ -530,9 +525,9 @@
         "breakdown_text": "纠纷 0 ｜ 拒付 0 ｜ 售后 0",
         "terminal_text": "完结 3 / 撤销 1 ｜ 银行已判责 0 ｜ 预警完结 0",
         "items": [],
-        "captured_at": "2026-11-05T06:39:49.858Z",
-        "round": "14:30 轮",
-        "at": 1793860789860.5105
+        "captured_at": "2026-11-06T02:10:40.775Z",
+        "round": "10:00 轮",
+        "at": 1793931040777.903
       },
       "review": {
         "available": true,
@@ -542,12 +537,12 @@
         "items": [],
         "window_items": [],
         "window_days": 30,
-        "window_start": "2026-10-06 14:39",
+        "window_start": "2026-10-07 10:10",
         "in_window_count": 0,
         "latest_time": "2026-08-05 07:51",
-        "captured_at": "2026-11-05T06:39:50.268Z",
-        "round": "14:30 轮",
-        "at": 1793860790268.6155
+        "captured_at": "2026-11-06T02:10:47.166Z",
+        "round": "10:00 轮",
+        "at": 1793931047166.3643
       }
     }
   },
@@ -593,9 +588,9 @@
       "schedule": "0 10 * * *",
       "type": "风险与履约 (上午轮)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-10-22 10:00:23",
-      "next_run": "2026-11-06 10:00:00",
+      "status": "已完成",
+      "last_run": "2026-11-06 10:00:23",
+      "next_run": "2026-11-07 10:00:00",
       "sheets": []
     },
     {
