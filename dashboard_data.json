@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/6 16:08:07",
+  "last_synced_at": "2026/11/6 16:09:02",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -61,17 +61,17 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
       },
       "daily_quality": {
-        "latest_round": "2026-11-04（16:00 轮）",
-        "target_date": "2026-11-04",
-        "total_checked": 19,
-        "passed": 18,
-        "failed": 1,
+        "latest_round": "2026-11-05（16:00 轮）",
+        "target_date": "2026-11-05",
+        "total_checked": 4,
+        "passed": 2,
+        "failed": 2,
         "pending": 0,
-        "pass_rate": 94.74,
+        "pass_rate": 50,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
-        "sheet_name": "贝诺美询盘回复质量检查（11.04·16时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/QG53mjyd80EKgjdeuzLyMROZW6zbX04v",
+        "sheet_name": "贝诺美询盘回复质量检查（11.05·16时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/Gl6Pm2Db8DNaQmKnuy2lxQO2VxLq0Ee4",
         "records": [
           {
             "inquiry_time": "2026-10-14 03:56:12",
@@ -100,194 +100,44 @@
         ],
         "samples": [
           {
-            "inquiry_time": "2026-11-04 00:26:42",
-            "buyer": "Valeria Perez",
-            "sales": "Jay Li",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "8 小时 2 分钟",
-            "track_count": "3",
-            "summary": "西班牙买家通过产品卡询价专业美容设备，说明拟进口到委内瑞拉，需要面部与身体多功能仪器（Hydrafacial、HIFU、射频、空化、气压理疗、半导体激光脱毛等）；业务员先告知稍后回复，随后发送产品手册 PDF 与公司介绍，请买家在手册中圈选机型以便直接报价。 已读：买家未读卖家最后一条消息（2026-11-04 20:22:22）（依据：气泡回执，接口 readStatus 缺失）"
-          },
-          {
-            "inquiry_time": "2026-11-04 03:56:35",
-            "buyer": "Angee Oliveros",
-            "sales": "Miya Zhang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "2 小时 33 分钟",
-            "track_count": "5",
-            "summary": "哥伦比亚买家找能脱毛、洗纹身兼做皮肤治疗的激光，说明个人使用、刚起步、预算不超过 1000；业务员介绍 808 四波长脱毛加 ND YAG 二合一机型并发送参数与实拍图，次日买家问价，业务员报 DDP 哥伦比亚总价 2040 美元（机器 1150 + 海运 890）。 已读：买家未读卖家最后一条消息（2026-11-05 09:26:01）（依据：气泡回执，接口 readStatus 缺失）"
-          },
-          {
-            "inquiry_time": "2026-11-04 05:28:56",
-            "buyer": "Steven Segovia",
+            "inquiry_time": "2026/11/5 0:50:39",
+            "buyer": "Jomar Pacaldo",
             "sales": "Daniel Wang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "2 小时 36 分钟",
-            "track_count": "4",
-            "summary": "厄瓜多尔买家通过产品卡询价 EMS Neo RF 双手柄增肌塑形仪（590–1160 美元），说明个人使用、需 110V 美标插头；业务员致歉时差后发送多张实拍图、机身结构、随机配件与两种操作方式，并发送实机视频，买家未再回复。 已读：买家未读卖家最后一条消息（2026-11-04 09:33:04）（依据：气泡回执，接口 readStatus 缺失）"
-          },
-          {
-            "inquiry_time": "2026-11-04 07:43:20",
-            "buyer": "Serafin Leon",
-            "sales": "Daniel Wang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "21 分钟",
-            "track_count": "4",
-            "summary": "玻利维亚买家询问 808nm 二极管激光脱毛仪的定制选项；业务员说明机身与屏幕 logo 可定制、手柄功率 1000–2000W 可选（按激光条数区分）、三色可选且颜色不影响价格，并结合机器总功率给出选型说明，买家未再回复。 已读：买家未读卖家最后一条消息（2026-11-04 09:31:14）（依据：气泡回执，接口 readStatus 缺失）"
-          },
-          {
-            "inquiry_time": "2026-11-04 09:28:51",
-            "buyer": "narjiss gouribouassab",
-            "sales": "Yuli Guo",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "1 分钟",
-            "track_count": "4",
-            "summary": "比利时买家通过产品卡询价 808/755/940/1064nm 二极管激光脱毛仪，询问价格与到比利时运费，数量 1 台、220V、预算 2100；业务员介绍四波长、Coherent 激光器与 TEC＋蓝宝石制冷，报 1600W 手柄配置 2295 欧＋运费 680 欧＝2975 欧（空运 15–20 天含清关关税），并追问是否美容院使用。 已读：买家未读卖家最后一条消息（2026-11-05 09:53:50）（依据：气泡回执，接口 readStatus 缺失）"
-          },
-          {
-            "inquiry_time": "2026-11-04 10:09:12",
-            "buyer": "Rick LM",
-            "sales": "Celin Wang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "3 分钟",
-            "track_count": "7",
-            "summary": "玻利维亚科恰班巴买家连发两条产品卡询价，分别为 1470nm 面部提升/溶脂仪与 980+1470nm 激光溶脂仪，各 1 套；业务员确认数量后发送产品介绍、实拍图、治疗原理与双波长作用说明，并追问是否用过该设备。 已读：买家已读卖家最后一条消息（2026-11-04 13:56:28）（依据：气泡回执，接口 readStatus 缺失）"
-          },
-          {
-            "inquiry_time": "2026-11-04 11:35:31",
-            "buyer": "Maria Maria",
-            "sales": "Jay Li",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "1 分钟",
-            "track_count": "3",
-            "summary": "墨西哥买家通过产品卡询价台式二极管激光脱毛仪（755/808/1064nm，1 套），询问运费；业务员索要邮编（买家回 77960）后，报 DDP 总价（机器 690 美元加空运含清关关税等费用），并说明 1 年质保、免费语言与 logo 定制。 已读：买家未读卖家最后一条消息（2026-11-04 20:31:43）（依据：气泡回执，接口 readStatus 缺失）"
-          },
-          {
-            "inquiry_time": "2026-11-04 12:15:20",
-            "buyer": "Cristobal hidalgo NA",
-            "sales": "Miya Zhang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "1 分钟",
-            "track_count": "3",
-            "summary": "智利买家通过产品卡询价专业人体成分分析仪（生物阻抗，799–1099 美元），仅回「1?」。业务员自我介绍后连续发送 8 点触觉电极、10.1 英寸触屏、25 项体成分数据、折叠便携等图文介绍，买家未再回复。 已读：买家未读卖家最后一条消息（2026-11-05 14:41:16）（依据：气泡回执，接口 readStatus 缺失）"
-          },
-          {
-            "inquiry_time": "2026-11-04 12:44:05",
-            "buyer": "Melany Bunag",
-            "sales": "Daniel Wang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "41 分钟",
-            "track_count": "4",
-            "summary": "美国买家（邮编 92139）通过产品卡询价便携 755/808/1064nm 二极管激光脱毛仪，问寄到美国的费用。业务员说明将由物流核算运费，期间介绍 3 分钟结霜制冷、40 J/cm² 能量、双风道散热、3kg 便携等卖点并追问使用场景。 已读：买家未读卖家最后一条消息（2026-11-04 14:10:49）（依据：气泡回执，接口 readStatus 缺失）"
-          },
-          {
-            "inquiry_time": "2026-11-04 15:35:43",
-            "buyer": "Albertoguillermo Basurtomobarak",
-            "sales": "Yuli Guo",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "1 分钟",
-            "track_count": "2",
-            "summary": "墨西哥买家通过产品卡询价 980nm 血管去除/灰指甲治疗激光（1 套），问最优价格。业务员次日发送 980+1470nm 激光溶脂的治疗原理与实拍图，报单功能机型 2190 美元（不含运费）并询问是否需要核算运费。 已读：买家未读卖家最后一条消息（2026-11-05 09:56:20）（依据：气泡回执，接口 readStatus 缺失）"
-          },
-          {
-            "inquiry_time": "2026-11-04 16:25:00",
-            "buyer": "Sapir Nafshi",
-            "sales": "Celin Wang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "1 分钟",
-            "track_count": "6",
-            "summary": "以色列买家通过产品卡询价 808/755/940/1064nm 二极管激光脱毛仪，说明是以色列进口商、无预算上限，希望评估成为官方经销商，并追问是否有含灰指甲治疗手柄的激光。业务员介绍六功能（血管、灰指甲、理疗、嫩肤、湿疹疱疹、溶脂）机型并发送图文参数。 已读：买家未读卖家最后一条消息（2026-11-04 21:40:58）（依据：气泡回执，接口 readStatus 缺失）"
-          },
-          {
-            "inquiry_time": "2026-11-04 16:52:25",
-            "buyer": "Bonita Alpha",
-            "sales": "Jay Li",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "39 分钟",
-            "track_count": "3",
-            "summary": "美国买家通过产品卡询价便携 755/808/1064nm 二极管激光脱毛仪并打招呼；业务员告知稍后联系，当晚报 DDP 总价（机器 690 美元加空运等费用），并询问预算以便推荐合适机型。 已读：买家未读卖家最后一条消息（2026-11-04 21:19:20）（依据：气泡回执，接口 readStatus 缺失）"
-          },
-          {
-            "inquiry_time": "2026-11-04 17:07:33",
-            "buyer": "ocprptka pytg",
-            "sales": "Miya Zhang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "3 分钟",
-            "track_count": "1",
-            "summary": "莫桑比克买家询问发到美国的交期，并发产品卡（草本足浴包）与自备产品清单 Excel 要求报价。业务员回复下单后 3–5 天生产、交期约 12 天，并介绍足浴包的中草药成分。 已读：买家已读卖家最后一条消息（2026-11-04 17:13:23）（依据：气泡回执，接口 readStatus 缺失）"
-          },
-          {
-            "inquiry_time": "2026-11-04 17:30:27",
-            "buyer": "Chao MedicinaEsteticayNeotecnocirugia",
-            "sales": "Miya Zhang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "1 分钟",
-            "track_count": "4",
-            "summary": "西班牙买家通过产品卡询价 EMS Neo RF 双手柄增肌塑形仪（590–1160 美元），并提供萨拉戈萨收货地址要求运费报价。业务员确认稍后报价，次日发送 HIFEM＋RF 双技术原理、双通道独立输出、参数可调与 7 英寸触屏等图文介绍。 已读：买家未读卖家最后一条消息（2026-11-05 14:40:00）（依据：气泡回执，接口 readStatus 缺失）"
-          },
-          {
-            "inquiry_time": "2026-11-04 17:45:37",
-            "buyer": "Jurate Roniene",
-            "sales": "未建档",
             "verdict": "不合格",
             "reason": "S3 图文并茂不足（前 3 次追踪无图文同批）",
-            "resp_time": "20 分钟",
+            "resp_time": "4 小时 15 分钟",
             "track_count": "1",
-            "summary": "西班牙买家通过产品卡询价 6 滤片 DPL 激光（1590–1690 美元），说明在立陶宛自营美容院、主要治疗玫瑰痤疮与面部泛红/毛细血管扩张，只要 1 台。业务员仅回复「Will let our colleagues to contact you soon」，此后无人工跟进。 已读：买家已读卖家最后一条消息（2026-11-04 18:05:58）（依据：气泡回执，接口 readStatus 缺失）"
+            "summary": "买家 Jomar Pacaldo 通过产品卡询盘 2025 款 755/808/1064nm 便携式半导体激光脱毛仪（MDR/ISO CE），并确认先要 1 套；人工仅回复将安排同事联系，未报价，买家其后未再回复。 已读：买家未读卖家最后一条消息（2026-11-05 05:05:36）｜readStatus 缺失，以气泡回执为据"
           },
           {
-            "inquiry_time": "2026-11-04 20:11:22",
-            "buyer": "Diana Balan",
+            "inquiry_time": "2026/11/5 4:53:32",
+            "buyer": "Giulia Gargiulo",
             "sales": "Yuli Guo",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "4 分钟",
-            "track_count": "3",
-            "summary": "罗马尼亚买家（收货地址胡内多阿拉）预算最高 2500 欧，求购可彻底脱毛的设备、用于美容院、先买 1 台。业务员用印尼语夹杂回复将核算运费并报价，次日告知同事 Clara 会联系她。 已读：买家已读卖家最后一条消息（2026-11-05 09:57:51）（依据：气泡回执，接口 readStatus 缺失）"
+            "verdict": "不合格",
+            "reason": "S3 图文并茂不足（前 3 次追踪无图文同批）",
+            "resp_time": "3 小时 47 分钟",
+            "track_count": "2",
+            "summary": "买家 Giulia Gargiulo 通过产品卡询价 755/808/1064 便携式半导体激光脱毛仪（卡片标价 US$550–599，1 套起订），未说明用途与数量；业务员 Yuli 介绍公司 18 年美容设备生产经验并告知由同事 Sam 跟进，买家其后未再回复。 已读：买家未读卖家最后一条消息（2026-11-05 09:59:29）｜readStatus 缺失，以气泡回执为据"
           },
           {
-            "inquiry_time": "2026-11-04 22:55:14",
-            "buyer": "Mohamed Boutakmanti",
+            "inquiry_time": "2026/11/5 12:20:51",
+            "buyer": "deisy bernal",
             "sales": "Celin Wang",
             "verdict": "合格",
             "reason": "—",
             "resp_time": "1 分钟",
-            "track_count": "7",
-            "summary": "比利时买家（230V、个人使用、男性厚毛）询问已停产的机型是否有同功能替代，要求覆盖身体/面部/鼻部的全套探头。业务员推荐 D1/L2/AresLite 四波长机型并给出脉冲、频率与光斑参数，索要邮编后次日发送 Soprano Titanium D1 资料与报价说明。 已读：买家已读卖家最后一条消息（2026-11-05 09:52:24）（依据：气泡回执，接口 readStatus 缺失）"
+            "track_count": "4",
+            "summary": "哥伦比亚麦德林买家 deisy bernal 咨询 980+1470nm 双波长半导体激光溶脂/紧致设备，提出需要 endolift 功能并询问价格与预算；业务员用西语报 980 单功能机 US$1750、980+1470 双波长机 US$2290（均不含运费），说明运费待查后回复，并介绍治疗原理。 已读：买家未读卖家最后一条消息（2026-11-05 13:47:22）｜readStatus 缺失，以气泡回执为据"
           },
           {
-            "inquiry_time": "2026-11-04 22:57:18",
-            "buyer": "JoseMiguel JaldinSuarez",
+            "inquiry_time": "2026/11/5 19:42:44",
+            "buyer": "Blenda Buzhala Shabani",
             "sales": "Jay Li",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "1 分钟",
-            "track_count": "2",
-            "summary": "玻利维亚买家通过产品卡询价二极管激光脱毛仪，问效果、波长（880/800）与是否需要加水。业务员说明 755+808+1064 三波长、风冷无需加水，次日报 CPT 总价（机器 690 美元＋DHL 运费）并介绍 1 年质保与免费语言/logo 定制。 已读：买家已读卖家最后一条消息（2026-11-05 10:58:23）（依据：气泡回执，接口 readStatus 缺失）"
-          },
-          {
-            "inquiry_time": "2026-11-04 23:12:08",
-            "buyer": "Iman Khan",
-            "sales": "Miya Zhang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "1 分钟",
-            "track_count": "4",
-            "summary": "加拿大买家通过产品卡询价便携 755/808/1064nm 二极管激光脱毛仪，问是否为纯二极管激光及瓦数，说明想在加拿大销售并问是否配加拿大插头。业务员介绍 3kg 机身、150W/40J、半导体制冷、4.3 英寸触屏等卖点并发送多张图文。 已读：买家未读卖家最后一条消息（2026-11-05 14:40:02）（依据：气泡回执，接口 readStatus 缺失）"
+            "resp_time": "9 分钟",
+            "track_count": "3",
+            "summary": "瑞士买家 Blenda Buzhala Shabani 通过产品卡询盘 755/808/940/1064nm 四波长半导体激光脱毛机 1 套，随后追问能否发货到瑞士（8427, Rorbas）；卖家先报 DDP US$3,670，次日按瑞士改报 CPT/DHL US$3,870，并说明含清关缴税的方案暂不可用、目前只能走 DHL。 已读：买家未读卖家最后一条消息（2026-11-06 11:49:53）｜readStatus 缺失，以气泡回执为据"
           }
         ]
       },
@@ -414,61 +264,20 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
       },
       "daily_quality": {
-        "latest_round": "2026-11-04（16:00 轮）",
-        "target_date": "2026-11-04",
-        "total_checked": 4,
-        "passed": 3,
+        "latest_round": "2026-11-05（16:00 轮）",
+        "target_date": "2026-11-05",
+        "total_checked": 0,
+        "passed": 0,
         "failed": 0,
-        "pending": 1,
-        "pass_rate": 75,
+        "pending": 0,
+        "pass_rate": 0,
         "gate_pass_rate": 100,
         "night_relax_hits": 0,
         "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
-        "sheet_name": "诺瓦询盘回复质量检查（11.04·16时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/Gl6Pm2Db8DNaQmKnuydvDGPLVxLq0Ee4",
+        "sheet_name": "诺瓦询盘回复质量检查（11.05·16时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/mExel2BLV5ePgXdvH7ZNnYyoVgk9rpMq",
         "records": [],
-        "samples": [
-          {
-            "inquiry_time": "2026-11-04 03:05:06",
-            "buyer": "oluyomi Adeosun",
-            "sales": "IVA ZHANG",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "3 小时 41 分钟",
-            "track_count": "5",
-            "summary": "尼日利亚买家就康明斯 30kVA 静音柴油发电机组连发多条询盘（含一条 80kW 参数链接），询问 THD、OEM 样品费与单据，并给出重庆收货地址、要求提供木箱重量与尺寸。业务员确认 30kVA、询问品牌与 ATS 需求，报潍柴 30kVA 3700 美元及另一款 2300 美元；买家质疑广告价与报价差距、称在拉各斯更便宜，业务员解释链接最低价与配置差异、报价已含配件。 已读：买家未读卖家最后一条消息（2026-11-05 15:43:52）（依据：气泡回执，接口 readStatus 缺失）"
-          },
-          {
-            "inquiry_time": "2026-11-04 13:47:10",
-            "buyer": "Mangeh Shey",
-            "sales": "未获取",
-            "verdict": "未判定",
-            "reason": "完整性闸门未通过",
-            "resp_time": "-",
-            "track_count": "0",
-            "summary": "无有效沟通内容（会话未定位：全名/单词/垃圾询价检索均 0 结果，未取到原文）。 已读：无法判定"
-          },
-          {
-            "inquiry_time": "2026-11-04 13:47:39",
-            "buyer": "Badiane Sane",
-            "sales": "Mark Zhang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "2 分钟",
-            "track_count": "2",
-            "summary": "塞内加尔买家通过产品卡询价康明斯 30kW/40kVA 380/220V 三相静音柴油发电机组（1 套，含 ATS）。业务员用法语介绍公司 7000 平方米厂房与现货，确认可供 40kVA 康明斯机型，并发送多张实拍图与 ISO9001/CE 等认证说明。 已读：买家未读卖家最后一条消息（2026-11-04 16:45:29）（依据：气泡回执，接口 readStatus 缺失）"
-          },
-          {
-            "inquiry_time": "2026-11-04 21:11:34",
-            "buyer": "Pablo Wololo",
-            "sales": "IVA ZHANG",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "1 分钟",
-            "track_count": "1",
-            "summary": "刚果（金）买家询价 15–20kVA 三相柴油发电机组（倾向 Perkins），询问不含运费价格、预算约 1500 美元。业务员询问功率与品牌偏好，推荐 15kVA 含 ATS 机型并报 2700/2000 美元、说明体积与 300kg 重量，买家表示预算内难以接受。 已读：买家未读卖家最后一条消息（2026-11-04 21:20:32）（依据：气泡回执，接口 readStatus 缺失）"
-          }
-        ]
+        "samples": []
       },
       "weekly_quality": {
         "date_range": "2026-10-25 – 2026-10-31（7 天）",
@@ -677,19 +486,19 @@
       "schedule": "0 16 * * *",
       "type": "询盘质检 (前一天全量重检)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-10-22 16:41:00",
+      "status": "已完成",
+      "last_run": "2026-11-06 16:12:00",
       "next_run": "2026-11-07 16:00:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美询盘回复质量检查（10.21·16时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/QOG9lyrgJP0XLO25TR9r8B72JzN67Mw4"
+          "name": "贝诺美询盘回复质量检查（11.05·16时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/Gl6Pm2Db8DNaQmKnuy2lxQO2VxLq0Ee4"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦询盘回复质量检查（10.21·16时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsA4Okyrv8yMoPYe1"
+          "name": "诺瓦询盘回复质量检查（11.05·16时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/mExel2BLV5ePgXdvH7ZNnYyoVgk9rpMq"
         }
       ]
     },
