@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/7 10:10:21",
+  "last_synced_at": "2026/11/7 11:12:10",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -51,7 +51,7 @@
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
         "balance_source": "风险监控 (10:00 轮)",
-        "balance_at": 1794017405871.1433
+        "balance_at": 1794017470629.0283
       },
       "inquiry_sync": {
         "latest_round": "2026-11-06 15:12 轮",
@@ -61,17 +61,17 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
       },
       "daily_quality": {
-        "latest_round": "2026-11-05（16:00 轮）",
-        "target_date": "2026-11-05",
+        "latest_round": "2026-11-06（11:00 轮）",
+        "target_date": "2026-11-06",
         "total_checked": 4,
-        "passed": 2,
-        "failed": 2,
+        "passed": 4,
+        "failed": 0,
         "pending": 0,
-        "pass_rate": 50,
+        "pass_rate": 100,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
-        "sheet_name": "贝诺美询盘回复质量检查（11.05·16时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/Gl6Pm2Db8DNaQmKnuy2lxQO2VxLq0Ee4",
+        "sheet_name": "贝诺美询盘回复质量检查（11.06·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/EpGBa2Lm8a2yev5aiR4NKPgwWgN7R35y",
         "records": [
           {
             "inquiry_time": "2026-10-14 03:56:12",
@@ -100,44 +100,44 @@
         ],
         "samples": [
           {
-            "inquiry_time": "2026/11/5 0:50:39",
-            "buyer": "Jomar Pacaldo",
-            "sales": "Daniel Wang",
-            "verdict": "不合格",
-            "reason": "S3 图文并茂不足（前 3 次追踪无图文同批）",
-            "resp_time": "4 小时 15 分钟",
-            "track_count": "1",
-            "summary": "买家 Jomar Pacaldo 通过产品卡询盘 2025 款 755/808/1064nm 便携式半导体激光脱毛仪（MDR/ISO CE），并确认先要 1 套；人工仅回复将安排同事联系，未报价，买家其后未再回复。 已读：买家未读卖家最后一条消息（2026-11-05 05:05:36）｜readStatus 缺失，以气泡回执为据"
+            "inquiry_time": "2026/11/6 1:58:22",
+            "buyer": "Drmadiha Bano",
+            "sales": "Miya Zhang",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "6 小时 24 分钟",
+            "track_count": "4",
+            "summary": "买家通过产品卡询价 808/755/940/1064nm 四波长半导体激光脱毛机（标价 US$800–1,200，1 套起订），未留文字诉求；业务员 Miya 介绍了公司 18 年美容设备制造背景，并逐条说明德国激光器、TEC+蓝宝石水冷系统、15.6 寸触屏、手柄、4 波长与 3–6 次疗程等卖点，同时发送多张产品图与机器测试视频；买家此后未再回复。 已读：买家未读卖家最后一条消息（2026-11-07 08:26:55）｜readStatus 缺失，以气泡回执为据"
           },
           {
-            "inquiry_time": "2026/11/5 4:53:32",
-            "buyer": "Giulia Gargiulo",
+            "inquiry_time": "2026/11/6 2:02:53",
+            "buyer": "Jale Yilmaz",
             "sales": "Yuli Guo",
-            "verdict": "不合格",
-            "reason": "S3 图文并茂不足（前 3 次追踪无图文同批）",
-            "resp_time": "3 小时 47 分钟",
-            "track_count": "2",
-            "summary": "买家 Giulia Gargiulo 通过产品卡询价 755/808/1064 便携式半导体激光脱毛仪（卡片标价 US$550–599，1 套起订），未说明用途与数量；业务员 Yuli 介绍公司 18 年美容设备生产经验并告知由同事 Sam 跟进，买家其后未再回复。 已读：买家未读卖家最后一条消息（2026-11-05 09:59:29）｜readStatus 缺失，以气泡回执为据"
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "6 小时 44 分钟",
+            "track_count": "3",
+            "summary": "德国买家以德语询问该设备是否有 MDR 认证、表示想在德国使用，后续说明用于美容工作室、每周约 20 次疗程；业务员 Yuli 用德语回复公司为 18 年美容设备制造商、机器具备 MDR/CE/ROHS 认证并发送 ICR.pdf 证书，再介绍美国 Coherent 激光手柄、TEC 制冷、15.6 寸安卓屏及 1000/1200/1600W 功率选项，最后发送多段身体各部位脱毛测试视频。 已读：买家未读卖家最后一条消息（2026-11-07 09:19:53）｜readStatus 缺失，以气泡回执为据"
           },
           {
-            "inquiry_time": "2026/11/5 12:20:51",
-            "buyer": "deisy bernal",
+            "inquiry_time": "2026/11/6 8:55:31",
+            "buyer": "Ranka Kokaj",
             "sales": "Celin Wang",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "1 分钟",
-            "track_count": "4",
-            "summary": "哥伦比亚麦德林买家 deisy bernal 咨询 980+1470nm 双波长半导体激光溶脂/紧致设备，提出需要 endolift 功能并询问价格与预算；业务员用西语报 980 单功能机 US$1750、980+1470 双波长机 US$2290（均不含运费），说明运费待查后回复，并介绍治疗原理。 已读：买家未读卖家最后一条消息（2026-11-05 13:47:22）｜readStatus 缺失，以气泡回执为据"
+            "resp_time": "2 分钟",
+            "track_count": "5",
+            "summary": "阿尔巴尼亚买家通过产品卡询价 808/755/940/1064nm 半导体激光脱毛机（标价 US$800–1,200），要求说明 1200 美元价位机器的功率与手柄 bar 数、先要 1 台并自称也做销售；买家质疑广告价与实报机型不符，业务员解释标价为引流参考价、实报整机 2250 美元（不含运费），并介绍 4 波长与制冷等配置，随后应询确认发往阿尔巴尼亚斯库台（4001）的运费并提供成本明细。 已读：买家未读卖家最后一条消息（2026-11-06 17:47:20）｜readStatus 缺失，以气泡回执为据"
           },
           {
-            "inquiry_time": "2026/11/5 19:42:44",
-            "buyer": "Blenda Buzhala Shabani",
+            "inquiry_time": "2026/11/6 9:35:46",
+            "buyer": "Gul Gul",
             "sales": "Jay Li",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "9 分钟",
-            "track_count": "3",
-            "summary": "瑞士买家 Blenda Buzhala Shabani 通过产品卡询盘 755/808/940/1064nm 四波长半导体激光脱毛机 1 套，随后追问能否发货到瑞士（8427, Rorbas）；卖家先报 DDP US$3,670，次日按瑞士改报 CPT/DHL US$3,870，并说明含清关缴税的方案暂不可用、目前只能走 DHL。 已读：买家未读卖家最后一条消息（2026-11-06 11:49:53）｜readStatus 缺失，以气泡回执为据"
+            "resp_time": "3 分钟",
+            "track_count": "4",
+            "summary": "中文买家询问一款高配滚轴理疗机（Pressotherapy 淋巴引流/按摩机）的拿货价，说明自己是独立站运营方、希望上架该产品，采用「先上架、客户下单后再采购发货」的模式；业务员报价终端 2300 美元、五台以上经销价 2100 美元并承诺一年整机售后，但坚持需先购买样机建立合作才提供完整资料与授权，买家表示了解后结束对话。 已读：买家已读卖家最后一条消息（2026-11-06 10:09:52）｜readStatus 缺失，以气泡回执为据"
           }
         ]
       },
@@ -254,7 +254,7 @@
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
         "balance_source": "风险监控 (10:00 轮)",
-        "balance_at": 1794017405871.1433
+        "balance_at": 1794017470629.0283
       },
       "inquiry_sync": {
         "latest_round": "2026-11-06 15:12 轮",
@@ -264,20 +264,51 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
       },
       "daily_quality": {
-        "latest_round": "2026-11-05（16:00 轮）",
-        "target_date": "2026-11-05",
-        "total_checked": 0,
-        "passed": 0,
-        "failed": 0,
+        "latest_round": "2026-11-06（11:00 轮）",
+        "target_date": "2026-11-06",
+        "total_checked": 3,
+        "passed": 2,
+        "failed": 1,
         "pending": 0,
-        "pass_rate": 0,
+        "pass_rate": 66.67,
         "gate_pass_rate": 100,
         "night_relax_hits": 0,
         "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
-        "sheet_name": "诺瓦询盘回复质量检查（11.05·16时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/mExel2BLV5ePgXdvH7ZNnYyoVgk9rpMq",
+        "sheet_name": "诺瓦询盘回复质量检查（11.06·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/mExel2BLV5ePgXdvH7Z6ObRZVgk9rpMq",
         "records": [],
-        "samples": []
+        "samples": [
+          {
+            "inquiry_time": "2026/11/6 0:56:17",
+            "buyer": "UIX Corp",
+            "sales": "Mark Zhang",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "7 小时 40 分钟",
+            "track_count": "4",
+            "summary": "买家询价 200KVA 康明斯静音型柴油发电机组，随后给出 200KVA/160KW、静音、三相机组的具体配置（康明斯 6BTAA5.9-G12，60Hz/1800RPM）；业务员确认可供，指出该发动机型号对应 120kW/150kVA 与所需 200kVA 不符，发送机组图片并询问是否需要 ATS，最后按买家改问的 6CTAA8.3-G2 型号报出厂价 17,000 美元。 已读：买家未读卖家最后一条消息（2026-11-07 08:50:46）｜readStatus 缺失，以气泡回执为据"
+          },
+          {
+            "inquiry_time": "2026/11/6 4:51:21",
+            "buyer": "JuanJose ArmasJuez",
+            "sales": "IVA ZHANG",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "1 小时 34 分钟",
+            "track_count": "3",
+            "summary": "西语买家通过产品卡询价 10–200kVA 康明斯/潍柴/五十铃柴油发电机组（面向欧盟），并说明需要三相柴油发电机；业务员用西语致谢、解释 ATS 功能并发送机组图片，询问 35kVA 潍柴机型是否满足需求，最后按买家追问报出 35kVA 静音带 ATS 价格 2450 美元。 已读：买家未读卖家最后一条消息（2026-11-06 20:04:03）｜readStatus 缺失，以气泡回执为据"
+          },
+          {
+            "inquiry_time": "2026/11/6 10:07:39",
+            "buyer": "Achim Arndt",
+            "sales": "Mark Zhang",
+            "verdict": "不合格",
+            "reason": "S3 图文并茂不足（前 3 次追踪无图文同批）",
+            "resp_time": "2 分钟",
+            "track_count": "4",
+            "summary": "买家仅打招呼并索取最新产品目录，业务员自我介绍为柴油发电机生产工厂、两次追问具体需求以匹配机型，未直接发送目录；买家回复「???」后业务员再次询问需求，随后发送产品图片并说明机组经第三方机构检测、具备 ISO9001/CE/ROHS 等认证。 已读：买家已读卖家最后一条消息（2026-11-06 16:43:04）｜readStatus 缺失，以气泡回执为据"
+          }
+        ]
       },
       "weekly_quality": {
         "date_range": "2026-10-25 – 2026-10-31（7 天）",
@@ -408,19 +439,19 @@
       "schedule": "0 11 * * *",
       "type": "询盘质检 (上午初检)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-10-22 11:11:00",
-      "next_run": "2026-11-07 11:00:00",
+      "status": "已完成",
+      "last_run": "2026-11-07 11:11:55",
+      "next_run": "2026-11-08 11:00:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美询盘回复质量检查（10.21·11时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/a9E05BDRVQbGeLzquZv9oK9eJ63zgkYA"
+          "name": "贝诺美询盘回复质量检查（11.06·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/EpGBa2Lm8a2yev5aiR4NKPgwWgN7R35y"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦询盘回复质量检查（10.21·11时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsA4Okyrv8yMoPYe1"
+          "name": "诺瓦询盘回复质量检查（11.06·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/mExel2BLV5ePgXdvH7Z6ObRZVgk9rpMq"
         }
       ]
     },
