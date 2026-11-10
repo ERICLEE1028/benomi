@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/10 16:14:22",
+  "last_synced_at": "2026/11/10 16:15:07",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -61,17 +61,17 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
       },
       "daily_quality": {
-        "latest_round": "2026-11-09（11:00 轮）",
+        "latest_round": "2026-11-09（16:00 轮）",
         "target_date": "2026-11-09",
-        "total_checked": 3,
-        "passed": 3,
+        "total_checked": 4,
+        "passed": 4,
         "failed": 0,
         "pending": 0,
         "pass_rate": 100,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
-        "sheet_name": "贝诺美询盘回复质量检查（11.09·11时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/7NkDwLng8ZgeQ3YripmQyEzBWKMEvZBY",
+        "sheet_name": "贝诺美询盘回复质量检查（11.09·16时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/gvNG4YZ7JnKOpM1wHobbDloe82LD0oRE",
         "records": [
           {
             "inquiry_time": "2026-10-14 03:56:12",
@@ -106,8 +106,8 @@
             "verdict": "合格",
             "reason": "—",
             "resp_time": "1 小时 20 分钟",
-            "track_count": "4",
-            "summary": "买家通过询盘产品卡咨询 Fusion Plasma 美容仪（冷等离子+热等离子双技术，采购 1 件）；业务员 Miya 介绍 BENOMI 18 年美容设备制造经验、双等离子原理与功效、11 个可更换治疗探头，并发送产品图、操作界面说明与设备/车间视频；买家此后未再回复，会话内未涉及报价与运费。 已读：买家未读卖家最后一条消息（2026-11-09 13:37:41）。"
+            "track_count": "5",
+            "summary": "买家 Oumarou Fadimatou 通过产品卡询盘 Fusion Plasma 美容仪 1 件，未说明其他诉求；业务员 Miya 介绍公司 18 年美容设备制造经验，并连续发送冷/热等离子双技术原理、11 个治疗头、能量与连续/间歇模式、CE/FDA 认证与无尘车间、售后保修等图文与视频资料。买家除产品卡外未见文字回复。 已读：买家未读卖家最后一条消息（2026-11-10 13:57:55）｜readStatus 缺失，以气泡回执为据"
           },
           {
             "inquiry_time": "2026/11/9 5:22:37",
@@ -117,7 +117,7 @@
             "reason": "—",
             "resp_time": "3 小时 13 分钟",
             "track_count": "4",
-            "summary": "买家（西语）询问寄往西班牙的运费，产品卡为 755/808/940/1064nm 四波长半导体激光脱毛机（1 套）；业务员 Yuli 先由自动接待回应，08:35 人工接入介绍 18 年制造经验、Coherent 激光器与 TEC+蓝宝石+风冷水冷系统，13:55 报价 1600W 手柄整机 2580 美元 + 运费 860 美元（合计 3440 美元，空运 15–20 天），次日补发客户实测视频并询问是美容院使用还是本地转售。 已读：买家未读卖家最后一条消息（2026-11-10 09:43:09）。"
+            "summary": "买家 Ludys Indriago（西语）询问发往西班牙的运费，未说明数量；业务员 Yuli 介绍 18 年制造经验与 Coherent 激光手柄散热结构，报 1600W 手柄配置 2580 USD + 运费 860 USD = 3440 USD（空运 15–20 天），并追问用于美容院还是本地销售。买家未回复报价。 已读：买家未读卖家最后一条消息（2026-11-10 09:43:09）｜readStatus 缺失，以气泡回执为据"
           },
           {
             "inquiry_time": "2026/11/9 7:39:50",
@@ -127,7 +127,17 @@
             "reason": "—",
             "resp_time": "46 分钟",
             "track_count": "4",
-            "summary": "买家（西语）询问四波长半导体激光脱毛机寄往墨西哥的运费，提供收货地圣路易斯波托西、邮编 78385；业务员 Harper 介绍 Coherent 激光器与 TEC+蓝宝石+风冷水冷系统并发送多张产品图，13:47 说明 1600W 报价含整套可更换光斑，但会话内未给出到墨西哥的具体运费金额。 已读：买家已读卖家最后一条消息（2026-11-09 13:49:35）。"
+            "summary": "买家 Narita Cuevas 通过产品卡询盘 755/808/940/1064nm 四波长半导体激光脱毛机 1 套，反复询问发往墨西哥（圣路易斯波托西 CP 78385）的含运费价格；业务员 Harper 介绍四波长手柄与 TEC 超冷系统，报 1200W 2150 USD、1600W 2580 USD，海运费至墨西哥 847 USD（约 45 天），并说明 1600W 含全套可换灯点。 已读：买家已读卖家最后一条消息（2026-11-09 13:49:35）｜readStatus 缺失，以气泡回执为据"
+          },
+          {
+            "inquiry_time": "2026/11/9 21:39:47",
+            "buyer": "CHARLES LUFADEJU",
+            "sales": "Celin Wang",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "3 分钟",
+            "track_count": "4",
+            "summary": "买家 CHARLES LUFADEJU 通过产品卡询盘 6 波长 IPL/DPL 精准嫩肤祛斑设备 1 台，并在询盘中索要机器操作视频；业务员 Celin 发送实机操作视频，并介绍 6 种滤光片（515–695nm）配置、15.8 英寸屏、可折叠机身与降运费设计，最后询问用于美容院还是分销商。买家未回复。 已读：买家未读卖家最后一条消息（2026-11-09 22:16:06）｜readStatus 缺失，以气泡回执为据"
           }
         ]
       },
@@ -304,7 +314,7 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
       },
       "daily_quality": {
-        "latest_round": "2026-11-09（11:00 轮）",
+        "latest_round": "2026-11-09（16:00 轮）",
         "target_date": "2026-11-09",
         "total_checked": 2,
         "passed": 1,
@@ -314,8 +324,8 @@
         "gate_pass_rate": 100,
         "night_relax_hits": 0,
         "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
-        "sheet_name": "诺瓦询盘回复质量检查（11.09·11时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/EpGBa2Lm8a2yev5aiRNmep6qWgN7R35y",
+        "sheet_name": "诺瓦询盘回复质量检查（11.09·16时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsABBExAy8yMoPYe1",
         "records": [],
         "samples": [
           {
@@ -325,18 +335,18 @@
             "verdict": "合格",
             "reason": "—",
             "resp_time": "1 小时 35 分钟",
-            "track_count": "5",
-            "summary": "科威特买家（国家清洁公司）求购 5 台 WEICHAI 6M33D633E200（500kW/625kVA）机组并联运行，需自动负载管理的并机柜，并明确静音箱式、415V/50Hz、50℃ 环境；业务员 Mark 确认机型与并机数量，提出 55℃ 铜散热器方案、建议室外安装，发送静音箱外观图并询问是否满足隔音要求，称正在核算最终价格；买家另索要该发动机技术规格书。 已读：买家已读卖家最后一条消息（2026-11-09 19:08:09）。"
+            "track_count": "6",
+            "summary": "买家 Kareem Elbadry（科威特清洁公司）询 5 台 WEICHAI 6M33D633E200（500kW/625kVA）静音型机组并联运行并配同步屏，415V/50Hz，夏季环境 50℃；业务员 Mark 给出 55℃ 铜水箱散热方案、发送静音箱体图片，并于 11-10 发出 500kW 并联系统报价 PDF 与发动机技术规格书。 已读：买家已读卖家最后一条消息（2026-11-10 11:20:20）｜readStatus 缺失，以气泡回执为据"
           },
           {
             "inquiry_time": "2026/11/9 12:06:25",
             "buyer": "Allen Miller",
             "sales": "IVA ZHANG",
             "verdict": "不合格",
-            "reason": "前 3 次人工追踪未图文并茂",
-            "resp_time": "3 分钟",
-            "track_count": "19",
-            "summary": "美国买家为住宅备用电源与零售店选型，询 50kW 单相 240V 机组、偏好康明斯、需 EPA 以便清关，自有中国货代；业务员 3 分钟内人工接入，建议潍柴更划算，报价潍柴 50kW 静音带 ATS 5700 美元、康明斯 7350 美元，20kW 潍柴 3600 / 康明斯 5400 美元，25kW 3800、30kW 4100 美元（含 ATS 不含运费），25kW 含运费 DDP 约 6800 美元；期间系统自动接待发出 5 条并被业务员说明为自动回复，后续围绕住宅空调（5/2/3 吨）与热水器、烘干机等负载确认选型，买家 11-10 表示价格合理、需一两天确认。 已读：买家已读卖家最后一条消息（2026-11-10 10:40:09）。"
+            "reason": "S3 图文并茂不足（前 3 次追踪无图文同批）",
+            "resp_time": "1 分钟",
+            "track_count": "20",
+            "summary": "买家 Allen Miller（美国）通过产品卡询 50kW 单相 240V 发电机组，希望用 Cummins 发动机并需 EPA 认证，另询问 20kW 价格；业务员 IVA 报 Weichai 50kW 5700 USD、Cummins 50kW 7350 USD、20kW 3600/5400 USD，后改报 25kW 含 ATS 3800 USD + DDP 2700 USD = 6500 USD，并发送图片、视频与报价 PDF。买家称价格合理，要求给一两天考虑。 已读：买家已读卖家最后一条消息（2026-11-10 11:06:46）｜readStatus 缺失，以气泡回执为据"
           }
         ]
       },
@@ -601,19 +611,19 @@
       "schedule": "0 16 * * *",
       "type": "询盘质检 (前一天全量重检)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-10-22 16:41:00",
+      "status": "已完成",
+      "last_run": "2026-11-10 16:15:04",
       "next_run": "2026-11-11 16:00:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美询盘回复质量检查（10.21·16时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/QOG9lyrgJP0XLO25TR9r8B72JzN67Mw4"
+          "name": "贝诺美询盘回复质量检查（11.09·16时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/gvNG4YZ7JnKOpM1wHobbDloe82LD0oRE"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦询盘回复质量检查（10.21·16时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsA4Okyrv8yMoPYe1"
+          "name": "诺瓦询盘回复质量检查（11.09·16时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsABBExAy8yMoPYe1"
         }
       ]
     },
