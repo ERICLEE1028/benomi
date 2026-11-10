@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/10 14:04:57",
+  "last_synced_at": "2026/11/10 14:39:33",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -37,7 +37,7 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/dpYLaezmVN76GOXrsNDe00mvJrMqPxX6"
       },
       "risk": {
-        "latest_round": "10:00 轮",
+        "latest_round": "14:30 轮",
         "violations": 0,
         "order_alerts": 0,
         "balance": 6340.66,
@@ -50,8 +50,8 @@
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "广告消耗快照 (14:00轮)",
-        "balance_at": 1794290522000
+        "balance_source": "风险监控 (14:30 轮)",
+        "balance_at": 1794292751856.5833
       },
       "inquiry_sync": {
         "latest_round": "2026-11-09 15:00 轮",
@@ -227,9 +227,9 @@
             "text": "Body Analyzer MNLT-S9 High-specmodel Quad-band 10-inchscreen Foldabledesign.\nUS $1249.00 x 1 | 申请退款金额\nUSD 1,619.00 | 阿里巴巴处理中 | 查看详情"
           }
         ],
-        "captured_at": "2026-11-10T02:10:50.824Z",
-        "round": "10:00 轮",
-        "at": 1794276650825.3618
+        "captured_at": "2026-11-10T06:39:11.526Z",
+        "round": "14:30 轮",
+        "at": 1794292751529.372
       },
       "review": {
         "available": true,
@@ -250,12 +250,12 @@
           }
         ],
         "window_days": 30,
-        "window_start": "2026-10-11 10:10",
+        "window_start": "2026-10-11 14:39",
         "in_window_count": 1,
         "latest_time": "2026-10-29 01:47",
-        "captured_at": "2026-11-10T02:10:51.204Z",
-        "round": "10:00 轮",
-        "at": 1794276651205.0261
+        "captured_at": "2026-11-10T06:39:11.855Z",
+        "round": "14:30 轮",
+        "at": 1794292751856.5833
       }
     },
     "nova": {
@@ -280,21 +280,21 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/jb9Y4gmKWrDdeloBsrdRYb1OJGXn6lpz"
       },
       "risk": {
-        "latest_round": "10:00 轮",
+        "latest_round": "14:30 轮",
         "violations": 0,
         "order_alerts": 0,
         "balance": 4406.03,
         "balance_threshold": 1000,
-        "rfq_quota": 31,
+        "rfq_quota": 30,
         "rfq_expire": "2027-01-18",
-        "rfq_used_detail": "本月已用 13 条（按业务员：Mark Zhang 8 条、IVA ZHANG 3 条、Hale He 2 条）",
+        "rfq_used_detail": "本月已用 14 条（按业务员：Mark Zhang 8 条、IVA ZHANG 4 条、Hale He 2 条）",
         "status": "normal",
         "rfq_warning": "权益充裕",
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "广告消耗快照 (14:00轮)",
-        "balance_at": 1794290529000
+        "balance_source": "风险监控 (14:30 轮)",
+        "balance_at": 1794292751856.5833
       },
       "inquiry_sync": {
         "latest_round": "2026-11-09 15:00 轮",
@@ -449,9 +449,9 @@
         "breakdown_text": "纠纷 0 ｜ 拒付 0 ｜ 售后 0",
         "terminal_text": "完结 3 / 撤销 1 ｜ 银行已判责 0 ｜ 预警完结 0",
         "items": [],
-        "captured_at": "2026-11-10T02:10:51.008Z",
-        "round": "10:00 轮",
-        "at": 1794276651010.8013
+        "captured_at": "2026-11-10T06:35:03.054Z",
+        "round": "14:30 轮",
+        "at": 1794292503055.9055
       },
       "review": {
         "available": true,
@@ -461,12 +461,12 @@
         "items": [],
         "window_items": [],
         "window_days": 30,
-        "window_start": "2026-10-11 10:10",
+        "window_start": "2026-10-11 14:35",
         "in_window_count": 1,
         "latest_time": "2026-11-06 17:51",
-        "captured_at": "2026-11-10T02:10:51.413Z",
-        "round": "10:00 轮",
-        "at": 1794276651413.8894
+        "captured_at": "2026-11-10T06:35:03.269Z",
+        "round": "14:30 轮",
+        "at": 1794292503270.6233
       }
     }
   },
@@ -567,9 +567,9 @@
       "schedule": "30 14 * * *",
       "type": "风险与履约 (下午轮)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-10-22 14:30:17",
-      "next_run": "2026-11-10 14:30:00",
+      "status": "已完成",
+      "last_run": "2026-11-10 14:30:17",
+      "next_run": "2026-11-11 14:30:00",
       "delivery": "Accio 机器人 Webhook 推送至专属通知群（@李冰）",
       "sheets": []
     },
