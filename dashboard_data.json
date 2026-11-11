@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/11 15:10:50",
+  "last_synced_at": "2026/11/11 16:11:01",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -61,17 +61,17 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
       },
       "daily_quality": {
-        "latest_round": "2026-11-09（16:00 轮）",
-        "target_date": "2026-11-09",
-        "total_checked": 4,
+        "latest_round": "2026-11-10（16:00 轮）",
+        "target_date": "2026-11-10",
+        "total_checked": 5,
         "passed": 4,
-        "failed": 0,
+        "failed": 1,
         "pending": 0,
-        "pass_rate": 100,
+        "pass_rate": 80,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
-        "sheet_name": "贝诺美询盘回复质量检查（11.09·16时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/gvNG4YZ7JnKOpM1wHobbDloe82LD0oRE",
+        "sheet_name": "贝诺美询盘回复质量检查（11.10·16时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/XPwkYGxZV36pLXdKcrYj6ADkWAgozOKL",
         "records": [
           {
             "inquiry_time": "2026-10-14 03:56:12",
@@ -100,44 +100,54 @@
         ],
         "samples": [
           {
-            "inquiry_time": "2026/11/9 5:07:46",
-            "buyer": "Oumarou Fadimatou",
+            "inquiry_time": "2026/11/10 4:03:39",
+            "buyer": "Gibelly Andrea leal boada",
+            "sales": "Jay Li",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "4 小时 37 分钟",
+            "track_count": "3",
+            "summary": "买家（哥伦比亚，邮编 540005）通过 emslim Neo RF 塑形仪产品卡询盘，先问寄往哥伦比亚的运费与进口总成本；业务员 Jay 报 CPT 价 1,160 USD + 空运费，买家追问能否做 DDP，业务员改说明可在波哥大海外仓自提、约 35–45 天，并询问该时效是否可接受。 已读：买家已读卖家最后一条消息（2026-11-10 20:59:42）｜readStatus 缺失，以气泡回执为据"
+          },
+          {
+            "inquiry_time": "2026/11/10 5:06:52",
+            "buyer": "daniela tonini",
             "sales": "Miya Zhang",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "1 小时 20 分钟",
-            "track_count": "5",
-            "summary": "买家 Oumarou Fadimatou 通过产品卡询盘 Fusion Plasma 美容仪 1 件，未说明其他诉求；业务员 Miya 介绍公司 18 年美容设备制造经验，并连续发送冷/热等离子双技术原理、11 个治疗头、能量与连续/间歇模式、CE/FDA 认证与无尘车间、售后保修等图文与视频资料。买家除产品卡外未见文字回复。 已读：买家未读卖家最后一条消息（2026-11-10 13:57:55）｜readStatus 缺失，以气泡回执为据"
+            "resp_time": "1 分钟",
+            "track_count": "7",
+            "summary": "买家是瑞士美容工作室主，询问是否有 532nm KTP 激光用于面部红血丝、细毛细血管与毛细血管扩张；业务员 Miya 说明可做 520nm 与 980nm 两种波长，报 980nm 单波长 780+300=1,080 USD、520nm 1,529+300=1,829 USD（含空运），并发送 CE EMC 证书；买家追问 520nm 是否适合鼻颊细红血丝及 CE 合规，业务员确认适合弥漫性红血丝。 已读：买家未读卖家最后一条消息（2026-11-10 14:55:05）｜readStatus 缺失，以气泡回执为据"
           },
           {
-            "inquiry_time": "2026/11/9 5:22:37",
-            "buyer": "Ludys Indriago",
+            "inquiry_time": "2026/11/10 10:48:37",
+            "buyer": "Brian Anderson",
+            "sales": "Miya Zhang",
+            "verdict": "不合格",
+            "reason": "S3 图文并茂不足（前 3 次追踪无图文同批）",
+            "resp_time": "1 分钟",
+            "track_count": "2",
+            "summary": "买家询问「这款型号是否适合儿童/小孩使用」（原文夹带无关中文「一周挖掘隐藏宝藏款」）但未指明具体产品；业务员 Miya 反问其在看哪款产品，随后发送《Shandong Moonlight Hot Sale Machines intro.pdf》产品册并称是其热销产品。买家此后未再回复。 已读：买家已读卖家最后一条消息（2026-11-10 11:25:00）｜readStatus 缺失，以气泡回执为据"
+          },
+          {
+            "inquiry_time": "2026/11/10 16:48:32",
+            "buyer": "Gavrilas GabrielRemus",
             "sales": "Yuli Guo",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "3 小时 13 分钟",
+            "resp_time": "1 分钟",
             "track_count": "4",
-            "summary": "买家 Ludys Indriago（西语）询问发往西班牙的运费，未说明数量；业务员 Yuli 介绍 18 年制造经验与 Coherent 激光手柄散热结构，报 1600W 手柄配置 2580 USD + 运费 860 USD = 3440 USD（空运 15–20 天），并追问用于美容院还是本地销售。买家未回复报价。 已读：买家未读卖家最后一条消息（2026-11-10 09:43:09）｜readStatus 缺失，以气泡回执为据"
+            "summary": "买家（罗马尼亚）通过 StarCe AI 皮肤检测仪产品卡询 1 台寄往罗马尼亚的运费；业务员 Yuli 报设备 1,199 USD + 运费 295 USD = 1,494 USD，空运 15–20 天含清关送货，并介绍 9 光谱、3600 万像素工业相机、头皮/微生物分析等功能；买家提到 3 月曾到广州美博会试机，想做头发+面部检测。 已读：买家已读卖家最后一条消息（2026-11-11 10:50:24）｜readStatus 缺失，以气泡回执为据"
           },
           {
-            "inquiry_time": "2026/11/9 7:39:50",
-            "buyer": "Narita Cuevas",
+            "inquiry_time": "2026/11/10 23:51:09",
+            "buyer": "Tefi Gutierrez",
             "sales": "Harper Mu",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "46 分钟",
+            "resp_time": "7 小时 26 分钟",
             "track_count": "4",
-            "summary": "买家 Narita Cuevas 通过产品卡询盘 755/808/940/1064nm 四波长半导体激光脱毛机 1 套，反复询问发往墨西哥（圣路易斯波托西 CP 78385）的含运费价格；业务员 Harper 介绍四波长手柄与 TEC 超冷系统，报 1200W 2150 USD、1600W 2580 USD，海运费至墨西哥 847 USD（约 45 天），并说明 1600W 含全套可换灯点。 已读：买家已读卖家最后一条消息（2026-11-09 13:49:35）｜readStatus 缺失，以气泡回执为据"
-          },
-          {
-            "inquiry_time": "2026/11/9 21:39:47",
-            "buyer": "CHARLES LUFADEJU",
-            "sales": "Celin Wang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "3 分钟",
-            "track_count": "4",
-            "summary": "买家 CHARLES LUFADEJU 通过产品卡询盘 6 波长 IPL/DPL 精准嫩肤祛斑设备 1 台，并在询盘中索要机器操作视频；业务员 Celin 发送实机操作视频，并介绍 6 种滤光片（515–695nm）配置、15.8 英寸屏、可折叠机身与降运费设计，最后询问用于美容院还是分销商。买家未回复。 已读：买家未读卖家最后一条消息（2026-11-09 22:16:06）｜readStatus 缺失，以气泡回执为据"
+            "summary": "买家（危地马拉）用西语询问价格与参数，未指明具体机型；业务员 Harper 次日上午回复、确认收货地后介绍公司最热销的 Tecar+EMS+冲击波一体机，发送机器图片与多条实机视频，并分述 Tecar 电容/电阻热传导、冲击波与 EMS 的功能。 已读：买家未读卖家最后一条消息（2026-11-11 15:30:13）｜readStatus 缺失，以气泡回执为据"
           }
         ]
       },
@@ -314,39 +324,49 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
       },
       "daily_quality": {
-        "latest_round": "2026-11-09（16:00 轮）",
-        "target_date": "2026-11-09",
-        "total_checked": 2,
-        "passed": 1,
+        "latest_round": "2026-11-10（16:00 轮）",
+        "target_date": "2026-11-10",
+        "total_checked": 3,
+        "passed": 2,
         "failed": 1,
         "pending": 0,
-        "pass_rate": 50,
+        "pass_rate": 66.67,
         "gate_pass_rate": 100,
         "night_relax_hits": 0,
         "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
-        "sheet_name": "诺瓦询盘回复质量检查（11.09·16时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsABBExAy8yMoPYe1",
+        "sheet_name": "诺瓦询盘回复质量检查（11.10·16时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/oP0MALyR8kYwn9oxSMkmqD1eV3bzYmDO",
         "records": [],
         "samples": [
           {
-            "inquiry_time": "2026/11/9 7:07:46",
-            "buyer": "Kareem Elbadry",
+            "inquiry_time": "2026/11/10 9:06:11",
+            "buyer": "Aldo Viloria",
+            "sales": "IVA ZHANG",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "1 分钟",
+            "track_count": "3",
+            "summary": "买家（美国）通过询价卡询 100kVA 静音柴油发电机组的信息与价格；业务员 IVA 发送静音机型图片，说明配 Weichai 发动机并询问使用场景与品牌要求；买家随后追问发动机品牌。 已读：买家未读卖家最后一条消息（2026-11-11 14:28:45）｜readStatus 缺失，以气泡回执为据"
+          },
+          {
+            "inquiry_time": "2026/11/10 19:31:29",
+            "buyer": "felix contreras",
             "sales": "Mark Zhang",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "1 小时 35 分钟",
-            "track_count": "6",
-            "summary": "买家 Kareem Elbadry（科威特清洁公司）询 5 台 WEICHAI 6M33D633E200（500kW/625kVA）静音型机组并联运行并配同步屏，415V/50Hz，夏季环境 50℃；业务员 Mark 给出 55℃ 铜水箱散热方案、发送静音箱体图片，并于 11-10 发出 500kW 并联系统报价 PDF 与发动机技术规格书。 已读：买家已读卖家最后一条消息（2026-11-10 11:20:20）｜readStatus 缺失，以气泡回执为据"
+            "resp_time": "1 分钟",
+            "track_count": "3",
+            "summary": "买家（墨西哥）连发 3 条询价卡（25–5000kVA、50–1000kW 带 ATS 等）寻找单相交流发电机组合作，并问寄到 CP 83242 的价格；业务员 Mark 询问功率与地址，买家回复 15kW 60Hz 单相，业务员再确认静音/开架与详细地址，次日发送 15kW 静音机型图片。 已读：买家未读卖家最后一条消息（2026-11-11 08:39:06）｜readStatus 缺失，以气泡回执为据"
           },
           {
-            "inquiry_time": "2026/11/9 12:06:25",
-            "buyer": "Allen Miller",
-            "sales": "IVA ZHANG",
+            "inquiry_time": "2026/11/10 21:58:11",
+            "buyer": "ALOBAIWANICOMPANY COMPANY",
+            "sales": "Mark Zhang",
             "verdict": "不合格",
             "reason": "S3 图文并茂不足（前 3 次追踪无图文同批）",
-            "resp_time": "1 分钟",
-            "track_count": "20",
-            "summary": "买家 Allen Miller（美国）通过产品卡询 50kW 单相 240V 发电机组，希望用 Cummins 发动机并需 EPA 认证，另询问 20kW 价格；业务员 IVA 报 Weichai 50kW 5700 USD、Cummins 50kW 7350 USD、20kW 3600/5400 USD，后改报 25kW 含 ATS 3800 USD + DDP 2700 USD = 6500 USD，并发送图片、视频与报价 PDF。买家称价格合理，要求给一两天考虑。 已读：买家已读卖家最后一条消息（2026-11-10 11:06:46）｜readStatus 缺失，以气泡回执为据"
+            "resp_time": "3 分钟",
+            "track_count": "1",
+            "summary": "买家发来 Atlas Copco 柴油空压机询价（要求按附件照片与视频的整机，注明品牌与制造商信息，并附多张实机照片）；业务员 Mark 回复公司为柴油发电机组工厂、没有该款柴油空压机，无法供货。 已读：买家已读卖家最后一条消息（2026-11-10 22:01:58）｜readStatus 缺失，以气泡回执为据"
           }
         ]
       },
@@ -611,19 +631,19 @@
       "schedule": "0 16 * * *",
       "type": "询盘质检 (前一天全量重检)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-10-22 16:41:00",
-      "next_run": "2026-11-11 16:00:00",
+      "status": "已完成",
+      "last_run": "2026-11-11 16:10:57",
+      "next_run": "2026-11-12 16:00:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美询盘回复质量检查（10.21·16时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/QOG9lyrgJP0XLO25TR9r8B72JzN67Mw4"
+          "name": "贝诺美询盘回复质量检查（11.10·16时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/XPwkYGxZV36pLXdKcrYj6ADkWAgozOKL"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦询盘回复质量检查（10.21·16时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsA4Okyrv8yMoPYe1"
+          "name": "诺瓦询盘回复质量检查（11.10·16时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/oP0MALyR8kYwn9oxSMkmqD1eV3bzYmDO"
         }
       ]
     },
