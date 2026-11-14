@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/14 09:28:52",
+  "last_synced_at": "2026/11/14 09:31:17",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -63,11 +63,11 @@
       "daily_quality": {
         "latest_round": "2026-11-13（16:00 轮）",
         "target_date": "2026-11-13",
-        "total_checked": 5,
-        "passed": 4,
-        "failed": 1,
+        "total_checked": 3,
+        "passed": 3,
+        "failed": 0,
         "pending": 0,
-        "pass_rate": 80,
+        "pass_rate": 100,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
         "sheet_name": "贝诺美询盘回复质量检查（11.13·16时）",
@@ -100,16 +100,6 @@
         ],
         "samples": [
           {
-            "inquiry_time": "2026/11/13 0:11:34",
-            "buyer": "Georgiana Calin",
-            "sales": "Yuli Guo",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "8 小时 43 分钟",
-            "track_count": "2",
-            "summary": "买家 Georgiana Calin 询问 808nm 半导体激光脱毛机的规格、价格与交期，并发来三波长 755/808/1064 冰点钛金脱毛机产品卡（采购 1 台）。业务员当日 08:54 首次人工回复，介绍 18 年工厂与内部配置差异，11:22 报机器 4,590 美元 + 罗马尼亚 DHL 运费 860 美元 = 5,450 美元，并补充美国 Coherent 激光器、TEC 制冷、手柄小屏、755-808-940-1064 四波长等配置。 已读：买家未读卖家最后一条消息（2026-11-13 11:26:54）。"
-          },
-          {
             "inquiry_time": "2026/11/13 3:41:49",
             "buyer": "Marlucia Martire",
             "sales": "Yuli Guo",
@@ -128,16 +118,6 @@
             "resp_time": "1 分钟",
             "track_count": "2",
             "summary": "西班牙买家 maria carmen Sanchez Luque 通过「意向单」咨询 Hydro Dermabrasion 水磨/小气泡溶液（订单合计 USD 10.16），用西语询问每套是否 3 瓶、是否需要稀释，随后发图确认要该产品、要 3 套，并给出邮编 41310，希望当天成交。业务员 17:03 即回复确认每套 3 瓶且无需稀释，17:27 报 3 套空运共 100 美元（约 12–15 天）、陆运共 80 美元（约 35–40 天），并说明运费偏高、建议加大数量更划算。 已读：买家已读卖家最后一条消息（2026-11-13 17:28:51）。"
-          },
-          {
-            "inquiry_time": "2026/11/13 18:02:29",
-            "buyer": "Cheron Ariana",
-            "sales": "Jay Li",
-            "verdict": "不合格",
-            "reason": "首响超时（14 小时 41 分钟，阈值 基础 60 分钟）",
-            "resp_time": "14 小时 41 分钟",
-            "track_count": "1",
-            "summary": "葡萄牙买家 Cheron Ariana 发来 14 合 1 水磨/皮肤管理仪（US$1,100–2,250）产品卡，并用葡文说明要用于专业用途，索取 PDF 版欧盟合规声明（Declaração UE de Conformidade）与相应检测报告。业务员次日 08:43 才人工首次回复，仅致歉说明在去办公室路上、稍后回复，并附一张图片卡，未提供所需文件。 已读：买家已读卖家最后一条消息（2026-11-14 08:44:00）。"
           },
           {
             "inquiry_time": "2026/11/13 19:26:52",
@@ -637,7 +617,7 @@
       "type": "询盘质检 (前一天全量重检)",
       "target": "双店 (贝诺美 + 诺瓦)",
       "status": "已完成",
-      "last_run": "2026-11-14 09:28:44",
+      "last_run": "2026-11-14 09:31:17",
       "next_run": "2026-11-15 16:00:00",
       "sheets": [
         {
