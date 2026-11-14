@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/14 09:31:17",
+  "last_synced_at": "2026/11/14 10:13:09",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -40,7 +40,7 @@
         "latest_round": "10:00 轮",
         "violations": 0,
         "order_alerts": 0,
-        "balance": 3049.57,
+        "balance": 3048.81,
         "balance_threshold": 1000,
         "rfq_quota": 7,
         "rfq_expire": "2026-11-14",
@@ -51,7 +51,7 @@
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
         "balance_source": "风险监控 (10:00 轮)",
-        "balance_at": 1794618177324.6985
+        "balance_at": 1794622389752.622
       },
       "inquiry_sync": {
         "latest_round": "2026-11-14 09:09 轮",
@@ -222,9 +222,9 @@
         "breakdown_text": "纠纷 0 ｜ 拒付 0 ｜ 售后 0",
         "terminal_text": "完结 51 / 撤销 16 ｜ 银行已判责 7 ｜ 预警完结 2",
         "items": [],
-        "captured_at": "2026-11-14T00:55:37.125Z",
+        "captured_at": "2026-11-14T02:11:35.933Z",
         "round": "10:00 轮",
-        "at": 1794617737127.5386
+        "at": 1794622295936.249
       },
       "review": {
         "available": true,
@@ -245,12 +245,12 @@
           }
         ],
         "window_days": 30,
-        "window_start": "2026-10-15 08:58",
+        "window_start": "2026-10-15 10:11",
         "in_window_count": 1,
         "latest_time": "2026-10-29 01:47",
-        "captured_at": "2026-11-14T00:58:25.047Z",
+        "captured_at": "2026-11-14T02:11:51.455Z",
         "round": "10:00 轮",
-        "at": 1794617905048.7002
+        "at": 1794622311456.4338
       }
     },
     "nova": {
@@ -289,7 +289,7 @@
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
         "balance_source": "风险监控 (10:00 轮)",
-        "balance_at": 1794618177324.6985
+        "balance_at": 1794622389752.622
       },
       "inquiry_sync": {
         "latest_round": "2026-11-14 09:09 轮",
@@ -464,9 +464,9 @@
         "breakdown_text": "纠纷 0 ｜ 拒付 0 ｜ 售后 0",
         "terminal_text": "完结 3 / 撤销 1 ｜ 银行已判责 0 ｜ 预警完结 0",
         "items": [],
-        "captured_at": "2026-11-14T00:56:25.332Z",
+        "captured_at": "2026-11-14T02:11:36.136Z",
         "round": "10:00 轮",
-        "at": 1794617785333.4595
+        "at": 1794622296138.213
       },
       "review": {
         "available": true,
@@ -476,12 +476,12 @@
         "items": [],
         "window_items": [],
         "window_days": 30,
-        "window_start": "2026-10-15 08:58",
+        "window_start": "2026-10-15 10:11",
         "in_window_count": 1,
         "latest_time": "2026-11-06 17:51",
-        "captured_at": "2026-11-14T00:58:09.836Z",
+        "captured_at": "2026-11-14T02:11:36.637Z",
         "round": "10:00 轮",
-        "at": 1794617889837.4026
+        "at": 1794622296638.873
       }
     }
   },
