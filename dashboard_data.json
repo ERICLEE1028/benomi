@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/14 09:00:20",
+  "last_synced_at": "2026/11/14 09:01:05",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -42,7 +42,7 @@
         "order_alerts": 0,
         "balance": 3049.57,
         "balance_threshold": 1000,
-        "rfq_quota": 10,
+        "rfq_quota": 7,
         "rfq_expire": "2026-11-14",
         "rfq_used_detail": "本月已用 3 条（按业务员：Celin Wang 3 条）",
         "status": "warning",
@@ -51,7 +51,7 @@
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
         "balance_source": "风险监控 (10:00 轮)",
-        "balance_at": 1794618005231.4404
+        "balance_at": 1794618059478.3127
       },
       "inquiry_sync": {
         "latest_round": "2026-11-12 15:00 轮",
@@ -319,7 +319,7 @@
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
         "balance_source": "风险监控 (10:00 轮)",
-        "balance_at": 1794618005231.4404
+        "balance_at": 1794618059478.3127
       },
       "inquiry_sync": {
         "latest_round": "2026-11-12 15:00 轮",
