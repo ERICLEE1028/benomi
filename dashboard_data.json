@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/14 10:13:09",
+  "last_synced_at": "2026/11/14 11:13:13",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -51,7 +51,7 @@
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
         "balance_source": "风险监控 (10:00 轮)",
-        "balance_at": 1794622389752.622
+        "balance_at": 1794622396086.474
       },
       "inquiry_sync": {
         "latest_round": "2026-11-14 09:09 轮",
@@ -61,7 +61,7 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
       },
       "daily_quality": {
-        "latest_round": "2026-11-13（16:00 轮）",
+        "latest_round": "2026-11-13（11:00 轮）",
         "target_date": "2026-11-13",
         "total_checked": 3,
         "passed": 3,
@@ -70,8 +70,8 @@
         "pass_rate": 100,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
-        "sheet_name": "贝诺美询盘回复质量检查（11.13·16时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/a9E05BDRVQbGeLzquZG63oY9J63zgkYA",
+        "sheet_name": "贝诺美询盘回复质量检查（11.13·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJz2lOLoBiboNDYEYJKe0xjE3",
         "records": [
           {
             "inquiry_time": "2026-10-14 03:56:12",
@@ -106,8 +106,8 @@
             "verdict": "合格",
             "reason": "—",
             "resp_time": "2 小时 4 分钟",
-            "track_count": "3",
-            "summary": "巴西买家 Marlucia Martire 发来 BIA 人体成分分析仪产品卡（US$799–1,099），并用葡文直接询问价格。自动接待先问数量（已剔除）；业务员 05:45 人工跟进介绍潍坊贝诺美 18 年经验，10:57 起配图说明人脸识别登录、多终端报告、投屏、可折叠带打印机、8 点接触电极与 25 项体成分数据，11:21 报价 1,199 美元（不含运费）并询问是否在中国有货代。 已读：买家未读卖家最后一条消息（2026-11-13 11:21:38）。"
+            "track_count": "5",
+            "summary": "巴西买家 Marlucia Martire 发来 BIA 人体成分分析仪（Body Composition Analyzer，US$799–1,099）产品卡并用葡文直接问价。自动接待先问数量（已剔除）；业务员 05:45 人工跟进，介绍潍坊贝诺美 18 年美容设备经验，10:57 起配图说明人脸识别登录、手机/电脑多终端报告、投屏、8 点接触电极与 25 项体成分数据，11:21 报价 1,199 美元（不含运费）并询问是否在中国有货代；11-14 又补发测试视频与二维码报告说明，买家此后未再回复。 已读：买家未读卖家最后一条消息（2026-11-14 10:10:59）。"
           },
           {
             "inquiry_time": "2026/11/13 17:03:07",
@@ -116,8 +116,8 @@
             "verdict": "合格",
             "reason": "—",
             "resp_time": "1 分钟",
-            "track_count": "2",
-            "summary": "西班牙买家 maria carmen Sanchez Luque 通过「意向单」咨询 Hydro Dermabrasion 水磨/小气泡溶液（订单合计 USD 10.16），用西语询问每套是否 3 瓶、是否需要稀释，随后发图确认要该产品、要 3 套，并给出邮编 41310，希望当天成交。业务员 17:03 即回复确认每套 3 瓶且无需稀释，17:27 报 3 套空运共 100 美元（约 12–15 天）、陆运共 80 美元（约 35–40 天），并说明运费偏高、建议加大数量更划算。 已读：买家已读卖家最后一条消息（2026-11-13 17:28:51）。"
+            "track_count": "3",
+            "summary": "西班牙买家 maria carmen Sanchez Luque 通过「意向单」咨询 Hydro Dermabrasion 水磨/小气泡溶液（订单合计 USD 10.16，寄 Andalucía Brenes），用西语确认每套是否 3 瓶、是否需要稀释，发图确认要该产品并要 3 套，给出邮编 41310 希望当天成交。业务员 17:03 即回复确认每套 3 瓶且无需稀释并追问数量，17:27 报 3 套空运共 100 美元（约 12–15 天），随后说明运费偏高、建议加大数量更划算；11-14 上午追问报价意见并补发产品手册。 已读：买家未读卖家最后一条消息（2026-11-14 09:48:30）。"
           },
           {
             "inquiry_time": "2026/11/13 19:26:52",
@@ -126,8 +126,8 @@
             "verdict": "合格",
             "reason": "—",
             "resp_time": "8 分钟",
-            "track_count": "5",
-            "summary": "买家 Sebastian LeonValle 用西语表示想购买该设备，并附 2022 双手柄 RET CET Tecar 理疗仪（US$590–1,090）产品卡，说明是自用诊所，询问含运费的最终价格。业务员 19:35 首次回复并确认用途，其后发产品图、说明 TECAR 在理疗/康复/疼痛治疗的适用范围与温热作用原理，20:38 报机器 1,199 美元 + DHL 运费 312 美元 = 1,511 美元，20:49 追加视频并询问是否买过该设备。 已读：买家未读卖家最后一条消息（2026-11-13 20:51:17）。"
+            "track_count": "6",
+            "summary": "买家 Sebastian LeonValle 用西语表示想购买该设备，并附 2022 双手柄 RET CET Tecar 理疗仪（US$590–1,090）产品卡，说明是自用诊所，询问含运费的最终价格。业务员 19:35 首次回复并确认用途（自营诊所）、索取邮编 170130，其后发产品图、说明 TECAR 在理疗/康复/疼痛治疗的适用范围与温热作用原理，20:38 报机器 1,199 美元 + DHL 运费 312 美元 = 1,511 美元，20:49 追加视频并询问是否买过该设备。 已读：买家已读卖家最后一条消息（2026-11-14 10:20:20）。"
           }
         ]
       },
@@ -289,7 +289,7 @@
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
         "balance_source": "风险监控 (10:00 轮)",
-        "balance_at": 1794622389752.622
+        "balance_at": 1794622396086.474
       },
       "inquiry_sync": {
         "latest_round": "2026-11-14 09:09 轮",
@@ -299,7 +299,7 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
       },
       "daily_quality": {
-        "latest_round": "2026-11-13（16:00 轮）",
+        "latest_round": "2026-11-13（11:00 轮）",
         "target_date": "2026-11-13",
         "total_checked": 4,
         "passed": 3,
@@ -309,8 +309,8 @@
         "gate_pass_rate": 100,
         "night_relax_hits": 0,
         "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
-        "sheet_name": "诺瓦询盘回复质量检查（11.13·16时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF5OgDOk9JMwvDqPk",
+        "sheet_name": "诺瓦询盘回复质量检查（11.13·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/2Amq4vjg89EnZqdMuYOjpg5K83kdP0wQ",
         "records": [],
         "samples": [
           {
@@ -321,7 +321,7 @@
             "reason": "—",
             "resp_time": "1 分钟",
             "track_count": "2",
-            "summary": "买家 JARIO MORENO 表示对柴油发电机组感兴趣，要求把报价与最新产品目录发送到邮箱 jariomoreno@nutracapusa.co，并附 Cummins 20–125kVA 静音柴油发电机组产品卡。业务员 16:16 人工首次回复并询问所需功率（kW）；因买家采购政策要求邮件目录，说明目录无法在此发送、需与经理确认，并告知功率范围 20–200kW，16:54 发送静音机型图片确认是否为所需型号。 已读：买家未读卖家最后一条消息（2026-11-13 16:54:52）。"
+            "summary": "买家 JARIO MORENO 表示对柴油发电机组感兴趣，要求把报价与最新产品目录发到其邮箱，并附 Cummins 20–125kVA 静音柴油发电机组产品卡。业务员 16:16 人工首次回复并询问所需功率（kW）；因买家要求邮件目录，说明目录无法在此发送、需与经理确认，并告知可选功率 20–200kW，16:54 发静音机型图片确认是否为所需型号，买家未再回复。 已读：买家未读卖家最后一条消息（2026-11-13 16:54:52）。"
           },
           {
             "inquiry_time": "2026/11/13 16:38:37",
@@ -330,8 +330,8 @@
             "verdict": "合格",
             "reason": "—",
             "resp_time": "1 分钟",
-            "track_count": "4",
-            "summary": "买家 carimo freitas oliveira 发送 100–500kVA 静音柴油发电机组产品卡（US$2,350–2,450）询价，未附文字说明。业务员 16:39 人工首次回复并询问所需功率，随后发送机组图片确认是否为所需静音机型；16:51 介绍诺瓦 20 余年发电机组制造经验并追问功率，买家 11-14 00:00 回复 100kVA，业务员 06:46 用通俗说明解释 ATS 停电自动启停功能、08:35 追问对机组品牌的要求。 已读：买家未读卖家最后一条消息（2026-11-14 08:35:29）。"
+            "track_count": "5",
+            "summary": "买家 carimo freitas oliveira 发来 100–500kVA 静音柴油发电机组产品卡（US$2,350–2,450）询价，未附文字说明。业务员 16:39 人工首次回复并询问所需功率，随后发机组图片确认是否为所需静音机型，16:51 介绍诺瓦 20 余年发电机组制造经验并追问功率；买家 11-14 00:00 回复 100kVA，业务员 06:46 解释 ATS 停电自动启停功能、08:35 追问品牌要求，10:45 报 NOVA 100kVA 带 ATS 4,300 美元、潍柴 100kVA 带 ATS 6,700 美元。 已读：买家未读卖家最后一条消息（2026-11-14 10:47:01）。"
           },
           {
             "inquiry_time": "2026/11/13 21:23:22",
@@ -340,8 +340,8 @@
             "verdict": "合格",
             "reason": "—",
             "resp_time": "1 分钟",
-            "track_count": "2",
-            "summary": "买家 Orlando Blaides 需要 963 台 20kVA 柴油发电机组，附 RFQ-260826 GENERATOR 20KVA.xlsx 规格表，要求 FOB 上海报价，说明机组将用于其全国范围的加油站。业务员 Mark Zhang 21:23 即人工接待，核对用途与数量后表示先看资料；11-14 08:39 推荐潍柴 WP2.3D25E200 四缸发动机配诺瓦自产全铜无刷电机、集装箱式静音箱（1 米 65 分贝），08:42 报 FOB 4,900 美元，08:44 发送静音箱视频并说明箱体类型。 已读：买家未读卖家最后一条消息（2026-11-14 08:44:38）。"
+            "track_count": "3",
+            "summary": "买家 Orlando Blaides 需要 963 台 20kVA 柴油发电机组，附 RFQ-260826 GENERATOR 20KVA.xlsx 规格表，要求 FOB 上海报价，说明机组用于其全国范围的加油站。业务员 Mark Zhang 21:23 即人工接待，核对用途与数量后表示先看资料；11-14 08:39 推荐潍柴 WP2.3D25E200 发动机配诺瓦自产全铜无刷电机的配置，08:42 报 FOB 4,900 美元，08:44 发送静音箱视频并说明箱体类型。 已读：买家未读卖家最后一条消息（2026-11-14 10:43:54）。"
           },
           {
             "inquiry_time": "2026/11/13 22:50:23",
@@ -351,7 +351,7 @@
             "reason": "前 3 次人工追踪未图文并茂",
             "resp_time": "7 小时 53 分钟",
             "track_count": "2",
-            "summary": "泰国买家 Tuan Amron 以泰文发起咨询并发送超静音柴油发电机组（20–100KW）产品卡，询问可选规格；22:52 的泰文规格回复为自动接待（已剔除）。业务员 11-14 06:43 人工首次回复问候，08:34 用泰文询问所需额定功率（kW），期间两条空内容消息未计入追踪，全程未补充产品图片。 已读：买家未读卖家最后一条消息（2026-11-14 08:34:49）。"
+            "summary": "泰国买家 Tuan Amron 以泰文发起咨询并附超静音柴油发电机组（20–100KW）产品卡，询问可选规格；22:52 的泰文规格回复为自动接待（已剔除）。业务员 11-14 06:43 人工首次回复问候，08:34 用泰文询问所需额定功率（kW），期间两条空内容消息未计入追踪，全程未补充产品图片。 已读：买家未读卖家最后一条消息（2026-11-14 08:34:49）。"
           }
         ]
       },
@@ -538,19 +538,19 @@
       "schedule": "0 11 * * *",
       "type": "询盘质检 (上午初检)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-10-22 11:11:00",
-      "next_run": "2026-11-14 11:00:00",
+      "status": "已完成",
+      "last_run": "2026-11-14 11:13:10",
+      "next_run": "2026-11-15 11:00:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美询盘回复质量检查（10.21·11时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/a9E05BDRVQbGeLzquZv9oK9eJ63zgkYA"
+          "name": "贝诺美询盘回复质量检查（11.13·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJz2lOLoBiboNDYEYJKe0xjE3"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦询盘回复质量检查（10.21·11时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsA4Okyrv8yMoPYe1"
+          "name": "诺瓦询盘回复质量检查（11.13·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/2Amq4vjg89EnZqdMuYOjpg5K83kdP0wQ"
         }
       ]
     },
