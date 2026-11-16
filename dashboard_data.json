@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/14 11:13:13",
+  "last_synced_at": "2026/11/16 09:04:21",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -507,7 +507,7 @@
       "target": "双店 (贝诺美 + 诺瓦)",
       "status": "待运行",
       "last_run": "2026-10-22 09:03:00",
-      "next_run": "2026-11-15 09:00:00",
+      "next_run": "2026-11-17 09:00:00",
       "sheets": [
         {
           "store": "贝诺美",
@@ -527,9 +527,9 @@
       "schedule": "0 10 * * *",
       "type": "风险与履约 (上午轮)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "已完成",
-      "last_run": "2026-11-14 10:00:23",
-      "next_run": "2026-11-15 10:00:00",
+      "status": "待运行",
+      "last_run": "2026-10-22 10:00:23",
+      "next_run": "2026-11-16 10:00:00",
       "sheets": []
     },
     {
@@ -538,19 +538,19 @@
       "schedule": "0 11 * * *",
       "type": "询盘质检 (上午初检)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "已完成",
-      "last_run": "2026-11-14 11:13:10",
-      "next_run": "2026-11-15 11:00:00",
+      "status": "待运行",
+      "last_run": "2026-10-22 11:11:00",
+      "next_run": "2026-11-16 11:00:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美询盘回复质量检查（11.13·11时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJz2lOLoBiboNDYEYJKe0xjE3"
+          "name": "贝诺美询盘回复质量检查（10.21·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/a9E05BDRVQbGeLzquZv9oK9eJ63zgkYA"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦询盘回复质量检查（11.13·11时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/2Amq4vjg89EnZqdMuYOjpg5K83kdP0wQ"
+          "name": "诺瓦询盘回复质量检查（10.21·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsA4Okyrv8yMoPYe1"
         }
       ]
     },
@@ -562,7 +562,7 @@
       "target": "双店 (贝诺美 + 诺瓦)",
       "status": "待运行",
       "last_run": "2026-10-22 14:04:00",
-      "next_run": "2026-11-14 14:00:00",
+      "next_run": "2026-11-16 14:00:00",
       "sheets": [
         {
           "store": "贝诺美",
@@ -584,7 +584,7 @@
       "target": "双店 (贝诺美 + 诺瓦)",
       "status": "待运行",
       "last_run": "2026-10-22 14:30:17",
-      "next_run": "2026-11-14 14:30:00",
+      "next_run": "2026-11-16 14:30:00",
       "delivery": "Accio 机器人 Webhook 推送至专属通知群（@李冰）",
       "sheets": []
     },
@@ -594,9 +594,9 @@
       "schedule": "0 15 * * *",
       "type": "询盘分配与CRM",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "已完成",
-      "last_run": "2026-11-14 15:06:32",
-      "next_run": "2026-11-15 15:00:00",
+      "status": "待运行",
+      "last_run": "2026-10-22 15:00:00",
+      "next_run": "2026-11-16 15:00:00",
       "sheets": [
         {
           "store": "贝诺美",
@@ -616,19 +616,19 @@
       "schedule": "0 16 * * *",
       "type": "询盘质检 (前一天全量重检)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "已完成",
-      "last_run": "2026-11-14 09:31:17",
-      "next_run": "2026-11-15 16:00:00",
+      "status": "待运行",
+      "last_run": "2026-10-22 16:41:00",
+      "next_run": "2026-11-16 16:00:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美询盘回复质量检查（11.13·16时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/a9E05BDRVQbGeLzquZG63oY9J63zgkYA"
+          "name": "贝诺美询盘回复质量检查（10.21·16时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/QOG9lyrgJP0XLO25TR9r8B72JzN67Mw4"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦询盘回复质量检查（11.13·16时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF5OgDOk9JMwvDqPk"
+          "name": "诺瓦询盘回复质量检查（10.21·16时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsA4Okyrv8yMoPYe1"
         }
       ]
     },
@@ -640,7 +640,7 @@
       "target": "贝诺美 (benomibeauty)",
       "status": "待运行",
       "last_run": "2026-10-30 16:30:00",
-      "next_run": "2026-11-14 16:30:00",
+      "next_run": "2026-11-16 16:30:00",
       "sheets": [
         {
           "store": "贝诺美",
@@ -657,7 +657,7 @@
       "target": "双店 (贝诺美 + 诺瓦)",
       "status": "待运行",
       "last_run": "2026-10-26 16:46:48",
-      "next_run": "2026-11-16 16:30:00",
+      "next_run": "2026-11-23 16:30:00",
       "sheets": [
         {
           "store": "贝诺美",
