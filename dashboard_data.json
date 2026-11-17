@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/17 16:13:50",
+  "last_synced_at": "2026/11/17 16:14:53",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -54,24 +54,24 @@
         "balance_at": 1794898319804.102
       },
       "inquiry_sync": {
-        "latest_round": "2026-11-16 15:13 轮",
-        "incremental_count": 10,
+        "latest_round": "2026-11-17 16:13 轮",
+        "incremental_count": 5,
         "latest_assign_time": "2026/11/14 6:19:14",
         "sheet_name": "贝诺美询盘分配与客户沉淀总表",
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
       },
       "daily_quality": {
-        "latest_round": "2026-11-16（11:00 轮）",
+        "latest_round": "2026-11-16（16:00 轮）",
         "target_date": "2026-11-16",
-        "total_checked": 3,
-        "passed": 3,
-        "failed": 0,
+        "total_checked": 5,
+        "passed": 4,
+        "failed": 1,
         "pending": 0,
-        "pass_rate": 100,
+        "pass_rate": 80,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
-        "sheet_name": "贝诺美询盘回复质量检查（11.16·11时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/MNDoBb60VLmyGONxFnz92ddvJlemrZQ3",
+        "sheet_name": "贝诺美询盘回复质量检查（11.16·16时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/jb9Y4gmKWrDdeloBsr99vgD1JGXn6lpz",
         "records": [
           {
             "inquiry_time": "2026-10-14 03:56:12",
@@ -100,34 +100,54 @@
         ],
         "samples": [
           {
-            "inquiry_time": "2026-11-16 04:54:57",
+            "inquiry_time": "2026/11/16 4:54:57",
             "buyer": "Nita Peco",
             "sales": "Miya Zhang",
             "verdict": "合格",
             "reason": "—",
             "resp_time": "1 小时 23 分钟",
             "track_count": "4",
-            "summary": "买家咨询 808/755/940/1064nm 四波长半导体激光脱毛仪（业务员称其为 Soprano Titanium 机型），用芬兰语表示希望当天购买并询问 730 欧元是否可行。业务员用芬兰语介绍激光器、TEC＋蓝宝石＋风冷/水冷、15.6 英寸触屏、350g 手具及 3–6 次疗程，并发送多张设备图；已采集消息中未见对 730 欧元的答复。已读：买家未读卖家最后一条消息（2026-11-17 08:21:29）"
+            "summary": "芬兰买家询问 808/755/940/1064nm 二极管激光脱毛机（Soprano Titanium），希望当天以 730 欧元成交。卖家 Miya 先说明官网价仅为引流价，再以芬兰语介绍四波长、15.6 英寸触屏、350g 手柄及 3–6 次疗程方案并连发产品图，未就 730 欧元给出明确答复。 已读：买家未读卖家最后一条消息（2026-11-17 08:21:29）。"
           },
           {
-            "inquiry_time": "2026-11-16 05:02:12",
+            "inquiry_time": "2026/11/16 5:02:12",
             "buyer": "Florian ripert",
             "sales": "Yuli Guo",
             "verdict": "合格",
             "reason": "—",
             "resp_time": "1 小时 50 分钟",
             "track_count": "3",
-            "summary": "买家咨询便携式三波长（755/808/1064nm）激光脱毛仪发往瓜德罗普 97122 Baie-Mahault 的 DDP 价格，并追问是否有内置制冷、与台式机功率对比、能否先订 1 台试用、软件是否法语及保修年限。业务员先报 649 美元＋运费 130 美元＝779 美元（空运 15 天、含清关关税），后调整为 589＋130＝719 美元，说明整机保修 1 年、屏幕仅英文，最后告知同事 Angela 会接手。已读：买家已读卖家最后一条消息（2026-11-16 11:59:56）"
+            "summary": "法国（瓜德罗普）买家询问便携式 808/755/1064nm 激光脱毛机 DDP 到 97122 Baie Mahault 的价格，并追问是否有内置水冷、功率是否够、能否单台试单、软件是否法语。卖家人工报价机器 649 美元＋运费 130 美元共 779 美元（空运 15 天），说明界面仅英文、保修 1 年，最后由同事 Angela 接手。 已读：买家已读卖家最后一条消息（2026-11-16 11:59:56）。"
           },
           {
-            "inquiry_time": "2026-11-16 08:44:23",
+            "inquiry_time": "2026/11/16 8:44:23",
             "buyer": "Maurizio Riccardo",
             "sales": "Harper Mu",
             "verdict": "合格",
             "reason": "—",
             "resp_time": "1 分钟",
-            "track_count": "8",
-            "summary": "买家索要激光脱毛机的完整技术参数与保修年限，随后追问价格为何偏低、能量能否从 50J/cm² 调到 40J 以及底价多少。业务员回复整机保修 1 年、手具 20 个月，发送意语参数图，报 1200W 手具 2280 美元（约 2073 欧元），并确认可调至 40J/CM。已读：买家未读卖家最后一条消息（2026-11-17 09:30:35）"
+            "track_count": "9",
+            "summary": "意大利买家索要整机技术参数表与保修年限，随后质疑价格为何这么低，并问能量能否从 50J/cm² 调到 40J/cm²（当地法规）。卖家提供规格图与意大利语资料，说明整机保修 1 年、手柄 20 个月，确认可调至 40J/cm²，并对比 1200W/1600W 手柄每日可接待 8–12 / 12–18 位客户。 已读：买家未读卖家最后一条消息（2026-11-17 11:08:05）。"
+          },
+          {
+            "inquiry_time": "2026/11/16 17:46:58",
+            "buyer": "Mildred Maldonado",
+            "sales": "Celin Wang",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "2 分钟",
+            "track_count": "5",
+            "summary": "波多黎各买家咨询 3D 数字面部皮肤分析仪，询问是否有货及发到波多黎各的价格。卖家索取邮编、发送产品视频与 AI 芯片、分区诊断、微生态检测、头皮检测、防晒功效测试、产品管理等功能说明，次日 08:51 给出含运费的报价明细。 已读：买家未读卖家最后一条消息（2026-11-17 08:58:34）。"
+          },
+          {
+            "inquiry_time": "2026/11/16 21:36:36",
+            "buyer": "Oguzhan Ince",
+            "sales": "Daniel Wang",
+            "verdict": "不合格",
+            "reason": "首响超时（9 小时 43 分钟，阈值 基础 60 分钟）",
+            "resp_time": "9 小时 43 分钟",
+            "track_count": "3",
+            "summary": "法国买家咨询 808/755/940/1064nm 二极管激光脱毛机，询问是否有保修、能否分期付款。卖家次日 07:21 回复两年保修加终身维护、支持信用卡或 PayPal 付款，提示广告价非实际成交价，随后发送产品图片与手柄功率配置说明。 已读：买家未读卖家最后一条消息（2026-11-17 08:56:16）。"
           }
         ]
       },
@@ -283,14 +303,14 @@
         "balance_at": 1794898319804.102
       },
       "inquiry_sync": {
-        "latest_round": "2026-11-16 15:13 轮",
-        "incremental_count": 11,
+        "latest_round": "2026-11-17 16:13 轮",
+        "incremental_count": 0,
         "latest_assign_time": "2026/11/14 3:25:28",
         "sheet_name": "诺瓦询盘分配与客户沉淀总表",
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
       },
       "daily_quality": {
-        "latest_round": "2026-11-16（11:00 轮）",
+        "latest_round": "2026-11-16（16:00 轮）",
         "target_date": "2026-11-16",
         "total_checked": 1,
         "passed": 1,
@@ -300,19 +320,19 @@
         "gate_pass_rate": 100,
         "night_relax_hits": 0,
         "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
-        "sheet_name": "诺瓦询盘回复质量检查（11.16·11时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2JpvYONoqfp4wmbA2W9dEq3XD",
+        "sheet_name": "诺瓦询盘回复质量检查（11.16·16时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/R1zknDm0WRYLzeZKSdRRG4Pa8BQEx5rG",
         "records": [],
         "samples": [
           {
-            "inquiry_time": "2026-11-16 13:36:24",
+            "inquiry_time": "2026/11/16 13:36:24",
             "buyer": "khadar maxamed",
             "sales": "Mark Zhang",
             "verdict": "合格",
             "reason": "—",
             "resp_time": "1 分钟",
             "track_count": "3",
-            "summary": "买家仅发送 20KW/25KW 静音便携式柴油发电机产品卡片，未提出文字诉求。业务员介绍公司为 7000㎡ 发电机厂家、可提供现货与品牌发动机选项，并发送机组图片及 ISO9001/CE/RoHS/FDA 认证说明。已读：买家未读卖家最后一条消息（2026-11-16 17:00:06）"
+            "summary": "索马里买家发来 20KW/25KW 380V 60Hz 静音便携式柴油发电机组产品卡询价。卖家 Mark 介绍 7000㎡ 工厂与一站式服务（现货、Perkins/潍柴/玉柴等品牌发动机、OEM/ODM），说明机组经权威第三方检测并持有 ISO9001、CE、RoHS、FDA 认证，并追问所需 kW/kVA、用途、开架或静音、是否需要 ATS。 已读：买家未读卖家最后一条消息（2026-11-16 17:00:06）。"
           }
         ]
       },
@@ -550,19 +570,19 @@
       "schedule": "0 16 * * *",
       "type": "询盘质检 (前一天全量重检)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-10-22 16:41:00",
+      "status": "已完成",
+      "last_run": "2026-11-17 16:14:49",
       "next_run": "2026-11-18 16:00:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美询盘回复质量检查（10.21·16时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/QOG9lyrgJP0XLO25TR9r8B72JzN67Mw4"
+          "name": "贝诺美询盘回复质量检查（11.16·16时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/jb9Y4gmKWrDdeloBsr99vgD1JGXn6lpz"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦询盘回复质量检查（10.21·16时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsA4Okyrv8yMoPYe1"
+          "name": "诺瓦询盘回复质量检查（11.16·16时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/R1zknDm0WRYLzeZKSdRRG4Pa8BQEx5rG"
         }
       ]
     },
