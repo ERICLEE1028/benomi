@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/18 16:14:48",
+  "last_synced_at": "2026/11/18 16:15:22",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -61,7 +61,7 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
       },
       "daily_quality": {
-        "latest_round": "2026-11-17（11:00 轮）",
+        "latest_round": "2026-11-17（16:00 轮）",
         "target_date": "2026-11-17",
         "total_checked": 5,
         "passed": 5,
@@ -70,8 +70,8 @@
         "pass_rate": 100,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
-        "sheet_name": "贝诺美询盘回复质量检查（11.17·11时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/o14dA3GK8g7wkNobsv9B4qO589ekBD76",
+        "sheet_name": "贝诺美询盘回复质量检查（11.17·16时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsADBKOOA8yMoPYe1",
         "records": [
           {
             "inquiry_time": "2026-10-14 03:56:12",
@@ -100,54 +100,54 @@
         ],
         "samples": [
           {
-            "inquiry_time": "2026-11-17 01:27:59",
+            "inquiry_time": "2026/11/17 1:27:59",
             "buyer": "Marika Katamadze",
             "sales": "Jay Li",
             "verdict": "合格",
             "reason": "—",
             "resp_time": "5 小时 9 分钟",
             "track_count": "3",
-            "summary": "买家（法国美容院）询专业 AI 皮肤检测仪，要求确认法语界面、14 项皮肤指标、8 光谱模式实拍视频、21.5 英寸触屏、保修与法国售后、软件年费及该型号 CE 符合性声明。业务员 Jay Li 先回复在途稍后详答，随后报价 Desktop 机型（手持探头、3600 万像素相机、8 光谱、15.6 英寸屏、整机保修 1 年、可定制语言与 logo，DDP 法国 850＋261＝1,111 美元≈1,010 欧元），发送说明书与 CE 声明并逐条答复（25 种语言含法语），并说明屏幕为 15.6 英寸。已读：买家未读卖家最后一条消息（2026-11-17 17:05:28）"
+            "summary": "法国美容诊所买家咨询 AI 皮肤检测仪，下单前要求确认软件是否有完整法语界面、能否分析毛孔/皮脂/痘痘/黑头/色素/皱纹/泛红/肤质等指标。卖家 Jay Li 首响致歉说明在去办公室路上，随后发送产品图与视频，逐条答复设备内置 25 种语言含法语、可分析上述全部指标，并附 Pro Lite 操作手册、CE 符合性声明与报价，询问是沙龙自用还是分销并介绍自有国际标准组装车间。 已读：买家未读卖家最后一条消息（2026-11-17 17:05:28）。"
           },
           {
-            "inquiry_time": "2026-11-17 03:54:45",
+            "inquiry_time": "2026/11/17 3:54:45",
             "buyer": "Fidan Esen",
             "sales": "Miya Zhang",
             "verdict": "合格",
             "reason": "—",
             "resp_time": "4 小时 25 分钟",
-            "track_count": "4",
-            "summary": "买家询 2000W 三波长冰点半导体激光脱毛仪价格并催复。业务员 Miya 介绍 Soprano Titanium 机型（1000/1200/1600W 与单/双手具可选）、德国激光器、TEC＋蓝宝石＋风冷/水冷六档制冷、15.6 英寸触屏、350g 手具、可选 755/808/1064/940nm 四波长、3–6 次疗程，报价 2000W 单手柄三波长 DDP 奥地利 2580＋770＝3350 美元（空运 12–15 天、含清关关税），并补充 18 年工厂资质与 CE/FDA 认证。已读：买家未读卖家最后一条消息（2026-11-17 13:45:29）"
+            "track_count": "5",
+            "summary": "奥地利买家询问 2000W 三波长冰点半导体激光脱毛机价格并催促答复。卖家 Miya 首响后介绍 Soprano Titanium 机型配置（德国激光器、TEC+蓝宝石+风冷+水冷、15.6 寸触屏、350g 手柄、755/808/1064/940nm 四波长、3–6 次疗程），并发出 DDP 报价：机价 2580 美元＋空运费 770 美元共 3350 美元，生产测试约 3–5 天。 已读：买家未读卖家最后一条消息（2026-11-18 11:47:06）。"
           },
           {
-            "inquiry_time": "2026-11-17 07:30:32",
+            "inquiry_time": "2026/11/17 7:30:32",
             "buyer": "mokhtari ibtissem",
             "sales": "Yuli Guo",
             "verdict": "合格",
             "reason": "—",
             "resp_time": "48 分钟",
             "track_count": "3",
-            "summary": "买家（阿尔及利亚）询带打印机的体成分分析仪 1 台。自动接待先以俄语回复 DSM-BIA、8 点电极、30 秒全身测量、内置热敏打印机、欧标插头、保修 1 年；业务员 Yuli 补充公司背景，随后分点介绍人脸登录、多终端报告、投屏、可折叠机身、25 项体测数据等卖点，报价 1,199 美元并询问是否在阿尔及利亚以便核算运费，次日发送机器使用视频。已读：买家未读卖家最后一条消息（2026-11-18 09:26:45）"
+            "summary": "阿尔及利亚买家以俄语询盘「带打印机的体成分分析仪」1 台，希望获得更详细资料。自动接待先用俄语介绍 DSM-BIA、8 点电极、30 秒全身测量、内置热敏打印机与 1 年保修；人工 Yuli 于 08:18 接手介绍 18 年工厂背景，随后发产品图说明人脸识别登录、多终端看板、投屏、可折叠机身与 25 项体成分指标，10:00 报机价 1199 美元并确认是否在阿尔及利亚以便核算运费。 已读：买家未读卖家最后一条消息（2026-11-18 09:26:45）。"
           },
           {
-            "inquiry_time": "2026-11-17 17:08:31",
+            "inquiry_time": "2026/11/17 17:08:31",
             "buyer": "Ferhat Yildirim",
             "sales": "Harper Mu",
             "verdict": "合格",
             "reason": "—",
             "resp_time": "1 分钟",
-            "track_count": "5",
-            "summary": "买家（荷兰，地址 7423DJ Vlaamsegaai 23）询 16 bars 激光脱毛仪含运到荷兰的价格。业务员 Harper 先自我介绍并发送设备图，介绍美国 Coherent 激光条（2 亿发）、TEC 超导＋蓝宝石＋风冷/水冷六档制冷，确认地址后报价 1200W 2,150 美元、1600W 2,580 美元＋空运 795 美元（含清关关税、12–15 天），1600W 合计 3,375 美元并含全套可换光斑；买家次日询问能否给折扣，业务员回问是否需要该配置。已读：买家未读卖家最后一条消息（2026-11-18 07:08:40）"
+            "track_count": "6",
+            "summary": "荷兰买家以荷兰语询问含运到荷兰的价格（16 bars 机型）并提供邮编地址。卖家 Harper 首响后连发产品图，介绍冰点无痛脱毛机采用美国 Coherent 激光棒、TEC+蓝宝石+风冷+水冷、四波长 755/808/940/1064nm、1200W/1600W 版本、激光寿命 2 亿发并说明整机与手柄保修；次日买家询问能否给折扣，卖家反问需求并再次说明美国进口激光与冷却系统配置。 已读：买家已读卖家最后一条消息（2026-11-18 14:11:19）。"
           },
           {
-            "inquiry_time": "2026-11-17 22:48:16",
+            "inquiry_time": "2026/11/17 22:48:16",
             "buyer": "Tigran Voskanyan",
             "sales": "Celin Wang",
             "verdict": "合格",
             "reason": "—",
             "resp_time": "2 小时 47 分钟",
-            "track_count": "10",
-            "summary": "买家（亚美尼亚）询问单台 808nm 半导体激光脱毛仪发往亚美尼亚的运输时效与费用，另又提交一条 Cloud Computing 808/755/1064nm 询盘。业务员先告知稍后发送详细资料，随后围绕手柄功率（200W/300W/600W）、激光条数与预算反复确认，给出 300W/600W 两档报价与实拍图，说明产品型号为 MNLT-Diode Laser S3、Benomi 与 MNLT 为同一公司，最后按买家要求核算发往埃里温的 DDP 空运价。已读：买家已读卖家最后一条消息（2026-11-18 11:00:20）"
+            "track_count": "14",
+            "summary": "买家（会话显示名 Tren Vende，法国）询问 808/755/940/1064nm 二极管激光脱毛机单台发往亚美尼亚的运输时间与费用，随后追问 300W 家用机型的型号与参数。卖家 Celin 首响后介绍 18 年工厂背景，说明官网价对应 100–200W 教学机型，按买家 800–1200 美元预算推荐 300W 的 MNLT-Diode Laser S3（另报 600W 机型 1990 美元），答复能量密度 2–40J/cm²、频率 1–10Hz，报 DDP 到法国里昂价格并说明亚美尼亚无 DDP 只能走 DHL，最终发出 769 美元订单待买家支付预付款。 已读：买家未读卖家最后一条消息（2026-11-18 15:18:46）。"
           }
         ]
       },
@@ -310,7 +310,7 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
       },
       "daily_quality": {
-        "latest_round": "2026-11-17（11:00 轮）",
+        "latest_round": "2026-11-17（16:00 轮）",
         "target_date": "2026-11-17",
         "total_checked": 1,
         "passed": 1,
@@ -320,19 +320,19 @@
         "gate_pass_rate": 100,
         "night_relax_hits": 0,
         "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
-        "sheet_name": "诺瓦询盘回复质量检查（11.17·11时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/14lgGw3P8vNPwloBundkE0vw85daZ90D",
+        "sheet_name": "诺瓦询盘回复质量检查（11.17·16时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/N7dx2rn0JbzAa9qmfb5eq202JMGjLRb3",
         "records": [],
         "samples": [
           {
-            "inquiry_time": "2026-11-17 16:29:12",
+            "inquiry_time": "2026/11/17 16:29:12",
             "buyer": "Iris Taylor",
             "sales": "IVA ZHANG",
             "verdict": "合格",
             "reason": "—",
             "resp_time": "2 分钟",
             "track_count": "2",
-            "summary": "买家发送 15KVA–3000KVA 静音柴油发电机组产品卡，并询问 50kW 机组价格、表示关注 Weichai。业务员说明为 60Hz 机组，先报 Ricardo 50kW 2,850 美元、再报 Weichai 50kW 5,200 美元，确认含低噪音静音箱、用途为长期运行，并追问中国货代与详细收货地址以核算运费，最后询问是否为 Jiang Lulu。已读：买家已读卖家最后一条消息（2026-11-17 16:41:15）"
+            "summary": "美国买家通过静音柴油发电机组产品卡询价，询问 50kW 机组价格并关注潍柴与 Ricardo 机型。自动接待先问数量，卖家首响后确认无需 ATS、60Hz、长期运行，报 Ricardo 50kW 2850 美元、潍柴 50kW 5200 美元（均含静音箱），并追问相数、用途、是否有中国货代及详细收货地址以便核算总价。 已读：买家已读卖家最后一条消息（2026-11-17 16:41:15）。"
           }
         ]
       },
@@ -570,19 +570,19 @@
       "schedule": "0 16 * * *",
       "type": "询盘质检 (前一天全量重检)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-10-22 16:41:00",
+      "status": "已完成",
+      "last_run": "2026-11-18 16:15:19",
       "next_run": "2026-11-19 16:00:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美询盘回复质量检查（10.21·16时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/QOG9lyrgJP0XLO25TR9r8B72JzN67Mw4"
+          "name": "贝诺美询盘回复质量检查（11.17·16时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsADBKOOA8yMoPYe1"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦询盘回复质量检查（10.21·16时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/kDnRL6jAJMn7NAkOsA4Okyrv8yMoPYe1"
+          "name": "诺瓦询盘回复质量检查（11.17·16时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/N7dx2rn0JbzAa9qmfb5eq202JMGjLRb3"
         }
       ]
     },
