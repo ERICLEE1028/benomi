@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/19 16:58:19",
+  "last_synced_at": "2026/11/19 16:58:36",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -61,8 +61,8 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
       },
       "daily_quality": {
-        "latest_round": "NaN-NaN-NaN（11:00 轮）",
-        "target_date": "NaN-NaN-NaN",
+        "latest_round": "2026-11-18（16:00 轮）",
+        "target_date": "2026-11-18",
         "total_checked": 5,
         "passed": 3,
         "failed": 0,
@@ -70,8 +70,8 @@
         "pass_rate": 60,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
-        "sheet_name": "贝诺美询盘回复质量检查（11.18·11时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/KGZLxjv9VGpwGR90uq0LYglPJ6EDybno",
+        "sheet_name": "贝诺美询盘回复质量检查（11.18·16时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJz2lOLoBibX7302oJKe0xjE3",
         "records": [
           {
             "inquiry_time": "2026-10-14 03:56:12",
@@ -100,54 +100,54 @@
         ],
         "samples": [
           {
-            "inquiry_time": "2026-11-18 02:38:03",
+            "inquiry_time": "2026/11/18 2:38:03",
             "buyer": "Enes Talha YAVUZ",
             "sales": "Daniel Wang",
             "verdict": "合格",
             "reason": "—",
             "resp_time": "5 小时 38 分钟",
             "track_count": "4",
-            "summary": "买家（土耳其）就 1927nm 分数式铥激光皮肤重建仪（产品卡标价 US$6,600–6,850、最小起订 1 台）询问 5 台价格，并索要 MDD/MDR 证书。业务员 Daniel Wang 回复 CE、ISO、MDR、FDA 证书齐全，追问要 EXW 还是 DDP 报价，随后发送产品图与适应症（去皱、痘印、毛孔、眼周纹等）及操作视频，并询问是否在当地转售。已读：买家未读卖家最后一条消息（2026-11-18 10:24:25）"
+            "summary": "土耳其买家（TM消息）咨询 1927nm 分段式铥激光皮肤焕新仪，问 5 台价格并索取 MDD/MDR 认证；业务员回复设备具备 CE、ISO、MDR、FDA 认证，反问需要 EXW 还是 DDP 报价，并连发产品图、作用原理与操作视频，尚未给出具体价格。 已读：买家未读卖家最后一条消息（2026-11-18 10:24:25）。"
           },
           {
-            "inquiry_time": "2026-11-18 11:36:03",
+            "inquiry_time": "2026/11/18 11:36:03",
             "buyer": "Nicole Gonzalez",
             "sales": "Jay Li",
             "verdict": "未判定",
-            "reason": "记录不可靠（会话不可读：页面提示「对方账号已自行注销或者因违反平台规则被管控，当前无法回复。」，getOpMessages 捕获 0，DOM 0 条）",
+            "reason": "—",
             "resp_time": "-",
             "track_count": "-",
-            "summary": "无有效沟通内容（会话不可读：页面提示「对方账号已自行注销或者因违反平台规则被管控，当前无法回复。」，getOpMessages 捕获 0 条、DOM 0 条）。已读：无法判定"
+            "summary": "无有效沟通内容（该询盘位于垃圾询价，页面提示对方账号已注销或被平台管控，getOpMessages 两趟反向翻页均返回 0 条）。 已读：无法判定。"
           },
           {
-            "inquiry_time": "2026-11-18 14:10:50",
+            "inquiry_time": "2026/11/18 14:10:50",
             "buyer": "HON Galgalo",
             "sales": "Miya Zhang",
             "verdict": "合格",
             "reason": "—",
             "resp_time": "1 分钟",
             "track_count": "3",
-            "summary": "买家（肯尼亚）就水磨削/小气泡美容液（AS1、AS2、AO3、Dr.cpu 溶液）询价，要 12 套并问价格与效期。业务员 Miya Zhang 报 1 套 3 瓶 7 美元、12 套共 84 美元，确认发往内罗毕、给出佛山仓收货地址，通过阿里支付链接收款并承诺 3 天内发货。已读：买家未读卖家最后一条消息（2026-11-18 14:33:55）"
+            "summary": "肯尼亚内罗毕买家咨询水光/小气泡溶液（AS1 AHA 13%、AS2 BHA 0.3%、A03 维C 精华，3 瓶/套），要 12 套并询价；业务员报 7 美元/套（12 套 84 美元）、说明 3 年保质期并创建阿里巴巴支付链接，买家已用 Visa 付款，货发佛山货代仓后转内罗毕，业务员承诺 3 天内发出。 已读：买家未读卖家最后一条消息（2026-11-18 14:33:55）。"
           },
           {
-            "inquiry_time": "2026-11-18 16:15:37",
+            "inquiry_time": "2026/11/18 16:15:37",
             "buyer": "Jasmine Jia",
             "sales": "Yuli Guo",
             "verdict": "未判定",
-            "reason": "记录不可靠（未定位到会话（所有询价单/垃圾询价/按时间扫描三路径均无该买家，无 imInquiryId））",
+            "reason": "—",
             "resp_time": "-",
             "track_count": "-",
-            "summary": "无有效沟通内容（未定位到会话，无聊天记录可读）。已读：无法判定"
+            "summary": "无有效沟通内容（分配记录存在，但商机列表 all/spam、subjectList 与分配记录均无可打开的会话入口，未采集到任何消息）。 已读：无法判定。"
           },
           {
-            "inquiry_time": "2026-11-18 20:52:28",
+            "inquiry_time": "2026/11/18 20:52:28",
             "buyer": "Bobo Sh",
             "sales": "Harper Mu",
             "verdict": "合格",
             "reason": "—",
             "resp_time": "1 分钟",
             "track_count": "4",
-            "summary": "买家（阿拉伯语）就 Mini Laser Diode Epilator（冷激光水冷、755/808/1064nm 无痛脱毛）询盘 1 套。业务员 Harper Mu 用阿拉伯语介绍 Benomi 18 年制造经验，发送多张产品图，说明家用机型仅 3kg、能量密度 40J/CM、1000 万发无衰减、探头接触式冷却、6 档制冷，手柄双通道冷却可连续使用 8 小时。已读：买家未读卖家最后一条消息（2026-11-19 08:45:09）"
+            "summary": "以色列买家（TM消息）咨询 755/808/1064nm 迷你半导体冷激光脱毛仪 1 套，表达希望建立合作；业务员以阿拉伯语回复并连发产品图，说明机身 3kg、能量达 40J/cm²、1000 万发无衰减、治疗头约 3 分钟结霜、6 档制冷、手柄双通道独立制冷可连续工作 8 小时，未涉及价格。 已读：买家未读卖家最后一条消息（2026-11-19 08:45:09）。"
           }
         ]
       },
@@ -299,8 +299,8 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
       },
       "daily_quality": {
-        "latest_round": "NaN-NaN-NaN（11:00 轮）",
-        "target_date": "NaN-NaN-NaN",
+        "latest_round": "2026-11-18（16:00 轮）",
+        "target_date": "2026-11-18",
         "total_checked": 0,
         "passed": 0,
         "failed": 0,
@@ -309,8 +309,8 @@
         "gate_pass_rate": 100,
         "night_relax_hits": 0,
         "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
-        "sheet_name": "诺瓦询盘回复质量检查（11.18·11时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/gwva2dxOW4EDkpd4un43AnpzVbkz3BRL",
+        "sheet_name": "诺瓦询盘回复质量检查（11.18·16时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/lyQod3RxJKaMQmjyTYyErmngWkb4Mw9r",
         "records": [],
         "samples": []
       },
@@ -471,7 +471,7 @@
       "type": "询盘质检 (上午初检)",
       "target": "双店 (贝诺美 + 诺瓦)",
       "status": "已完成",
-      "last_run": "2026-11-19 16:58:19",
+      "last_run": "2026-11-19 16:58:36",
       "next_run": "2026-11-20 11:00:00",
       "sheets": [
         {
