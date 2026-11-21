@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/21 09:03:57",
+  "last_synced_at": "2026/11/21 10:20:03",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -37,10 +37,10 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/a9E05BDRVQbGeLzquZ55GLZ9J63zgkYA"
       },
       "risk": {
-        "latest_round": "14:30 轮",
+        "latest_round": "10:00 轮",
         "violations": 0,
         "order_alerts": 0,
-        "balance": 7959.29,
+        "balance": 7893.54,
         "balance_threshold": 1000,
         "rfq_quota": 5,
         "rfq_expire": "2026-11-30",
@@ -50,8 +50,8 @@
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "广告消耗快照 (09:00轮)",
-        "balance_at": 1795222929000
+        "balance_source": "风险监控 (10:00 轮)",
+        "balance_at": 1795227591191.0378
       },
       "inquiry_sync": {
         "latest_round": "2026-11-20 15:00 轮",
@@ -263,9 +263,9 @@
         "breakdown_text": "纠纷 0 ｜ 拒付 0 ｜ 售后 0",
         "terminal_text": "完结 51 / 撤销 16 ｜ 银行已判责 7 ｜ 预警完结 2",
         "items": [],
-        "captured_at": "2026-11-20T06:46:30.176Z",
-        "round": "14:30 轮",
-        "at": 1795157190178.5576
+        "captured_at": "2026-11-21T02:18:49.330Z",
+        "round": "10:00 轮",
+        "at": 1795227529331.9817
       },
       "review": {
         "available": true,
@@ -275,12 +275,12 @@
         "items": [],
         "window_items": [],
         "window_days": 30,
-        "window_start": "2026-10-21 14:46",
+        "window_start": "2026-10-22 10:18",
         "in_window_count": 2,
         "latest_time": "2026-11-17 03:40",
-        "captured_at": "2026-11-20T06:46:30.590Z",
-        "round": "14:30 轮",
-        "at": 1795157190591.4048
+        "captured_at": "2026-11-21T02:18:49.511Z",
+        "round": "10:00 轮",
+        "at": 1795227529511.7063
       }
     },
     "nova": {
@@ -305,21 +305,21 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/Qnp9zOoBVBMQyzdaFl554vDxW1DK0g6l"
       },
       "risk": {
-        "latest_round": "14:30 轮",
+        "latest_round": "10:00 轮",
         "violations": 0,
         "order_alerts": 0,
         "balance": 9032.03,
         "balance_threshold": 1000,
-        "rfq_quota": 63,
+        "rfq_quota": 61,
         "rfq_expire": "2027-01-18",
-        "rfq_used_detail": "本月已用 38 条（按业务员：Mark Zhang 21 条、IVA ZHANG 14 条、Hale He 3 条）",
+        "rfq_used_detail": "本月已用 40 条（按业务员：Mark Zhang 23 条、IVA ZHANG 14 条、Hale He 3 条）",
         "status": "normal",
         "rfq_warning": "权益充裕",
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
-        "balance_source": "广告消耗快照 (09:00轮)",
-        "balance_at": 1795222931000
+        "balance_source": "风险监控 (10:00 轮)",
+        "balance_at": 1795227591191.0378
       },
       "inquiry_sync": {
         "latest_round": "2026-11-20 15:00 轮",
@@ -477,9 +477,9 @@
         "breakdown_text": "纠纷 0 ｜ 拒付 0 ｜ 售后 0",
         "terminal_text": "完结 3 / 撤销 1 ｜ 银行已判责 0 ｜ 预警完结 0",
         "items": [],
-        "captured_at": "2026-11-20T06:46:30.381Z",
-        "round": "14:30 轮",
-        "at": 1795157190383.5164
+        "captured_at": "2026-11-21T02:06:12.796Z",
+        "round": "10:00 轮",
+        "at": 1795226772797.5327
       },
       "review": {
         "available": true,
@@ -489,12 +489,12 @@
         "items": [],
         "window_items": [],
         "window_days": 30,
-        "window_start": "2026-10-21 14:46",
+        "window_start": "2026-10-22 10:06",
         "in_window_count": 1,
         "latest_time": "2026-11-06 17:51",
-        "captured_at": "2026-11-20T06:46:30.805Z",
-        "round": "14:30 轮",
-        "at": 1795157190806.1243
+        "captured_at": "2026-11-21T02:06:12.969Z",
+        "round": "10:00 轮",
+        "at": 1795226772970.141
       }
     }
   },
@@ -540,9 +540,9 @@
       "schedule": "0 10 * * *",
       "type": "风险与履约 (上午轮)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-10-22 10:00:23",
-      "next_run": "2026-11-21 10:00:00",
+      "status": "已完成",
+      "last_run": "2026-11-21 10:00:23",
+      "next_run": "2026-11-22 10:00:00",
       "sheets": []
     },
     {
