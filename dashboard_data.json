@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/24 10:10:08",
+  "last_synced_at": "2026/11/24 11:09:36",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -51,7 +51,7 @@
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
         "balance_source": "风险监控 (10:00 轮)",
-        "balance_at": 1795486187438.0022
+        "balance_at": 1795486233889.2263
       },
       "inquiry_sync": {
         "latest_round": "2026-11-23 16:37 轮",
@@ -61,17 +61,17 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
       },
       "daily_quality": {
-        "latest_round": "2026-11-22（11:00 轮）",
-        "target_date": "2026-11-22",
+        "latest_round": "2026-11-23（11:00 轮）",
+        "target_date": "2026-11-23",
         "total_checked": 5,
-        "passed": 2,
-        "failed": 2,
-        "pending": 1,
-        "pass_rate": 40,
+        "passed": 5,
+        "failed": 0,
+        "pending": 0,
+        "pass_rate": 100,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
-        "sheet_name": "贝诺美询盘回复质量检查（11.22·11时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/gvNG4YZ7JnKOpM1wHor2gxYK82LD0oRE",
+        "sheet_name": "贝诺美询盘回复质量检查（11.23·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/jb9Y4gmKWrDdeloBsrQZgRvmJGXn6lpz",
         "records": [
           {
             "inquiry_time": "2026-10-14 03:56:12",
@@ -100,54 +100,54 @@
         ],
         "samples": [
           {
-            "inquiry_time": "2026-11-22 00:15:17",
-            "buyer": "Gabriele Savarino",
-            "sales": "Jay Li",
-            "verdict": "不合格",
-            "reason": "S1 首响超时（13 小时 51 分钟，阈值 <60 分钟，夜间截止 2026-11-22 10:00:00）",
-            "resp_time": "13 小时 51 分钟",
-            "track_count": "1",
-            "summary": "买家通过产品卡「Body Composition Analyzer With Printer」（US$799–1,099，1 件起订）用意大利语表示对该产品感兴趣、希望获得更多细节。业务员 Jay Li 于 14:05 用意大利语致意，称正在前往办公室、稍后回复，并附 1 张产品图，此后买家未再回复。已读：买家未读卖家最后一条消息（2026-11-22 14:06:19）"
+            "inquiry_time": "2026-11-23 02:41:23",
+            "buyer": "Jessenia Pena",
+            "sales": "Celin Wang",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "3 小时 47 分钟",
+            "track_count": "12",
+            "summary": "买家（波多黎各）问「How many watts?」并通过 4-in-1 多功能二极管激光+IPL+ND YAG 脱毛/洗纹身机产品卡（US$650–2,890，1 台起订）询价，预算 2000 美元、希望分期付款并说明用于美容院，要求至少 800W、更大功率及备件与保修。业务员 Celin 介绍 1200W/1600W 配置与 2in1 ND YAG+二极管激光卖点，报 4 波长 3100 美元、单波长 2850 美元，说明 30% 定金+尾款与 2 年保修；买家表示会与合伙人商议后再定。已读：买家未读卖家最后一条消息（2026-11-23 20:36:03）"
           },
           {
-            "inquiry_time": "2026-11-22 01:41:42",
-            "buyer": "lavi f",
+            "inquiry_time": "2026-11-23 08:08:05",
+            "buyer": "Wilma Karla",
             "sales": "Daniel Wang",
-            "verdict": "未判定",
-            "reason": "记录不可靠（会话未定位，无聊天原文）",
-            "resp_time": "-",
-            "track_count": "-",
-            "summary": "会话未定位（按买家名 lavi f 在咨询列表与高级搜索多次检索均 0 命中），无聊天原文可依据。已读：无法判定"
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "6 分钟",
+            "track_count": "4",
+            "summary": "买家通过 2022 Probes EMS 冷冻/热冲击溶脂塑形机产品卡（US$1,800–2,660，1 套起订）发起询盘，未附加文字需求。业务员 Daniel 问候后发送多张机器图，介绍三种配置、4 个手柄（两个圆形移动手柄+两个方形静板）及 10.2 英寸触屏与冷热温度参数，买家此后未回复。已读：买家已读卖家最后一条消息（2026-11-23 09:32:04）"
           },
           {
-            "inquiry_time": "2026-11-22 05:11:45",
-            "buyer": "Tomas Galiano",
+            "inquiry_time": "2026-11-23 10:49:55",
+            "buyer": "Maeva dtl",
+            "sales": "Jay Li",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "1 分钟",
+            "track_count": "1",
+            "summary": "买家以法语询价单形式求购冷冻溶脂防冻膜/冷冻垫（Wholesale Cryo Pads），采购数量 100 片，具体要求 50 片 L 码 + 50 片 M 码发往瓜德罗普。业务员 Jay Li 用法语回复正在前往办公室、稍后回复，并发送产品图、说明稍后给出最新总价。已读：买家已读卖家最后一条消息（2026-11-23 10:51:02）"
+          },
+          {
+            "inquiry_time": "2026-11-23 16:40:19",
+            "buyer": "Veronika Ichevska",
             "sales": "Miya Zhang",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "2 小时 22 分钟",
-            "track_count": "4",
-            "summary": "买家通过 808/755/940/1064nm 二极管激光脱毛机产品卡（US$800–1,200，1 台起订）询价。业务员 Miya 先自我介绍并问候，买家回复「很高兴认识」后两次追问价格、并说明自己在当地有清关代理；业务员发视频与「已读」文字卖点、确认其自有货代后报整机 2580 美元、可免费送到其货代所在城市，次日继续发送参数细节、多张产品图及 X1 系列三个配置报价（1200W 2150 美元、1600W 2380 美元、1600W 带可换头 2580 美元）。已读：买家未读卖家最后一条消息（2026-11-23 08:40:20）"
+            "resp_time": "1 分钟",
+            "track_count": "6",
+            "summary": "买家（北马其顿美容院）通过 755/808/940/1064nm 二极管激光脱毛机产品卡（US$800–1,200，1 台起订）询价并索要专业使用资料。业务员 Miya 介绍 Coherent 激光棒、四波长、TEC+蓝宝石+风冷+水冷六档冷却、意大利水泵、15.6 英寸安卓屏与 CE/FDA/ISO/Intertek 资质，报 D1 三波长 1000W 整机 3790 美元 + DHL 空运 1068 美元 = 4858 美元（CPT，不含清关关税），免费升级四波长并给出 2 年整机保修与 30% 定金条款；买家确认细节后表示将与团队商议再回复，并询问能否通过阿里巴巴付款。已读：买家未读卖家最后一条消息（2026-11-23 19:54:26）"
           },
           {
-            "inquiry_time": "2026-11-22 06:03:27",
-            "buyer": "Nathalianayara Gomesdasilva",
+            "inquiry_time": "2026-11-23 22:20:57",
+            "buyer": "Sihem Hilmi",
             "sales": "Yuli Guo",
-            "verdict": "不合格",
-            "reason": "S1 首响超时（13 小时 39 分钟，阈值 <60 分钟，夜间截止 2026-11-22 10:00:00）",
-            "resp_time": "13 小时 39 分钟",
-            "track_count": "1",
-            "summary": "买家（葡萄牙语）询问一套设备含清关与门到门运至里斯本的总价。自动接待先行回复 3 次，说明可做 DDP 门到门（含清关与税费）、空运 10–15 天或海运 25–48 天、整套 5.5kg/51×41×12cm，并把会话交给同事；买家追问空运与海运两个报价。人工 Yuli 于 19:42 接手，报整机 589 美元 + 运费 130 美元 = 719 美元、空运 15 天 DDP，并补充机器 3kg、150W/40J、755/808/1064nm 三波长。已读：买家已读卖家最后一条消息（2026-11-22 19:44:04）"
-          },
-          {
-            "inquiry_time": "2026-11-22 07:03:40",
-            "buyer": "Suzana Evdjenic",
-            "sales": "Harper Mu",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "49 分钟",
-            "track_count": "6",
-            "summary": "买家（斯洛文尼亚语）就 808nm 二极管冰点激光脱毛机产品卡（755/808/1064nm，US$800–1,200，1 台起订）表示「对这台设备感兴趣」。业务员 Harper 介绍 Benomi 为 18 年以上经验的美容设备厂家，随后发送多张产品图与卖点（Coherent 激光棒、TEC+蓝宝石+风冷+水冷六档可调）；买家于次日追问价格，业务员询问发货目的地，买家回复在中国有仓库，业务员表示可免费发到其中国仓库。已读：买家未读卖家最后一条消息（2026-11-23 08:28:41）"
+            "resp_time": "15 分钟",
+            "track_count": "2",
+            "summary": "买家以法语询价单形式求购 AS1/SA2/AO3 400ml 水磨/水漾焕肤精华液（Aqua Hydra 配套溶液），采购 3 瓶并表示在寻找新供应商。自动接待先确认 DDP 门到门至法国 Poissy 及「每款各 1 瓶」组合，人工 Yuli 接手后报 1 套 3 瓶、每瓶 7 美元，运费 60 美元、合计 67 美元，次日补充产品使用说明与卖点。已读：买家未读卖家最后一条消息（2026-11-24 09:57:07）"
           }
         ]
       },
@@ -289,7 +289,7 @@
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
         "balance_source": "风险监控 (10:00 轮)",
-        "balance_at": 1795486187438.0022
+        "balance_at": 1795486233889.2263
       },
       "inquiry_sync": {
         "latest_round": "2026-11-23 16:37 轮",
@@ -299,59 +299,39 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
       },
       "daily_quality": {
-        "latest_round": "2026-11-22（11:00 轮）",
-        "target_date": "2026-11-22",
-        "total_checked": 4,
+        "latest_round": "2026-11-23（11:00 轮）",
+        "target_date": "2026-11-23",
+        "total_checked": 2,
         "passed": 2,
-        "failed": 2,
+        "failed": 0,
         "pending": 0,
-        "pass_rate": 50,
+        "pass_rate": 100,
         "gate_pass_rate": 100,
         "night_relax_hits": 0,
         "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
-        "sheet_name": "诺瓦询盘回复质量检查（11.22·11时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/mExel2BLV5ePgXdvH7jYRrmdVgk9rpMq",
+        "sheet_name": "诺瓦询盘回复质量检查（11.23·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/vy20BglGWOR0GOpwcDG3KvjN8A7depqY",
         "records": [],
         "samples": [
           {
-            "inquiry_time": "2026-11-22 11:38:38",
-            "buyer": "Felipe Rojas",
-            "sales": "Mark Zhang",
-            "verdict": "不合格",
-            "reason": "S3 前 3 次人工追踪未图文并茂",
-            "resp_time": "1 小时 8 分钟",
-            "track_count": "1",
-            "summary": "买家以询价单形式询问 Yuchai/Weichai/Cummins 50kW/62.5kVA 双燃料（汽油+天然气）逆变发电机组 220/230V，需求标注三相交流、100kW、1 台。业务员 Mark Zhang 回复致谢并介绍 7000㎡ 工厂、品牌发动机与 OEM/ODM、售后保障，反问所需 kVA、电压等参数，此后买家未再回复。已读：买家未读卖家最后一条消息（2026-11-22 12:46:21）"
-          },
-          {
-            "inquiry_time": "2026-11-22 12:45:03",
-            "buyer": "Souleymane Houseyni",
+            "inquiry_time": "2026-11-23 09:56:13",
+            "buyer": "Iris Taylor",
             "sales": "IVA ZHANG",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "8 分钟",
-            "track_count": "4",
-            "summary": "买家通过康明斯 10–200kVA 静音柴油发电机组产品卡（US$4,100–4,310，1 件起订）询价。自动接待先问所需功率，人工 Mark 紧接着询问功率并试探是否要 10kW 机型、发产品图；买家回复「25kw」，自动接待提示最接近为 24kW 或 40kW 并反问单相/三相，业务员次日再发图片并确认低噪音 25kW 机型是否合适。已读：买家未读卖家最后一条消息（2026-11-23 09:32:09）"
+            "resp_time": "2 分钟",
+            "track_count": "6",
+            "summary": "买家通过 15KVA–3000KVA 静音柴油发电机组产品卡询价，询问 50kW 机组（Weichai 与 Ricardo 机型）价格，后续说明为印尼客户采购、要求最低价、预算 4000 美元并要求长期运行。业务员先报 Ricardo 50kW 2850 美元、Weichai 50kW 5200 美元（含静音箱），11-23 按其 4000 美元预算推荐 Ricardo 柴油机并追问是否接受。已读：买家已读卖家最后一条消息（2026-11-23 10:05:49）"
           },
           {
-            "inquiry_time": "2026-11-22 13:27:55",
-            "buyer": "annaniac mudiangombe",
-            "sales": "Mark Zhang",
+            "inquiry_time": "2026-11-23 16:13:39",
+            "buyer": "CEDRIC TECHER",
+            "sales": "IVA ZHANG",
             "verdict": "合格",
             "reason": "—",
             "resp_time": "1 分钟",
             "track_count": "3",
-            "summary": "买家（法语）询问 30kW 静音柴油发电机组的格价。业务员 Mark 发送机型视频并说明该款为 30kW 静音机组，追问需要静音款还是开架款；买家回复「就是你发的那张图」，业务员确认所发视频为静音款，并报出厂价 2550 美元。已读：买家已读卖家最后一条消息（2026-11-22 14:06:31）"
-          },
-          {
-            "inquiry_time": "2026-11-22 16:01:28",
-            "buyer": "Ilia kuznetsov",
-            "sales": "IVA ZHANG",
-            "verdict": "不合格",
-            "reason": "S1 首响超时（2 小时 32 分钟，阈值 <120 分钟）",
-            "resp_time": "2 小时 32 分钟",
-            "track_count": "3",
-            "summary": "买家（英语）询问 15kW 发电机组，用于别墅社区，计划先买几台样机，需要柴油款以及天然气+汽油/柴油两用款，希望得到 EXW 价格与发货地址。自动接待先回复并询问现场是否 400/230V、50Hz 三相，并给出济南工厂 EXW 地址；人工于 18:33 接手问候、发图并询问 15kW 柴油机组是否合适，次日再追问将用发电机带什么设备。已读：买家未读卖家最后一条消息（2026-11-23 10:36:28）"
+            "summary": "买家（法语）通过 20–25kVA 三相超静音柴油发电机组产品卡询价，要求 20kVA 静音款 EXW 价格。业务员 Mark 报 2.5m³ 静音款含 ATS 2400 美元、不含 ATS 2250 美元，另报 29kVA Nova 静音款 2450 美元与 Weichai 29kVA 3800 美元；买家预算仅 1200 美元并认为太贵，业务员最后改推 1599 美元机型。已读：买家已读卖家最后一条消息（2026-11-23 16:51:56）"
           }
         ]
       },
@@ -493,19 +473,19 @@
       "schedule": "0 11 * * *",
       "type": "询盘质检 (上午初检)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-11-23 11:10:46",
-      "next_run": "2026-11-24 11:00:00",
+      "status": "已完成",
+      "last_run": "2026-11-24 11:08:59",
+      "next_run": "2026-11-25 11:00:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美询盘回复质量检查（11.22·11时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/gvNG4YZ7JnKOpM1wHor2gxYK82LD0oRE"
+          "name": "贝诺美询盘回复质量检查（11.23·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/jb9Y4gmKWrDdeloBsrQZgRvmJGXn6lpz"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦询盘回复质量检查（11.22·11时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/mExel2BLV5ePgXdvH7jYRrmdVgk9rpMq"
+          "name": "诺瓦询盘回复质量检查（11.23·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/vy20BglGWOR0GOpwcDG3KvjN8A7depqY"
         }
       ]
     },
