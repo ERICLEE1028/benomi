@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/24 15:11:36",
+  "last_synced_at": "2026/11/24 16:14:32",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -61,7 +61,7 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
       },
       "daily_quality": {
-        "latest_round": "2026-11-23（11:00 轮）",
+        "latest_round": "2026-11-23（16:00 轮）",
         "target_date": "2026-11-23",
         "total_checked": 5,
         "passed": 5,
@@ -70,8 +70,8 @@
         "pass_rate": 100,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
-        "sheet_name": "贝诺美询盘回复质量检查（11.23·11时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/jb9Y4gmKWrDdeloBsrQZgRvmJGXn6lpz",
+        "sheet_name": "贝诺美询盘回复质量检查（11.23·16时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF5APQe3DJMwvDqPk",
         "records": [
           {
             "inquiry_time": "2026-10-14 03:56:12",
@@ -107,7 +107,7 @@
             "reason": "—",
             "resp_time": "3 小时 47 分钟",
             "track_count": "12",
-            "summary": "买家（波多黎各）问「How many watts?」并通过 4-in-1 多功能二极管激光+IPL+ND YAG 脱毛/洗纹身机产品卡（US$650–2,890，1 台起订）询价，预算 2000 美元、希望分期付款并说明用于美容院，要求至少 800W、更大功率及备件与保修。业务员 Celin 介绍 1200W/1600W 配置与 2in1 ND YAG+二极管激光卖点，报 4 波长 3100 美元、单波长 2850 美元，说明 30% 定金+尾款与 2 年保修；买家表示会与合伙人商议后再定。已读：买家未读卖家最后一条消息（2026-11-23 20:36:03）"
+            "summary": "买家通过 4-in-1 多功能二极管激光+IPL+ND YAG 脱毛/洗纹身机产品卡（US$650–2,890，1 台起订）先问「How many watts?」，说明用于美容院、预算 2,000 美元、希望分期付款，要求至少 800W 更大功率及备件与保修。业务员 Celin 介绍 1200W/1600W 配置与 2in1 ND YAG+二极管激光卖点，报 4 波长 3100 美元、单波长 2850 美元，说明 30% 定金与两年保修；末段发送多张手柄/配件图并说明脱毛手柄与 ND YAG 手柄。已读：买家未读卖家最后一条消息（2026-11-23 20:36:03）"
           },
           {
             "inquiry_time": "2026-11-23 08:08:05",
@@ -126,8 +126,8 @@
             "verdict": "合格",
             "reason": "—",
             "resp_time": "1 分钟",
-            "track_count": "1",
-            "summary": "买家以法语询价单形式求购冷冻溶脂防冻膜/冷冻垫（Wholesale Cryo Pads），采购数量 100 片，具体要求 50 片 L 码 + 50 片 M 码发往瓜德罗普。业务员 Jay Li 用法语回复正在前往办公室、稍后回复，并发送产品图、说明稍后给出最新总价。已读：买家已读卖家最后一条消息（2026-11-23 10:51:02）"
+            "track_count": "2",
+            "summary": "买家以法语询价单形式求购冷冻溶脂防冻膜/冷冻垫（Wholesale Cryo Pads），采购 100 片，要求 50 片 L 码 + 50 片 M 码发往瓜德罗普。业务员 Jay Li 用法语回复正在前往办公室、稍后答复，并发送产品图、说明稍后给出最新总价；11-24 买家追问到瓜德罗普的价格与发货时效，业务员回复稍后答复。已读：买家未读卖家最后一条消息（2026-11-24 12:24:35）"
           },
           {
             "inquiry_time": "2026-11-23 16:40:19",
@@ -136,8 +136,8 @@
             "verdict": "合格",
             "reason": "—",
             "resp_time": "1 分钟",
-            "track_count": "6",
-            "summary": "买家（北马其顿美容院）通过 755/808/940/1064nm 二极管激光脱毛机产品卡（US$800–1,200，1 台起订）询价并索要专业使用资料。业务员 Miya 介绍 Coherent 激光棒、四波长、TEC+蓝宝石+风冷+水冷六档冷却、意大利水泵、15.6 英寸安卓屏与 CE/FDA/ISO/Intertek 资质，报 D1 三波长 1000W 整机 3790 美元 + DHL 空运 1068 美元 = 4858 美元（CPT，不含清关关税），免费升级四波长并给出 2 年整机保修与 30% 定金条款；买家确认细节后表示将与团队商议再回复，并询问能否通过阿里巴巴付款。已读：买家未读卖家最后一条消息（2026-11-23 19:54:26）"
+            "track_count": "7",
+            "summary": "买家（北马其顿美容院）通过 755/808/940/1064nm 二极管激光脱毛机产品卡（US$800–1,200，1 台起订）询价并索要专业使用资料。业务员 Miya 介绍 Coherent 激光棒、四波长、TEC+蓝宝石+风冷+水冷六档冷却、意大利水泵、15.6 英寸安卓屏与 CE/FDA/ISO/Intertek 资质，报 D1 三波长 1000W 整机 3790 美元 + DHL 空运 1068 美元 = 4858 美元（CPT，不含清关关税），免费升级四波长并给出两年整机保修与 30% 定金条款；买家确认细节后表示将与团队商议、并询问能否通过阿里巴巴付款，11-24 业务员追问商议结果。已读：买家未读卖家最后一条消息（2026-11-24 14:04:21）"
           },
           {
             "inquiry_time": "2026-11-23 22:20:57",
@@ -147,7 +147,7 @@
             "reason": "—",
             "resp_time": "15 分钟",
             "track_count": "2",
-            "summary": "买家以法语询价单形式求购 AS1/SA2/AO3 400ml 水磨/水漾焕肤精华液（Aqua Hydra 配套溶液），采购 3 瓶并表示在寻找新供应商。自动接待先确认 DDP 门到门至法国 Poissy 及「每款各 1 瓶」组合，人工 Yuli 接手后报 1 套 3 瓶、每瓶 7 美元，运费 60 美元、合计 67 美元，次日补充产品使用说明与卖点。已读：买家未读卖家最后一条消息（2026-11-24 09:57:07）"
+            "summary": "买家以法语询价单形式求购 AS1/SA2/AO3 400ml 水磨/水漾焕肤精华液（Aqua Hydra 配套溶液），采购 3 瓶并表示在寻找新供应商。自动接待先确认 DDP 门到门至法国 Poissy 及「每款各 1 瓶」组合，人工 Yuli 接手后报 1 套 3 瓶、每瓶 7 美元，运费 60 美元、合计 67 美元，次日补充产品图与配合理疗仪的使用说明。已读：买家已读卖家最后一条消息（2026-11-24 09:57:07）"
           }
         ]
       },
@@ -299,7 +299,7 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
       },
       "daily_quality": {
-        "latest_round": "2026-11-23（11:00 轮）",
+        "latest_round": "2026-11-23（16:00 轮）",
         "target_date": "2026-11-23",
         "total_checked": 2,
         "passed": 2,
@@ -309,8 +309,8 @@
         "gate_pass_rate": 100,
         "night_relax_hits": 0,
         "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
-        "sheet_name": "诺瓦询盘回复质量检查（11.23·11时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/vy20BglGWOR0GOpwcDG3KvjN8A7depqY",
+        "sheet_name": "诺瓦询盘回复质量检查（11.23·16时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/14lgGw3P8vNPwloBunQgdnN985daZ90D",
         "records": [],
         "samples": [
           {
@@ -331,7 +331,7 @@
             "reason": "—",
             "resp_time": "1 分钟",
             "track_count": "3",
-            "summary": "买家（法语）通过 20–25kVA 三相超静音柴油发电机组产品卡询价，要求 20kVA 静音款 EXW 价格。业务员 Mark 报 2.5m³ 静音款含 ATS 2400 美元、不含 ATS 2250 美元，另报 29kVA Nova 静音款 2450 美元与 Weichai 29kVA 3800 美元；买家预算仅 1200 美元并认为太贵，业务员最后改推 1599 美元机型。已读：买家已读卖家最后一条消息（2026-11-23 16:51:56）"
+            "summary": "买家（法语）通过 20–25kVA 三相超静音柴油发电机组产品卡询价，要求 20kVA 静音款 EXW 价格。业务员 Mark 报 2.5m³ 静音款含 ATS 2400 美元、不含 ATS 2250 美元，另报 29kVA Nova 静音款 2450 美元与 Weichai 29kVA 3800 美元；买家预算仅 1200 美元并认为太贵，业务员最后改推 1599 美元机型并问是否合适。已读：买家已读卖家最后一条消息（2026-11-23 16:51:56）"
           }
         ]
       },
@@ -529,8 +529,8 @@
       "schedule": "0 15 * * *",
       "type": "询盘分配与CRM",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-10-22 15:00:00",
+      "status": "已完成",
+      "last_run": "2026-11-24 15:12:05",
       "next_run": "2026-11-25 15:00:00",
       "sheets": [
         {
@@ -551,19 +551,19 @@
       "schedule": "0 16 * * *",
       "type": "询盘质检 (前一天全量重检)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-11-20 16:13:42",
-      "next_run": "2026-11-24 16:00:00",
+      "status": "已完成",
+      "last_run": "2026-11-24 16:13:55",
+      "next_run": "2026-11-25 16:00:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美询盘回复质量检查（11.19·16时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/Y1OQX0akWmyLBgoPfNABqMrNWGlDd3mE"
+          "name": "贝诺美询盘回复质量检查（11.23·16时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF5APQe3DJMwvDqPk"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦询盘回复质量检查（11.19·16时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/EpGBa2Lm8a2yev5aiRvKRrZZWgN7R35y"
+          "name": "诺瓦询盘回复质量检查（11.23·16时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/14lgGw3P8vNPwloBunQgdnN985daZ90D"
         }
       ]
     },
