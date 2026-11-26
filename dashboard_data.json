@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/26 10:12:26",
+  "last_synced_at": "2026/11/26 11:21:44",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -51,7 +51,7 @@
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
         "balance_source": "风险监控 (10:00 轮)",
-        "balance_at": 1795659131481.1714
+        "balance_at": 1795659186567.2515
       },
       "inquiry_sync": {
         "latest_round": "2026-11-25 15:05 轮",
@@ -61,17 +61,17 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVErqam47T602eEwnJyeZqMmz"
       },
       "daily_quality": {
-        "latest_round": "2026-11-24（16:00 轮）",
-        "target_date": "2026-11-24",
-        "total_checked": 6,
-        "passed": 6,
+        "latest_round": "2026-11-25（11:00 轮）",
+        "target_date": "2026-11-25",
+        "total_checked": 12,
+        "passed": 12,
         "failed": 0,
         "pending": 0,
         "pass_rate": 100,
         "gate_pass_rate": 100,
         "night_relax_hits": 1,
-        "sheet_name": "贝诺美询盘回复质量检查（11.24·16时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/14lgGw3P8vNPwloBunpR1k1Y85daZ90D",
+        "sheet_name": "贝诺美询盘回复质量检查（11.25·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/20eMKjyp81E4MNdLuZeO2BRX8xAZB1Gv",
         "records": [
           {
             "inquiry_time": "2026-10-14 03:56:12",
@@ -100,64 +100,124 @@
         ],
         "samples": [
           {
-            "inquiry_time": "2026-11-24 02:34:09",
-            "buyer": "Marisol Roesel",
-            "sales": "Harper Mu",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "4 小时 34 分钟",
-            "track_count": "3",
-            "summary": "美国买家就 Hydro Dermabrasion / Aqua Peel 焕肤溶液（三瓶一套）询价，卡片数量 3 件，正文称要 20 件并询问含运费价格。业务员 Harper 介绍 18 年工厂背景、发产品图、说明该产品为三瓶一套，追问所需套数与收货地址邮编；11-24 补发适配仪器图片，11-25 再发三张图与不同溶液适用肤质与成分介绍。买家暂未回复。 已读：买家未读卖家最后一条消息（2026-11-25 08:59:28）"
-          },
-          {
-            "inquiry_time": "2026-11-24 02:41:00",
-            "buyer": "Baltazar Barrios",
-            "sales": "Celin Wang",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "4 小时 31 分钟",
-            "track_count": "5",
-            "summary": "西语买家就 808/755/940/1064nm 二极管激光脱毛机（1 套）询盘，随后补发产品卡。业务员 Celin 先用西语致歉并说明稍后提供详细资料，之后分批发送美国 Coherent 激光棒、TEC+蓝宝石+风冷水冷散热、四波长、明纬电源、疗程效果等卖点与多张产品图，最后询问买家在中国是否有自己的货代。买家暂未回复。 已读：买家未读卖家最后一条消息（2026-11-25 11:24:17）"
-          },
-          {
-            "inquiry_time": "2026-11-24 06:40:37",
-            "buyer": "m sd",
+            "inquiry_time": "2026-11-25 00:20:17",
+            "buyer": "Sosthenes Marques",
             "sales": "Daniel Wang",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "32 分钟",
-            "track_count": "4",
-            "summary": "买家通过 808nm 二极管激光脱毛机产品卡发起询盘（1 套），未附文字需求。业务员 Daniel 先问候，后为时差延迟致歉并发送实拍图与参数：整机 4500W、手柄 1000–2000W 可选、美国 Coherent 激光棒、755+808+940+1064nm 四波长、明纬电源及客户反馈图，并询问买家偏好颜色；买家暂未回复。 已读：买家未读卖家最后一条消息（2026-11-24 10:44:02）"
+            "resp_time": "2 小时 50 分钟",
+            "track_count": "5",
+            "summary": "买家（留伦敦 SE1 地址）先询问四波长激光脱毛仪（755/808/1064nm）价格，11-25 凌晨又发来 Fusion Plasma 抗衰美容仪产品卡，索要更多资料、报价与实拍图。业务员发送多张效果图并说明可用于抗衰、祛痘、祛痣、眼周及妊娠纹护理，最后询问是沙龙自用还是本地转售；买家未再回复。已读：买家未读卖家最后一条消息（2026-11-25 09:25:17）"
           },
           {
-            "inquiry_time": "2026-11-24 16:46:47",
-            "buyer": "Veronika Ichevska",
+            "inquiry_time": "2026-11-25 02:55:52",
+            "buyer": "Aline Silva",
             "sales": "Miya Zhang",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "3 小时 45 分钟",
+            "track_count": "4",
+            "summary": "葡萄牙买家以葡语询价 980nm 二极管激光设备（血管/蜘蛛痣去除、甲真菌治疗）1 台。业务员发西语回复工厂背景（18 年、Intertek 认证）、洁净车间质控、整机 1 年质保+终身维护及产品图；买家尚未回复。已读：买家未读卖家最后一条消息（2026-11-26 08:34:58）"
+          },
+          {
+            "inquiry_time": "2026-11-25 03:31:39",
+            "buyer": "david peretz",
+            "sales": "Harper Mu",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "3 小时 39 分钟",
+            "track_count": "3",
+            "summary": "买家就 400ml Aqua Peeling 焕肤溶液（AS1/SA2/AO3，1.90–2.80 美元、起订 3 件）表示感兴趣并发来产品卡。业务员说明每套含三瓶并询问所需套数，次日补充三种溶液对应肤质与成分说明；买家未再回复。已读：买家未读卖家最后一条消息（2026-11-26 08:47:38）"
+          },
+          {
+            "inquiry_time": "2026-11-25 03:41:59",
+            "buyer": "hasret sulak",
+            "sales": "Yuli Guo",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "2 小时 10 分钟",
+            "track_count": "16",
+            "summary": "土耳其美容院买家求购 1 台高性能二极管激光脱毛机并发往英国，询问双探头是否同价、实拍图与手柄细节、空运、黑五折扣、发货时间及 ISO13485/FDA/MDR/CE 文件。业务员发送整机配置确认文件与报价、代向经理申请额外折扣，并解释 FAC 无晶体手柄技术；买家就文件与配置继续追问。已读：买家未读卖家最后一条消息（2026-11-26 07:03:57）"
+          },
+          {
+            "inquiry_time": "2026-11-25 04:29:23",
+            "buyer": "luciane dos santos lopes",
+            "sales": "Jay Li",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "2 小时 17 分钟",
+            "track_count": "2",
+            "summary": "买家咨询家用便携式 Hydra Facial 14 合 1 面部护理机。业务员发送升级款与标准款 Hydra 面部护理机资料（12 个手柄、整机 1 年保修、免费语言与 logo 定制）并给出 DDP 总价；买家暂未回复。已读：买家未读卖家最后一条消息（2026-11-26 09:20:44）"
+          },
+          {
+            "inquiry_time": "2026-11-25 06:12:39",
+            "buyer": "pasquale Russo",
+            "sales": "Harper Mu",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "59 分钟",
+            "track_count": "6",
+            "summary": "意大利买家咨询 980nm+1470nm（含 635nm）溶脂激光设备参数与价格，业务员报价 3.840 USD（30W+9W 版，另报 20W+9W 版 3.190 USD），并给出空运意大利运费 337 USD、约 12–15 天含清关到门；买家表示价格偏高、称有其他供应商更便宜。业务员发送工厂车间实拍与 18 年制造经验说明，表示下月可更新折扣价；买家未再回复。已读：买家未读卖家最后一条消息（2026-11-25 09:47:04）"
+          },
+          {
+            "inquiry_time": "2026-11-25 06:39:02",
+            "buyer": "lavi f",
+            "sales": "Daniel Wang",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "1 小时 0 分钟",
+            "track_count": "9",
+            "summary": "买家反复询问 808/755/940/1064nm 二极管激光脱毛机价格与手柄单价，并发参考图要求同款，另索要 FDA/ISO/MDR 认证。业务员确认具备 FDA、ISO、MDR、CE 并发送认证图，说明总价为机器价加运费、需收货地址与邮编才能核算；买家又要求直接报总价。已读：买家未读卖家最后一条消息（2026-11-26 08:27:01）"
+          },
+          {
+            "inquiry_time": "2026-11-25 07:13:21",
+            "buyer": "Analiabejino Albacete",
+            "sales": "Celin Wang",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "3 分钟",
+            "track_count": "7",
+            "summary": "阿根廷买家咨询 808/755/940/1064nm 脱毛机是否符合 ANMAT 进口要求、是否曾发货阿根廷，随后又询问 EMS Sculpt 四手柄塑形机、操作视频与小部位探头。业务员发送脱毛机参数卖点与图片，并反问其在中国是否有自己的货代；买家未再回复。已读：买家已读卖家最后一条消息（2026-11-25 11:24:39）"
+          },
+          {
+            "inquiry_time": "2026-11-25 14:40:55",
+            "buyer": "Manuel Balasso",
+            "sales": "Daniel Wang",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "3 分钟",
+            "track_count": "4",
+            "summary": "意大利买家就 808/755/940/1064nm 脱毛机询问黑色款与 1000W 手柄版本。业务员报价 1000W 手柄整机 4390 美元（含 2 年保修、美国 Coherent 激光棒），并说明总价需加利运费；买家质疑页面标价 737–1106 欧元与报价相差约 4 倍，业务员解释该页面价为手柄单价、用于吸引点击。已读：买家未读卖家最后一条消息（2026-11-26 08:02:37）"
+          },
+          {
+            "inquiry_time": "2026-11-25 17:41:20",
+            "buyer": "Georgina Wieman",
+            "sales": "Jay Li",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "1 分钟",
+            "track_count": "1",
+            "summary": "荷兰买家询问 808/755/940/1064nm 脱毛机含运费到荷兰的价格，并提供邮编 2391AJ。业务员回复正在前往办公室、稍后详细答复并发送一张卡片，截至本轮取数未见后续报价；买家当晚再次追问价格。已读：买家已读卖家最后一条消息（2026-11-25 17:42:41）"
+          },
+          {
+            "inquiry_time": "2026-11-25 18:07:09",
+            "buyer": "daniela ponte",
+            "sales": "Miya Zhang",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "2 分钟",
+            "track_count": "3",
+            "summary": "买家通过 Moji AI Skin Tester Max 皮肤检测仪（8 光源、14 项指标，599–1199 美元）产品卡发起询盘，未附文字需求。业务员发送多张功能说明图（皮肤状态前后对比、检测时长可选等），并询问是否发往阿根廷以便核算运费；买家未再回复。已读：买家已读卖家最后一条消息（2026-11-26 09:22:18）"
+          },
+          {
+            "inquiry_time": "2026-11-25 21:55:30",
+            "buyer": "Irene Ilus",
+            "sales": "Harper Mu",
             "verdict": "合格",
             "reason": "—",
             "resp_time": "1 分钟",
             "track_count": "9",
-            "summary": "买家回复称需周四与团队开会讨论所有选项后决定，并说明该机是目前最中意的选项之一。业务员 Miya 表示理解并询问能否加 WhatsApp；买家回复可保持联系但希望所有正式沟通与文件留在阿里平台，业务员表示认可并遵守该安排。 已读：买家已读卖家最后一条消息（2026-11-24 17:00:15）"
-          },
-          {
-            "inquiry_time": "2026-11-24 17:21:22",
-            "buyer": "Sabina Ahmad",
-            "sales": "Jay Li",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "7 分钟",
-            "track_count": "2",
-            "summary": "买家通过 808/755/940/1064nm 二极管激光脱毛机产品卡询盘（1 套），未附文字需求。业务员 Jay Li 回复正在去办公室、稍后详复，随后发送视频、Soprano 脱毛机 DDP 报价（机器 2790 美元＋空运 980 美元＝3770 美元、8–12 天）及公司介绍；买家暂未回复。 已读：买家未读卖家最后一条消息（2026-11-24 17:59:27）"
-          },
-          {
-            "inquiry_time": "2026-11-24 21:36:57",
-            "buyer": "Carmen Gonzalez",
-            "sales": "Jay Li",
-            "verdict": "合格",
-            "reason": "—",
-            "resp_time": "21 分钟",
-            "track_count": "3",
-            "summary": "西语个人买家明确表示加运费后价格过高、不感兴趣，并说明自己是个人而非公司。业务员 Jay Li 多次追问预算并提出可让利、赠送，最终礼貌收尾表示期待未来合作。 已读：买家已读卖家最后一条消息（2026-11-24 21:57:42）"
+            "summary": "法语买家此前咨询家用 808/755/1064nm 脱毛机（469–599 美元）并索要技术参数文档，11-25 晚再次来消息并发送产品图片询问如何操作。业务员回复并发送 JY808 使用手册与家用 808 手册两份 PDF；买家未再回复。已读：买家未读卖家最后一条消息（2026-11-26 08:43:54）"
           }
         ]
       },
@@ -299,7 +359,7 @@
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
         "balance_source": "风险监控 (10:00 轮)",
-        "balance_at": 1795659131481.1714
+        "balance_at": 1795659186567.2515
       },
       "inquiry_sync": {
         "latest_round": "2026-11-25 15:05 轮",
@@ -309,39 +369,69 @@
         "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX9gQO0MF7GypobKJMwvDqPk"
       },
       "daily_quality": {
-        "latest_round": "2026-11-24（16:00 轮）",
-        "target_date": "2026-11-24",
-        "total_checked": 2,
-        "passed": 1,
-        "failed": 1,
+        "latest_round": "2026-11-25（11:00 轮）",
+        "target_date": "2026-11-25",
+        "total_checked": 5,
+        "passed": 2,
+        "failed": 3,
         "pending": 0,
-        "pass_rate": 50,
+        "pass_rate": 40,
         "gate_pass_rate": 100,
         "night_relax_hits": 0,
         "notice": "源表截至11:00尚无10-14新增记录（最新为10-13 22:14:31），待15:00同步后于16:00轮全量复检",
-        "sheet_name": "诺瓦询盘回复质量检查（11.24·16时）",
-        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/QG53mjyd80EKgjdeuzgbaMRvW6zbX04v",
+        "sheet_name": "诺瓦询盘回复质量检查（11.25·11时）",
+        "sheet_url": "https://alidocs.dingtalk.com/i/nodes/ZX6GRezwJl3LYDoOUjgwdm57VdqbropQ",
         "records": [],
         "samples": [
           {
-            "inquiry_time": "2026-11-24 09:28:41",
+            "inquiry_time": "2026-11-25 10:41:44",
             "buyer": "Gian Ramos",
             "sales": "Mark Zhang",
             "verdict": "不合格",
-            "reason": "S1 首响超时（7 小时 10 分钟，阈值 <120 分钟）；S3 前 3 次人工追踪未图文并茂",
-            "resp_time": "7 小时 10 分钟",
-            "track_count": "4",
-            "summary": "老客户催问 45kVA 机组的物流到货与上门联系人，业务员说明货代已安排车辆、会继续跟进。11-25 买家再次反馈仍无人联系，业务员继续协调车辆；随后讨论 350kVA 机组（Ricardo/潍柴发动机辨识、是否需要预热）、2 台 100kVA 机组安装与机房进度，以及 100kVA 水温偏高问题（风扇皮带松动，更换后稳定在 55℃，控制器高温停机设定 98℃）。 已读：买家未读卖家最后一条消息（2026-11-25 13:34:05）"
+            "reason": "S3 前 3 次人工追踪未图文并茂",
+            "resp_time": "1 分钟",
+            "track_count": "3",
+            "summary": "菲律宾老客户就 45kVA 机组的到货与运输持续跟进，反映当天无人联系，并与业务员讨论当地用叫车软件叫货车的方式；此前还就机组运行温度（换风扇皮带后稳定 55℃）、发动机保养及 250/300/350kVA 机型差异做过技术沟通。业务员表示会再次催促货代安排车辆，买家仍在等待上门送货。已读：买家未读卖家最后一条消息（2026-11-26 10:08:49）"
           },
           {
-            "inquiry_time": "2026-11-24 18:25:32",
+            "inquiry_time": "2026-11-25 17:25:01",
+            "buyer": "adm jmal",
+            "sales": "IVA ZHANG",
+            "verdict": "不合格",
+            "reason": "S3 前 3 次人工追踪未图文并茂",
+            "resp_time": "1 分钟",
+            "track_count": "1",
+            "summary": "买家就 100–300kVA 静音柴油发电机组（1 台）发起询盘，表示希望建立合作。业务员问候并发送公司介绍（20 余年发电机组制造经验），买家未再回复。已读：买家未读卖家最后一条消息（2026-11-25 17:26:09）"
+          },
+          {
+            "inquiry_time": "2026-11-25 19:24:36",
+            "buyer": "Samy Muhindo",
+            "sales": "Mark Zhang",
+            "verdict": "不合格",
+            "reason": "S1 首响超时（13 小时 16 分钟，阈值 <120 分钟）；S3 前 3 次人工追踪未图文并茂",
+            "resp_time": "13 小时 16 分钟",
+            "track_count": "1",
+            "summary": "买家以法语就 100–300kVA 静音柴油发电机组（1 台）发起合作询盘，未附具体技术需求。业务员于次日 08:41 回复，介绍 7000㎡ 工厂与一站式供货能力；买家尚未回应。已读：买家未读卖家最后一条消息（2026-11-26 08:41:00）"
+          },
+          {
+            "inquiry_time": "2026-11-25 20:15:19",
+            "buyer": "Sonnie Kollie",
+            "sales": "IVA ZHANG",
+            "verdict": "合格",
+            "reason": "—",
+            "resp_time": "1 分钟",
+            "track_count": "2",
+            "summary": "买家就 380V 20–200kVA 柴油发电机组（1 台）发起询盘，表示正在寻源、希望了解更多。业务员询问所需功率（kW）与是否要开架式机型，并发送产品图；买家未再回复。已读：买家已读卖家最后一条消息（2026-11-25 20:58:34）"
+          },
+          {
+            "inquiry_time": "2026-11-25 21:01:07",
             "buyer": "Kenneth Cassar",
             "sales": "IVA ZHANG",
             "verdict": "合格",
             "reason": "—",
-            "resp_time": "10 分钟",
+            "resp_time": "51 分钟",
             "track_count": "22",
-            "summary": "买家为欧盟清关索要 Declaration of Conformity（合规声明），业务员当日发送 CE、ROHS、UKCA 三份证书文件；买家致谢，业务员以表情回应。 已读：买家已读卖家最后一条消息（2026-11-24 18:35:29）"
+            "summary": "买家（提及其在马耳他参展）为欧盟清关索要 Declaration of Conformity，业务员已发送 CE、ROHS、UKCA 证书；11-25 买家又发来提单 BL.pdf，要求出具盖章的正本 Telex 放货单以解押卡在海关的机组，业务员承诺次日到公司盖章。11-26 业务员回传盖章后的 BL.pdf 并请买家确认。已读：买家未读卖家最后一条消息（2026-11-26 10:51:26）"
           }
         ]
       },
@@ -483,19 +573,19 @@
       "schedule": "0 11 * * *",
       "type": "询盘质检 (上午初检)",
       "target": "双店 (贝诺美 + 诺瓦)",
-      "status": "待运行",
-      "last_run": "2026-11-25 11:32:03",
-      "next_run": "2026-11-26 11:00:00",
+      "status": "已完成",
+      "last_run": "2026-11-26 11:21:05",
+      "next_run": "2026-11-27 11:00:00",
       "sheets": [
         {
           "store": "贝诺美",
-          "name": "贝诺美询盘回复质量检查（11.24·11时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/14lgGw3P8vNPwloBunp1qw2q85daZ90D"
+          "name": "贝诺美询盘回复质量检查（11.25·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/20eMKjyp81E4MNdLuZeO2BRX8xAZB1Gv"
         },
         {
           "store": "诺瓦",
-          "name": "诺瓦询盘回复质量检查（11.24·11时）",
-          "url": "https://alidocs.dingtalk.com/i/nodes/QG53mjyd80EKgjdeuzgaX1g1W6zbX04v"
+          "name": "诺瓦询盘回复质量检查（11.25·11时）",
+          "url": "https://alidocs.dingtalk.com/i/nodes/ZX6GRezwJl3LYDoOUjgwdm57VdqbropQ"
         }
       ]
     },
