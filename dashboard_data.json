@@ -1,5 +1,5 @@
 {
-  "last_synced_at": "2026/11/28 08:43:33",
+  "last_synced_at": "2026/11/28 08:54:31",
   "system_status": {
     "benomi_relay": {
       "channel": "默认 Chrome 中继扩展 (Port 9236)",
@@ -51,7 +51,7 @@
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
         "balance_source": "风险监控 (10:00 轮)",
-        "balance_at": 1795826520441.1733
+        "balance_at": 1795827260781.9797
       },
       "inquiry_sync": {
         "latest_round": "2026-11-26 15:15 轮",
@@ -303,9 +303,9 @@
         "breakdown_text": "纠纷 0 ｜ 拒付 0 ｜ 售后 0",
         "terminal_text": "完结 51 / 撤销 16 ｜ 银行已判责 7 ｜ 预警完结 2",
         "items": [],
-        "captured_at": "2026-11-26T06:39:03.469Z",
-        "round": "14:30 轮",
-        "at": 1795675143471.2007
+        "captured_at": "2026-11-28T00:51:40.895Z",
+        "round": "10:00 轮",
+        "at": 1795827100896.8445
       },
       "review": {
         "available": true,
@@ -315,12 +315,12 @@
         "items": [],
         "window_items": [],
         "window_days": 30,
-        "window_start": "2026-10-27 14:39",
+        "window_start": "2026-10-29 08:51",
         "in_window_count": 2,
         "latest_time": "2026-11-17 03:40",
-        "captured_at": "2026-11-26T06:39:03.703Z",
-        "round": "14:30 轮",
-        "at": 1795675143704.523
+        "captured_at": "2026-11-28T00:51:41.321Z",
+        "round": "10:00 轮",
+        "at": 1795827101322.0728
       }
     },
     "nova": {
@@ -351,15 +351,15 @@
         "balance": 6188.14,
         "balance_threshold": 1000,
         "rfq_quota": 51,
-        "rfq_expire": "2027-01-18",
-        "rfq_used_detail": "本月已用 52 条（按业务员：Mark Zhang 26 条、IVA ZHANG 23 条、Hale He 3 条）",
+        "rfq_expire": "2026-12-27",
+        "rfq_used_detail": "本月已用 54 条（按业务员：IVA ZHANG 27 条、Mark Zhang 24 条、Hale He 3 条）",
         "status": "normal",
         "rfq_warning": "权益充裕",
         "product_radar": "0 个 (暂无待整改任务)",
         "delivery_type": "webhook",
         "delivery_desc": "Accio 机器人 Webhook 专属群推送",
         "balance_source": "风险监控 (10:00 轮)",
-        "balance_at": 1795826520441.1733
+        "balance_at": 1795827260781.9797
       },
       "inquiry_sync": {
         "latest_round": "2026-11-26 15:15 轮",
@@ -499,9 +499,9 @@
         "breakdown_text": "纠纷 0 ｜ 拒付 0 ｜ 售后 0",
         "terminal_text": "完结 3 / 撤销 1 ｜ 银行已判责 0 ｜ 预警完结 0",
         "items": [],
-        "captured_at": "2026-11-26T06:43:19.225Z",
-        "round": "14:30 轮",
-        "at": 1795675399228.4587
+        "captured_at": "2026-11-28T00:51:41.093Z",
+        "round": "10:00 轮",
+        "at": 1795827101095.9495
       },
       "review": {
         "available": true,
@@ -511,12 +511,12 @@
         "items": [],
         "window_items": [],
         "window_days": 30,
-        "window_start": "2026-10-27 14:43",
+        "window_start": "2026-10-29 08:51",
         "in_window_count": 1,
         "latest_time": "2026-11-06 17:51",
-        "captured_at": "2026-11-26T06:43:19.449Z",
-        "round": "14:30 轮",
-        "at": 1795675399449.8643
+        "captured_at": "2026-11-28T00:51:41.565Z",
+        "round": "10:00 轮",
+        "at": 1795827101566.0732
       }
     }
   },
